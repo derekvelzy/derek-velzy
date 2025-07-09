@@ -4,9 +4,13 @@
 import { useEffect } from "react";
 import gsap from "gsap";
 import cx from "classnames";
+import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
 
 // Custom imports
 import Link from "../Link/Link";
+import Button from "../Button/Button";
+
+gsap.registerPlugin(ScrollToPlugin);
 
 const Hero = ({}) => {
   useEffect(() => {
@@ -50,9 +54,20 @@ const Hero = ({}) => {
             handling tracking, pixels, CRM, accessibility, and consent tools so
             you don’t have to.
           </p>
-          <Link className="stagger z-[1]" href="/">
-            Book a free discovery call
-          </Link>
+          <div className="stagger z-[1] flex items-center gap-4">
+            <Link href="/">Book a free discovery call</Link>
+            <Button
+              action={() =>
+                gsap.to(window, {
+                  scrollTo: { y: "#contact", autoKill: false, offsetY: 112 },
+                  duration: 0.75,
+                  ease: "power4.out",
+                })
+              }
+            >
+              Say hello
+            </Button>
+          </div>
         </div>
       </div>
     </div>

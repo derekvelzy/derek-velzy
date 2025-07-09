@@ -5,8 +5,10 @@ import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import ScrollToPlugin from 'gsap/dist/ScrollToPlugin';
+import Burger from "./Burger";
 
 // Custom imports
+import styles from "./Nav.module.scss";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -29,7 +31,7 @@ const Nav = ({}) => {
         scrollTrigger: {
           trigger: "nav",
           start: "top top",
-          end: () => "+=200px top",
+          end: () => "+=400px top",
           scrub: true,
         },
       });
@@ -60,11 +62,38 @@ const Nav = ({}) => {
     };
   }, []);
 
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const changeNavColor = (e: any) => {
+      const scrollPosition = window.scrollY;
+      const logo = document.getElementById("logo");
+      const burger = document.getElementById("burger");
+
+      if (logo && burger) {
+        const viewport = e.target.documentElement.clientHeight;
+        if (scrollPosition > viewport * 1.25 && scrollPosition < viewport * 2.75) {
+          logo.classList.add(styles["light-theme"]);
+          burger.classList.add(styles["light-theme"]);
+        } else {
+          logo.classList.remove(styles["light-theme"]);
+          burger.classList.remove(styles["light-theme"]);
+        }
+      }
+    }
+
+    window.addEventListener("scroll", changeNavColor);
+
+    return () => {
+      window.removeEventListener("scroll", changeNavColor);
+    };
+  }, [])
+
   return (
     <nav className="fixed top-0 left-0 w-full h-auto z-50">
-      <div className="max-w-[980px] mx-auto h-full w-full flex pt-8 justify-between">
+      <div className="max-w-[980px] mx-auto h-full w-full flex pt-6 justify-between">
         <button
-          className="text-[52px] font-[500] leading-[1] text-[var(--darkGray)] cursor-pointer"
+          id="logo"
+          className={styles["logo"]}
           onClick={() => {
             gsap.to(window, {
               scrollTo: { y: "#top", autoKill: false },
@@ -82,7 +111,7 @@ const Nav = ({}) => {
             <span className="fade-out inline-block">elzy</span>
           </div>
         </button>
-        <div>buger</div>
+        <Burger />
       </div>
     </nav>
   );

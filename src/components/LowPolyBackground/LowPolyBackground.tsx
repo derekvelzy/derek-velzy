@@ -4,45 +4,14 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Delaunator from "delaunator";
 import cx from "classnames";
-import s from "./LowPolyBackground.module.scss";
 import gsap from "gsap";
 
-type Boundary = {
-  inside: number[][] | null;
-  outside: number[][];
-};
-
-type PolyData = {
-  points: number[][];
-  color: string;
-  stroke: string;
-  hoverEffect: boolean;
-};
-
-// Need a more sophisticated point generation algorithm
-// less frequent points at the top
-const randomInRange = (min: number, max: number) => {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
-const generateRandomPoint = (boundary: Boundary) => {
-  let point = null;
-  let limit = 0;
-  while (!point && limit < 100) {
-    limit++;
-    const x = randomInRange(boundary.outside[0][0], boundary.outside[1][0]);
-    const y = randomInRange(boundary.outside[0][1], boundary.outside[1][1]);
-
-    if (boundary.inside) {
-      const [x1, y1] = boundary.inside[0];
-      const [x2, y2] = boundary.inside[1];
-      if (x >= x1 && x <= x2 && y >= y1 && y <= y2) {
-        continue;
-      }
-    }
-    point = [x, y];
-  }
-  return point;
-};
+// Custom imports
+import s from "./LowPolyBackground.module.scss";
+import getCentroid from "./helpers/getCentroid";
+import generateRandomPoint from "./helpers/generateRandomPoint";
+import { type Boundary, type PolyData } from "./helpers/types";
+import RefreshMountain from "~/res/svgs/refreshMountain";
 
 const generatePoints = (width: number, height: number): (number[] | null)[] => {
   const windowHeight = height / 3;
@@ -116,12 +85,6 @@ const generatePoints = (width: number, height: number): (number[] | null)[] => {
   return allPoints;
 };
 
-const getCentroid = ([a, b, c]: [number[], number[], number[]]) => {
-  const cx = (a[0] + b[0] + c[0]) / 3;
-  const cy = (a[1] + b[1] + c[1]) / 3;
-  return [cx, cy];
-};
-
 const LowPolySvgBackground = () => {
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
@@ -159,12 +122,16 @@ const LowPolySvgBackground = () => {
         let color = "rgba(0, 0, 0, 0)"; // Default color
         let stroke = "rgba(0, 0, 0, 0)";
         let hoverEffect = false;
+        let theme: "dark" | "light" = "light";
         if (yFactor >= 2.85) {
           color = "rgba(0, 0, 0, 0)"; // Default color
+          theme = "dark";
         } else if (yFactor >= 2.15) {
           color = "rgba(47, 62, 70, 1)";
+          theme = "dark";
         } else if (yFactor >= 2.05) {
           color = "rgba(47, 62, 70, 0.97)";
+          theme = "dark";
         } else if (yFactor >= 1.95) {
           color = "rgba(47, 62, 70, 0.93)";
         } else if (yFactor >= 1.85) {
@@ -202,6 +169,7 @@ const LowPolySvgBackground = () => {
           color,
           stroke,
           hoverEffect,
+          theme,
         });
       }
 
@@ -222,34 +190,49 @@ const LowPolySvgBackground = () => {
         stagger: 0.125,
       }
     );
-  }, []);
+  }, [dots]);
 
   return (
-    <div
-      id="low-poly-bg"
-      className="absolute top-0 left-0 z-[1]"
-      style={{ height, width }}
-    >
-      <svg
-        viewBox={`0 0 ${width} ${height}`}
-        preserveAspectRatio="xMidYMid slice"
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          zIndex: 100,
-          pointerEvents: "auto",
-        }}
-        onClick={() => {
-          console.log("bip svg clicked");
-        }}
-        role="button"
+    <>
+      <div
+        id="low-poly-bg"
+        className="absolute top-0 left-0 z-[1]"
+        style={{ height, width }}
       >
-        {polygons.map((poly, i) => (
-          <Poly poly={poly} key={`polykey-${i}`} />
-        ))}
-      </svg>
-    </div>
+        <svg
+          viewBox={`0 0 ${width} ${height}`}
+          preserveAspectRatio="xMidYMid slice"
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            zIndex: 100,
+            pointerEvents: "auto",
+          }}
+          role="button"
+        >
+          {polygons.map((poly, i) => (
+            <Poly
+              poly={poly}
+              key={`polykey-${poly.points
+                .map((p) => p?.join(","))
+                .join("-")}-${i}`}
+            />
+          ))}
+        </svg>
+      </div>
+      <div className="h-full w-full z-[1]">
+        <button
+          className="absolute top-[calc(100vh-25px-2rem)] right-8 z-[1] cursor-pointer"
+          onClick={() => {
+            const points = generatePoints(width, height);
+            setDots(points);
+          }}
+        >
+          <RefreshMountain />
+        </button>
+      </div>
+    </>
   );
 };
 
@@ -269,10 +252,15 @@ const Poly = ({ poly }: { poly: PolyData }) => {
       points={poly.points.map((p) => p?.join(",")).join(" ")}
       fill={poly.color}
       stroke={poly.stroke}
+      data-theme={poly.theme}
       strokeWidth={0.5}
-      className={cx(poly.hoverEffect ? s.polygonAnimation : null, {
-        [s.hover]: hover,
-      })}
+      className={cx(
+        "bg-section",
+        poly.hoverEffect ? s.polygonAnimation : null,
+        {
+          [s.hover]: hover,
+        }
+      )}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     />

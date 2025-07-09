@@ -6,7 +6,7 @@
 
   --nonWhite: #F8F9FA;
   --lightGray: #E9ECEF;
-  --green: #84A98C;
+  --green: #84a98c;
   --teal: #52796F;
   --marine: #354F52;
   --deepMarine: #2F3E46;
@@ -15,6 +15,8 @@
   --font-sans: var(--font-inter);
   --font-header: var(--font-poppins);
   --font-alt: var(--font-playfair);
+
+  --easy-does-it: cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 @theme inline {
@@ -35,5 +37,9 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans);
+  font-family: var(--font-inter);
+}
+
+* {
+  /* font-family: var(--font-inter); */
 }

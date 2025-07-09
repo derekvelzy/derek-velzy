@@ -37,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${poppins.variable} ${playfair.variable} antialiased`}
+        className={`${poppins.variable} ${playfair.variable} ${inter.variable} antialiased`}
       >
         <Nav />
         {children}

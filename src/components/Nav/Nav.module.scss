@@ -1,0 +1,183 @@
+.logo {
+    // text-[52px] font-[500] leading-[1] text-[var(--darkGray)] cursor-pointer
+    font-size: 52px;
+    font-weight: 500;
+    line-height: 1;
+    color: var(--darkGray);
+    cursor: pointer;
+
+    span {
+        transition: color 0.5s var(--easy-does-it);
+    }
+}
+
+.burger {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: max-content;
+    z-index: 20;
+    cursor: pointer;
+    position: relative;
+    margin-top: 1rem;
+
+    &::after, &::before, input {
+        content: "";
+        width: 30px;
+        height: 1px;
+        background-color: var(--deepMarine);
+        transform-origin: center;
+        transition: 
+            opacity 0.5s var(--easy-does-it), 
+            width 0.5s var(--easy-does-it), 
+            transform 0.5s var(--easy-does-it),
+            background-color 0.5s var(--easy-does-it);
+    }
+
+    &.light-theme {
+        &::after, &::before, input {
+            background-color: var(--nonWhite);
+        }
+    }
+
+    input {
+        appearance: none;
+        padding: 0;
+        margin: 0;
+        outline: none;
+        pointer-events: none;
+
+        &:checked {
+            opacity: 0;
+            width: 0;
+        }
+    }
+
+    &:has(input:checked) {
+        &::after, &::before, input {
+            background-color: white;
+        }
+
+        &::after {
+            transform: translateY(-11px) rotate(45deg);
+        }
+
+        &::before {
+            transform: translateY(11px) rotate(-45deg);
+        }
+    }
+
+    &:has(input:focus-visible)::before,
+    &:has(input:focus-visible)::after,
+    &:has(input:focus-visible) {
+        border: 1px solid var(--teal);
+    }
+}
+
+.burger-container {
+    .sidebar {
+        z-index: 0;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: start;
+        width: calc(50vw - 408px);
+        min-width: 200px;
+        height: 100vh;
+        top: 0;
+        right: 0;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.5s var(--easy-does-it), transform 0.5s var(--easy-does-it);
+        background-color: var(--darkGray);
+        box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.25);
+        padding: 6rem 2rem;
+        gap: 1rem;
+        transform: translateY(-6px);
+
+        :nth-child(1),
+        :nth-child(2),
+        :nth-child(3),
+        :nth-child(4) {
+            transform: translateY(-8px);
+            transition: transform 0.5s ease;
+            transition-delay: 0s;
+        }
+
+        button {
+            padding: 4px 0;
+            cursor: pointer;
+            font-family: var(--font-poppins);
+            font-weight: 500;
+            font-size: 22px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: white;
+
+
+            :nth-child(2) {
+                color: rgba(255, 255, 255, 0.5);
+            }
+
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: 0;
+                height: 1px;
+                background-color: var(--green);
+                transition: width 0.3s ease;
+            }
+
+            &:hover {
+                &::after {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    &:has(input:checked) {
+        .sidebar {
+            opacity: 1;
+            pointer-events: all;
+            transform: translateY(0px);
+
+            :nth-child(1),
+            :nth-child(2),
+            :nth-child(3),
+            :nth-child(4) {
+                transition: transform .5s ease;
+                transform: translateY(0px);
+            }
+
+            :nth-child(1) {
+                transition-delay: 0s;
+            }
+            :nth-child(2) {
+                transition-delay: 0.05s;
+            }
+            :nth-child(3) {
+                transition-delay: 0.125s;
+            }
+            :nth-child(4) {
+                transition-delay: 0.2s;
+            }
+        }
+    }
+}
+
+#logo button span {
+    transition: color 0.5s var(--easy-does-it);
+}
+
+.light-theme {
+    span {
+        color: var(--nonWhite);
+    }
+}

@@ -12,9 +12,19 @@ import Performance from "~/res/svgs/performance";
 const Services = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const container = document.getElementById("container");
+      const container = document.getElementById("container--services");
+      const title = document.getElementById("title--services");
 
-      gsap.fromTo(
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: container,
+          start: "top 80%",
+          end: "bottom top",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      tl.fromTo(
         ".box-stagger",
         { y: 50, opacity: 0 },
         {
@@ -23,13 +33,17 @@ const Services = () => {
           duration: 1,
           ease: "power3.out",
           stagger: 0.125,
-          scrollTrigger: {
-            trigger: container,
-            start: "top 75%",
-            end: "bottom top",
-            toggleActions: "play none none reverse",
-          },
         }
+      );
+      tl.fromTo(
+        title,
+        { y: 60 },
+        {
+          y: 0,
+          duration: 0.75,
+          ease: "power3.out",
+        },
+        "<" // Start this animation at the same time as the previous one
       );
     });
 
@@ -40,11 +54,16 @@ const Services = () => {
 
   return (
     <div className="w-full relative z-10 flex flex-col items-center h-screen justify-center">
-      <h2 className="font-header text-[48px] font-[500] text-white mx-auto mb-8">
-        Services
-      </h2>
+      <div className="overflow-hidden mb-8">
+        <h2
+          id="title--services"
+          className="font-header text-[48px] font-[500] text-white mx-auto"
+        >
+          Services
+        </h2>
+      </div>
       <div
-        id="container"
+        id="container--services"
         className="max-w-[980px] mx-auto gap-8 flex w-full justify-between items-center items-stretch"
       >
         <Block
@@ -74,7 +93,7 @@ type BlockProps = {
 };
 
 const Block = ({ icon, header, description }: BlockProps) => (
-  <div className="box-stagger bg-[var(--lightGray)] flex-1 p-4 rounded-lg shadow-xl flex flex-col justify-center items-center">
+  <div className="box-stagger bg-[var(--lightGray)] flex-1 p-4 rounded-lg shadow-xl flex flex-col gap-4 justify-center items-center">
     {icon === "webDesign" ? (
       <div className="border-[2px] border-[var(--marine)] bg-[rgba(53,79,82,0.2)] rounded-full p-4">
         <WebDesign />
@@ -89,8 +108,8 @@ const Block = ({ icon, header, description }: BlockProps) => (
       </div>
     )}
 
-    <h3 className="font-header text-[22px] font-[500]">{header}</h3>
-    <p className="font-sans text-[18px]">{description}</p>
+    <h3 className="font-header text-[22px] font-[500] text-center">{header}</h3>
+    <p className="font-sans text-[18px] text-center">{description}</p>
   </div>
 );
 

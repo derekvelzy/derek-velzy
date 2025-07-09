@@ -1,0 +1,49 @@
+.about {
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    height: 100vh;
+
+    &__left {
+        flex: 1;
+        height: fit-content;
+
+        &__photo-frame {
+            aspect-ratio: 0.8;
+            height: fit-content;
+            background-color: var(--lightGray);
+            box-shadow: var(--shadow-xl);
+            border-radius: 6px;
+        }
+
+        &__skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 2rem;
+
+            span {
+                background-color: rgba(255, 255, 255, 0.15);
+                color: white;
+                padding: 4px 8px;
+                border-radius: 4px;
+                font-family: var(--font-inter);
+                font-size: 12px;
+            }
+        }
+    }
+
+    &__right {
+        flex: 2;
+        color: white;
+
+        &__title {
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        p {
+            color: var(--nonWhite);
+        }
+    }
+}

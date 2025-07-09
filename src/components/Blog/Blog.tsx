@@ -48,7 +48,7 @@ const Blog = () => {
 
       tl.fromTo(
         title,
-        { y: 50 },
+        { y: 56 },
         {
           y: 0,
           duration: 0.75,
@@ -89,15 +89,12 @@ const Blog = () => {
     <>
       <div
         id="jagged-divider"
-        className="w-full flex justify-center mb-[160px]"
+        className="w-full flex justify-center mb-[112px]"
       >
         <JaggedDivider2 />
       </div>
       <div id="blog" className="w-full h-screen">
-        <div
-          id="container--blog"
-          className="max-w-[980px] mx-auto w-full flex gap-8 flex flex-col"
-        >
+        <div id="container--blog" className="slice gap-8 flex-col">
           <div>
             <div className="overflow-hidden">
               <h2
@@ -118,9 +115,9 @@ const Blog = () => {
                 href={blog.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={styles['blog-card']}
+                className={styles["blog-card"]}
               >
-                <div className={styles['blog-card__image']}>
+                <div className={styles["blog-card__image"]}>
                   <Image
                     src={blog.image}
                     alt={blog.title}

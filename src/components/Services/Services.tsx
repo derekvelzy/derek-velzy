@@ -64,7 +64,7 @@ const Services = () => {
       </div>
       <div
         id="container--services"
-        className="max-w-[980px] mx-auto gap-8 flex w-full justify-between items-center items-stretch"
+        className="slice gap-8 justify-between items-center items-stretch"
       >
         <Block
           header="Website Design"
@@ -92,8 +92,10 @@ type BlockProps = {
   description: string;
 };
 
+// bg-[rgba(255,255,255,0.7)] backdrop-blur-[8px]
+
 const Block = ({ icon, header, description }: BlockProps) => (
-  <div className="box-stagger bg-[var(--lightGray)] flex-1 p-4 rounded-lg shadow-xl flex flex-col gap-4 justify-center items-center">
+  <div className="box-stagger bg-[var(--nonWhite)] flex-1 p-4 rounded-[6px] shadow-xl flex flex-col gap-4 justify-center items-center">
     {icon === "webDesign" ? (
       <div className="border-[2px] border-[var(--marine)] bg-[rgba(53,79,82,0.2)] rounded-full p-4">
         <WebDesign />

@@ -30,7 +30,7 @@ const Hero = ({}) => {
 
   return (
     <div id="top" className="relative w-full h-screen">
-      <div className="max-w-[980px] h-full mx-auto flex items-center">
+      <div className="slice h-full items-center">
         <div className="w-2/3 flex flex-col gap-8">
           <div
             className={cx(
@@ -55,7 +55,9 @@ const Hero = ({}) => {
             you don’t have to.
           </p>
           <div className="stagger z-[1] flex items-center gap-4">
-            <Link href="/">Book a free discovery call</Link>
+            <Link href="https://calendly.com/dmvelzy/30min">
+              Book a free discovery call
+            </Link>
             <Button
               action={() =>
                 gsap.to(window, {

@@ -39,7 +39,7 @@ const Nav = ({}) => {
       tl.fromTo(
         "nav",
         { backdropFilter: "blur(0px)" },
-        { backdropFilter: "blur(8px)", duration: 1, ease: "power4.out" }
+        { backdropFilter: "blur(12px)", duration: 1, ease: "power4.out" }
       );
 
       tl.fromTo(
@@ -90,7 +90,7 @@ const Nav = ({}) => {
 
   return (
     <nav className="fixed top-0 left-0 w-full h-auto z-50">
-      <div className="max-w-[980px] mx-auto h-full w-full flex pt-6 justify-between">
+      <div className="slice h-full pt-6 justify-between">
         <button
           id="logo"
           className={styles["logo"]}

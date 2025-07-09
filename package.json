@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@vimeo/player": "^2.29.0",
     "classnames": "^2.5.1",
     "delaunator": "^5.0.1",
     "gsap": "./vendor/gsap-bonus.tgz",
@@ -26,6 +27,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/trianglify": "^4.1.2",
+    "@types/vimeo__player": "^2.18.3",
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
     "tailwindcss": "^4",

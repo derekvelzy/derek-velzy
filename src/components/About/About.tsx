@@ -3,8 +3,10 @@
 // Package imports
 import { useEffect } from "react";
 import gsap from "gsap";
+import cx from "classnames";
 
 // Custom imports
+import styles from "./About.module.scss"; // Assuming you have a CSS module for styles
 
 const About = () => {
   useEffect(() => {
@@ -89,34 +91,27 @@ const About = () => {
   ];
 
   return (
-    <div id="about" className="w-full relative z-10 h-screen">
-      <div
-        id="container--about"
-        className="max-w-[980px] mx-auto w-full flex gap-8"
-      >
-        <div className="flex-1 h-fit">
-          <div className="photo-frame aspect-[0.8] h-fit bg-[var(--lightGray)] shadow-xl rounded-md" />
-          <div className="flex flex-wrap gap-2 mt-8">
+    <div id="about" className={styles["about"]}>
+      <div id="container--about" className="slice gap-8">
+        <div className={styles["about__left"]}>
+          <div
+            className={cx("photo-frame", styles["about__left__photo-frame"])}
+          />
+          <div className={styles["about__left__skills"]}>
             {skills.map((skill, index) => (
-              <span
-                key={`${index}-${skill}`}
-                className="skill bg-[rgba(255,255,255,0.15)] text-white px-2 py-1 rounded-sm font-sans text-[12px]"
-              >
+              <span key={`${index}-${skill}`} className="skill">
                 {skill}
               </span>
             ))}
           </div>
         </div>
-        <div className="flex-2 text-white">
-          <div className="overflow-hidden mb-8">
-            <h2
-              id="title--about"
-              className="font-header text-[48px] font-[500] mx-auto"
-            >
+        <div className={styles["about__right"]}>
+          <div className={styles["about__right__title"]}>
+            <h2 id="title--about" className="slice-title">
               About
             </h2>
           </div>
-          <p id="copy--about" className="font-sans text-[18px] leading-[1.5]">
+          <p id="copy--about">
             I’m a web developer who thrives in lean environments—where
             initiative, clarity, and results matter most.
             <br />

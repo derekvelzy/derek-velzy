@@ -1,11 +1,14 @@
 "use client";
 
 // Package imports
-import { useState } from "react";
-import Button from "../Button/Button";
-import Link from "../Link/Link";
+import { useState, useEffect } from "react";
+import gsap from "gsap";
+import cx from "classnames";
 
 // Custom imports
+import Button from "../Button/Button";
+import Link from "../Link/Link";
+import styles from "./Contact.module.scss"; // Assuming you have a CSS module for styles
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -44,8 +47,8 @@ const Contact = () => {
       });
 
       if (!response.ok) {
-        throw new Error("Network response was not ok");
         setError(true);
+        throw new Error("Network response was not ok");
       } else {
         setSubmitted(true);
         setFormData({ name: "", email: "", message: "" });
@@ -58,56 +61,80 @@ const Contact = () => {
     }
   };
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const container = document.getElementById("container--contact");
+      const upperRow = document.getElementById("upper-row--contact");
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: container,
+          start: "top 75%",
+          end: "bottom top",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      tl.fromTo(
+        upperRow,
+        { y: 56 },
+        {
+          y: 0,
+          duration: 0.75,
+          ease: "power3.out",
+        },
+        "<"
+      );
+    });
+
+    return () => {
+      ctx.revert();
+    };
+  }, []);
+
   return (
-    <div id="contact" className="w-full h-[105vh]">
+    <div id="contact" className={styles["contact"]}>
       <div
         id="container--contact"
-        className="max-w-[980px] mx-auto w-full flex flex flex-col relative"
+        className={cx("slice", styles["contact__container"])}
       >
-        <div className="w-full flex justify-between items-center  mb-8">
-          <div className="overflow-hidden">
-            <h2
-              id="title--contact"
-              className="font-header text-[48px] font-[500]"
-            >
+        <div className={styles["contact__upper-row__container"]}>
+          <div id="upper-row--contact" className={styles["contact__upper-row"]}>
+            <h2 id="title--contact" className="slice-title">
               Contact
             </h2>
-          </div>
-          <div className="flex items-center gap-4 h-auto">
-            <p className="text-[18px] text-[var(--darkGray)]">
-              {"(925) 200-7710"}
-            </p>
-            <div className="h-6 bg-[var(--teal)] w-[1px]" />
-            <a
-              href="mailto:dmvelzy@gmail.com"
-              className="flex items-center gap-2"
-            >
-              <p className="text-[18px] text-[var(--darkGray)]">
-                dmvelzy@gmail.com
-              </p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="14"
-                height="14"
-                viewBox="0 0 14 14"
-                fill="none"
-              >
-                <path
-                  d="M14 0V9.5H13V1.72656L1 13.7266L0.292969 13.0195L12.3125 1H4V0H14Z"
-                  fill="#52796F"
-                />
-              </svg>
-            </a>
+            <div className={styles["contact__upper-row__info"]}>
+              <p>{"(925) 200-7710"}</p>
+              <div className={styles["contact__upper-row__info__divider"]} />
+              <a href="mailto:dmvelzy@gmail.com">
+                <p>dmvelzy@gmail.com</p>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                >
+                  <path
+                    d="M14 0V9.5H13V1.72656L1 13.7266L0.292969 13.0195L12.3125 1H4V0H14Z"
+                    fill="#52796F"
+                  />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 mb-12">
-          <p className="text-[var(--darkGray)] font-sans text-[18px] leading-[1.5]">
+        <div className={styles["contact__book-call"]}>
+          <p>
             Book a free discovery call. I currently have availability during
             evenings or select daytime slots. Choose what works best for you in
             the link below.
           </p>
-          <Link className="stagger z-[1]" href="/">
+          <Link
+            className="stagger z-[1]"
+            href="https://calendly.com/dmvelzy/30min"
+          >
             Book a free discovery call
           </Link>
         </div>
@@ -115,24 +142,13 @@ const Contact = () => {
         {submitted ? (
           <p>Thanks! Your message has been sent.</p>
         ) : (
-          <div className="flex flex-col gap-4">
-            <p className="text-[var(--darkGray)] font-sans text-[18px] leading-[1.5]">
-              Or, message me with some details about your project.
-            </p>
-            <form
-              className="flex flex-col gap-4 w-full items-end"
-              onSubmit={handleSubmit}
-            >
-              <div className="flex gap-4 w-full">
-                <div className="flex-1 flex flex-col">
-                  <label
-                    className="text-[14px] text-[rgba(0,0,0,0.5)]"
-                    htmlFor="name"
-                  >
-                    Name
-                  </label>
+          <div className={styles["contact__form__container"]}>
+            <p>Or, message me with some details about your project.</p>
+            <form onSubmit={handleSubmit}>
+              <div className={styles["top-row"]}>
+                <div className={styles["top-row__item"]}>
+                  <label htmlFor="name">Name</label>
                   <input
-                    className="bg-[var(--lightGray)] px-4 py-2 border-b-[1px] border-[var(--deepMarine)]"
                     type="text"
                     id="name"
                     name="name"
@@ -142,15 +158,9 @@ const Contact = () => {
                   />
                 </div>
 
-                <div className="flex-1 flex flex-col">
-                  <label
-                    className="text-[14px] text-[rgba(0,0,0,0.5)]"
-                    htmlFor="email"
-                  >
-                    Email
-                  </label>
+                <div className={styles["top-row__item"]}>
+                  <label htmlFor="email">Email</label>
                   <input
-                    className="bg-[var(--lightGray)] px-4 py-2 border-b-[1px] border-[var(--deepMarine)]"
                     type="email"
                     id="email"
                     name="email"
@@ -160,15 +170,9 @@ const Contact = () => {
                   />
                 </div>
               </div>
-              <div className="flex flex-col mb-4 w-full">
-                <label
-                  className="text-[14px] text-[rgba(0,0,0,0.5)]"
-                  htmlFor="message"
-                >
-                  Message
-                </label>
+              <div className={styles["message-row"]}>
+                <label htmlFor="message">Message</label>
                 <textarea
-                  className="bg-[var(--lightGray)] px-4 py-2 border-b-[1px] border-[var(--deepMarine)] w-full"
                   id="message"
                   name="message"
                   rows={4}
@@ -196,11 +200,9 @@ const Contact = () => {
           </div>
         )}
       </div>
-      <div className="absolute bottom-8 w-full">
-        <p className="text-white mx-auto w-fit mb-1">
-          Designed and Developed by Derek Velzy
-        </p>
-        <p className="text-white mx-auto w-fit">2025</p>
+      <div className={styles["contact__footer"]}>
+        <p>Designed and Developed by Derek Velzy</p>
+        <p>2025</p>
       </div>
     </div>
   );

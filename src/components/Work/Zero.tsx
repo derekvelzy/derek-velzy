@@ -1,12 +1,56 @@
 "use client";
 
 // Package imports
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import Image from "next/image";
+import Player from "@vimeo/player";
 
 // Custom imports
+import cx from "classnames";
+import videoCover from "@public/img/video-cover-1.jpg";
 
 const Zero = () => {
+  const [videoPlaying, setVideoPlaying] = useState(false);
+
+  const playerRef = useRef<Player>(null);
+  const videoRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    playerRef?.current?.on("end", () => {
+      setVideoPlaying(false);
+      playerRef.current?.setCurrentTime(0); // Reset video to start
+    });
+
+    if (videoRef.current) {
+      const iframe = videoRef.current.querySelector("iframe");
+      if (iframe) {
+        playerRef.current = new Player(iframe); // Initialize the Vimeo Player
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleMouseDown = (e: MouseEvent) => {
+      if (videoRef.current && e.target instanceof Element) {
+        console.log("bip!");
+        if (playerRef.current) {
+          if (videoPlaying) {
+            playerRef.current.pause();
+          } else {
+            playerRef.current.play();
+          }
+          setVideoPlaying(!videoPlaying);
+        }
+      }
+    };
+    document.addEventListener("mousedown", handleMouseDown);
+
+    return () => {
+      document.removeEventListener("mousedown", handleMouseDown);
+    };
+  }, [videoPlaying, playerRef]);
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       const container = document.getElementById("container--work");
@@ -54,12 +98,9 @@ const Zero = () => {
     <div
       id="work"
       data-theme="light"
-      className="bg-section w-full relative z-10 mb-[160px]"
+      className="bg-section w-full relative z-10 mb-[112px]"
     >
-      <div
-        id="container--work"
-        className="max-w-[980px] mx-auto w-full flex gap-8 flex flex-col"
-      >
+      <div id="container--work" className="slice gap-8 flex-col">
         <div className="overflow-hidden">
           <h2 id="title--work" className="font-header text-[48px] font-[500]">
             Work
@@ -74,7 +115,36 @@ const Zero = () => {
           </h3>
           <span className=" text-[18px]">2022 - Current</span>
         </div>
-        <div className="w-full bg-black aspect-[1.66] z-1" />
+        <div
+          ref={videoRef}
+          className="w-full bg-black aspect-[1.66] z-1 relative"
+        >
+          <iframe
+            src={`https://player.vimeo.com/video/1085347461?h=d1b0762162&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&controls=0`}
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+            title="Untitled"
+            className="h-full w-full object-cover pointer-events-none"
+          ></iframe>
+          <div
+            className={cx(
+              "absolute w-full top-0 left-0 z-[1] h-full transition-all duration-500",
+              videoPlaying ? "backdrop-blur-[none]" : "backdrop-blur-lg"
+            )}
+          />
+          <div
+            className={cx(
+              "z-[10] absolute top-0 left-0 w-full h-full",
+              videoPlaying ? "hidden" : "block"
+            )}
+          >
+            <Image
+              src={videoCover}
+              alt={"video cover"}
+              fill={true}
+              sizes="(max-width: 479px) 50vw, (max-width: 1279px) 440px"
+            />
+          </div>
+        </div>
         <div>
           <h3 className="font-header font-[500] text-[var(--deepMarine)] text-[24px] mb-4">
             Sr. Software Developer, Marketing

@@ -89,6 +89,7 @@ const LowPolySvgBackground = () => {
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
   const [dots, setDots] = useState<(number[] | null)[]>([[0, 0]]);
+  const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
     const width = window.innerWidth;
@@ -192,6 +193,21 @@ const LowPolySvgBackground = () => {
     );
   }, [dots]);
 
+  useEffect(() => {
+    const refreshMountain = document.getElementById("refresh-mountain");
+    gsap.fromTo(
+      refreshMountain,
+      { opacity: 0, y: 10 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.85,
+        ease: "power4.out",
+      }
+    );
+  }, []);
+
   return (
     <>
       <div
@@ -221,15 +237,32 @@ const LowPolySvgBackground = () => {
           ))}
         </svg>
       </div>
-      <div className="h-full w-full z-[1]">
+      <div className="absolute top-[calc(100vh-4rem)] right-8 z-[1]">
+        <div
+          className={cx(
+            "text-[14px] text-[var(--darkGray)] absolute right-0 top-[-2.5rem] whitespace-nowrap bg-[rgba(255,255,255,0.45)] px-2 py-1 border-[1px] border-[var(--lightGray)] shadow-lg backdrop-blur-sm rounded-sm transition-all duration-300 ease-in-out",
+            hovered
+              ? "opacity-100 translate-y-[0px]"
+              : "opacity-0 translate-y-[10px]"
+          )}
+        >
+          New mountain range?
+        </div>
         <button
-          className="absolute top-[calc(100vh-25px-2rem)] right-8 z-[1] cursor-pointer"
+          id="refresh-mountain"
+          className="z-[1] cursor-pointer"
           onClick={() => {
             const points = generatePoints(width, height);
             setDots(points);
           }}
+          onMouseEnter={() => {
+            setHovered(true);
+          }}
+          onMouseLeave={() => {
+            setHovered(false);
+          }}
         >
-          <RefreshMountain />
+          <RefreshMountain hovered={hovered} />
         </button>
       </div>
     </>

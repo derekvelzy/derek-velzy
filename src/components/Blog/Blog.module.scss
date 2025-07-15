@@ -1,17 +1,32 @@
+.blogs {
+    &__container {
+        width: 100%;
+        height: 100vh;
+    }
+
+    gap: 2rem;
+    flex-direction: column;
+
+    &__title {
+        overflow: hidden;
+        margin-bottom: 1rem;
+    }
+}
+
 .blog-card {
-    // mb-6 relative w-1/2 flex flex-col gap-2
     margin-bottom: 3rem;
     position: relative;
     width: 50%;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    border-radius: 6px;
 
     &__image {
         // relative w-full aspect-[1.35] mb-2
         position: relative;
         width: 100%;
-        aspect-ratio: 1.35;
+        aspect-ratio: 1.4;
         margin-bottom: 1rem;
         overflow: hidden;
         border-radius: 6px;
@@ -24,9 +39,21 @@
         }
     }
 
-    &:hover {
+    &:hover, &:focus-visible {
         .blog-card__image img {
             transform: scale(1.05);
         }
     }
+
+    &:focus-visible {
+        outline: 2px dashed var(--marine);
+        outline-offset: 6px;
+    }
+}
+
+.jagged-divider {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 124px 0;
 }

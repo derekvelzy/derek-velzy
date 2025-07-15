@@ -4,6 +4,7 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import gsap from "gsap";
+import cx from "classnames";
 
 // Custom imports
 import livingRoom from "@public/img/living-room.jpeg";
@@ -58,7 +59,7 @@ const Blog = () => {
       );
       tl.fromTo(
         subtitles,
-        { y: 50 },
+        { y: 56 },
         {
           y: 0,
           duration: 0.75,
@@ -87,19 +88,16 @@ const Blog = () => {
 
   return (
     <>
-      <div
-        id="jagged-divider"
-        className="w-full flex justify-center mb-[112px]"
-      >
+      <div id="jagged-divider" className={styles["jagged-divider"]}>
         <JaggedDivider2 />
       </div>
-      <div id="blog" className="w-full h-screen">
-        <div id="container--blog" className="slice gap-8 flex-col">
+      <div id="blog" className={styles["blogs__container"]}>
+        <div id="container--blog" className={cx("slice", styles["blogs"])}>
           <div>
-            <div className="overflow-hidden">
+            <div className={styles["blogs__title"]}>
               <h2
                 id="title--blog"
-                className="font-header text-[48px] font-[500]"
+                className="slice-title"
               >
                 Blog
               </h2>

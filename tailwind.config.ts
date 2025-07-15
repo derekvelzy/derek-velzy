@@ -19,6 +19,11 @@ const config: Config = {
         alt: 'var(--font-playfair)',
       },
     },
+    screens: {
+      'mobile': '640px',
+      'tablet': '1024px',
+      'desktop': '1280px',
+    }
   },
   content: [
     'src/app/**/*.{js,ts,jsx,tsx}',

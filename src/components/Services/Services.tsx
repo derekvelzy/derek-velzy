@@ -3,11 +3,13 @@
 // Package imports
 import { useEffect } from "react";
 import gsap from "gsap";
+import cx from "classnames";
 
 // Custom imports
 import WebDesign from "~/res/svgs/webDesign";
 import ToolIntegration from "~/res/svgs/toolIntegration";
 import Performance from "~/res/svgs/performance";
+import styles from "./Services.module.scss";
 
 const Services = () => {
   useEffect(() => {
@@ -53,19 +55,13 @@ const Services = () => {
   }, []);
 
   return (
-    <div className="w-full relative z-10 flex flex-col items-center h-screen justify-center">
+    <div className={styles["services__container"]}>
       <div className="overflow-hidden mb-8">
-        <h2
-          id="title--services"
-          className="font-header text-[48px] font-[500] text-white mx-auto"
-        >
+        <h2 id="title--services" className="slice-title">
           Services
         </h2>
       </div>
-      <div
-        id="container--services"
-        className="slice gap-8 justify-between items-center items-stretch"
-      >
+      <div id="container--services" className={cx("slice", styles["services"])}>
         <Block
           header="Website Design"
           description="Clean, responsive builds optimized for business goals."
@@ -95,7 +91,7 @@ type BlockProps = {
 // bg-[rgba(255,255,255,0.7)] backdrop-blur-[8px]
 
 const Block = ({ icon, header, description }: BlockProps) => (
-  <div className="box-stagger bg-[var(--nonWhite)] flex-1 p-4 rounded-[6px] shadow-xl flex flex-col gap-4 justify-center items-center">
+  <div className="box-stagger bg-[var(--nonWhite)] flex-1 p-4 rounded-[12px] lg:rounded-[6px] shadow-xl flex lg:flex-col gap-6 lg:gap-4 justify-start lg:justify-center items-center">
     {icon === "webDesign" ? (
       <div className="border-[2px] border-[var(--marine)] bg-[rgba(53,79,82,0.2)] rounded-full p-4">
         <WebDesign />
@@ -109,9 +105,12 @@ const Block = ({ icon, header, description }: BlockProps) => (
         <Performance />
       </div>
     )}
-
-    <h3 className="font-header text-[22px] font-[500] text-center">{header}</h3>
-    <p className="font-sans text-[18px] text-center">{description}</p>
+    <div className="flex flex-col gap-2 items-start lg:items-center">
+      <h3 className="font-header text-[18px] lg:text-[22px] font-[500] lg:text-center">
+        {header}
+      </h3>
+      <p className="font-sans text-[18px] lg:text-center">{description}</p>
+    </div>
   </div>
 );
 

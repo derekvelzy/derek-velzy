@@ -10,22 +10,38 @@ import Linkedin from "~/res/svgs/linkedin";
 import Mail from "~/res/svgs/mail";
 import styles from "./FloatingLinks.module.scss";
 
-const FloatingLinks = () => {
+const FloatingLinks = ({ mobile }: { mobile: boolean }) => {
   return (
-    <div className="fixed bottom-8 left-8 z-20 flex flex-col gap-4">
-      <FloatingLink href="mailto:dmvelzy@gmail.com" icon={<Mail />} />
+    <div className={cx("z-20 flex-col gap-4", mobile ? "relative flex lg:hidden" : "hidden lg:flex fixed bottom-8 left-8")}>
       <FloatingLink
+        label="Send email"
+        href="mailto:dmvelzy@gmail.com"
+        icon={<Mail />}
+      />
+      <FloatingLink
+        label="Connect on LinkedIn"
         href="https://www.linkedin.com/in/dvelzy/"
         icon={<Linkedin />}
       />
-      <FloatingLink href="https://github.com/derekvelzy" icon={<Github />} />
+      <FloatingLink
+        label="View Github profile"
+        href="https://github.com/derekvelzy"
+        icon={<Github />}
+      />
     </div>
   );
 };
 
-const FloatingLink = ({ href, icon }: { href: string; icon: JSX.Element }) => {
+type Props = {
+  label?: string;
+  href: string;
+  icon: JSX.Element;
+};
+
+const FloatingLink = ({ label, href, icon }: Props) => {
   return (
     <a
+      aria-label={label}
       href={href}
       target="_blank"
       rel="noreferrer"

@@ -2,33 +2,46 @@
 import cx from "classnames";
 
 // Custom imports
+import styles from "./Button.module.scss";
 
 type ButtonProps = {
+  id?: string;
   action?: () => void;
   className?: string;
   children?: React.ReactNode;
   disabled?: boolean;
   variant?: "primary" | "secondary";
+  ariaLabel?: string;
 };
 
 const Button = ({
+  id,
   action,
   children,
   className,
   disabled,
-  variant,
+  variant = "primary",
+  ariaLabel,
 }: ButtonProps) => {
   return (
     <button
+      id={id}
       disabled={disabled}
+      aria-disabled={disabled}
       onClick={action}
+      aria-label={ariaLabel}
       className={cx(
-        "w-fit font-header font-[500] py-2 px-8 rounded transition-colors duration-200",
-        disabled
-          ? "bg-[rgba(233,236,239.0.5)] text-[rgba(0,0,0,0.25)] cursor-not-allowed"
-          : variant === "primary"
-          ? "bg-[var(--deepMarine)] hover:bg-[var(--marine)] shadow-lg text-white cursor-pointer"
-          : "bg-[var(--nonWhite)] hover:bg-[var(--lightGray)] border-[1px] border-[var(--deepMarine)] shadow-md text-[var(--deepMarine)] cursor-pointer",
+        styles["button"],
+        {
+          [styles["button_disabled"]]: disabled,
+          [styles["button_secondary"]]: variant !== "primary",
+        },
+
+        // disabled
+        //   ? "bg-[rgba(233,236,239.0.5)] text-[rgba(0,0,0,0.25)] cursor-not-allowed"
+        //   : variant === "primary"
+        //   ? "bg-[var(--deepMarine)] hover:bg-[var(--marine)] shadow-lg text-white cursor-pointer"
+        //   : "bg-[var(--nonWhite)] hover:bg-[var(--lightGray)] border-[1px] border-[var(--deepMarine)] shadow-md text-[var(--deepMarine)] cursor-pointer",
         className
       )}
     >

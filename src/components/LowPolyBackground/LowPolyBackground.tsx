@@ -7,14 +7,21 @@ import cx from "classnames";
 import gsap from "gsap";
 
 // Custom imports
-import s from "./LowPolyBackground.module.scss";
+import styles from "./LowPolyBackground.module.scss";
 import getCentroid from "./helpers/getCentroid";
 import generateRandomPoint from "./helpers/generateRandomPoint";
 import { type Boundary, type PolyData } from "./helpers/types";
 import RefreshMountain from "~/res/svgs/refreshMountain";
+import { useIsDesktop } from "~/helpers/useIsDesktop";
 
-const generatePoints = (width: number, height: number): (number[] | null)[] => {
-  const windowHeight = height / 3;
+const getWidth = (bool: boolean) => (bool ? 6.5 : 5.5);
+
+const generatePoints = (
+  width: number,
+  height: number,
+  isDesktop: boolean
+): (number[] | null)[] => {
+  const windowHeight = height / getWidth(isDesktop);
 
   const blueBoxBoundaries: Boundary = {
     inside: null,
@@ -53,7 +60,7 @@ const generatePoints = (width: number, height: number): (number[] | null)[] => {
     inside: null,
     outside: [
       [width * -0.25, windowHeight * 2],
-      [width * 1.25, windowHeight * 3],
+      [width * 1.25, windowHeight * 4],
     ],
   };
 
@@ -74,13 +81,15 @@ const generatePoints = (width: number, height: number): (number[] | null)[] => {
     const xy = generateRandomPoint(greenBoxBoundaries);
     allPoints.push(xy);
   }
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 30; i++) {
     const xy = generateRandomPoint(purpleBoxBoundaries);
     allPoints.push(xy);
   }
 
-  allPoints.push([width * -0.125, windowHeight * 3]);
-  allPoints.push([width * 1.125, windowHeight * 3]);
+  allPoints.push([width * -0.125, windowHeight * getWidth(isDesktop)]);
+  allPoints.push([width * 1.125, windowHeight * getWidth(isDesktop)]);
+  allPoints.push([width * 0.28, windowHeight * (isDesktop ? 6.25 : 5.3)]);
+  allPoints.push([width * 0.85, windowHeight * (isDesktop ? 6.35 : 5.35)]);
 
   return allPoints;
 };
@@ -91,14 +100,16 @@ const LowPolySvgBackground = () => {
   const [dots, setDots] = useState<(number[] | null)[]>([[0, 0]]);
   const [hovered, setHovered] = useState(false);
 
+  const isDesktop = useIsDesktop();
+
   useEffect(() => {
     const width = window.innerWidth;
-    const height = window.innerHeight * 3;
-    const points = generatePoints(width, height);
+    const height = window.innerHeight * getWidth(isDesktop);
+    const points = generatePoints(width, height, isDesktop);
     setDots(points);
     setWidth(width);
     setHeight(height);
-  }, []);
+  }, [isDesktop]);
 
   const { polygons } = useMemo(() => {
     if (dots.length > 0) {
@@ -118,19 +129,19 @@ const LowPolySvgBackground = () => {
           c as number[],
         ]);
 
-        const yFactor = centroid[1] / (height / 3);
+        const yFactor = centroid[1] / (height / getWidth(isDesktop));
 
         let color = "rgba(0, 0, 0, 0)"; // Default color
         let stroke = "rgba(0, 0, 0, 0)";
         let hoverEffect = false;
         let theme: "dark" | "light" = "light";
-        if (yFactor >= 2.85) {
+        if (yFactor >= (isDesktop ? 6.35 : 5.35)) {
           color = "rgba(0, 0, 0, 0)"; // Default color
           theme = "dark";
-        } else if (yFactor >= 2.15) {
+        } else if (yFactor >= 2.05) {
           color = "rgba(47, 62, 70, 1)";
           theme = "dark";
-        } else if (yFactor >= 2.05) {
+        } else if (yFactor >= 2.0) {
           color = "rgba(47, 62, 70, 0.97)";
           theme = "dark";
         } else if (yFactor >= 1.95) {
@@ -177,7 +188,7 @@ const LowPolySvgBackground = () => {
       return { polygons: polys };
     }
     return { polygons: [] };
-  }, [dots, height]);
+  }, [dots, height, isDesktop]);
 
   useEffect(() => {
     const lowPolyBg = document.getElementById("low-poly-bg");
@@ -237,22 +248,21 @@ const LowPolySvgBackground = () => {
           ))}
         </svg>
       </div>
-      <div className="absolute top-[calc(100vh-4rem)] right-8 z-[1]">
+      <div className={styles["refresh-mountain"]}>
         <div
-          className={cx(
-            "text-[14px] text-[var(--darkGray)] absolute right-0 top-[-2.5rem] whitespace-nowrap bg-[rgba(255,255,255,0.45)] px-2 py-1 border-[1px] border-[var(--lightGray)] shadow-lg backdrop-blur-sm rounded-sm transition-all duration-300 ease-in-out",
-            hovered
-              ? "opacity-100 translate-y-[0px]"
-              : "opacity-0 translate-y-[10px]"
-          )}
+          className={cx(styles["refresh-mountain__tooltip"], {
+            [styles["refresh-mountain__tooltip_hover"]]: hovered,
+          })}
+          role="tooltip"
+          id="tooltip-refresh-mountain"
         >
           New mountain range?
         </div>
         <button
+          aria-labelledby="tooltip-refresh-mountain"
           id="refresh-mountain"
-          className="z-[1] cursor-pointer"
           onClick={() => {
-            const points = generatePoints(width, height);
+            const points = generatePoints(width, height, isDesktop);
             setDots(points);
           }}
           onMouseEnter={() => {
@@ -289,9 +299,9 @@ const Poly = ({ poly }: { poly: PolyData }) => {
       strokeWidth={0.5}
       className={cx(
         "bg-section",
-        poly.hoverEffect ? s.polygonAnimation : null,
+        poly.hoverEffect ? styles.polygonAnimation : null,
         {
-          [s.hover]: hover,
+          [styles.hover]: hover,
         }
       )}
       onMouseEnter={() => setHover(true)}

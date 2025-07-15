@@ -1,0 +1,117 @@
+.link {
+    background-color: var(--deepMarine);
+    width: fit-content;
+    color: white;
+    font-family: var(--font-poppins);
+    font-weight: 500;
+    font-size: 18px;
+    padding: 0.5rem 2rem;
+    border-radius: 4px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s var(--easy-does-it);
+    cursor: pointer;
+
+    &:focus-visible {
+        outline: 2px dashed var(--marine);
+        outline-offset: 6px;
+    }
+
+    &:hover, &:focus-visible {
+        background-color: var(--marine);
+    }
+}
+
+.secondary-link {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    position: relative;
+    margin-right: 8px;
+    flex-wrap: nowrap;
+
+    svg {
+        padding: 2px;
+        margin-bottom: -2px;
+        transition: background-color 0.2s var(--easy-does-it);
+
+        path {
+            transition: fill 0.2s var(--easy-does-it);
+            fill: var(--teal);
+        }
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: -.25rem;
+        right: 0;
+        width: 0%;
+        height: 1px;
+        background-color: var(--teal);
+        transition: width 0.5s var(--easy-does-it);
+    }
+
+    &:hover, &:focus-visible {
+        &::after {
+            width: 100%;
+        }
+
+        svg {
+            background-color: var(--teal);
+
+            path {
+                fill: var(--nonWhite)
+            }
+        }
+    }
+
+    &:focus-visible {
+        outline: 2px dashed var(--marine);
+        outline-offset: 6px;
+    }
+
+    &_light {
+        p {
+            font-weight: 500;
+            font-family: var(--font-poppins);
+            color: var(--nonWhite);
+        }
+
+        svg path {
+            fill: var(--green);
+        }
+
+        &::after {
+            background-color: var(--green);
+        }
+
+        &:hover, &:focus-visible {    
+            svg {
+                background-color: var(--green);
+    
+                path {
+                    fill: var(--nonWhite)
+                }
+            }
+        }
+    
+        &:focus-visible {
+            outline: 2px dashed var(--nonWhite);
+        }
+
+        @media (max-width: 1023px) {
+            padding: .5rem 1rem;
+            background-color: var(--nonWhite);
+            border-radius: 4px;
+
+            p {
+                font-size: 18px;
+                color: var(--deepMarine);
+            }
+
+            svg path {
+                fill: var(--teal);
+            }
+        }
+    }
+}

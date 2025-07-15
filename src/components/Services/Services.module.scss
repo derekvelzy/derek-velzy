@@ -1,0 +1,26 @@
+.services {
+    &__container {
+        width: 100%;
+        position: relative;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        justify-content: center;
+
+        h2 {
+            color: white;
+            margin: 0 auto;
+        }
+    }
+
+    gap: 2rem;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-direction: column;
+
+    @media (min-width: 1024px) {
+        flex-direction: row;
+    }
+}

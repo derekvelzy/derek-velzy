@@ -9,6 +9,7 @@ import cx from "classnames";
 import Button from "../Button/Button";
 import Link from "../Link/Link";
 import styles from "./Contact.module.scss"; // Assuming you have a CSS module for styles
+import SecondaryLink from "../Link/SecondaryLink";
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -106,21 +107,10 @@ const Contact = () => {
             <div className={styles["contact__upper-row__info"]}>
               <p>{"(925) 200-7710"}</p>
               <div className={styles["contact__upper-row__info__divider"]} />
-              <a href="mailto:dmvelzy@gmail.com">
-                <p>dmvelzy@gmail.com</p>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 14 14"
-                  fill="none"
-                >
-                  <path
-                    d="M14 0V9.5H13V1.72656L1 13.7266L0.292969 13.0195L12.3125 1H4V0H14Z"
-                    fill="#52796F"
-                  />
-                </svg>
-              </a>
+              <SecondaryLink
+                href="mailto:dmvelzy@gmail.com"
+                label="dmvelzy@gmail.com"
+              />
             </div>
           </div>
         </div>
@@ -182,11 +172,12 @@ const Contact = () => {
                 ></textarea>
               </div>
               {loading ? (
-                <Button className="float-right" disabled>
+                <Button ariaLabel="Sending..." className="float-right" disabled>
                   Sending...
                 </Button>
               ) : (
                 <Button
+                  ariaLabel="Send message"
                   className="float-right"
                   disabled={
                     !formData.email || !formData.name || !formData.message

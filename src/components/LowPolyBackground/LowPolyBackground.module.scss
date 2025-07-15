@@ -7,3 +7,60 @@
     fill: transparent;
 
 }
+
+.refresh-mountain {
+    position: absolute;
+    top: calc(100vh - 4rem);
+    right: 1.5rem;
+    z-index: 1;
+
+    @media (min-width: 768px) {
+        right: 2rem;
+    }
+
+    &__tooltip {
+        font-size: 14px;
+        color: var(--darkGray);
+        position: absolute;
+        right: 0;
+        top: -2.75rem;
+        white-space: nowrap;
+        background: rgba(255, 255, 255, 0.4);
+        padding: 0.5rem 0.75rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(4px);
+        border-radius: 0.25rem;
+        transition: all 0.3s var(--easy-does-it);
+        opacity: 0;
+        transform: translateY(10px);
+
+        &_hover {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    }
+
+    &:has(button:focus-visible) {
+        .refresh-mountain__tooltip {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+        //     opacity: 1;
+        //     transform: translateY(0px);
+        // }
+    }
+
+    button {
+        cursor: pointer;
+        z-index: 1;
+
+        &:focus-visible {
+            outline: 2px dashed var(--marine);
+            outline-offset: 4px;
+
+            svg path {
+                fill-opacity: 1;
+            }
+        }
+    }
+}

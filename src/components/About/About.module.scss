@@ -2,7 +2,6 @@
     width: 100%;
     position: relative;
     z-index: 10;
-    height: 100vh;
 
     &__left {
         flex: 1;
@@ -23,8 +22,8 @@
             margin-top: 2rem;
 
             span {
-                background-color: rgba(255, 255, 255, 0.15);
-                color: white;
+                background-color: rgba(132, 169, 140, 0.15);
+                color: var(--darkGray);
                 padding: 4px 8px;
                 border-radius: 4px;
                 font-family: var(--font-inter);
@@ -35,7 +34,6 @@
 
     &__right {
         flex: 2;
-        color: white;
 
         &__title {
             overflow: hidden;
@@ -43,7 +41,7 @@
         }
 
         p {
-            color: var(--nonWhite);
+            color: var(--darkGray);
         }
     }
 }

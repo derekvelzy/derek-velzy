@@ -1,0 +1,50 @@
+.button {
+    width: fit-content;
+    font-family: var(--font-poppins);
+    font-weight: 500;
+    font-size: 18px;
+    padding: .5rem 2rem;
+    border-radius: 4px;
+    transition: background-color 0.2s var(--easy-does-it), color 0.2s var(--easy-does-it);
+    background-color: var(--deepMarine);
+    color: white;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+
+    &:focus-visible {
+        outline: 2px dashed var(--marine);
+        outline-offset: 6px;
+    }
+
+    &:hover, &:focus-visible {
+        background-color: var(--marine);
+    }
+
+    &_disabled {
+        background-color: rgba(233, 236, 239, 0.6);
+        color: rgba(0, 0, 0, 0.25);
+        box-shadow: none;
+        cursor: not-allowed;
+
+        &:hover {
+            background-color: rgba(233, 236, 239, 0.6);
+            color: rgba(0, 0, 0, 0.25);
+        }
+    }
+
+    &_secondary {
+        background-color: var(--nonWhite);
+        border: 1px solid var(--deepMarine);
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.06);
+        color: var(--deepMarine);
+
+        &:focus-visible {
+            outline: 2px dashed var(--marine);
+            outline-offset: 6px;
+        }
+
+        &:hover, &:focus-visible {
+            background-color: var(--lightGray);
+        }
+    }
+}

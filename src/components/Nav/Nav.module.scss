@@ -1,13 +1,20 @@
 .logo {
-    // text-[52px] font-[500] leading-[1] text-[var(--darkGray)] cursor-pointer
-    font-size: 52px;
+    font-size: 32px;
     font-weight: 500;
     line-height: 1;
     color: var(--darkGray);
     cursor: pointer;
 
+    @media (min-width: 1024px) {
+        font-size: 52px;
+    }
+
     span {
         transition: color 0.5s var(--easy-does-it);
+    }
+
+    &:focus-visible {
+        outline: 2px dashed var(--marine);
     }
 }
 
@@ -19,7 +26,11 @@
     z-index: 20;
     cursor: pointer;
     position: relative;
-    margin-top: 1rem;
+    margin-top: .25rem;
+
+    @media (min-width: 1024px) {
+        margin-top: 1rem;
+    }
 
     &::after, &::before, input {
         content: "";
@@ -32,12 +43,6 @@
             width 0.5s var(--easy-does-it), 
             transform 0.5s var(--easy-does-it),
             background-color 0.5s var(--easy-does-it);
-    }
-
-    &.light-theme {
-        &::after, &::before, input {
-            background-color: var(--nonWhite);
-        }
     }
 
     input {
@@ -67,40 +72,65 @@
         }
     }
 
-    &:has(input:focus-visible)::before,
-    &:has(input:focus-visible)::after,
     &:has(input:focus-visible) {
-        border: 1px solid var(--teal);
+        outline: 2px dashed var(--marine);
+        outline-offset: 6px;
+
+        &:has(input:checked) {
+            outline: 2px dashed var(--nonWhite);
+        }
     }
 }
 
 .burger-container {
+    &.light-theme {
+        .burger {
+            &::after, &::before, input {
+                background-color: var(--lightGray);
+            }
+        }
+    }
+
     .sidebar {
         z-index: 0;
         position: fixed;
         display: flex;
-        flex-direction: column;
         align-items: flex-end;
-        justify-content: start;
-        width: calc(50vw - 408px);
-        min-width: 200px;
-        height: 100vh;
+        justify-content: space-between;
+        width: 100vw;
+        min-width: none;
+        height: auto;
         top: 0;
         right: 0;
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.5s var(--easy-does-it), transform 0.5s var(--easy-does-it);
         background-color: var(--darkGray);
-        box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.25);
-        padding: 6rem 2rem;
-        gap: 1rem;
-        transform: translateX(6px);
+        box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
+        padding: 6rem 2rem 4rem 2rem;
+        transform: translateY(-12px);
+
+        &__inner {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: start;
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            flex-direction: column-reverse;
+            width: calc(50vw - 408px);
+            min-width: 400px;
+            height: 100vh;
+            padding: 6rem 2rem;
+        }
 
         :nth-child(1),
         :nth-child(2),
         :nth-child(3),
         :nth-child(4) {
-            transform: translateX(8px);
+            transform: translateY(-8px);
             transition: transform 0.5s ease;
             transition-delay: 0s;
         }
@@ -117,6 +147,10 @@
             gap: 1rem;
             color: white;
 
+            &:focus-visible {
+                outline: 2px dashed var(--nonWhite);
+                outline-offset: 4px;
+            }
 
             :nth-child(2) {
                 color: rgba(255, 255, 255, 0.5);
@@ -134,7 +168,7 @@
                 transition: width 0.3s ease;
             }
 
-            &:hover {
+            &:hover, &:focus-visible {
                 &::after {
                     width: 100%;
                 }
@@ -170,6 +204,83 @@
             }
         }
     }
+
+    @media (min-width: 1024px) {
+        width: fit-content;
+        height: fit-content;
+        right: 0;
+        max-width: 964px;
+
+        label, input {
+            display: none;
+        }
+
+        
+        &.light-theme .sidebar button {
+            span {
+                color: var(--lightGray);
+            }
+
+            :nth-child(2) {
+                color: rgba(220, 220, 220, 0.25);
+            }
+        }
+        
+
+        .sidebar {
+            opacity: 1;
+            z-index: 10;
+            right: 0;
+            width: fit-content;
+            height: fit-content;
+            padding: 0;
+            top: 2rem;
+            position: relative;
+            pointer-events: all;
+            background-color: transparent;
+            box-shadow: none;
+            top: 0;
+            left: 0;
+            right: unset;
+            min-width: 0;
+            transform: none;
+            flex-direction: row;
+            align-items: flex-start;
+
+            &__inner {
+                flex-direction: row;
+            }
+
+            .social-links {
+                display: none;
+            }
+
+            :nth-child(1),
+            :nth-child(2),
+            :nth-child(3),
+            :nth-child(4) {
+                transform: translateX(0px);
+                transition: color 0.5s var(--easy-does-it);
+            }
+
+            button {
+                color: var(--darkGray);
+                font-size: 18px;
+                flex-direction: row-reverse;
+                gap: 0.5rem;
+
+                &:focus-visible {
+                    outline: 2px dashed var(--marine);
+                    outline-offset: 4px;
+                }
+
+                :nth-child(2) {
+                    font-weight: 400;
+                    color: rgba(0, 0, 0, 0.25);
+                }
+            }
+        }
+    }
 }
 
 #logo button span {
@@ -178,6 +289,43 @@
 
 .light-theme {
     span {
-        color: var(--nonWhite);
+        color: var(--lightGray);
+    }
+}
+
+.skip-to-main {
+    pointer-events: none;
+
+    &__container {
+        pointer-events: none;
+        position: fixed;
+        z-index: 21474836444;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+        transition: background-image 0.2s var(--easy-does-it);
+
+        &:focus-within {
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+        }
+    }
+
+    margin-top: 5rem;
+    opacity: 0;
+    padding: 0.5rem 2rem;
+    width: fit-content;
+    background-color: black;
+    color: white;
+    transition: all 0.2s ease-in-out;
+
+    &:focus {
+        margin-top: 7rem;
+        opacity: 1;
+        outline: 1px solid black;
+        outline-offset: 6px;
+        outline-style: dashed;
     }
 }

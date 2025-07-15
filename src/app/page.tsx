@@ -1,3 +1,5 @@
+"use client";
+
 // Package imports
 
 // Custom imports
@@ -9,18 +11,20 @@ import Hero from "~/components/Hero/Hero";
 import LowPolyBg from "~/components/LowPolyBackground/LowPolyBackground";
 import LPGFooter from "~/components/LowPolyBackground/LPBFooter";
 import Services from "~/components/Services/Services";
-import Zero from "~/components/Work/Zero";
+import Work from "~/components/Work/Work";
+// import Zero from "~/components/Work/Zero";
 
 export default function Home() {
   return (
     <div className="bg-[#F8F9FA] relative">
-      <LowPolyBg />
-      <LPGFooter />
       <Hero />
       <FloatingLinks />
+      <LowPolyBg />
+      <LPGFooter />
       <Services />
+      <Work />
       <About />
-      <Zero />
+      {/* <Zero /> */}
       <Blog />
       <Contact />
     </div>

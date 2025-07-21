@@ -1,11 +1,18 @@
 .contact {
     width: 100%;
-    height: 105vh;
+    height: 100%;
+    padding-bottom: 240px;
+
+    @media (min-width: 1024px) {
+        height: 105vh;
+        padding-bottom: 0;
+    }
 
     &__container {
         display: flex;
         flex-direction: column;
         position: relative;
+        z-index: 2;
     }
 
     &__upper-row {
@@ -16,19 +23,22 @@
 
         width: 100%;
         display: flex;
+        flex-direction: column;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
 
         &__info {
             display: flex;
-            align-items: center;
-            gap: 2rem;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
             height: auto;
 
             &__divider {
                 height: 1.5rem;
                 width: 1px;
                 background-color: var(--teal);
+                display: none;
             }
 
             a {
@@ -79,6 +89,33 @@
                 }
             }
         }
+
+        &__mobile-divider {
+            display: block;
+            height: 1px;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.2);
+            margin-top: 1.5rem;
+        }
+
+        @media (min-width: 1024px) {
+            flex-direction: row;
+            align-items: center;
+
+            &__info {
+                flex-direction: row;
+                gap: 2rem;
+                align-items: center;
+
+                &__divider {
+                    display: block;
+                }
+            }
+
+            &__mobile-divider {
+                display: none;
+            }
+        }
     }
 
     &__book-call {
@@ -113,7 +150,7 @@
                     border-bottom: 1px solid var(--deepMarine);
                     width: 100%;
 
-                    &:focus {
+                    &:focus-visible {
                         outline: 2px dashed var(--marine);
                         outline-offset: 1px;
                     }
@@ -123,11 +160,16 @@
                     display: flex;
                     gap: 1rem;
                     width: 100%;
+                    flex-direction: column;
 
                     &__item {
                         flex: 1;
                         display: flex;
                         flex-direction: column;
+                    }
+
+                    @media (min-width: 1024px) {
+                        flex-direction: row;
                     }
                 }
 

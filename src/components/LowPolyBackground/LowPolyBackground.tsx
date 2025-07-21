@@ -236,7 +236,6 @@ const LowPolySvgBackground = () => {
             zIndex: 100,
             pointerEvents: "auto",
           }}
-          role="button"
         >
           {polygons.map((poly, i) => (
             <Poly

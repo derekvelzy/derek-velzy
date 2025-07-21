@@ -1,3 +1,19 @@
+.mobile-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 2rem;
+
+    span {
+        background-color: rgba(132, 169, 140, 0.15);
+        color: var(--darkGray);
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-family: var(--font-inter);
+        font-size: 12px;
+    }
+}
+
 .about {
     width: 100%;
     position: relative;
@@ -6,6 +22,11 @@
     &__left {
         flex: 1;
         height: fit-content;
+        display: none;
+
+        @media (min-width: 1024px) {
+            display: block;
+        }
 
         &__photo-frame {
             aspect-ratio: 0.8;
@@ -34,6 +55,26 @@
 
     &__right {
         flex: 2;
+
+        &__mobile-photo-frame {
+            display: block;
+            aspect-ratio: 0.8;
+            height: fit-content;
+            background-color: var(--lightGray);
+            box-shadow: var(--shadow-xl);
+            border-radius: 6px;
+            margin-bottom: 2rem;
+
+            @media (min-width: 1024px) {
+                display: none;
+            }
+        }
+
+        &__mobile-skills {
+            @media (min-width: 1024px) {
+                display: none;
+            }
+        }
 
         &__title {
             overflow: hidden;

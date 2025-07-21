@@ -22,25 +22,37 @@ const Nav = () => {
     const ctx = gsap.context(() => {
       const isDesktop = window?.innerWidth >= 1024;
 
-      gsap.fromTo(
-        ".shift-left",
-        {
-          x: "-20",
-          opacity: 0,
-        },
-        {
-          x: "0",
-          duration: 1.5,
-          opacity: 1,
-          stagger: 0.125,
-          ease: "power4.out",
-          delay: 0.5,
-        }
-      );
+      const atTop = window.scrollY === 0;
+
+      console.log('bip atTop:', atTop);
+
+      // if (atTop) {
+        gsap.fromTo(
+          ".shift-left",
+          {
+            x: "-20",
+            opacity: 0,
+          },
+          {
+            x: "0",
+            duration: 1.5,
+            opacity: 1,
+            stagger: 0.125,
+            ease: "power4.out",
+            delay: 0.5,
+          }
+        );
+      // } else {
+      //   gsap.set(".shift-left", {
+      //     x: "0",
+      //     opacity: 1,
+      //     duration: 0
+      //   });
+      // }
 
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: "nav",
+          trigger: "body",
           start: "top top",
           end: () => "+=400px top",
           scrub: true,
@@ -74,14 +86,13 @@ const Nav = () => {
   }, []);
 
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const changeNavColor = (e: any) => {
+    const changeNavColor = () => {
       const scrollPosition = window.scrollY;
       const logo = document.getElementById("logo");
       const burger = document.getElementById("burger-container");
 
       if (logo && burger) {
-        const viewport = e.target.documentElement.clientHeight;
+        const viewport = window.innerHeight;
         if (
           scrollPosition > viewport * 1.25 &&
           scrollPosition < viewport * (isDesktop ? 6.25 : 5.25)
@@ -94,6 +105,7 @@ const Nav = () => {
         }
       }
     };
+    changeNavColor();
 
     window.addEventListener("scroll", changeNavColor);
 

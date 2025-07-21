@@ -1,30 +1,62 @@
 .work {
+    transform: translateY(0);
+    transition: transform 0.5s var(--easy-does-it);
+
     &__container {
-        z-index: 10;
+        z-index: 1;
         width: 100%;
         height: auto;
         position: relative;
         margin-bottom: 50vh;
-        transition: transform 0.5s var(--easy-does-it), background-color 0.5s var(--easy-does-it);
+        transition: background-color 0.5s var(--easy-does-it);
 
-        &_unmounted-top {
+        .low-poly-bg-work {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.5s var(--easy-does-it);
+        }
+
+        &_unmounted-top .work {
             transform: translateY(0);
         }
-        &_unmounted-bottom {
+        &_unmounted-bottom .work {
             transform: translateY(0);
         }
 
         @media (min-width: 1024px) {
             background-color: var(--deepMarine);
             height: 400vh;
+
+            &_mounted {
+                .low-poly-bg-work {
+                    opacity: 1;
+                }
+            }
         
             &_unmounted-top {
-                transform: translateY(64px);
                 background-color: transparent;
+
+                .low-poly-bg-work {
+                    opacity: 0;
+                }
+
+                .work {
+                    transform: translateY(64px);
+                }
             }
             &_unmounted-bottom {
-                transform: translateY(-64px);
                 background-color: transparent;
+
+                .low-poly-bg-work {
+                    opacity: 0;
+                }
+
+                .work {
+                    transform: translateY(-64px);
+                }
             }
         }
     }
@@ -248,6 +280,7 @@
             overflow: hidden;
             height: 100%;
             border-radius: 0px;
+            // box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.03);
 
             img {
                 object-fit: cover;

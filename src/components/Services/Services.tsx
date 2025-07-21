@@ -91,7 +91,7 @@ type BlockProps = {
 // bg-[rgba(255,255,255,0.7)] backdrop-blur-[8px]
 
 const Block = ({ icon, header, description }: BlockProps) => (
-  <div className="box-stagger bg-[var(--nonWhite)] flex-1 p-4 rounded-[12px] lg:rounded-[6px] shadow-xl flex lg:flex-col gap-6 lg:gap-4 justify-start lg:justify-center items-center">
+  <div className="box-stagger bg-[var(--nonWhite)] flex-1 p-4 rounded-[8px] lg:rounded-[6px] shadow-xl flex lg:flex-col gap-6 lg:gap-4 justify-start lg:justify-center items-center">
     {icon === "webDesign" ? (
       <div className="border-[2px] border-[var(--marine)] bg-[rgba(53,79,82,0.2)] rounded-full p-4">
         <WebDesign />

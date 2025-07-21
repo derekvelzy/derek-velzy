@@ -10,6 +10,7 @@ import Button from "../Button/Button";
 import Link from "../Link/Link";
 import styles from "./Contact.module.scss"; // Assuming you have a CSS module for styles
 import SecondaryLink from "../Link/SecondaryLink";
+import { useIsDesktop } from "~/helpers/useIsDesktop";
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -20,6 +21,8 @@ const Contact = () => {
     email: "",
     message: "",
   });
+
+  const isDesktop = useIsDesktop();
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -78,7 +81,7 @@ const Contact = () => {
 
       tl.fromTo(
         upperRow,
-        { y: 56 },
+        { y: isDesktop ? 56 : 84 },
         {
           y: 0,
           duration: 0.75,
@@ -91,7 +94,7 @@ const Contact = () => {
     return () => {
       ctx.revert();
     };
-  }, []);
+  }, [isDesktop]);
 
   return (
     <div id="contact" className={styles["contact"]}>
@@ -112,6 +115,7 @@ const Contact = () => {
                 label="dmvelzy@gmail.com"
               />
             </div>
+            <div className={styles["contact__upper-row__mobile-divider"]} />
           </div>
         </div>
 

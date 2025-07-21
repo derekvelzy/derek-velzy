@@ -1,0 +1,33 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    margin-top: 128px;
+
+    h2 {
+        font-family: var(--font-poppins);
+        font-size: 48px;
+        font-weight: 500;
+        color: var(--darkGray);
+    }
+
+    &__right-side {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        height: 100%;
+        gap: 0.5rem;
+
+        span {
+            font-family: var(--font-poppins);
+            font-weight: 500;
+            font-size: 18px;
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        a {
+            margin-right: 0;
+        }
+    }
+}

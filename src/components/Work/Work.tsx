@@ -4,6 +4,7 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import gsap from "gsap";
+import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
 import cx from "classnames";
 
 // Custom imports
@@ -11,6 +12,10 @@ import styles from "./Work.module.scss"; // Assuming you have a CSS module for s
 import projects from "./projects.json";
 import SecondaryLink from "../Link/SecondaryLink";
 import { useIsDesktop } from "~/helpers/useIsDesktop";
+import LowPolyBgWork from "./LowPolyBgWork";
+import { handleFocusChange } from "~/helpers/handleFocusChange";
+
+gsap.registerPlugin(ScrollToPlugin);
 
 type ProjectsType = (typeof projects)[0];
 
@@ -57,13 +62,19 @@ const Work = () => {
       }
 
       if (progress < 0) {
-        // workContainer.style.transform = "translateY(40px)";
         workContainer.classList.add(styles["work__container_unmounted-top"]);
+        workContainer.classList.remove(
+          styles["work__container_unmounted-bottom"],
+          styles["work__container_mounted"]
+        );
       } else if (progress > 100) {
-        // workContainer.style.transform = "translateY(-40px)";
         workContainer.classList.add(styles["work__container_unmounted-bottom"]);
+        workContainer.classList.remove(
+          styles["work__container_unmounted-top"],
+          styles["work__container_mounted"]
+        );
       } else {
-        // workContainer.style.transform = "translateY(0)";
+        workContainer.classList.add(styles["work__container_mounted"]);
         workContainer.classList.remove(
           styles["work__container_unmounted-top"],
           styles["work__container_unmounted-bottom"]
@@ -84,8 +95,39 @@ const Work = () => {
     };
   }, [isDesktop]);
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const container = document.getElementById("work");
+      const lowPolyBgWork = document.getElementById("low-poly-bg-work");
+
+      gsap.fromTo(
+        lowPolyBgWork,
+        {
+          y: 0,
+        },
+        {
+          y: "-50vh",
+          ease: "linear",
+          scrollTrigger: {
+            trigger: container,
+            start: "top top",
+            end: "bottom bottom",
+            scrub: true,
+          },
+        }
+      );
+    });
+
+    return () => {
+      ctx.revert(); // Clean up the context to prevent memory leaks
+    };
+  }, []);
+
   return (
     <div id="work" className={styles["work__container"]}>
+      <div id="work-bg" className="fixed h-screen w-screen top-0 left-0 z-0">
+        <LowPolyBgWork />
+      </div>
       <div className={cx("slice", styles["work"])}>
         <div className="overflow-hidden">
           <h2
@@ -97,7 +139,7 @@ const Work = () => {
             Work
           </h2>
         </div>
-        <div className={styles["work__blocks"]}>
+        <div id="work-blocks" className={styles["work__blocks"]}>
           <Block index={0} focusedBlock={focusedBlock} {...projects[0]} />
           <Block index={1} focusedBlock={focusedBlock} {...projects[1]} />
           <Block index={2} focusedBlock={focusedBlock} {...projects[2]} />
@@ -134,7 +176,7 @@ const Block = ({
           ease: "power3.out",
           scrollTrigger: {
             trigger: container,
-            start: "top 80%",
+            start: "top 65%",
             end: "bottom top",
             toggleActions: "play none none reverse",
           },
@@ -149,6 +191,7 @@ const Block = ({
 
   return (
     <div
+      id={`work-block-${index}`}
       className={cx(styles["block__container"], {
         [styles["block__container_focused"]]: focused,
       })}
@@ -262,7 +305,41 @@ const Block = ({
                   <li key={index}>{skill}</li>
                 ))}
               </ul>
-              <SecondaryLink href={`/${link}`} label="View project" light />
+              <SecondaryLink
+                id={`view-project-${index}`}
+                href={`/${link}`}
+                label="View project"
+                light
+                onKeyDown={(e) => {
+                  if (e.key === "Tab") {
+                    if (!e.shiftKey && index < 2) {
+                      e.preventDefault();
+                      gsap.to(window, {
+                        scrollTo: {
+                          y: window.scrollY + window.innerHeight,
+                        },
+                        duration: 0.5,
+                        ease: "power4.out",
+                      });
+                      setTimeout(() => {
+                        handleFocusChange(`view-project-${index + 1}`);
+                      }, 550);
+                    } else if (e.shiftKey && index > 0) {
+                      e.preventDefault();
+                      gsap.to(window, {
+                        scrollTo: {
+                          y: window.scrollY - window.innerHeight,
+                        },
+                        duration: 0.5,
+                        ease: "power4.out",
+                      });
+                      setTimeout(() => {
+                        handleFocusChange(`view-project-${index - 1}`);
+                      }, 550);
+                    }
+                  }
+                }}
+              />
             </div>
           </div>
         </div>

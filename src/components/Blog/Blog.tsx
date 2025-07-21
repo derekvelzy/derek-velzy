@@ -4,12 +4,16 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import gsap from "gsap";
+import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
 import cx from "classnames";
 
 // Custom imports
 import livingRoom from "@public/img/living-room.jpeg";
 import JaggedDivider2 from "~/res/svgs/jaggedDivider2";
-import styles from "./Blog.module.scss"; // Assuming you have a CSS module for styles
+import styles from "./Blog.module.scss";
+import { handleFocusChange } from "~/helpers/handleFocusChange";
+
+gsap.registerPlugin(ScrollToPlugin);
 
 const Blog = () => {
   useEffect(() => {
@@ -95,10 +99,7 @@ const Blog = () => {
         <div id="container--blog" className={cx("slice", styles["blogs"])}>
           <div>
             <div className={styles["blogs__title"]}>
-              <h2
-                id="title--blog"
-                className="slice-title"
-              >
+              <h2 id="title--blog" className="slice-title">
                 Blog
               </h2>
             </div>
@@ -114,6 +115,20 @@ const Blog = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles["blog-card"]}
+                onKeyDown={(e) => {
+                  if (e.key === "Tab" && e.shiftKey && index === 0) {
+                    e.preventDefault();
+                    gsap.to(window, {
+                      scrollTo: {
+                        y: "#work-block-2",
+                        offsetY: window.innerHeight / 4,
+                      },
+                      duration: 0.75,
+                      ease: "power4.out",
+                    });
+                    handleFocusChange(`view-project-2`);
+                  }
+                }}
               >
                 <div className={styles["blog-card__image"]}>
                   <Image

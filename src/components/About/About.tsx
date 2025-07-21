@@ -97,7 +97,7 @@ const About = () => {
           <div
             className={cx("photo-frame", styles["about__left__photo-frame"])}
           />
-          <div className={styles["about__left__skills"]}>
+          <div className={styles["mobile-skills"]}>
             {skills.map((skill, index) => (
               <span key={`${index}-${skill}`} className="skill">
                 {skill}
@@ -111,6 +111,12 @@ const About = () => {
               About
             </h2>
           </div>
+          <div
+            className={cx(
+              "photo-frame",
+              styles["about__right__mobile-photo-frame"]
+            )}
+          />
           <p id="copy--about">
             I’m a web developer who thrives in lean environments—where
             initiative, clarity, and results matter most.
@@ -134,6 +140,18 @@ const About = () => {
             purpose—and who understands the tools that drive modern
             marketing—let’s talk.
           </p>
+          <div
+            className={cx(
+              styles["about__right__mobile-skills"],
+              styles["mobile-skills"]
+            )}
+          >
+            {skills.map((skill, index) => (
+              <span key={`${index}-${skill}`} className="skill">
+                {skill}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </div>

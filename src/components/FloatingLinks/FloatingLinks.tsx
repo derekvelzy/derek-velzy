@@ -10,7 +10,7 @@ import Linkedin from "~/res/svgs/linkedin";
 import Mail from "~/res/svgs/mail";
 import styles from "./FloatingLinks.module.scss";
 
-const FloatingLinks = ({ mobile }: { mobile: boolean }) => {
+const FloatingLinks = ({ mobile = false }: { mobile?: boolean }) => {
   return (
     <div className={cx("z-20 flex-col gap-4", mobile ? "relative flex lg:hidden" : "hidden lg:flex fixed bottom-8 left-8")}>
       <FloatingLink

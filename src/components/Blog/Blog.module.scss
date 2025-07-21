@@ -1,7 +1,15 @@
 .blogs {
     &__container {
         width: 100%;
-        height: 100vh;
+        height: 100%;
+        padding-bottom: 122px;
+        position: relative;
+        z-index: 2;
+
+        @media (min-width: 1024px) {
+            height: 100vh;
+            padding-bottom: 0;
+        }
     }
 
     gap: 2rem;
@@ -14,13 +22,17 @@
 }
 
 .blog-card {
-    margin-bottom: 3rem;
     position: relative;
-    width: 50%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 1rem;
     border-radius: 6px;
+
+    @media (min-width: 1024px) {
+        width: 50%;
+        margin-bottom: 3rem;
+    }
 
     &__image {
         // relative w-full aspect-[1.35] mb-2
@@ -55,5 +67,13 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    margin: 124px 0;
+    margin: 80px 0;
+    transform: scale(0.75);
+    z-index: 2;
+    position: relative;
+
+    @media (min-width: 1024px) {
+        transform: scale(1);
+        margin: 124px 0;
+    }
 }

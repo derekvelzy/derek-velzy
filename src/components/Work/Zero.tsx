@@ -7,7 +7,7 @@ import gsap from "gsap";
 // Custom imports
 import cx from "classnames";
 import styles from "./Zero.module.scss";
-import Video from "./Video";
+import Video from "../Video/Video";
 
 const Zero = () => {
   useEffect(() => {

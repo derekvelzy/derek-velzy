@@ -9,6 +9,7 @@ import gsap from "gsap";
 import getCentroid from "./helpers/getCentroid";
 import generateRandomPoint from "./helpers/generateRandomPoint";
 import { type Boundary, type PolyData } from "./helpers/types";
+import styles from "./LowPolyBackground.module.scss";
 
 const generatePoints = (width: number, height: number): (number[] | null)[] => {
   const blueBox1Boundaries: Boundary = {
@@ -64,7 +65,7 @@ const generatePoints = (width: number, height: number): (number[] | null)[] => {
   return allPoints;
 };
 
-const LPGFooter = () => {
+const LPBGFooter = () => {
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
   const [dots, setDots] = useState<(number[] | null)[]>([[0, 0]]);
@@ -141,11 +142,17 @@ const LPGFooter = () => {
   }, []);
 
   return (
-    <div
+    <footer
       id="low-poly-bg-footer"
       className="absolute bottom-0 left-0 z-[0]"
       style={{ height, width }}
     >
+      <div className={styles["footer__container"]}>
+        <div className={styles["footer"]}>
+          <p>Designed and Developed by Derek Velzy</p>
+          <p>2025</p>
+        </div>
+      </div>
       <svg
         viewBox={`0 0 ${width} ${height}`}
         preserveAspectRatio="xMidYMid slice"
@@ -153,7 +160,7 @@ const LPGFooter = () => {
           position: "absolute",
           top: 0,
           left: 0,
-          zIndex: 100,
+          zIndex: 0,
           pointerEvents: "auto",
         }}
         role="button"
@@ -167,8 +174,8 @@ const LPGFooter = () => {
           />
         ))}
       </svg>
-    </div>
+    </footer>
   );
 };
 
-export default LPGFooter;
+export default LPBGFooter;

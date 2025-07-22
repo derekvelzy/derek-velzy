@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
-// import { useRouter } from "next/router";
+import { useRouter, usePathname } from "next/navigation";
 
 // Custom imports
 import styles from "./Nav.module.scss";
@@ -13,42 +13,33 @@ import { handleFocusChange } from "~/helpers/handleFocusChange";
 import Burger from "./Burger";
 import { useIsDesktop } from "~/helpers/useIsDesktop";
 
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-
 const Nav = () => {
+  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
   const isDesktop = useIsDesktop();
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       const isDesktop = window?.innerWidth >= 1024;
+      const homepage = pathname === "/";
 
-      const atTop = window.scrollY === 0;
-
-      console.log('bip atTop:', atTop);
-
-      // if (atTop) {
-        gsap.fromTo(
-          ".shift-left",
-          {
-            x: "-20",
-            opacity: 0,
-          },
-          {
-            x: "0",
-            duration: 1.5,
-            opacity: 1,
-            stagger: 0.125,
-            ease: "power4.out",
-            delay: 0.5,
-          }
-        );
-      // } else {
-      //   gsap.set(".shift-left", {
-      //     x: "0",
-      //     opacity: 1,
-      //     duration: 0
-      //   });
-      // }
+      gsap.fromTo(
+        ".shift-left",
+        {
+          x: "-20",
+          opacity: 0,
+        },
+        {
+          x: "0",
+          duration: homepage ? 1.5 : 0,
+          opacity: 1,
+          stagger: 0.125,
+          ease: "power4.out",
+          delay: homepage ? 0.5 : 0,
+        }
+      );
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -59,31 +50,37 @@ const Nav = () => {
         },
       });
 
+      if (homepage) {
+        tl.fromTo(
+          ".trans-up",
+          { y: "0" },
+          {
+            y: isDesktop ? "-34" : "-22",
+            duration: 1,
+            ease: "power4.out",
+            stagger: -0.05,
+          },
+          "<"
+        );
+        tl.fromTo(
+          ".fade-out",
+          { opacity: 1 },
+          { opacity: 0, duration: 1, ease: "power4.out" },
+          "<"
+        );
+      }
+
       tl.fromTo(
         "nav",
         { backdropFilter: "blur(0px)" },
         { backdropFilter: "blur(12px)", duration: 1, ease: "power4.out" }
-      );
-
-      tl.fromTo(
-        ".trans-up",
-        { y: "0" },
-        { y: isDesktop ? "-34" : "-22", duration: 1, ease: "power4.out", stagger: -0.05 },
-        "<"
-      );
-
-      tl.fromTo(
-        ".fade-out",
-        { opacity: 1 },
-        { opacity: 0, duration: 1, ease: "power4.out" },
-        "<"
       );
     });
 
     return () => {
       ctx.revert(); // Clean up the context to prevent memory leaks
     };
-  }, []);
+  }, [pathname]);
 
   useEffect(() => {
     const changeNavColor = () => {
@@ -91,7 +88,7 @@ const Nav = () => {
       const logo = document.getElementById("logo");
       const burger = document.getElementById("burger-container");
 
-      if (logo && burger) {
+      if (logo && burger && pathname === "/") {
         const viewport = window.innerHeight;
         if (
           scrollPosition > viewport * 1.25 &&
@@ -112,7 +109,7 @@ const Nav = () => {
     return () => {
       window.removeEventListener("scroll", changeNavColor);
     };
-  }, [isDesktop]);
+  }, [isDesktop, pathname]);
 
   return (
     <nav className="fixed top-0 left-0 w-full h-auto z-50">
@@ -141,16 +138,21 @@ const Nav = () => {
                 duration: 0.75,
                 ease: "power4.out",
               });
+              setTimeout(() => {
+                router.push("/");
+              }, 750);
             }}
             aria-label="Go to top of page"
           >
             <div className="shift-left font-alt">
               <span>D</span>
-              <span className="trans-up fade-out inline-block">erek</span>
+              <span className="trans-up fade-out opacity-0 inline-block">
+                erek
+              </span>
             </div>
-            <div className="shift-left font-alt italic trans-up">
+            <div className="shift-left font-alt italic trans-up translate-y-[-22px] lg:translate-y-[-34px]">
               <span>V</span>
-              <span className="fade-out inline-block">elzy</span>
+              <span className="fade-out opacity-0 inline-block">elzy</span>
             </div>
           </button>
           <Burger />

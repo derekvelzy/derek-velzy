@@ -74,7 +74,7 @@ body {
   color: var(--darkGray);
 }
 
-p {
+p, li {
   font-family: var(--font-inter);
   font-size: 18px;
   color: var(--darkGray);

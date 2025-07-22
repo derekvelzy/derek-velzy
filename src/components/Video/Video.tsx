@@ -8,7 +8,7 @@ import cx from "classnames";
 
 // Custom imports
 import videoCover from "@public/img/video-cover-1.jpg";
-import styles from "./Zero.module.scss";
+import styles from "./Video.module.scss";
 import { handleFocusChange } from "~/helpers/handleFocusChange";
 
 const Video = ({}) => {
@@ -101,7 +101,7 @@ const Video = ({}) => {
   };
 
   return (
-    <div id="video--work" ref={videoRef} className={styles["work__video"]}>
+    <div id="video--work" ref={videoRef} className={styles["video"]}>
       <div className="flex flex-col">
         <iframe
           src={`https://player.vimeo.com/video/1085347461?h=d1b0762162&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&controls=0`}
@@ -111,7 +111,7 @@ const Video = ({}) => {
         ></iframe>
         <button
           onClick={cancelVideoAndRestart}
-          className={styles["work__video__close"]}
+          className={styles["video__close"]}
           tabIndex={curtain ? 0 : -1}
         >
           <svg
@@ -124,8 +124,8 @@ const Video = ({}) => {
             <line x1="10" y1="90" x2="90" y2="10" strokeWidth="10" />
           </svg>
         </button>
-        <div className={styles["work__video__controls__container"]}>
-          <div className={styles["work__video__controls"]}>
+        <div className={styles["video__controls__container"]}>
+          <div className={styles["video__controls"]}>
             <button
               id="play-pause-button"
               onClick={handleVideoClick}
@@ -153,13 +153,13 @@ const Video = ({}) => {
               )}
             </button>
             <div
-              className={styles["work__video__controls__scrubber"]}
+              className={styles["video__controls__scrubber"]}
               onClick={handleScrubberClick}
               onKeyDown={handleScrubberKeyDown}
               tabIndex={curtain ? 0 : -1}
             >
               <div
-                className={styles["work__video__controls__scrubber__progress"]}
+                className={styles["video__controls__scrubber__progress"]}
                 style={{ width: `${progress}%` }}
               />
             </div>
@@ -168,15 +168,15 @@ const Video = ({}) => {
       </div>
 
       <div
-        className={cx(styles["work__video__blur"], {
-          [styles["work__video__blur-active"]]: !curtain,
+        className={cx(styles["video__blur"], {
+          [styles["video__blur-active"]]: !curtain,
         })}
       />
 
       <div
         id="video-cover"
-        className={cx(styles["work__video__cover"], {
-          [styles["work__video__cover-active"]]: !curtain,
+        className={cx(styles["video__cover"], {
+          [styles["video__cover-active"]]: !curtain,
         })}
         onClick={() => {
           if (!curtain) handleVideoClick();
@@ -198,7 +198,7 @@ const Video = ({}) => {
           fill={true}
           sizes="(max-width: 479px) 50vw, (max-width: 1279px) 440px"
         />
-        <div className={styles["work__video__cover__play"]}>
+        <div className={styles["video__cover__play"]}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="4rem"

@@ -9,10 +9,9 @@ import Contact from "~/components/Contact/Contact";
 import FloatingLinks from "~/components/FloatingLinks/FloatingLinks";
 import Hero from "~/components/Hero/Hero";
 import LowPolyBg from "~/components/LowPolyBackground/LowPolyBackground";
-import LPGFooter from "~/components/LowPolyBackground/LPBFooter";
+import LPBGFooter from "~/components/LowPolyBackground/LPBGFooter";
 import Services from "~/components/Services/Services";
 import Work from "~/components/Work/Work";
-// import Zero from "~/components/Work/Zero";
 
 export default function Home() {
   return (
@@ -20,11 +19,10 @@ export default function Home() {
       <Hero />
       <FloatingLinks />
       <LowPolyBg />
-      <LPGFooter />
+      <LPBGFooter />
       <Services />
       <Work />
       <About />
-      {/* <Zero /> */}
       <Blog />
       <Contact />
     </div>

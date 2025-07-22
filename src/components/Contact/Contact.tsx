@@ -195,10 +195,6 @@ const Contact = () => {
           </div>
         )}
       </div>
-      <div className={styles["contact__footer"]}>
-        <p>Designed and Developed by Derek Velzy</p>
-        <p>2025</p>
-      </div>
     </div>
   );
 };

@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
+import { usePathname } from "next/navigation";
 
 // Custom imports
 import styles from "./Nav.module.scss";
@@ -16,6 +17,8 @@ const Burger = () => {
   const [isDesktop, setIsDesktop] = useState(
     typeof window !== "undefined" && window.innerWidth >= 1024
   );
+
+  const pathname = usePathname();
 
   const containerRef = useRef<HTMLDivElement>(null);
   const burgerRef = useRef<HTMLLabelElement>(null);
@@ -54,7 +57,7 @@ const Burger = () => {
   }, [open]);
 
   useEffect(() => {
-    if (isDesktop) {
+    if (isDesktop && pathname === "/") {
       gsap.fromTo(
         ".nav-stagger",
         { y: 10, opacity: 0 },
@@ -68,7 +71,7 @@ const Burger = () => {
         }
       );
     }
-  }, [isDesktop]);
+  }, [isDesktop, pathname]);
 
   const navButtons = [
     {

@@ -28,6 +28,9 @@
     position: relative;
     margin-right: 8px;
     flex-wrap: nowrap;
+    p {
+        font-family: var(--font-poppins);
+    }
 
     svg {
         padding: 2px;

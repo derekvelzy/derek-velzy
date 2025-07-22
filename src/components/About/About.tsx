@@ -7,6 +7,7 @@ import cx from "classnames";
 
 // Custom imports
 import styles from "./About.module.scss"; // Assuming you have a CSS module for styles
+import Skills from "../Page/Skills";
 
 const About = () => {
   useEffect(() => {
@@ -56,18 +57,6 @@ const About = () => {
         },
         "<"
       );
-      tl.fromTo(
-        ".skill",
-        { y: 12, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.75,
-          ease: "power3.out",
-          stagger: 0.075,
-        },
-        "<"
-      );
     });
 
     return () => {
@@ -97,13 +86,7 @@ const About = () => {
           <div
             className={cx("photo-frame", styles["about__left__photo-frame"])}
           />
-          <div className={styles["mobile-skills"]}>
-            {skills.map((skill, index) => (
-              <span key={`${index}-${skill}`} className="skill">
-                {skill}
-              </span>
-            ))}
-          </div>
+          <Skills skills={skills} id="desktop-container-skill" cn="skill" />
         </div>
         <div className={styles["about__right"]}>
           <div className={styles["about__right__title"]}>
@@ -117,7 +100,7 @@ const About = () => {
               styles["about__right__mobile-photo-frame"]
             )}
           />
-          <p id="copy--about">
+          <p id="copy--about" className="mb-8 lg:mb-0">
             I’m a web developer who thrives in lean environments—where
             initiative, clarity, and results matter most.
             <br />
@@ -140,7 +123,14 @@ const About = () => {
             purpose—and who understands the tools that drive modern
             marketing—let’s talk.
           </p>
-          <div
+          <div className={styles["about__right__mobile-skills"]}>
+            <Skills
+              skills={skills}
+              id="mobile-container-skill"
+              cn="skill-mobile"
+            />
+          </div>
+          {/* <div
             className={cx(
               styles["about__right__mobile-skills"],
               styles["mobile-skills"]
@@ -151,7 +141,7 @@ const About = () => {
                 {skill}
               </span>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

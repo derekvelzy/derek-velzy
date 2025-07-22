@@ -45,9 +45,6 @@
             opacity: 1;
             transform: translateY(0px);
         }
-        //     opacity: 1;
-        //     transform: translateY(0px);
-        // }
     }
 
     button {
@@ -62,5 +59,23 @@
                 fill-opacity: 1;
             }
         }
+    }
+}
+
+.footer {
+    margin: 0 auto;
+    width: fit-content;
+    
+    &__container {
+        position: absolute;
+        bottom: 2rem;
+        z-index: 1;
+        width: 100%;
+    }
+
+    p {
+        font-size: 16px;
+        color: var(--nonWhite);
+        text-align: center;
     }
 }

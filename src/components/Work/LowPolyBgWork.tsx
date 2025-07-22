@@ -75,7 +75,7 @@ const LowPolyBgWork = () => {
         polys.push({
           points: [a as number[], b as number[], c as number[]],
           color: "transparent",
-          stroke: "rgba(255, 255, 255, 0.04)",
+          stroke: "rgba(255, 255, 255, 0)",
         });
       }
 

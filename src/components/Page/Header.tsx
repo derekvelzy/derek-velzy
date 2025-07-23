@@ -2,6 +2,7 @@
 
 // Package imports
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 // Custom imports
 import SecondaryLink from "../Link/SecondaryLink";
@@ -16,11 +17,13 @@ type Props = {
 };
 
 const Header = ({ title, place, href, src }: Props) => {
+  const { back } = useRouter();
+
   return (
     <div className={styles["header"]}>
       <div className={styles["header__top-row"]}>
         <div className={styles["header__top-row__left-side"]}>
-          <button className="title--flip" onClick={() => window.history.back()}>
+          <button className="title--flip" onClick={back}>
             <Arrow />
           </button>
           <div className="overflow-hidden">

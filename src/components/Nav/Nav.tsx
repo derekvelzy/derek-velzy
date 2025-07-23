@@ -1,7 +1,7 @@
 "use client";
 
 // Package imports
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
@@ -16,6 +16,8 @@ import { useIsDesktop } from "~/helpers/useIsDesktop";
 const Nav = () => {
   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
+  const [animationsCompleted, setAnimationsCompleted] = useState(false);
+
   const isDesktop = useIsDesktop();
   const pathname = usePathname();
   const router = useRouter();
@@ -25,21 +27,24 @@ const Nav = () => {
       const isDesktop = window?.innerWidth >= 1024;
       const homepage = pathname === "/";
 
-      gsap.fromTo(
-        ".shift-left",
-        {
-          x: "-20",
-          opacity: 0,
-        },
-        {
+      if (!animationsCompleted) {
+        gsap.to(".shift-left", {
           x: "0",
-          duration: homepage ? 1.5 : 0,
           opacity: 1,
-          stagger: 0.125,
-          ease: "power4.out",
+          duration: homepage ? 1.5 : 0,
+          stagger: homepage ? 0.125 : 0,
+          ease: "power3.out",
           delay: homepage ? 0.5 : 0,
-        }
-      );
+          onComplete: () => {
+            setAnimationsCompleted(true);
+          },
+        });
+      } else {
+        gsap.set(".shift-left", {
+          x: "0",
+          opacity: 1,
+        });
+      }
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -78,9 +83,9 @@ const Nav = () => {
     });
 
     return () => {
-      ctx.revert(); // Clean up the context to prevent memory leaks
+      ctx.revert();
     };
-  }, [pathname]);
+  }, [pathname, animationsCompleted, isDesktop]);
 
   useEffect(() => {
     const changeNavColor = () => {
@@ -149,18 +154,18 @@ const Nav = () => {
             }}
             aria-label="Go to top of page"
           >
-            <div className="shift-left opacity-0 font-alt">
+            <div className="shift-left font-alt opacity-0 translate-x-[-20px]">
               <span>D</span>
               <span className="trans-up fade-out opacity-0 inline-block">
                 erek
               </span>
             </div>
-            <div className="shift-left opacity-0 font-alt italic trans-up translate-y-[-22px] lg:translate-y-[-34px]">
+            <div className="shift-left opacity-0 translate-x-[-20px] font-alt italic trans-up translate-y-[-22px] lg:translate-y-[-34px]">
               <span>V</span>
               <span className="fade-out opacity-0 inline-block">elzy</span>
             </div>
           </button>
-          <Burger />
+          <Burger animationsCompleted={animationsCompleted} />
         </div>
       </div>
     </nav>

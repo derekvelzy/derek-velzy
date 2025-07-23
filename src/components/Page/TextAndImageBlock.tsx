@@ -26,8 +26,6 @@ const TextAndImageBlock = ({ title, text, images, swap }: Props) => {
     slidesToScroll: 1,
   };
 
-  console.log("bip", title, images);
-
   return (
     <div className={cx(styles["taib"], { [styles["taib_swap"]]: swap })}>
       <div className={styles["taib__left"]}>

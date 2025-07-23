@@ -149,7 +149,7 @@ const Work = () => {
 
   return (
     <div id="work" className={styles["work__container"]}>
-      <div className="absolute top-[0px]" id="work-section" />
+      <div className="absolute top-[64px]" id="work-section" />
       <div id="work-bg" className={styles["work-bg"]}>
         <LowPolyBgWork />
       </div>

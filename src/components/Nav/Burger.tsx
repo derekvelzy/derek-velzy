@@ -11,7 +11,11 @@ import FloatingLinks from "../FloatingLinks/FloatingLinks";
 
 gsap.registerPlugin(ScrollToPlugin);
 
-const Burger = () => {
+type Props = {
+  animationsCompleted: boolean;
+};
+
+const Burger = ({ animationsCompleted }: Props) => {
   const [open, setOpen] = useState(false);
   const [tabIndex, setTabIndex] = useState(0);
   const [isDesktop, setIsDesktop] = useState(
@@ -57,21 +61,22 @@ const Burger = () => {
   }, [open]);
 
   useEffect(() => {
-    if (isDesktop && pathname === "/") {
-      gsap.fromTo(
-        ".nav-stagger",
-        { y: 10, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          delay: 0.5,
-          ease: "power4.out",
-          stagger: 0.125,
-        }
-      );
+    if (isDesktop && pathname === "/" && !animationsCompleted) {
+      gsap.to(".nav-stagger", {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        delay: 0.5,
+        ease: "power4.out",
+        stagger: 0.125,
+      });
+    } else {
+      gsap.set(".nav-stagger", {
+        y: 0,
+        opacity: 1,
+      });
     }
-  }, [isDesktop, pathname]);
+  }, [isDesktop, pathname, animationsCompleted]);
 
   const navButtons = [
     {
@@ -170,13 +175,13 @@ const BurgerButton = ({
   index,
   tabIndex,
   onKeyDown,
-  pathname
+  pathname,
 }: BurgerButtonProps) => {
   const router = useRouter();
 
   return (
     <button
-      className="nav-stagger"
+      className="nav-stagger opacity-0 translate-y-[10px]"
       onClick={() => {
         if (pathname === "/") {
           gsap.to(window, {

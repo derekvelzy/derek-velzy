@@ -6,6 +6,7 @@ import gsap from "gsap";
 // Custom imports
 import LPBGFooter from "../LowPolyBackground/LPBGFooter";
 import { useEffect } from "react";
+import FloatingLinks from "../FloatingLinks/FloatingLinks";
 
 type Props = {
   children: React.ReactNode;
@@ -42,6 +43,7 @@ const Page = ({ children }: Props) => {
       <div className="px-5 md:px-8 lg:px-0 max-w-[964px] mx-auto">{children}</div>
       <div className="h-[45vh]" />
       <LPBGFooter />
+      <FloatingLinks />
     </div>
   );
 };

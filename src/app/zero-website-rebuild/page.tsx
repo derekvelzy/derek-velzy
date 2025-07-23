@@ -10,12 +10,11 @@ import img2 from "@public/img/website-rebuild-2.jpeg";
 import img3 from "@public/img/video-cover-1.jpg";
 import Video from "~/components/Video/Video";
 import Skills from "~/components/Page/Skills";
-import LPBGFooter from "~/components/LowPolyBackground/LPBGFooter";
+import Page from "~/components/Page/Page";
 
 export default function ZeroWebsiteRebuild() {
   return (
-    <div className="bg-[#F8F9FA] relative w-full">
-      <div className="max-w-[964px] mx-auto">
+    <Page>
         <Header
           title="Website Rebuild"
           place="Zero Motorcycles"
@@ -87,9 +86,6 @@ export default function ZeroWebsiteRebuild() {
           id="container-tools"
           cn="tool"
         />
-        <div className="h-[20rem]" />
-      </div>
-      <LPBGFooter />
-    </div>
+      </Page>
   );
 }

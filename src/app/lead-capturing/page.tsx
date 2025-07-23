@@ -6,90 +6,59 @@
 import { Header, TextAndImageBlock } from "~/components/Page";
 import src from "@public/img/website-rebuild-2.jpeg";
 import img1 from "@public/img/lead-capture-2.jpeg";
-import img2 from "@public/img/website-rebuild-2.jpeg";
 import img3 from "@public/img/video-cover-1.jpg";
-import Video from "~/components/Video/Video";
 import Skills from "~/components/Page/Skills";
-import LPBGFooter from "~/components/LowPolyBackground/LPBGFooter";
+import Page from "~/components/Page/Page";
 
 export default function ZeroWebsiteRebuild() {
   return (
-    <div className="bg-[#F8F9FA] relative w-full">
-      <div className="max-w-[964px] mx-auto">
-        <Header
-          title="Website Rebuild"
-          place="Zero Motorcycles"
-          href="https://zeromotorcycles.com/"
-          src={src.src}
-        />
-        <TextAndImageBlock
-          title="Background"
-          text={`
+    <Page>
+      <Header
+        title="Lead Capturing and Accuracy"
+        place="Zero Motorcycles"
+        href="https://zeromotorcycles.com/"
+        src={src.src}
+      />
+      <TextAndImageBlock
+        title="Background"
+        text={`
             <p>
-              In late 2022, Zero Motorcycles was ready for a digital refresh. Their existing website was several years old, weighed down by tech debt, deprecated tools, and an overall look that no longer matched the direction of the brand. With new models launching, evolving marketing strategies, and a push to better reflect their position as a premium, forward-thinking electric motorcycle company — it was time for a change.
+              Zero Motorcycles needed a more streamlined way to capture leads and connect them to dealerships — all while integrating cleanly with their email marketing efforts. HubSpot was chosen as the central platform for lead management, dealership data, marketing automation, chatbot hosting, and more.
             </p>
             <br>
             <p>
-              The redesign project kicked off in October 2022, just after the launch of their DSR/X model and a new e-commerce site for parts & accessories. I worked closely with the internal Zero team and Canvas Creative — a design and development agency — to bring the new vision to life. Canvas led the design phase, while development was a shared effort between myself (embedded at Zero) and two agency developers.
+              My role was to build a flexible, reliable system for connecting high-quality leads to the right dealership, no matter where they came from.
             </p>
-            <br>
-
-            <p>We overhauled core parts of the site including:</p>
+          `}
+        images={[img3.src]}
+      />
+      <TextAndImageBlock
+        title="What I Built"
+        text={`
             <ul>
-              <li>The homepage and model pages</li>
-              <li>A brand-new “Ride Electric” section</li>
-              <li>A streamlined, more intuitive navigation component</li>
+              <li><strong>Custom Dealer Locator</strong>: I replaced a costly, limited third-party tool with a custom-built locator powered by HubSpot data. This allowed the Sales and Marketing teams to define their own logic and rules — not just what came out of the box.</li>
+              <li><strong>Integrated Lead Forms</strong>: I built site-wide lead forms (including address autofill) to feed clean, structured data into HubSpot for better routing and segmentation.</li>
+              <li><strong>Smart Lead Routing</strong>: I developed a custom geolocation-based workflow to automatically assign leads to the nearest dealership. The logic considered distance, regional rules, model availability, and more — including form submissions from Meta, Google, and third-party sources.</li>
             </ul>
 
           `}
-          images={[img1.src, img2.src, img3.src]}
-        />
-        <TextAndImageBlock
-          title="Role & Outcomes"
-          text={`
-            <p>
-              I focused on frontend development, system architecture, and performance — with a strong emphasis on scalability and long-term maintainability.
-            </p>
-            <ul>
-              <li><strong>Built a component-based design system</strong> to drive brand consistency, improve accessibility, and reduce future dev time.</li>
-              <li><strong>Improved page performance</strong> and delivered <strong>80% faster build times</strong>, making the site more efficient for both users and internal teams.</li>
-              <li><strong>Collaborated across teams</strong> to ensure the final product reflected the brand’s high standards — while remaining flexible and scalable for ongoing growth.</li>
-            </ul>
-
+        images={[img1.src]}
+        swap
+      />
+      <TextAndImageBlock
+        title="Results"
+        text={`
+            <p>These efforts led to a <strong>24% increase</strong> in leads successfully routed to dealerships, helping Sales close the loop faster and making the user experience more intuitive along the way.</p>
           `}
-          images={[img1.src]}
-          swap
-        />
-        <Video />
-        <p className="[&>strong]:text-[var(--deepMarine)] mb-[6rem]">
-          The final site earned an{" "}
-          <strong>Honorable Mention from Awwwards</strong> and a{" "}
-          <strong>7.74 judge’s score on CSS Design Awards</strong> — solid
-          recognition of the quality, speed, and attention to detail behind the
-          project.
-        </p>
-        <p
-          style={{ fontSize: "14px", marginBottom: "1rem", fontWeight: "500" }}
-        >
-          Tools used:
-        </p>
-        <Skills
-          skills={[
-            "Next.js",
-            "TypeScript",
-            "Prismic CMS",
-            "Shopify",
-            "Figma",
-            "Notion",
-            "Netlify",
-            "GSAP animation library",
-          ]}
-          id="container-tools"
-          cn="tool"
-        />
-        <div className="h-[20rem]" />
-      </div>
-      <LPBGFooter />
-    </div>
+      />
+      <p style={{ fontSize: "14px", marginBottom: "1rem", fontWeight: "500" }}>
+        Tools used:
+      </p>
+      <Skills
+        skills={["HubSpot CRM", "Mapbox", "Cloudflare Workers"]}
+        id="container-tools"
+        cn="tool"
+      />
+    </Page>
   );
 }

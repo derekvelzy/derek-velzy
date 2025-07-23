@@ -20,14 +20,24 @@ const Header = ({ title, place, href, src }: Props) => {
     <div className={styles["header"]}>
       <div className={styles["header__top-row"]}>
         <div className={styles["header__top-row__left-side"]}>
-          <button onClick={() => window.history.back()}>
+          <button className="title--flip" onClick={() => window.history.back()}>
             <Arrow />
           </button>
-          <h2 className="text-[var(--darkGray)]">{title}</h2>
+          <div className="overflow-hidden">
+            <h2 className="title--flip">{title}</h2>
+          </div>
         </div>
         <div className={styles["header__top-row__right-side"]}>
-          <span>{place}</span>
-          <SecondaryLink href={href} label="Visit Website" />
+          <div className="overflow-hidden">
+            <span className="title--flip">{place}</span>
+          </div>
+          <div className="overflow-hidden">
+            <SecondaryLink
+              href={href}
+              label="Visit Website"
+              className="title--flip"
+            />
+          </div>
         </div>
       </div>
       <div className={styles["header__img"]}>
@@ -36,6 +46,7 @@ const Header = ({ title, place, href, src }: Props) => {
           alt={"Header Image"}
           fill={true}
           sizes="(max-width: 479px) 100vw, (max-width: 1279px) 964px"
+          className="header-img--flip"
         />
       </div>
     </div>

@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 // Custom imports
 import styles from "./Nav.module.scss";
@@ -144,6 +144,7 @@ const Burger = () => {
               index={index}
               tabIndex={tabIndex}
               onKeyDown={button.onkeydown}
+              pathname={pathname}
             />
           ))}
         </div>
@@ -159,6 +160,7 @@ type BurgerButtonProps = {
   index: number;
   tabIndex: number;
   onKeyDown?: (e: React.KeyboardEvent<HTMLButtonElement>) => void;
+  pathname?: string;
 };
 
 const BurgerButton = ({
@@ -168,28 +170,38 @@ const BurgerButton = ({
   index,
   tabIndex,
   onKeyDown,
-}: BurgerButtonProps) => (
-  <button
-    className="nav-stagger"
-    onClick={() => {
-      gsap.to(window, {
-        scrollTo: {
-          y: `#${id}`,
-          autoKill: false,
-          offsetY: id === "work" ? 0 : 140,
-        },
-        duration: 0.75,
-        ease: "power4.out",
-      });
-      closeNav();
-    }}
-    tabIndex={tabIndex}
-    aria-label={`Go to ${label} section`}
-    onKeyDown={onKeyDown}
-  >
-    <span>{label}</span>
-    <span>{`0${index + 1}`}</span>
-  </button>
-);
+  pathname
+}: BurgerButtonProps) => {
+  const router = useRouter();
+
+  return (
+    <button
+      className="nav-stagger"
+      onClick={() => {
+        if (pathname === "/") {
+          gsap.to(window, {
+            scrollTo: {
+              y: `#${id}-section`,
+              autoKill: false,
+              // offsetY: id === "work" ? 0 : 140,
+            },
+            duration: 0.75,
+            ease: "power4.out",
+          });
+          closeNav();
+        } else {
+          router.push(`/#${id}-section`);
+          closeNav();
+        }
+      }}
+      tabIndex={tabIndex}
+      aria-label={`Go to ${label} section`}
+      onKeyDown={onKeyDown}
+    >
+      <span>{label}</span>
+      <span>{`0${index + 1}`}</span>
+    </button>
+  );
+};
 
 export default Burger;

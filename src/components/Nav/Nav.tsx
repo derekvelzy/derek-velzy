@@ -88,14 +88,19 @@ const Nav = () => {
       const logo = document.getElementById("logo");
       const burger = document.getElementById("burger-container");
 
-      if (logo && burger && pathname === "/") {
-        const viewport = window.innerHeight;
-        if (
-          scrollPosition > viewport * 1.25 &&
-          scrollPosition < viewport * (isDesktop ? 6.25 : 5.25)
-        ) {
-          logo.classList.add(styles["light-theme"]);
-          burger.classList.add(styles["light-theme"]);
+      if (logo && burger) {
+        if (pathname === "/") {
+          const viewport = window.innerHeight;
+          if (
+            scrollPosition > viewport * 1.25 &&
+            scrollPosition < viewport * (isDesktop ? 6.25 : 5.25)
+          ) {
+            logo.classList.add(styles["light-theme"]);
+            burger.classList.add(styles["light-theme"]);
+          } else {
+            logo.classList.remove(styles["light-theme"]);
+            burger.classList.remove(styles["light-theme"]);
+          }
         } else {
           logo.classList.remove(styles["light-theme"]);
           burger.classList.remove(styles["light-theme"]);
@@ -116,7 +121,6 @@ const Nav = () => {
       <div className="lg:max-w-[964px] lg:mx-auto w-full h-full flex items-center justify-between">
         <div className={styles["skip-to-main__container"]}>
           <button
-            role="banner"
             className={styles["skip-to-main"]}
             onKeyDown={(e) => {
               if (e.key === "Enter") {
@@ -133,24 +137,25 @@ const Nav = () => {
             id="logo"
             className={styles["logo"]}
             onClick={() => {
-              gsap.to(window, {
-                scrollTo: { y: "#top", autoKill: false },
-                duration: 0.75,
-                ease: "power4.out",
-              });
-              setTimeout(() => {
+              if (pathname === "/") {
+                gsap.to(window, {
+                  scrollTo: { y: "#top", autoKill: false },
+                  duration: 0.75,
+                  ease: "power4.out",
+                });
+              } else {
                 router.push("/");
-              }, 750);
+              }
             }}
             aria-label="Go to top of page"
           >
-            <div className="shift-left font-alt">
+            <div className="shift-left opacity-0 font-alt">
               <span>D</span>
               <span className="trans-up fade-out opacity-0 inline-block">
                 erek
               </span>
             </div>
-            <div className="shift-left font-alt italic trans-up translate-y-[-22px] lg:translate-y-[-34px]">
+            <div className="shift-left opacity-0 font-alt italic trans-up translate-y-[-22px] lg:translate-y-[-34px]">
               <span>V</span>
               <span className="fade-out opacity-0 inline-block">elzy</span>
             </div>

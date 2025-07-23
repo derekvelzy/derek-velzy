@@ -96,6 +96,7 @@ const Blog = () => {
         <JaggedDivider2 />
       </div>
       <div id="blog" className={styles["blogs__container"]}>
+        <div className="absolute top-[-140px]" id="blog-section" />
         <div id="container--blog" className={cx("slice", styles["blogs"])}>
           <div>
             <div className={styles["blogs__title"]}>

@@ -98,6 +98,7 @@ const Contact = () => {
 
   return (
     <div id="contact" className={styles["contact"]}>
+      <div className="absolute top-[-140px]" id="contact-section" />
       <div
         id="container--contact"
         className={cx("slice", styles["contact__container"])}

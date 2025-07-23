@@ -81,6 +81,7 @@ const About = () => {
 
   return (
     <div id="about" className={styles["about"]}>
+      <div className="absolute top-[-140px]" id="about-section" />
       <div id="container--about" className="slice gap-8">
         <div className={styles["about__left"]}>
           <div

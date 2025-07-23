@@ -26,7 +26,7 @@ const Skills = ({ skills, id, cn }: Props) => {
           opacity: 1,
           duration: 0.75,
           ease: "power3.out",
-          stagger: 0.125,
+          stagger: 0.075,
           scrollTrigger: {
             trigger: container,
             start: "top 90%",

@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import gsap from "gsap";
 import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
 import cx from "classnames";
+import { usePathname, useRouter } from "next/navigation";
 
 // Custom imports
 import styles from "./Work.module.scss"; // Assuming you have a CSS module for styles
@@ -14,6 +15,7 @@ import SecondaryLink from "../Link/SecondaryLink";
 import { useIsDesktop } from "~/helpers/useIsDesktop";
 import LowPolyBgWork from "./LowPolyBgWork";
 import { handleFocusChange } from "~/helpers/handleFocusChange";
+import navStyles from "../Nav/Nav.module.scss";
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -23,6 +25,7 @@ const Work = () => {
   const [focusedBlock, setFocusedBlock] = useState<number>(0);
 
   const isDesktop = useIsDesktop();
+  const pathname = usePathname();
 
   useEffect(() => {
     if (!isDesktop) {
@@ -88,17 +91,21 @@ const Work = () => {
         setFocusedBlock(currentBlockIndex);
       }
     };
+    handleScroll();
 
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [isDesktop]);
+  }, [isDesktop, pathname]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      if (!isDesktop) return;
+
       const container = document.getElementById("work");
       const lowPolyBgWork = document.getElementById("low-poly-bg-work");
+      const workBg = document.getElementById("work-bg");
 
       gsap.fromTo(
         lowPolyBgWork,
@@ -116,16 +123,34 @@ const Work = () => {
           },
         }
       );
+
+      gsap.fromTo(
+        workBg,
+        {
+          display: "none",
+        },
+        {
+          display: "block",
+          duration: 0.01,
+          scrollTrigger: {
+            trigger: container,
+            start: "-10% top",
+            end: "110% bottom",
+            scrub: true,
+          },
+        }
+      );
     });
 
     return () => {
       ctx.revert(); // Clean up the context to prevent memory leaks
     };
-  }, []);
+  }, [isDesktop]);
 
   return (
     <div id="work" className={styles["work__container"]}>
-      <div id="work-bg" className="fixed h-screen w-screen top-0 left-0 z-0">
+      <div className="absolute top-[0px]" id="work-section" />
+      <div id="work-bg" className={styles["work-bg"]}>
         <LowPolyBgWork />
       </div>
       <div className={cx("slice", styles["work"])}>
@@ -145,6 +170,10 @@ const Work = () => {
           <Block index={2} focusedBlock={focusedBlock} {...projects[2]} />
         </div>
       </div>
+      <div
+        id="path-change-curtain"
+        className="fixed bottom-0 left-0 w-screen h-0 z-10 bg-[var(--nonWhite)] opacity-0"
+      />
     </div>
   );
 };
@@ -162,6 +191,7 @@ const Block = ({
   link,
 }: { index: number; focusedBlock: number } & ProjectsType) => {
   const focused = focusedBlock === index;
+  const router = useRouter();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -188,6 +218,65 @@ const Block = ({
       ctx.revert(); // Clean up the context to prevent memory leaks
     };
   }, []);
+
+  const routeToProject = () => {
+    gsap.to(".title--work", {
+      opacity: 0,
+      y: 10,
+      duration: 0.5,
+      ease: "power3.out",
+    });
+    gsap.to(".progress-text", {
+      opacity: 0,
+      y: 10,
+      duration: 0.5,
+      ease: "power3.out",
+    });
+    gsap.to(`#progress-bar-${0}`, {
+      width: "0",
+      duration: 0.5,
+      ease: "power3.out",
+    });
+    gsap.to("#path-change-curtain", {
+      height: "100vh",
+      opacity: 1,
+      duration: 0.5,
+      ease: "power3.out",
+      delay: 0.35,
+      onComplete: () => {
+        router.push(`/${link}`);
+      },
+    });
+    setTimeout(() => {
+      const logo = document.getElementById("logo");
+      const burger = document.getElementById("burger-container");
+      logo?.classList.remove(navStyles["light-theme"]);
+      burger?.classList.remove(navStyles["light-theme"]);
+    }, 500);
+
+    if (focused) {
+      gsap.to(`.work-title-${index}`, {
+        opacity: 0,
+        y: 60,
+        duration: 0.5,
+        stagger: 0.1,
+        ease: "power3.out",
+      });
+      gsap.to(`.work-img-fade-${index}`, {
+        opacity: 0,
+        y: 60,
+        duration: 0,
+        stagger: 0,
+        ease: "power3.out",
+      });
+      gsap.to(`.work-fade-${index}`, {
+        opacity: 0,
+        y: 10,
+        duration: 0.5,
+        ease: "power3.out",
+      });
+    }
+  };
 
   return (
     <div
@@ -216,9 +305,14 @@ const Block = ({
           </div>
           <div className={styles["block__title-row__progress"]}>
             <div
-              className={cx(styles["block__title-row__progress__text"], {
-                [styles["block__title-row__progress__text_first"]]: index === 0,
-              })}
+              className={cx(
+                "progress-text",
+                styles["block__title-row__progress__text"],
+                {
+                  [styles["block__title-row__progress__text_first"]]:
+                    index === 0,
+                }
+              )}
             >
               <span
                 className={styles["block__title-row__progress__text__span1"]}
@@ -239,6 +333,7 @@ const Block = ({
               </span>
             </div>
             <div
+              id={`progress-bar-${index}`}
               className={cx(styles["progress-bar"], {
                 [styles["progress-bar_first"]]: index === 0,
               })}
@@ -266,7 +361,7 @@ const Block = ({
               src={image1}
               alt={`${titleLine1} ${titleLine2} first image`}
               fill={true}
-              className="object-cover"
+              className={cx("object-cover", `work-img-fade-${index}`)}
               sizes="(max-width: 479px) 100vw, (max-width: 1279px) 980px"
             />
           </div>
@@ -275,7 +370,7 @@ const Block = ({
               src={image2}
               alt={`${titleLine1} ${titleLine2} second image`}
               fill={true}
-              className="object-cover"
+              className={cx("object-cover", `work-img-fade-${index}`)}
               sizes="(max-width: 479px) 100vw, (max-width: 1279px) 980px"
             />
           </div>
@@ -284,22 +379,30 @@ const Block = ({
           <div className={styles["block__content__col-1"]}>
             <div>
               <div className="overflow-hidden">
-                <h3>{titleLine1}</h3>
+                <h3 className={`work-title-${index}`}>{titleLine1}</h3>
               </div>
               <div className="overflow-hidden">
-                <h3>{titleLine2}</h3>
+                <h3 className={`work-title-${index}`}>{titleLine2}</h3>
               </div>
             </div>
-            <p>{location}</p>
+            <p className={`work-fade-${index}`}>{location}</p>
           </div>
           <div className={styles["block__content__col-2"]}>
             <div
-              className={styles["block__content__col-2__description"]}
+              className={cx(
+                styles["block__content__col-2__description"],
+                `work-fade-${index}`
+              )}
               dangerouslySetInnerHTML={{
                 __html: description,
               }}
             />
-            <div className={styles["block__content__bottom-row"]}>
+            <div
+              className={cx(
+                styles["block__content__bottom-row"],
+                `work-fade-${index}`
+              )}
+            >
               <ul className="flex gap-2">
                 {skills.map((skill, index) => (
                   <li key={index}>{skill}</li>
@@ -339,6 +442,7 @@ const Block = ({
                     }
                   }
                 }}
+                action={routeToProject}
               />
             </div>
           </div>

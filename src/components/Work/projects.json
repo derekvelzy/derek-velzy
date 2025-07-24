@@ -3,13 +3,13 @@
         "titleLine1": "Website",
         "titleLine2": "Rebuild",
         "location": "Zero Motorcycles",
-        "description": "<p>Built web forms and dealer locator for Zero website. Connected web, Meta & Google forms to HubSpot through Zapier. Created script in HubSpot to accurately route global lead submissions to closest dealer. Increased lead submissions by <bold>34%</bold> and routing accuracy by <bold>8%.</bold></p>",
-        "image1": "/img/website-rebuild-1.jpeg",
-        "image2": "/img/website-rebuild-2.jpeg",
+        "description": "<p>Collaborated with development agency to re-design and re-build the Zero Motorcycles website from scratch. Created timeline with deadlines and deliverables, held semiweekly dev stand-ups, and delegated work. With 14 unique locales, an accessories website on Shopify, model pages, lead capturing forms, and events and dealer map page, and 300+ more pages - deployed project within <bold>5 months</bold> of start.</p>",
+        "image1": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/XE-page.png",
+        "image2": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/Future-page-hugo.png",
         "skills": [
             "NextJS",
-            "TypeScript",
-            "Prismic CMS"
+            "Prismic CMS",
+            "Shopify"
         ],
         "link": "zero-website-rebuild"
     },
@@ -17,9 +17,9 @@
         "titleLine1": "Lead",
         "titleLine2": "Capturing",
         "location": "Zero Motorcycles",
-        "description": "<p>Collaborated with development agency to re-design and re-build the Zero Motorcycles website from scratch. Created timeline with deadlines and deliverables, held semiweekly dev stand-ups, and delegated work. With 14 unique locales, an accessories website on Shopify, model pages, lead capturing forms, and events and dealer map page, and 300+ more pages - deployed project within <bold>5 months</bold> of start.</p>",
-        "image1": "/img/lead-capture-1.png",
-        "image2": "/img/lead-capture-2.jpeg",
+        "description": "<p>Built web forms and dealer locator for Zero website. Connected web, Meta & Google forms to HubSpot through Zapier. Created script in HubSpot to accurately route global lead submissions to closest dealer. Increased lead submissions by <bold>34%</bold> and routing accuracy by <bold>8%.</bold></p>",
+        "image1": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/Design-system-2.png",
+        "image2": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/Map-page-3.png",
         "skills": [
             "HubSpot",
             "Mapbox",
@@ -33,8 +33,8 @@
         "titleLine2": "Platform",
         "location": "Zero Motorcycles",
         "description": "<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.</p>",
-        "image1": "/img/shopify.png",
-        "image2": "/img/ecommerce-2.jpeg",
+        "image1": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/modelbuilder.png",
+        "image2": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/modelbuilder.png",
         "skills": [
             "Shopify",
             "TypeScript",

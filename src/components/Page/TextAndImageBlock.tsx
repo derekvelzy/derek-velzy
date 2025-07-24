@@ -15,9 +15,10 @@ type Props = {
   text: string;
   images?: string[];
   swap?: boolean;
+  square?: boolean; // Optional prop for image aspect ratio
 };
 
-const TextAndImageBlock = ({ title, text, images, swap }: Props) => {
+const TextAndImageBlock = ({ title, text, images, swap, square }: Props) => {
   const settings = {
     id: `taib-carousel-${title}`,
     dots: true,
@@ -38,7 +39,11 @@ const TextAndImageBlock = ({ title, text, images, swap }: Props) => {
         />
       </div>
       {(images ?? []).length > 0 && (
-        <div className={styles["taib__right"]}>
+        <div
+          className={cx(styles["taib__right"], {
+            [styles["taib__right_square"]]: square,
+          })}
+        >
           <div className={styles["taib__right__images"]}>
             {images?.map((image, index) => (
               <div

@@ -8,7 +8,6 @@ import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
 import cx from "classnames";
 
 // Custom imports
-import livingRoom from "@public/img/living-room.jpeg";
 import JaggedDivider2 from "~/res/svgs/jaggedDivider2";
 import styles from "./Blog.module.scss";
 import { handleFocusChange } from "~/helpers/handleFocusChange";
@@ -85,7 +84,7 @@ const Blog = () => {
         "From Layouts to Flow: How Web and Interior Design Mirror Each Other",
       description:
         "Many of us have walked into a friends home and felt instantly at ease. The sunlight from their window reflects off a piece of artwork...",
-      image: livingRoom,
+      image: "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/sarah-lyon-min.jpeg",
       href: "https://medium.com/@dmvelzy/from-layouts-to-flow-how-web-and-interior-design-mirror-each-other-0d1db9751fa6",
     },
   ];
@@ -136,7 +135,7 @@ const Blog = () => {
                     src={blog.image}
                     alt={blog.title}
                     fill={true}
-                    sizes="(max-width: 479px) 50vw, (max-width: 1279px) 440px"
+                    sizes="(max-width: 479px) 100vw, (max-width: 1279px) 440px"
                   />
                 </div>
                 <h2 className="font-header font-[500] text-[22px]">

@@ -38,7 +38,7 @@
 }
 
 body {
-  background: var(--background);
+  background: var(--nonWhite);
   color: var(--foreground);
   font-family: var(--font-inter);
 }

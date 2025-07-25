@@ -96,10 +96,9 @@ const Nav = () => {
       if (logo && burger) {
         if (pathname === "/") {
           const viewport = window.innerHeight;
-          if (
-            scrollPosition > viewport * 1.25 &&
-            scrollPosition < viewport * (isDesktop ? 6.25 : 5.25)
-          ) {
+          const topLimit = isDesktop ? viewport * 1.25 : 1000;
+          const bottomLimit = isDesktop ? viewport * 6.25 : 4450;
+          if (scrollPosition > topLimit && scrollPosition < bottomLimit) {
             logo.classList.add(styles["light-theme"]);
             burger.classList.add(styles["light-theme"]);
           } else {

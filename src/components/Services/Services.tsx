@@ -106,7 +106,7 @@ const Block = ({ icon, header, description }: BlockProps) => (
       </div>
     )}
     <div className="flex flex-col gap-2 items-start lg:items-center">
-      <h3 className="font-header text-[18px] lg:text-[22px] font-[500] lg:text-center">
+      <h3 className="font-header text-[18px] lg:text-[22px] font-[500] text-black lg:text-center">
         {header}
       </h3>
       <p className="font-sans text-[18px] lg:text-center">{description}</p>

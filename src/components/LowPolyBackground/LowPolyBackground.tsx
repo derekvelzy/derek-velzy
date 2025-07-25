@@ -104,7 +104,7 @@ const LowPolySvgBackground = () => {
 
   useEffect(() => {
     const width = window.innerWidth;
-    const height = window.innerHeight * getWidth(isDesktop);
+    const height = (window.visualViewport?.height || document.documentElement.clientHeight) * getWidth(isDesktop);
     const points = generatePoints(width, height, isDesktop);
     setDots(points);
     setWidth(width);

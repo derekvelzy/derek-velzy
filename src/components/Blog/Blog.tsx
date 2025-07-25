@@ -138,7 +138,7 @@ const Blog = () => {
                     sizes="(max-width: 479px) 100vw, (max-width: 1279px) 440px"
                   />
                 </div>
-                <h2 className="font-header font-[500] text-[22px]">
+                <h2 className="font-header font-[500] text-[22px] text-black">
                   {blog.title}
                 </h2>
                 <p className="font-sans text-gray-600">{blog.description}</p>

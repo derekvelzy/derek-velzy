@@ -20,7 +20,7 @@
         
             h2 {
                 font-family: var(--font-poppins);
-                font-size: 36px;
+                font-size: 32px;
                 font-weight: 500;
                 color: var(--darkGray);
                 line-height: 125%;
@@ -108,13 +108,24 @@
                 flex-direction: row;
                 margin-bottom: 4px;
                 gap: 1rem;
+
+                h2 {
+                    font-size: 48px;
+                }
             
                 button {
                     border: none;
                     border-radius: 0;
+                    padding: 1rem;
+                    margin-bottom: 6px;
 
-                    svg path {
-                        fill: var(--teal);
+                    svg {
+                        height: 16px;
+                        width: 16px;
+                        
+                        path {
+                            fill: var(--teal);
+                        }
                     }
                 }
             }

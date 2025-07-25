@@ -55,16 +55,18 @@
     }
 
     &:hover, &:focus-visible {
-        &::after {
-            width: 100%;
-        }
-
-        svg {
-            background-color: var(--teal);
-
-            path {
-                fill: var(--nonWhite)
+        @media (min-width: 1024px) {
+            &::after {
+                width: 100%;
             }
+    
+            svg {
+                background-color: var(--teal);
+    
+                path {
+                    fill: var(--nonWhite)
+                }
+            } 
         }
     }
 
@@ -88,12 +90,14 @@
             background-color: var(--green);
         }
 
-        &:hover, &:focus-visible {    
-            svg {
-                background-color: var(--green);
-    
-                path {
-                    fill: var(--nonWhite)
+        @media (min-width: 1024px) {
+            &:hover, &:focus-visible {    
+                svg {
+                    background-color: var(--green);
+        
+                    path {
+                        fill: var(--nonWhite)
+                    }
                 }
             }
         }

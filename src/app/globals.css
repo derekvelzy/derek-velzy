@@ -41,6 +41,7 @@ body {
   background: var(--nonWhite);
   color: var(--foreground);
   font-family: var(--font-inter);
+  width: 100%;
 }
 
 * {
@@ -69,9 +70,13 @@ body {
 
 .slice-title {
   font-family: var(--font-poppins);
-  font-size: 48px;
+  font-size: 32px;
   font-weight: 500;
   color: var(--darkGray);
+
+  @media (min-width: 1024px) {
+    font-size: 48px;
+  }
 }
 
 p, li {

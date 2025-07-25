@@ -105,7 +105,7 @@ const Contact = () => {
       >
         <div className={styles["contact__upper-row__container"]}>
           <div id="upper-row--contact" className={styles["contact__upper-row"]}>
-            <h2 id="title--contact" className="slice-title">
+            <h2 id="title--contact" className="slice-title mb-2 lg:mb-0">
               Contact
             </h2>
             <div className={styles["contact__upper-row__info"]}>

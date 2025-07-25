@@ -4,9 +4,6 @@
 
 // Custom imports
 import { Header, TextAndImageBlock } from "~/components/Page";
-import src from "@public/img/website-rebuild-2.jpeg";
-import img1 from "@public/img/lead-capture-2.jpeg";
-import img3 from "@public/img/video-cover-1.jpg";
 import Skills from "~/components/Page/Skills";
 import Page from "~/components/Page/Page";
 
@@ -17,7 +14,8 @@ export default function ZeroWebsiteRebuild() {
         title="Lead Capturing and Accuracy"
         place="Zero Motorcycles"
         href="https://zeromotorcycles.com/"
-        src={src.src}
+        src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/Map-page-3.png"
+        imgStyles={{ scale: "1.1" }}
       />
       <TextAndImageBlock
         title="Background"
@@ -30,7 +28,8 @@ export default function ZeroWebsiteRebuild() {
               My role was to build a flexible, reliable system for connecting high-quality leads to the right dealership, no matter where they came from.
             </p>
           `}
-        images={[img3.src]}
+        images={["https://aywnqw1wyioophsr.public.blob.vercel-storage.com/hubspot.png"]}
+        square
       />
       <TextAndImageBlock
         title="What I Built"
@@ -42,8 +41,9 @@ export default function ZeroWebsiteRebuild() {
             </ul>
 
           `}
-        images={[img1.src]}
+        images={["https://aywnqw1wyioophsr.public.blob.vercel-storage.com/Design-system-2.png"]}
         swap
+        square
       />
       <TextAndImageBlock
         title="Results"

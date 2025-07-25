@@ -14,9 +14,10 @@ type Props = {
   place: string;
   href: string;
   src: string;
+  imgStyles?: React.CSSProperties;
 };
 
-const Header = ({ title, place, href, src }: Props) => {
+const Header = ({ title, place, href, src, imgStyles }: Props) => {
   const { back } = useRouter();
 
   return (
@@ -50,6 +51,7 @@ const Header = ({ title, place, href, src }: Props) => {
           fill={true}
           sizes="(max-width: 479px) 100vw, (max-width: 1279px) 964px"
           className="header-img--flip"
+          style={{ ...imgStyles }}
         />
       </div>
     </div>

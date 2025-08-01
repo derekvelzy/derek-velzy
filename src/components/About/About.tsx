@@ -102,7 +102,30 @@ const About = () => {
             )}
           />
           <p id="copy--about" className="mb-8 lg:mb-0">
-            I’m a web developer who thrives in lean environments—where
+            I’m a web developer and digital marketing tech specialist who works
+            best in lean, fast-moving environments - where quanitifiable
+            results, clear decision-making, and staying on schedule matter most.
+            <br />
+            <br />
+            Currently, I lead development on a busy marketing team, owning the
+            company’s main website and supporting systems from design through
+            deployment. I build campaign landing pages, optimize site
+            performance and accessibility, integrate marketing tools like Google
+            Analytics, Meta Pixel, and HubSpot, and implement GDPR and
+            CCPA-compliant consent management - all with minimal oversight and a
+            focus on driving business-critical goals.
+            <br />
+            <br />
+            I don’t just write clean, scalable code - I make sure your web
+            traffic and conversions work toward real business growth. Whether
+            you’re launching your first site, troubleshooting tracking issues,
+            or need everyhing to “talk to each other”, I can help -
+            communicating in plain English, without all the tech jargon.
+            <br />
+            <br />
+            If you’re looking for a developer who understand how your website
+            fits into the bigger picture of marketing and growth, let’s talk.
+            {/* I’m a web developer who thrives in lean environments—where
             initiative, clarity, and results matter most.
             <br />
             <br />
@@ -122,7 +145,7 @@ const About = () => {
             <br />
             If you’re looking for someone who can design and build with
             purpose—and who understands the tools that drive modern
-            marketing—let’s talk.
+            marketing—let’s talk. */}
           </p>
           <div className={styles["about__right__mobile-skills"]}>
             <Skills

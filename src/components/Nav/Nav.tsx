@@ -136,7 +136,7 @@ const Nav = () => {
             Skip to main content
           </button>
         </div>
-        <div className="slice h-full pt-6 justify-between">
+        <div className="slice h-[76px] md:h-[100px] pt-5 md:pt-6 justify-between">
           <button
             id="logo"
             className={styles["logo"]}

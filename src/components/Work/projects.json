@@ -17,7 +17,7 @@
         "titleLine1": "Lead",
         "titleLine2": "Capturing",
         "location": "Zero Motorcycles",
-        "description": "<p>Built web forms and dealer locator for Zero website. Connected web, Meta & Google forms to HubSpot through Zapier. Created script in HubSpot to accurately route global lead submissions to closest dealer. Increased lead submissions by <bold>34%</bold> and routing accuracy by <bold>8%.</bold></p>",
+        "description": "<p>Built web forms and dealer locator for Zero website. Connected Meta, Google, and DealerSpike forms to HubSpot through Zapier. Created script in HubSpot to accurately route global lead submissions to closest dealer by drivng distance. Increased lead submissions by <bold>34%</bold> and routing accuracy by <bold>8%.</bold></p>",
         "image1": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/Design-system-2.png",
         "image2": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/Map-page-3.png",
         "skills": [

@@ -30,7 +30,7 @@ const TextAndImageBlock = ({ title, text, images, swap, square }: Props) => {
   return (
     <div className={cx(styles["taib"], { [styles["taib_swap"]]: swap })}>
       <div className={styles["taib__left"]}>
-        <div className="overflow-hidden mb-8">
+        <div className="overflow-hidden mb-4">
           <h3 className="text-and-img--flip">{title}</h3>
         </div>
         <div

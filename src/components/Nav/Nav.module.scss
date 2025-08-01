@@ -4,9 +4,11 @@
     line-height: 1;
     color: var(--darkGray);
     cursor: pointer;
+    margin-top: -8px;
 
     @media (min-width: 1024px) {
         font-size: 52px;
+        // margin-top: -8px;
     }
 
     span {

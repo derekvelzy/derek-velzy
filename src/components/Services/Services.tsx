@@ -56,7 +56,7 @@ const Services = () => {
 
   return (
     <div className={styles["services__container"]}>
-      <div className="overflow-hidden mb-8">
+      <div className="overflow-hidden mb-4 lg:mb-8">
         <h2 id="title--services" className="slice-title">
           Services
         </h2>
@@ -74,7 +74,7 @@ const Services = () => {
         />
         <Block
           header="Performance Optimization"
-          description="Speed, tracking, and GDPR-friendly setups."
+          description="Speed, tracking, and GDPR & CCPA-friendly setups."
           icon="performance"
         />
       </div>

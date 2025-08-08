@@ -157,8 +157,8 @@
                     color: black;
 
                     &:focus-visible {
-                        outline: 2px dashed var(--marine);
-                        outline-offset: 1px;
+                        outline: 1px dashed var(--marine);
+                        outline-offset: 0px;
                     }
                 }
 

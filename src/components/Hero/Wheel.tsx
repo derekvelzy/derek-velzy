@@ -1,26 +1,30 @@
 // Package imports
+import { RefObject } from "react";
 import cx from "classnames";
 import "keen-slider/keen-slider.min.css";
 
 // Custom imports
 import styles from "./Hero.module.scss";
-import { RefObject } from "react";
 
 const topics = [
   "Business",
   "Brewery",
   "Juice Bar",
   "Tattoo Studio",
+  "Surf Shop",
   "Roofing company",
   "Pirate Ship",
   "Coffee Shop",
-  "Yoga Studio",
+  "Auto Repair Shop",
+  "Barbershop",
   "Meme Page",
   "Bookstore",
+  "Yoga Studio",
   "Photography Studio",
+  "HVAC Company",
   "Real Estate Office",
-  "Plant Shop",
   "Haunted House",
+  "Plant Shop",
   "Personal Trainer",
   "Art Gallery",
   "Music School",
@@ -34,31 +38,31 @@ type Props = {
   sliderRef: (node: HTMLDivElement | null) => void;
 };
 
-const Wheel = ({
-  prevTargetRef,
-  nextTargetRef,
-  sliderRef
-}: Props) => {
+const Wheel = ({ prevTargetRef, nextTargetRef, sliderRef }: Props) => {
 
   return (
     <div className={styles["wheel"]}>
       <div
         ref={sliderRef}
         className={cx("keen-slider", styles["wheel__topics"])}
-        style={{ height: "84px", overflow: "hidden" }}
       >
         <div className={styles["wheel__targets"]}>
           <div ref={prevTargetRef} />
           <div ref={nextTargetRef} />
         </div>
-        {topics.map((topic, idx) => (
-          <span
-            key={idx}
-            className="keen-slider__slide flex items-center justify-center font-alt italic font-[700]"
-          >
-            {topic}
-          </span>
-        ))}
+        {topics.map((topic, idx) => {
+          console.log();
+          return (
+            <span
+              key={idx}
+              className={cx(
+                "keen-slider__slide font-alt italic font-[700]"
+              )}
+            >
+              {topic}
+            </span>
+          );
+        })}
       </div>
     </div>
   );

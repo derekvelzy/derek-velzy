@@ -18,6 +18,9 @@ import Arrow from "~/res/svgs/arrow";
 gsap.registerPlugin(ScrollToPlugin);
 
 const Hero = ({}) => {
+  const [clickDirection, setClickDirection] = useState<"prev" | "next" | null>(
+    null
+  );
   const [loaded, setLoaded] = useState(false);
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
@@ -26,7 +29,19 @@ const Hero = ({}) => {
       perView: 1,
       spacing: 0,
     },
+    defaultAnimation: {
+      duration: 700,
+      easing: (t) =>
+        t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2,
+      // t < 0.5 ? 8 * t ** 4 : 1 - Math.pow(-2 * t + 2, 4) / 2,
+    },
+    dragEnded: () => {
+      stopAutoScroll();
+    },
   });
+
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const arrowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setTimeout(() => {
@@ -34,59 +49,57 @@ const Hero = ({}) => {
     }, 500);
   }, []);
 
+  const stopAutoScroll = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+  };
+
   useEffect(() => {
     const slider = instanceRef.current;
     if (!slider) return;
-    const auto = setInterval(() => {
+    intervalRef.current = setInterval(() => {
       slider.next();
-    }, 2000);
+    }, 1800);
 
-    return () => clearInterval(auto);
+    return () => clearInterval(intervalRef.current as NodeJS.Timeout);
   }, [instanceRef, loaded]);
 
-  const prevButtonRef = useRef<HTMLButtonElement>(null);
-  const nextButtonRef = useRef<HTMLButtonElement>(null);
+  const arrowButtonRef = useRef<HTMLButtonElement>(null);
   const prevTargetRef = useRef<HTMLDivElement>(null);
   const nextTargetRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const prevButton = prevButtonRef.current;
-    const nextButton = nextButtonRef.current;
+    const arrowButton = arrowButtonRef.current;
     const prev = prevTargetRef.current;
     const next = nextTargetRef.current;
 
-    if (!prevButton || !nextButton || !prev || !next) return;
+    if (!arrowButton || !prev || !next) return;
 
-    let prevVisible = false;
-    let nextVisible = false;
+    let currentZone: "none" | "prev" | "next" = "none";
 
     const handleMouseMove = (e: MouseEvent) => {
       const mouseX = e.clientX;
       const mouseY = e.clientY;
 
-      gsap.to(prevButton, {
+      gsap.to(arrowButton, {
         x: mouseX,
         y: mouseY,
-        duration: 0.2,
-        ease: "power2.out",
-      });
-      gsap.to(nextButton, {
-        x: mouseX,
-        y: mouseY,
-        duration: 0.2,
+        duration: 0.1,
         ease: "power2.out",
       });
 
       const prevRect = prev.getBoundingClientRect();
       const nextRect = next.getBoundingClientRect();
 
-      const leftBoundary = mouseX - prevRect.left + 50;
-      const rightBoundary = prevRect.right - mouseX + 50;
+      const leftBoundary = mouseX - prevRect.left + 20;
+      const rightBoundary = prevRect.right - mouseX + 20;
       const prevTopBoundary = mouseY - prevRect.top + 50;
       const prevBottom = prevRect.bottom - mouseY;
 
-      const nextLeftBoundary = mouseX - nextRect.left + 50;
-      const nextRightBoundary = nextRect.right - mouseX + 50;
+      const nextLeftBoundary = mouseX - nextRect.left + 20;
+      const nextRightBoundary = nextRect.right - mouseX + 20;
       const nextTopBoundary = mouseY - nextRect.top;
       const nextBottom = nextRect.bottom - mouseY + 50;
 
@@ -102,20 +115,31 @@ const Hero = ({}) => {
         nextTopBoundary > 0 &&
         nextBottom > 0;
 
-      if (prevInside && !prevVisible) {
-        prevVisible = true;
-        gsap.to(prevButton, { autoAlpha: 1, scale: 1, duration: 0.3 });
-        return;
-      } else if (!prevInside && prevVisible) {
-        prevVisible = false;
-        gsap.to(prevButton, { autoAlpha: 0, scale: 0.8, duration: 0.3 });
-      }
-      if (nextInside && !nextVisible) {
-        nextVisible = true;
-        gsap.to(nextButton, { autoAlpha: 1, scale: 1, duration: 0.3 });
-      } else if (!nextInside && nextVisible) {
-        nextVisible = false;
-        gsap.to(nextButton, { autoAlpha: 0, scale: 0.8, duration: 0.3 });
+      const hoveringZone = prevInside ? "prev" : nextInside ? "next" : "none";
+
+      if (hoveringZone !== currentZone) {
+        currentZone = hoveringZone;
+
+        if (hoveringZone === "none") {
+          setClickDirection(null);
+        } else {
+          if (hoveringZone === "prev") {
+            setClickDirection("prev");
+            gsap.to(arrowButton, {
+              rotate: -45,
+              duration: 0.2,
+              ease: "power2.out",
+            });
+          } else if (hoveringZone === "next") {
+            setClickDirection("next");
+
+            gsap.to(arrowButton, {
+              rotate: 135,
+              duration: 0.2,
+              ease: "power2.out",
+            });
+          }
+        }
       }
     };
 
@@ -149,7 +173,9 @@ const Hero = ({}) => {
               <h1 className="stagger">
                 You have a{" "}
                 {!loaded ? (
-                  <span className="font-[700] font-alt italic">Business</span>
+                  <span className="font-[700] font-alt italic  pl-[2px] sm:pl-1 h-[80px]">
+                    Business
+                  </span>
                 ) : (
                   <Wheel
                     prevTargetRef={prevTargetRef}
@@ -163,7 +189,7 @@ const Hero = ({}) => {
               <h1 className="stagger">to run. Let me handle</h1>
             </div>
             <div className="overflow-hidden pb-[4px]">
-              <h1 className="stagger">your website.</h1>
+              <h1 className="stagger">the website.</h1>
             </div>
           </div>
           <p className="stagger">
@@ -193,24 +219,26 @@ const Hero = ({}) => {
         </div>
       </div>
       <button
-        ref={prevButtonRef}
-        className={cx(styles["hero__arrow"], styles["hero__arrow_prev"])}
-        style={{ opacity: 0, transform: "scale(0.8)", position: "fixed" }}
+        tabIndex={-1}
+        aria-hidden
+        ref={arrowButtonRef}
+        className={cx(styles["hero__arrow"], {
+          [styles["hero__arrow_visible"]]: clickDirection !== null,
+          [styles["hero__arrow_visible_prev"]]: clickDirection === "prev",
+          [styles["hero__arrow_visible_next"]]: clickDirection === "next",
+        })}
         onClick={() => {
-          instanceRef.current?.next();
+          stopAutoScroll();
+          if (clickDirection === "next") {
+            instanceRef.current?.next();
+          } else if (clickDirection === "prev") {
+            instanceRef.current?.prev();
+          }
         }}
       >
-        <Arrow />
-      </button>
-      <button
-        ref={nextButtonRef}
-        className={cx(styles["hero__arrow"], styles["hero__arrow_next"])}
-        style={{ opacity: 0, transform: "scale(0.8)", position: "fixed" }}
-        onClick={() => {
-          instanceRef.current?.prev();
-        }}
-      >
-        <Arrow />
+        <div ref={arrowRef}>
+          <Arrow />
+        </div>
       </button>
     </div>
   );

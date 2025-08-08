@@ -88,64 +88,150 @@
     }
 
     &__arrow {
-        // fixed top-[-10px] left-[-10px] z-50 bg-[rgba(0,0,0,0.5)] text-white px-4 py-2 rounded-full text-sm
+        display: none;
         position: fixed;
-        top: -28px;
-        left: -28px;
+        top: -24px;
+        left: -24px;
         z-index: 50;
         background: var(--teal);
-        // padding: 0.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         height: 36px;
         width: 36px;
         border-radius: 50%;
         backdrop-filter: blur(5px);
+        cursor: pointer;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.1s var(--easy-does-it), background 0.1s var(--easy-does-it);
 
-        svg path {
-            fill: white
+        &:active {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+            background: #496c63;
         }
 
-        &_prev svg {
-            transform: rotate(-45deg) scale(0.5);
+        svg {
+            // transform: rotate(-45deg) scale(0.5);
+            transform: scale(0.5);
+
+            path {
+                fill: white
+            }
         }
 
-        &_next svg {
-            transform: rotate(135deg) scale(0.5);
+        @media (min-width: 1024px) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: disappear 0.2s ease-in-out forwards;
         }
+
+        &_visible {
+            animation: appear 0.2s ease-in-out forwards;
+        
+            &_next svg {
+                // transform: rotate(135deg) scale(0.5);
+            }
+            &_prev svg {
+                // transform: rotate(-45deg) scale(0.5);
+            }
+
+            svg {
+                transition: transform 0.2s ease-in-out;
+            }
+        }
+
     }
 }
 
 .wheel {
     display: inline-block;
-    height: 80px;
-    // overflow: hidden;
+    height: 42px;
     width: min-content;
     vertical-align: bottom;
     margin-bottom: -3px;
 
     &__topics {
+        height: 42px;
+        overflow: hidden;
+
         span {
             display: block;
             white-space: nowrap;
-            height: 80px;
+            height: 100%;
         }
     }
 
     &__targets {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 76px;
-        width: 75%;
-        display: flex;
-        flex-direction: column;
+        display: none;
+    }
 
-        div {
-            flex: 1;
-            height: 100%;
-            width: 100%;
+    @media (min-width: 768px) {
+        height: 62px;
+
+        &__topics {
+            height: 62px;
+
+            span {
+                padding-left: 2px;
+            }
         }
+    }
+
+    @media (min-width: 1024px) {
+        height: 80px;
+
+        &__topics {
+            height: 80px;
+
+            span {
+                padding-left: 4px;
+            }
+        }
+
+        &__targets {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 80px;
+            width: 75%;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+
+            div {
+                flex: 1;
+                height: 100%;
+                width: 100%;
+            }
+        }
+    }
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+    1% {
+        display: flex;
+        visibility: visible;
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@keyframes disappear {
+    0% {
+        opacity: 1;
+        visibility: visible;
+
+    }
+    99% {
+        display: flex;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
     }
 }

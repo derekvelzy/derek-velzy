@@ -6,17 +6,22 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
 import { useRouter, usePathname } from "next/navigation";
+import cx from "classnames";
 
 // Custom imports
 import styles from "./Nav.module.scss";
 import { handleFocusChange } from "~/helpers/handleFocusChange";
 import Burger from "./Burger";
 import { useIsDesktop } from "~/helpers/useIsDesktop";
+import useCollapse from "./helpers/useCollapse";
 
 const Nav = () => {
   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
   const [animationsCompleted, setAnimationsCompleted] = useState(false);
+  const [collapsed, setCollapsed] = useState(false);
+
+  useCollapse({ collapsed, setCollapsed });
 
   const isDesktop = useIsDesktop();
   const pathname = usePathname();
@@ -92,22 +97,26 @@ const Nav = () => {
       const scrollPosition = window.scrollY;
       const logo = document.getElementById("logo");
       const burger = document.getElementById("burger-container");
+      const divider = document.getElementById("nav-divider");
 
-      if (logo && burger) {
+      if (logo && burger && divider) {
         if (pathname === "/") {
           const viewport = window.innerHeight;
-          const topLimit = isDesktop ? viewport * 1.25 : 1000;
-          const bottomLimit = isDesktop ? viewport * 6.25 : 4450;
+          const topLimit = isDesktop ? viewport * 1.25 + 810 : 2000;
+          const bottomLimit = isDesktop ? viewport * 6.25 + 230 : 4980;
           if (scrollPosition > topLimit && scrollPosition < bottomLimit) {
             logo.classList.add(styles["light-theme"]);
             burger.classList.add(styles["light-theme"]);
+            divider.classList.add(styles["light-theme"]);
           } else {
             logo.classList.remove(styles["light-theme"]);
             burger.classList.remove(styles["light-theme"]);
+            divider.classList.remove(styles["light-theme"]);
           }
         } else {
           logo.classList.remove(styles["light-theme"]);
           burger.classList.remove(styles["light-theme"]);
+          divider.classList.remove(styles["light-theme"]);
         }
       }
     };
@@ -121,7 +130,14 @@ const Nav = () => {
   }, [isDesktop, pathname]);
 
   return (
-    <nav className="fixed top-0 left-0 w-full h-auto z-50">
+    <nav
+      className={cx(
+        "fixed top-0 left-0 w-full h-auto z-50 transition-transform duration-500",
+        {
+          "translate-y-[-100%]": collapsed,
+        }
+      )}
+    >
       <div className="lg:max-w-[964px] lg:mx-auto w-full h-full flex items-center justify-between">
         <div className={styles["skip-to-main__container"]}>
           <button

@@ -1,0 +1,14 @@
+.jagged-divider {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 100px 0;
+    transform: scale(0.75);
+    z-index: 2;
+    position: relative;
+
+    @media (min-width: 1024px) {
+        transform: scale(1);
+        margin: 160px 0;
+    }
+}

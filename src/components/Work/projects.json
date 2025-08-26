@@ -7,9 +7,9 @@
         "image1": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/XE-page.png",
         "image2": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/Future-page-hugo.png",
         "skills": [
-            "NextJS",
-            "Prismic CMS",
-            "Shopify"
+            "Design & Development",
+            "Maintenance",
+            "SEO"
         ],
         "link": "zero-website-rebuild"
     },
@@ -21,24 +21,22 @@
         "image1": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/Design-system-2.png",
         "image2": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/Map-page-3.png",
         "skills": [
-            "HubSpot",
-            "Mapbox",
-            "Zapier",
-            "JavaScript"
+            "Design & Development",
+            "Tool Integration"
         ],
         "link": "lead-capturing"
     },
     {
-        "titleLine1": "E-commerce",
-        "titleLine2": "Platform",
-        "location": "Zero Motorcycles",
+        "titleLine1": "Adventure",
+        "titleLine2": "Kitty",
         "description": "<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.</p>",
         "image1": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/modelbuilder.png",
         "image2": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/modelbuilder.png",
         "skills": [
-            "Shopify",
-            "TypeScript",
-            "Prismic CMS"
+            "Design",
+            "E-commerce",
+            "Tool Integration",
+            "SEO"
         ],
         "link": "zero-direct-to-consumer"
     }

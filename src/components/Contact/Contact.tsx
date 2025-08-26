@@ -4,6 +4,7 @@
 import { useState, useEffect } from "react";
 import gsap from "gsap";
 import cx from "classnames";
+import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
 
 // Custom imports
 import Button from "../Button/Button";
@@ -11,15 +12,20 @@ import Link from "../Link/Link";
 import styles from "./Contact.module.scss"; // Assuming you have a CSS module for styles
 import SecondaryLink from "../Link/SecondaryLink";
 import { useIsDesktop } from "~/helpers/useIsDesktop";
+import services from "../Services2/services.json";
+
+gsap.registerPlugin(ScrollToPlugin);
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [selected, setSelected] = useState("None");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
+    service: "None",
   });
 
   const isDesktop = useIsDesktop();
@@ -46,7 +52,6 @@ const Contact = () => {
         headers: {
           Accept: "application/json",
         },
-        // body: JSON.stringify(formData),
         body: new FormData(e.target as HTMLFormElement),
       });
 
@@ -55,7 +60,7 @@ const Contact = () => {
         throw new Error("Network response was not ok");
       } else {
         setSubmitted(true);
-        setFormData({ name: "", email: "", message: "" });
+        setFormData({ name: "", email: "", message: "", service: "None" });
       }
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -98,7 +103,7 @@ const Contact = () => {
 
   return (
     <div id="contact" className={styles["contact"]}>
-      <div className="absolute top-[-140px]" id="contact-section" />
+      <div className="absolute top-[-100px]" id="contact-section" />
       <div
         id="container--contact"
         className={cx("slice", styles["contact__container"])}
@@ -164,6 +169,44 @@ const Contact = () => {
                     required
                   />
                 </div>
+              </div>
+              <div className={styles["service-row"]}>
+                <label htmlFor="service">Service</label>
+                <select
+                  id="service-select"
+                  name="service"
+                  value={selected}
+                  onChange={(event) => {
+                    setSelected(event.target.value);
+                  }}
+                >
+                  <option value="None" disabled>
+                    Select a service
+                  </option>
+                  {services.map((service, index) => (
+                    <option key={index} value={service.name}>
+                      {service.name}
+                    </option>
+                  ))}
+                </select>
+                <p>
+                  Not sure yet?{" "}
+                  <button
+                    onClick={() => {
+                      gsap.to(window, {
+                        scrollTo: {
+                          y: "#services",
+                          offsetY: -160,
+                        },
+                        duration: 0.75,
+                        ease: "power4.out",
+                      });
+                    }}
+                  >
+                    Read more about services
+                  </button>{" "}
+                  or leave a message below.
+                </p>
               </div>
               <div className={styles["message-row"]}>
                 <label htmlFor="message">Message</label>

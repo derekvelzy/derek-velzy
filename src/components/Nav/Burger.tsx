@@ -80,16 +80,17 @@ const Burger = ({ animationsCompleted }: Props) => {
 
   const navButtons = [
     {
+      id: "services",
+      label: "Services",
+      offset: 160,
+    },
+    {
       id: "work",
       label: "Work",
     },
     {
       id: "about",
       label: "About",
-    },
-    {
-      id: "blog",
-      label: "Blog",
     },
     {
       id: "contact",
@@ -146,12 +147,17 @@ const Burger = ({ animationsCompleted }: Props) => {
               closeNav={closeNav}
               id={button.id}
               label={button.label}
+              offset={button.offset}
               index={index}
               tabIndex={tabIndex}
               onKeyDown={button.onkeydown}
               pathname={pathname}
             />
           ))}
+          <div id="nav-divider" className={styles["divider"]} />
+          <a href="articles" className="nav-stagger opacity-0 translate-y-[10px]">
+            <span>Articles</span>
+          </a>
         </div>
       </aside>
     </div>
@@ -162,6 +168,7 @@ type BurgerButtonProps = {
   closeNav: () => void;
   id: string;
   label: string;
+  offset?: number;
   index: number;
   tabIndex: number;
   onKeyDown?: (e: React.KeyboardEvent<HTMLButtonElement>) => void;
@@ -172,6 +179,7 @@ const BurgerButton = ({
   closeNav,
   id,
   label,
+  offset = 0,
   index,
   tabIndex,
   onKeyDown,
@@ -188,7 +196,7 @@ const BurgerButton = ({
             scrollTo: {
               y: `#${id}-section`,
               autoKill: false,
-              // offsetY: id === "work" ? 0 : 140,
+              offsetY: offset,
             },
             duration: 0.75,
             ease: "power4.out",

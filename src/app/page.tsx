@@ -4,14 +4,14 @@
 
 // Custom imports
 import About from "~/components/About/About";
-import Blog from "~/components/Blog/Blog";
 import Contact from "~/components/Contact/Contact";
 import FloatingLinks from "~/components/FloatingLinks/FloatingLinks";
 import Hero from "~/components/Hero/Hero";
 import LowPolyBg from "~/components/LowPolyBackground/LowPolyBackground";
 import LPBGFooter from "~/components/LowPolyBackground/LPBGFooter";
-import Services from "~/components/Services/Services";
+import Services from "~/components/Services2/Services";
 import Work from "~/components/Work/Work";
+import JaggedDivider from "~/components/JaggedDivider/JaggedDivider";
 
 export default function Home() {
   return (
@@ -23,7 +23,7 @@ export default function Home() {
       <Services />
       <Work />
       <About />
-      <Blog />
+      <JaggedDivider />
       <Contact />
     </div>
   );

@@ -104,13 +104,14 @@ const LowPolySvgBackground = () => {
 
   useEffect(() => {
     const width = window.innerWidth;
-    let height = window.innerHeight * getWidth(isDesktop);
+    // let height = window.innerHeight * getWidth(isDesktop);
+    let height = window.innerHeight * 5.4 + (640 + 400 + 200);
     if (width < 768) {
       // Height of all elements in hero, services, and work sections - mobile
-      height = 750 + 100 + 750 + 100 + 950 + 800 + 800 + 350;
+      height = 750 + 100 + 1200 + 100 + 950 + 800 + 800 + 350;
     } else if (width < 1024) {
       // Height of all elements in hero, services, and work sections - tablet
-      height = 1000 + 200 + 800 + 100 + 950 + 800 + 800 + 375;
+      height = 1000 + 200 + 900 + 100 + 950 + 800 + 800 + 375;
     }
     const points = generatePoints(width, height, isDesktop);
     setDots(points);

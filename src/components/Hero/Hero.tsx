@@ -18,9 +18,9 @@ import Arrow from "~/res/svgs/arrow";
 gsap.registerPlugin(ScrollToPlugin);
 
 const Hero = ({}) => {
-  const [clickDirection, setClickDirection] = useState<"prev" | "next" | null>(
-    null
-  );
+  const [clickDirection, setClickDirection] = useState<
+    "prev" | "next" | "none" | null
+  >(null);
   const [loaded, setLoaded] = useState(false);
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
@@ -120,26 +120,26 @@ const Hero = ({}) => {
       if (hoveringZone !== currentZone) {
         currentZone = hoveringZone;
 
-        if (hoveringZone === "none") {
-          setClickDirection(null);
-        } else {
-          if (hoveringZone === "prev") {
-            setClickDirection("prev");
-            gsap.to(arrowButton, {
-              rotate: -45,
-              duration: 0.2,
-              ease: "power2.out",
-            });
-          } else if (hoveringZone === "next") {
-            setClickDirection("next");
+        // if (hoveringZone === "none") {
+        setClickDirection(hoveringZone);
+        // } else {
+        if (hoveringZone === "prev") {
+          // setClickDirection(hoveringZone);
+          gsap.to(arrowButton, {
+            rotate: -45,
+            duration: 0.2,
+            ease: "power2.out",
+          });
+        } else if (hoveringZone === "next") {
+          // setClickDirection(hoveringZone);
 
-            gsap.to(arrowButton, {
-              rotate: 135,
-              duration: 0.2,
-              ease: "power2.out",
-            });
-          }
+          gsap.to(arrowButton, {
+            rotate: 135,
+            duration: 0.2,
+            ease: "power2.out",
+          });
         }
+        // }
       }
     };
 
@@ -195,7 +195,7 @@ const Hero = ({}) => {
           <p className="stagger">
             With 4 years of experience as a solo web developer in a lean
             marketing team, I bridge the gap between tech and strategy -
-            handling tracking, pixels, CRM, accessibility, and consent tools so
+            handling web design, tracking, tool integration, and web accessibility so
             you don’t have to.
           </p>
           <div className={cx("stagger", styles["hero__content__ctas"])}>
@@ -222,11 +222,14 @@ const Hero = ({}) => {
         tabIndex={-1}
         aria-hidden
         ref={arrowButtonRef}
-        className={cx(styles["hero__arrow"], {
-          [styles["hero__arrow_visible"]]: clickDirection !== null,
-          [styles["hero__arrow_visible_prev"]]: clickDirection === "prev",
-          [styles["hero__arrow_visible_next"]]: clickDirection === "next",
-        })}
+        className={cx(
+          styles["hero__arrow"],
+          clickDirection === null
+            ? styles["hero__arrow_initial"]
+            : clickDirection === "none"
+            ? styles["hero__arrow_hidden"]
+            : styles["hero__arrow_visible"]
+        )}
         onClick={() => {
           stopAutoScroll();
           if (clickDirection === "next") {

@@ -1,0 +1,44 @@
+[
+    {
+        "name": "Web Design & Development",
+        "brief": "Clean responsive builds optimized for business goals.",
+        "description": "<p> I create modern, responsive websites that not only look great but also deliver a smooth, fast experience for your customers. My focus is on clean design, mobile-friendly builds, and performance that helps your business stand out online.</p><h4>What you get</h4><ul><li><strong>Fully Responsive Design</strong> optimized for desktop, tablet, and mobile.</li><li><strong>Fast Loading Speeds</strong> built with performance in mind to reduce bounce rates.</li><li><strong>Clean, Modern Layouts:</strong> professional designs that align with your brand.</li><li><strong>Smooth Transitions & Navigation:</strong> easy-to-use interfaces your customers will love.</li><li><strong>SEO-Friendly Structure</strong> designed to help your site rank better in search engines.</li></ul>",
+        "cta": "Start Web Design Project"
+    },
+    {
+        "name": "Tool Integration",
+        "brief": "Google Analytics, Meta Pixel, HubSpot, and consent managers.",
+        "description": "Creating cross-platform mobile applications for iOS and Android.",
+        "cta": "Connect My Tools"
+    },
+    {
+        "name": "E-commerce",
+        "brief": "Configuring products, collections, categories, and payments.",
+        "description": "Developing server-side applications and APIs.",
+        "cta": "Launch My Store"
+    },
+    {
+        "name": "SEO",
+        "brief": "Keyword research, site audits, blog posts, citation management.",
+        "description": "Creating and managing content that resonates with target audiences.",
+        "cta": "Boost My Visibility"
+    },
+    {
+        "name": "Web Hosting",
+        "brief": "Lightning fast speed, 99.9% uptime, and expert support.",
+        "description": "Developing engaging content that drives traffic and conversions.",
+        "cta": "Host My Site"
+    }, 
+    {
+        "name": "Maintenance Plan",
+        "brief": "Updates, backups, and performance checks.",
+        "description": "Providing ongoing support and maintenance for web applications.",
+        "cta": "Maintain My Website"
+    },
+    {
+        "name": "Accessibility Audit",
+        "brief": "Evaluating and improving website accessibility.",
+        "description": "Ensuring digital content is accessible to all users, including those with disabilities.",
+        "cta": "Make My Site Accessible"
+    }
+]

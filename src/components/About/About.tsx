@@ -15,6 +15,7 @@ const About = () => {
       const container = document.getElementById("container--about");
       const title = document.getElementById("title--about");
       const copy = document.getElementById("copy--about");
+      // const aboutName = document.getElementById("about-name");
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -57,6 +58,26 @@ const About = () => {
         },
         "<"
       );
+
+      // gsap.fromTo(
+      //   aboutName,
+      //   {
+      //     y: 20,
+      //     opacity: 0,
+      //   },
+      //   {
+      //     y: 0,
+      //     opacity: 1,
+      //     duration: 0.75,
+      //     ease: "power3.out",
+      //     scrollTrigger: {
+      //       trigger: aboutName,
+      //       start: "top 85%",
+      //       end: "bottom top",
+      //       toggleActions: "play none none reverse",
+      //     },
+      //   }
+      // );
     });
 
     return () => {
@@ -125,27 +146,6 @@ const About = () => {
             <br />
             If you’re looking for a developer who understand how your website
             fits into the bigger picture of marketing and growth, let’s talk.
-            {/* I’m a web developer who thrives in lean environments—where
-            initiative, clarity, and results matter most.
-            <br />
-            <br />
-            For the past 4 years, I’ve worked as the solo web developer on a
-            fast-paced marketing team, building and maintaining
-            business-critical websites from the ground up. From UX-driven design
-            to advanced integrations like Google Tag Manager, Meta Pixel,
-            HubSpot, and consent management solutions, I’ve handled it all—with
-            minimal oversight and a deep understanding of how development
-            supports marketing goals.
-            <br />
-            <br />I don’tjust write clean, scalable code—I help businesses
-            track, convert, and grow online. Whether it’s launching a new
-            landing page, troubleshooting analytics, or optimizing for
-            performance, I bring a calm, thoughtful approach to every project.
-            <br />
-            <br />
-            If you’re looking for someone who can design and build with
-            purpose—and who understands the tools that drive modern
-            marketing—let’s talk. */}
           </p>
           <div className={styles["about__right__mobile-skills"]}>
             <Skills
@@ -154,19 +154,24 @@ const About = () => {
               cn="skill-mobile"
             />
           </div>
-          {/* <div
-            className={cx(
-              styles["about__right__mobile-skills"],
-              styles["mobile-skills"]
-            )}
-          >
-            {skills.map((skill, index) => (
-              <span key={`${index}-${skill}`} className="skill">
-                {skill}
-              </span>
-            ))}
-          </div> */}
         </div>
+      </div>
+      <div className={cx(styles["about-name"], "slice")}>
+        <div className={styles["about-name__content"]}>
+          <div className="overflow-hidden">
+            <h3 id="about-name">About the name</h3>
+          </div>
+          <p>
+            “Sites by Velzy” reflects a family connection to California surf
+            history. Dale Velzy, a distant relative of mine, was a pioneering
+            surfboard shaper and ran his shop under the name “Surf Boards by
+            Velzy.” My work is in a very different medium, but I admire that
+            same spirit of craftsmanship and clarity. Where he shaped
+            surfboards, I shape websites - both built to serve people reliably
+            and stand the test of time.
+          </p>
+        </div>
+        <div className={styles["about-name__img"]} />
       </div>
     </div>
   );

@@ -8,11 +8,11 @@ import styles from "./Hero.module.scss";
 
 const topics = [
   "Business",
+  "Surf Shop",
   "Brewery",
   "Juice Bar",
   "Tattoo Studio",
   "Roofing company",
-  "Surf Shop",
   "Pirate Ship",
   "Auto Repair Shop",
   "Barbershop",

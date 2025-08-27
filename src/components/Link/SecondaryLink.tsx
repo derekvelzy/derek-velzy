@@ -1,5 +1,6 @@
 // Package imports
 import cx from "classnames";
+import Link from "next/link";
 
 // Custom importS
 import LinkArrow from "~/res/svgs/linkArrow";
@@ -25,7 +26,7 @@ const SecondaryLink = ({
   className,
 }: Props) => {
   return (
-    <a
+    <Link
       id={id}
       className={cx(
         styles["secondary-link"],
@@ -46,7 +47,7 @@ const SecondaryLink = ({
     >
       <p>{label}</p>
       <LinkArrow />
-    </a>
+    </Link>
   );
 };
 

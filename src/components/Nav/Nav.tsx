@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import cx from "classnames";
 
 // Custom imports
@@ -14,6 +14,7 @@ import { handleFocusChange } from "~/helpers/handleFocusChange";
 import Burger from "./Burger";
 import { useIsDesktop } from "~/helpers/useIsDesktop";
 import useCollapse from "./helpers/useCollapse";
+import SvB from "./SbV";
 
 const Nav = () => {
   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
@@ -25,32 +26,9 @@ const Nav = () => {
 
   const isDesktop = useIsDesktop();
   const pathname = usePathname();
-  const router = useRouter();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const isDesktop = window?.innerWidth >= 1024;
-      const homepage = pathname === "/";
-
-      if (!animationsCompleted) {
-        gsap.to(".shift-left", {
-          x: "0",
-          opacity: 1,
-          duration: homepage ? 1.5 : 0,
-          stagger: homepage ? 0.125 : 0,
-          ease: "power3.out",
-          delay: homepage ? 0.5 : 0,
-          onComplete: () => {
-            setAnimationsCompleted(true);
-          },
-        });
-      } else {
-        gsap.set(".shift-left", {
-          x: "0",
-          opacity: 1,
-        });
-      }
-
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: "body",
@@ -59,26 +37,6 @@ const Nav = () => {
           scrub: true,
         },
       });
-
-      if (homepage) {
-        tl.fromTo(
-          ".trans-up",
-          { y: "0" },
-          {
-            y: isDesktop ? "-34" : "-22",
-            duration: 1,
-            ease: "power4.out",
-            stagger: -0.05,
-          },
-          "<"
-        );
-        tl.fromTo(
-          ".fade-out",
-          { opacity: 1 },
-          { opacity: 0, duration: 1, ease: "power4.out" },
-          "<"
-        );
-      }
 
       tl.fromTo(
         "nav",
@@ -153,33 +111,10 @@ const Nav = () => {
           </button>
         </div>
         <div className="slice h-[76px] md:h-[100px] pt-5 md:pt-6 justify-between">
-          <button
-            id="logo"
-            className={styles["logo"]}
-            onClick={() => {
-              if (pathname === "/") {
-                gsap.to(window, {
-                  scrollTo: { y: "#top", autoKill: false },
-                  duration: 0.75,
-                  ease: "power4.out",
-                });
-              } else {
-                router.push("/");
-              }
-            }}
-            aria-label="Go to top of page"
-          >
-            <div className="shift-left font-alt opacity-0 translate-x-[-20px]">
-              <span>D</span>
-              <span className="trans-up fade-out opacity-0 inline-block">
-                erek
-              </span>
-            </div>
-            <div className="shift-left opacity-0 translate-x-[-20px] font-alt italic trans-up translate-y-[-22px] lg:translate-y-[-34px]">
-              <span>V</span>
-              <span className="fade-out opacity-0 inline-block">elzy</span>
-            </div>
-          </button>
+          <SvB
+            animationsCompleted={animationsCompleted}
+            setAnimationsCompleted={setAnimationsCompleted}
+          />
           <Burger animationsCompleted={animationsCompleted} />
         </div>
       </div>

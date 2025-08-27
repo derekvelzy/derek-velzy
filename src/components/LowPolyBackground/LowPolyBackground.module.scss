@@ -1,9 +1,10 @@
 .polygonAnimation {
     transition: 1s ease;
-    &.hover {
-        transition: 0.2s ease;
-        fill: rgba(82, 121, 111, 0.1);
-    }
+    // FOR POLYGON HOVER ANIMATION
+    // &.hover {
+    //     transition: 0.2s ease;
+    //     fill: rgba(82, 121, 111, 0.1);
+    // }
     fill: transparent;
 
 }

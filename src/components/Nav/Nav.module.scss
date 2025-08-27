@@ -20,6 +20,90 @@
     }
 }
 
+.sbv-logo {
+    cursor: pointer;
+
+    &__inner {
+        margin-left: -16px;
+        position: relative;
+
+        &__oval {
+            position: absolute;
+            top: 3px;
+            left: -2px;
+            overflow: hidden;
+        }
+    }
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: -2px;
+
+        span {
+            display: block;
+            font-family: var(--font-playfair);
+            line-height: 1.15;
+            color: var(--deepMarine)
+        }
+
+        &__row1, &__row2 {
+            overflow: hidden;
+            padding: 0 1rem;
+        }
+
+        &__row1 {
+            span {
+                font-weight: 500;
+                font-size: 22px;
+            }
+        }
+
+        &__row2 {
+            padding-bottom: 2px;
+            span {
+                font-style: italic;
+                margin-left: 1px;
+                font-weight: 600;
+                font-size: 32px;
+            }
+        }
+    }
+
+    @media (min-width: 1024px) {
+        &__inner {
+            margin-left: -44px;
+
+            &__oval {
+                top: 6px;
+                left: -2px;
+            }
+        }
+
+        &__text {
+            margin-left: 0;
+
+            span {
+                font-size: 40px;
+            }
+
+            &__row1, &__row2 {
+                padding: 0 1rem;
+                padding-bottom: 2px;
+            }
+
+            &__row2 {
+                margin-top: -2px;
+
+                span {
+                     margin-left: 24px;
+                }
+            }
+        }
+    }
+}
+
 .burger {
     display: flex;
     flex-direction: column;

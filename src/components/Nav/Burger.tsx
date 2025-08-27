@@ -8,6 +8,7 @@ import { usePathname, useRouter } from "next/navigation";
 import styles from "./Nav.module.scss";
 import { handleFocusChange } from "~/helpers/handleFocusChange";
 import FloatingLinks from "../FloatingLinks/FloatingLinks";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -155,9 +156,9 @@ const Burger = ({ animationsCompleted }: Props) => {
             />
           ))}
           <div id="nav-divider" className={styles["divider"]} />
-          <a href="articles" className="nav-stagger opacity-0 translate-y-[10px]">
+          <Link href="/articles" className="nav-stagger opacity-0 translate-y-[10px]">
             <span>Articles</span>
-          </a>
+          </Link>
         </div>
       </aside>
     </div>

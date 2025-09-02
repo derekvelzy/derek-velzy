@@ -4,7 +4,7 @@
         "titleLine2": "Rebuild",
         "location": "Zero Motorcycles",
         "description": "<p>Collaborated with development agency to re-design and re-build the Zero Motorcycles website from scratch. Created project timeline, held semiweekly dev stand-ups, and contributed in development. With 14 unique locales, a headless Shopify e-commerce site, model pages, dealer locator, and a variety of other new pages - we deployed the project within <bold>6 months</bold> of start.</p>",
-        "image1": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/XE-page.png",
+        "image1": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/zero-xb.jpg",
         "image2": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/Future-page-hugo.png",
         "skills": [
             "Design & Development",
@@ -12,6 +12,20 @@
             "SEO"
         ],
         "link": "zero-website-rebuild"
+    },
+    {
+        "titleLine1": "Adventure",
+        "titleLine2": "Kitty",
+        "description": "<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.</p>",
+        "image1": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/AK_Camo.png",
+        "image2": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/AK_Hero-w-logo.png",
+        "skills": [
+            "Design",
+            "E-commerce",
+            "Tool Integration",
+            "SEO"
+        ],
+        "link": "zero-direct-to-consumer"
     },
     {
         "titleLine1": "Lead",
@@ -25,19 +39,5 @@
             "Tool Integration"
         ],
         "link": "lead-capturing"
-    },
-    {
-        "titleLine1": "Adventure",
-        "titleLine2": "Kitty",
-        "description": "<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.</p>",
-        "image1": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/modelbuilder.png",
-        "image2": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/modelbuilder.png",
-        "skills": [
-            "Design",
-            "E-commerce",
-            "Tool Integration",
-            "SEO"
-        ],
-        "link": "zero-direct-to-consumer"
     }
 ]

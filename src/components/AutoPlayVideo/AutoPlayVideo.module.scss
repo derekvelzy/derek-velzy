@@ -1,0 +1,88 @@
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.container iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50vw;
+  height: 25vh;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  border: none;
+  pointer-events: none; /* Disable interactions if needed */
+
+  @media (max-height: 900px) {
+    
+    height: 35vh;
+  }
+}
+
+/* Alternative cover styles - you can use either approach */
+.containerCover {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.containerCover iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%; /* Oversized to ensure coverage */
+  height: 120%; /* Oversized to ensure coverage */
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  border: none;
+  pointer-events: none;
+}
+
+/* More aggressive cover for very different aspect ratios */
+.containerCoverAggressive {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.containerCoverAggressive iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  border: none;
+  pointer-events: none;
+}
+
+/* Optional: Add a loading state */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  color: #fff;
+}
+
+/* Optional: Responsive aspect ratio */
+.aspectRatio16x9 {
+  aspect-ratio: 16 / 9;
+}
+
+.aspectRatio4x3 {
+  aspect-ratio: 4 / 3;
+}
+
+.aspectRatio1x1 {
+  aspect-ratio: 1 / 1;
+}

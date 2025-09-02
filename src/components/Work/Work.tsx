@@ -373,6 +373,19 @@ const Block = ({
               className={cx("object-cover", `work-img-fade-${index}`)}
               sizes="(max-width: 479px) 100vw, (max-width: 1279px) 980px"
             />
+
+            {/* <AutoPlayVideoEnhanced
+              vimeoId="1115305661" // Your existing video ID
+              triggerOnView={true}
+              threshold={0.5} // Plays when 50% visible
+              muted={true}
+              loop={true}
+              className={cx(
+                "w-[552px] min-w-[552px]",
+                `work-img-fade-${index}`
+              )}
+              aspectRatio="none"
+            /> */}
           </div>
         </div>
         <div className={styles["block__content"]}>

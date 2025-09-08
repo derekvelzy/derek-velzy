@@ -10,6 +10,7 @@ import cx from "classnames";
 // Custom imports
 import styles from "./Blog.module.scss";
 import { handleFocusChange } from "~/helpers/handleFocusChange";
+import blogs from "./blogs.json";
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -57,18 +58,6 @@ const Blog = () => {
     };
   }, []);
 
-  const blogs = [
-    {
-      title:
-        "From Layouts to Flow: How Web and Interior Design Mirror Each Other",
-      description:
-        "Many of us have walked into a friends home and felt instantly at ease. The sunlight from their window reflects off a piece of artwork...",
-      image:
-        "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/sarah-lyon-min.jpeg",
-      href: "https://medium.com/@dmvelzy/from-layouts-to-flow-how-web-and-interior-design-mirror-each-other-0d1db9751fa6",
-    },
-  ];
-
   return (
     <div id="blog" className={styles["blogs__container"]}>
       <div className="absolute top-[-140px]" id="blog-section" />
@@ -81,7 +70,7 @@ const Blog = () => {
           </div>
           <p id="subtitles--blog">Stories that I’ve been inspired to write.</p>
         </div>
-        <div className="flex">
+        <div className={styles["blogs__list"]}>
           {blogs.map((blog, index) => (
             <a
               key={index}
@@ -112,9 +101,10 @@ const Blog = () => {
                   sizes="(max-width: 479px) 100vw, (max-width: 1279px) 440px"
                 />
               </div>
-              <h2 className="font-header font-[500] text-[18px] lg:text-[22px] text-black">
+              <h2 className={styles["blog-card__title"]}>
                 {blog.title}
               </h2>
+              <span>{blog.date}</span>
               <p className="font-sans text-gray-600">{blog.description}</p>
             </a>
           ))}

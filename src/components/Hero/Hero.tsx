@@ -164,13 +164,15 @@ const Hero = ({}) => {
     );
   }, []);
 
+  const staggerClass = "stagger opacity-0 translate-y-[50px]";
+
   return (
     <div id="top" className={styles["hero__container"]}>
       <div className={cx("slice", styles["hero"])}>
         <div className={styles["hero__content"]}>
           <div className={styles["hero__content__title"]}>
             <div className="overflow-hidden">
-              <h1 className="stagger">
+              <h1 className={staggerClass}>
                 You have a{" "}
                 {!loaded ? (
                   <span className="font-[700] font-alt italic  pl-[2px] sm:pl-1 h-[80px]">
@@ -186,19 +188,19 @@ const Hero = ({}) => {
               </h1>
             </div>
             <div className="overflow-hidden">
-              <h1 className="stagger">to run. Let me handle</h1>
+              <h1 className={staggerClass}>to run. Let me handle</h1>
             </div>
             <div className="overflow-hidden pb-[4px]">
-              <h1 className="stagger">the website.</h1>
+              <h1 className={staggerClass}>the website.</h1>
             </div>
           </div>
-          <p className="stagger">
+          <p className={staggerClass}>
             With 4 years of experience as a solo web developer in a lean
             marketing team, I bridge the gap between tech and strategy -
-            handling web design, tracking, tool integration, and web accessibility so
-            you don’t have to.
+            handling web design, tracking, tool integration, and web
+            accessibility so you don’t have to.
           </p>
-          <div className={cx("stagger", styles["hero__content__ctas"])}>
+          <div className={cx(staggerClass, styles["hero__content__ctas"])}>
             <Link id="hero-main-cta" href="https://calendly.com/dmvelzy/30min">
               Book a free discovery call
             </Link>

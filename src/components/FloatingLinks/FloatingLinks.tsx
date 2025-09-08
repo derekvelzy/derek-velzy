@@ -51,7 +51,7 @@ const FloatingLink = ({ label, href, icon }: Props) => {
           [styles["boxy"]]:
             href.includes("mailto") || href.includes("linkedin"),
         },
-        "stagger"
+        "stagger opacity-0 translate-y-[50px]"
       )}
     >
       <div>{icon}</div>

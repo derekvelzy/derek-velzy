@@ -104,8 +104,7 @@ const LowPolySvgBackground = () => {
 
   useEffect(() => {
     const width = window.innerWidth;
-    // let height = window.innerHeight * getWidth(isDesktop);
-    let height = window.innerHeight * 5.4 + (640 + 400 + 200);
+    let height = window.innerHeight * 5.4 + (640 + 400 + 230);
     if (width < 768) {
       // Height of all elements in hero, services, and work sections - mobile
       height = 750 + 100 + 1200 + 100 + 950 + 800 + 800 + 350;

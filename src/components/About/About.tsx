@@ -8,6 +8,7 @@ import cx from "classnames";
 // Custom imports
 import styles from "./About.module.scss"; // Assuming you have a CSS module for styles
 import Skills from "../Page/Skills";
+import Image from "next/image";
 
 const About = () => {
   useEffect(() => {
@@ -15,7 +16,7 @@ const About = () => {
       const container = document.getElementById("container--about");
       const title = document.getElementById("title--about");
       const copy = document.getElementById("copy--about");
-      // const aboutName = document.getElementById("about-name");
+      const aboutName = document.getElementById("about-name");
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -58,26 +59,17 @@ const About = () => {
         },
         "<"
       );
-
-      // gsap.fromTo(
-      //   aboutName,
-      //   {
-      //     y: 20,
-      //     opacity: 0,
-      //   },
-      //   {
-      //     y: 0,
-      //     opacity: 1,
-      //     duration: 0.75,
-      //     ease: "power3.out",
-      //     scrollTrigger: {
-      //       trigger: aboutName,
-      //       start: "top 85%",
-      //       end: "bottom top",
-      //       toggleActions: "play none none reverse",
-      //     },
-      //   }
-      // );
+      tl.fromTo(
+        aboutName,
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power3.out",
+        },
+        "<"
+      );
     });
 
     return () => {
@@ -107,7 +99,15 @@ const About = () => {
         <div className={styles["about__left"]}>
           <div
             className={cx("photo-frame", styles["about__left__photo-frame"])}
-          />
+          >
+            <Image
+              src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/4G6A9990_edit.JPG"
+              alt="Profile photo"
+              fill={true}
+              sizes="(max-width: 479px) 100vw, (max-width: 1279px) 440px"
+              className="object-cover"
+            />
+          </div>
           <Skills skills={skills} id="desktop-container-skill" cn="skill" />
         </div>
         <div className={styles["about__right"]}>
@@ -121,7 +121,14 @@ const About = () => {
               "photo-frame",
               styles["about__right__mobile-photo-frame"]
             )}
-          />
+          >
+            <Image
+              src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/4G6A9990_edit.JPG"
+              alt="Profile photo"
+              fill={true}
+              sizes="(max-width: 479px) 100vw, (max-width: 1279px) 440px"
+            />
+          </div>
           <p id="copy--about" className="mb-8 lg:mb-0">
             I’m a web developer and digital marketing tech specialist who works
             best in lean, fast-moving environments - where quanitifiable
@@ -156,10 +163,10 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div className={cx(styles["about-name"], "slice")}>
+      <div id="about-name" className={cx(styles["about-name"], "slice")}>
         <div className={styles["about-name__content"]}>
           <div className="overflow-hidden">
-            <h3 id="about-name">About the name</h3>
+            <h3>About the name</h3>
           </div>
           <p>
             “Sites by Velzy” reflects a family connection to California surf
@@ -171,7 +178,15 @@ const About = () => {
             and stand the test of time.
           </p>
         </div>
-        <div className={styles["about-name__img"]} />
+        <div className={styles["about-name__img"]}>
+          <Image
+            src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/D1B765F9-8D1B-48F8-B9DB-063E9A9F677C.JPG"
+            alt="Surf photo"
+            fill={true}
+            sizes="(max-width: 479px) 100vw, (max-width: 1279px) 440px"
+            className="object-cover"
+          />
+        </div>
       </div>
     </div>
   );

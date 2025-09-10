@@ -5,7 +5,7 @@ import "./globals.css";
 import Nav from "~/components/Nav/Nav";
 
 export const metadata: Metadata = {
-  title: "Derek Velzy",
+  title: "Sites by Velzy",
   description: "Designed and Developed by Derek Velzy",
   icons: {
     icon: "/favicon.ico?v=3"

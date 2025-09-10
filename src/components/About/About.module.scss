@@ -62,12 +62,16 @@
 
         &__mobile-photo-frame {
             display: block;
-            aspect-ratio: 0.8;
+            aspect-ratio: 1.25;
             height: fit-content;
             background-color: var(--lightGray);
             box-shadow: var(--shadow-xl);
             border-radius: 6px;
             margin-bottom: 2rem;
+
+            img {
+                object-fit: cover;
+            }
 
             @media (min-width: 1024px) {
                 display: none;
@@ -94,7 +98,7 @@
 
     &-name {
         display: flex;
-        flex-direction: row-reverse;
+        flex-direction: column-reverse;
         gap: 2rem;
 
         h3 {
@@ -115,6 +119,15 @@
             position: relative;
             flex: 1;
             background-color: var(--lightGray);
+            min-height: 200px;
+        }
+
+        @media (min-width: 1024) {
+            flex-direction: row-reverse;
+
+            &__img {
+                min-height: none;
+            }
         }
     }
 }

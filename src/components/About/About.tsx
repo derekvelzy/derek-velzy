@@ -101,7 +101,7 @@ const About = () => {
             className={cx("photo-frame", styles["about__left__photo-frame"])}
           >
             <Image
-              src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/4G6A9990_edit.JPG"
+              src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/PortfolioPhoto.jpg"
               alt="Profile photo"
               fill={true}
               sizes="(max-width: 479px) 100vw, (max-width: 1279px) 440px"
@@ -123,7 +123,7 @@ const About = () => {
             )}
           >
             <Image
-              src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/4G6A9990_edit.JPG"
+              src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/PortfolioPhoto.jpg"
               alt="Profile photo"
               fill={true}
               sizes="(max-width: 479px) 100vw, (max-width: 1279px) 440px"

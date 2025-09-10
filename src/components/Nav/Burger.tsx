@@ -9,6 +9,7 @@ import styles from "./Nav.module.scss";
 import { handleFocusChange } from "~/helpers/handleFocusChange";
 import FloatingLinks from "../FloatingLinks/FloatingLinks";
 import Link from "next/link";
+import cx from "classnames";
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -155,8 +156,17 @@ const Burger = ({ animationsCompleted }: Props) => {
               pathname={pathname}
             />
           ))}
-          <div id="nav-divider" className={styles["divider"]} />
-          <Link href="/articles" className="nav-stagger opacity-0 translate-y-[10px]">
+          <div
+            id="nav-divider"
+            className={cx(
+              styles["divider"],
+              "nav-stagger opacity-0 translate-y-[10px]"
+            )}
+          />
+          <Link
+            href="/articles"
+            className="nav-stagger opacity-0 translate-y-[10px]"
+          >
             <span>Articles</span>
           </Link>
         </div>

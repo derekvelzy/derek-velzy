@@ -18,8 +18,6 @@ const Blog = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       const container = document.getElementById("container--blog");
-      const title = document.getElementById("title--blog");
-      const subtitles = document.getElementById("subtitles--blog");
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -30,24 +28,14 @@ const Blog = () => {
         },
       });
 
-      tl.fromTo(
-        title,
-        { y: 56 },
+      tl.to(
+        ".blog-stagger",
         {
           y: 0,
+          opacity: 1,
           duration: 0.75,
           ease: "power3.out",
-        },
-        "<"
-      );
-      tl.fromTo(
-        subtitles,
-        { y: 56 },
-        {
-          y: 0,
-          duration: 0.75,
-          delay: 0.15,
-          ease: "power3.out",
+          stagger: 0.1,
         },
         "<"
       );
@@ -58,17 +46,21 @@ const Blog = () => {
     };
   }, []);
 
+  const blogStagger = "blog-stagger opacity-0 translate-y-[12px]";
+
   return (
     <div id="blog" className={styles["blogs__container"]}>
       <div className="absolute top-[-140px]" id="blog-section" />
-      <div id="container--blog" className={cx("slice", styles["blogs"])}>
-        <div>
+      <div id="container--blog" className={cx("", styles["blogs"])}>
+        <div className="mb-8">
           <div className={styles["blogs__title"]}>
-            <h2 id="title--blog" className="slice-title">
+            <h2 id="title--blog" className={cx("slice-title", blogStagger)}>
               Articles
             </h2>
           </div>
-          <p id="subtitles--blog">Stories that I’ve been inspired to write.</p>
+          <p id="subtitles--blog" className={blogStagger}>
+            Stories that I’ve been inspired to write.
+          </p>
         </div>
         <div className={styles["blogs__list"]}>
           {blogs.map((blog, index) => (
@@ -77,7 +69,7 @@ const Blog = () => {
               href={blog.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={styles["blog-card"]}
+              className={cx(styles["blog-card"], blogStagger)}
               onKeyDown={(e) => {
                 if (e.key === "Tab" && e.shiftKey && index === 0) {
                   e.preventDefault();
@@ -101,9 +93,7 @@ const Blog = () => {
                   sizes="(max-width: 479px) 100vw, (max-width: 1279px) 440px"
                 />
               </div>
-              <h2 className={styles["blog-card__title"]}>
-                {blog.title}
-              </h2>
+              <h2 className={styles["blog-card__title"]}>{blog.title}</h2>
               <span>{blog.date}</span>
               <p className="font-sans text-gray-600">{blog.description}</p>
             </a>

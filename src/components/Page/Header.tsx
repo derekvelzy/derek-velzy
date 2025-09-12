@@ -11,7 +11,7 @@ import Arrow from "~/res/svgs/arrow";
 
 type Props = {
   title: string;
-  place: string;
+  place?: string;
   href: string;
   src: string;
   imgStyles?: React.CSSProperties;
@@ -32,9 +32,11 @@ const Header = ({ title, place, href, src, imgStyles }: Props) => {
           </div>
         </div>
         <div className={styles["header__top-row__right-side"]}>
-          <div className="overflow-hidden">
-            <span className="title--flip">{place}</span>
-          </div>
+          {place && (
+            <div className="overflow-hidden">
+              <span className="title--flip">{place}</span>
+            </div>
+          )}
           <div className="overflow-hidden">
             <SecondaryLink
               href={href}

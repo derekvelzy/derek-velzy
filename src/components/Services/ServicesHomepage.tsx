@@ -1,3 +1,5 @@
+"use client";
+
 // Package imports
 import { useState } from "react";
 import cx from "classnames";

@@ -1,3 +1,5 @@
+"use client";
+
 // Package imports
 import { useEffect } from "react";
 import gsap from "gsap";

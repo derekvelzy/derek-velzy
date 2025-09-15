@@ -14,7 +14,6 @@ interface AutoPlayVideoProps {
   muted?: boolean;
   className?: string;
   aspectRatio?: "16x9" | "4x3" | "1x1" | "none";
-  objectFit?: "fill" | "cover"; // New prop for object-fit behavior
   onPlay?: () => void;
   onPause?: () => void;
   onEnded?: () => void;
@@ -38,7 +37,6 @@ const AutoPlayVideo = forwardRef<AutoPlayVideoRef, AutoPlayVideoProps>(({
   loop = true,
   muted = true,
   className = "",
-  objectFit = "fill", // Default to normal fill behavior
 //   aspectRatio = "16x9",
   onPlay,
   onPause,
@@ -178,7 +176,7 @@ const AutoPlayVideo = forwardRef<AutoPlayVideoRef, AutoPlayVideoProps>(({
   }, [triggerOnView, isInView, playVideo, pauseVideo, threshold, rootMargin]);
 
   const containerClasses = cx(
-    objectFit === "cover" ? styles.containerCover : styles.container,
+    styles.container,
     // {
     //   [styles.aspectRatio16x9]: aspectRatio === "16x9",
     //   [styles.aspectRatio4x3]: aspectRatio === "4x3",

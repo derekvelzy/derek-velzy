@@ -1,9 +1,10 @@
-const LinkArrow = () => (
+const LinkArrow = ({ className }: { className?: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="16"
     height="16"
     viewBox="0 0 14 14"
+    className={className}
     fill="none"
   >
     <path

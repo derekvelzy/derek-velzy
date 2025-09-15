@@ -2,6 +2,7 @@
 
 // Package imports
 import gsap from "gsap";
+import cx from "classnames";
 
 // Custom imports
 import LPBGFooter from "../LowPolyBackground/LPBGFooter";
@@ -9,10 +10,11 @@ import { useEffect } from "react";
 import FloatingLinks from "../FloatingLinks/FloatingLinks";
 
 type Props = {
+  overflowHidden?: boolean;
   children: React.ReactNode;
 };
 
-const Page = ({ children }: Props) => {
+const Page = ({ overflowHidden = false, children }: Props) => {
   useEffect(() => {
     gsap.to(".title--flip", {
       opacity: 1,
@@ -40,7 +42,14 @@ const Page = ({ children }: Props) => {
 
   return (
     <div className="bg-[#F8F9FA] relative w-full">
-      <div className="px-5 md:px-8 lg:px-0 max-w-[964px] mx-auto">{children}</div>
+      <div
+        className={cx(
+          "px-5 md:px-8 lg:px-0 max-w-[964px] mx-auto z-[1] relative",
+          { "overflow-hidden": overflowHidden }
+        )}
+      >
+        {children}
+      </div>
       <div className="h-[45vh]" />
       <LPBGFooter />
       <FloatingLinks />

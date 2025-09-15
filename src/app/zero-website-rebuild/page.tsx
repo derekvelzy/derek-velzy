@@ -7,10 +7,12 @@ import { Header, TextAndImageBlock } from "~/components/Page";
 import Video from "~/components/Video/Video";
 import Skills from "~/components/Page/Skills";
 import Page from "~/components/Page/Page";
+import BookCallCTA from "~/components/BookCallCTA/BookCallCTA";
+import Involved from "~/components/Page/Involved";
 
 export default function ZeroWebsiteRebuild() {
   return (
-    <Page>
+    <Page overflowHidden>
       <Header
         title="Website Rebuild"
         place="Zero Motorcycles"
@@ -56,12 +58,14 @@ export default function ZeroWebsiteRebuild() {
             </ul>
 
           `}
-        images={["https://aywnqw1wyioophsr.public.blob.vercel-storage.com/Navigation-element.png"]}
+        images={[
+          "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/Navigation-element.png",
+        ]}
         square
         swap
       />
       <Video />
-      <p className="[&>strong]:text-[var(--deepMarine)] mb-[6rem]">
+      <p className="[&>strong]:text-[var(--deepMarine)] mb-[4rem]">
         The final site earned an{" "}
         <strong>Honorable Mention from Awwwards</strong> and a{" "}
         <strong>7.74 judge’s score on CSS Design Awards</strong> — solid
@@ -84,6 +88,14 @@ export default function ZeroWebsiteRebuild() {
         ]}
         id="container-tools"
         cn="tool"
+      />
+      <Involved
+        service="Web Design and Development"
+        link="/services#web-design"
+      />
+      <BookCallCTA
+        smallPadding
+        label="Ready for a website redesign that performs like this?"
       />
     </Page>
   );

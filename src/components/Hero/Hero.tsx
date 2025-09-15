@@ -201,7 +201,7 @@ const Hero = ({}) => {
             accessibility so you don’t have to.
           </p>
           <div className={cx(staggerClass, styles["hero__content__ctas"])}>
-            <Link id="hero-main-cta" href="https://calendly.com/dmvelzy/30min">
+            <Link id="hero-main-cta" href="https://calendly.com/dmvelzy/30min" newPage>
               Book a free discovery call
             </Link>
             <Button

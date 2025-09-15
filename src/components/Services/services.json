@@ -1,44 +1,64 @@
 [
     {
-        "name": "Web Design & Development",
+        "name": "Web Design and Development",
         "brief": "Clean responsive builds optimized for business goals.",
+        "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/web-design.jpg",
         "description": "<p>I create modern, responsive websites that not only look great but also deliver a smooth, fast experience for your customers. Mobile devices account for roughly 64% of web traffic (up to 72% for e-commerce shops). My focus is on clean design, mobile-friendly builds, and performance that helps your business stand out online.</p><h4>What you get</h4><ul><li><strong>Fully Responsive Design</strong> optimized for desktop, tablet, and mobile.</li><li><strong>Fast Loading Speeds</strong> built with performance in mind to reduce bounce rates.</li><li><strong>Clean, Modern Layouts:</strong> professional designs that align with your brand.</li><li><strong>Smooth Transitions & Navigation:</strong> easy-to-use interfaces your customers will love.</li><li><strong>SEO-Friendly Structure</strong> designed to help your site rank better in search engines.</li></ul>",
-        "cta": "Start Web Design Project"
+        "cta": "Start Web Design Project",
+        "secondary-cta": "See how I applied this for Zero Motorcycles",
+        "secondary-cta-link": "/zero-website-rebuild",
+        "service-id": "web-design"
     },
     {
         "name": "Tool Integration",
         "brief": "Google Analytics, Meta Pixel, HubSpot, and consent managers.",
+        "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/tool-integration.jpg",
         "description": "<p>I help your business run smoothly by connecting the tools you already use, or need to use, directly into your website. From contact forms that go to your email or CRM, to booking systems, Analytics, or payment platforms, I'll make sure to get everything talking to each other.</p><h4>What you get</h4><ul><li><strong>Custom integrations:</strong> connect CRMs, booking tools, or POS systems.</li><li><strong>Contact & lead forms:</strong> submissions delivered directly to your inbox or CRM.</li><li><strong>Payment gateways:</strong> secure online payment setup for services or products.</li><li><strong>Analytics & tracking:</strong> Google Analytics, Meta Pixel, or HubSpot integration.</li></ul>",
-        "cta": "Connect My Tools"
+        "cta": "Connect My Tools",
+        "secondary-cta": "See how I applied this for Adventure Kitty",
+        "secondary-cta-link": "/adventure-kitty",
+        "service-id": "tool-integration"
     },
     {
         "name": "E-commerce",
         "brief": "Configuring products, collections, categories, and payments.",
+        "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/e-commerce.jpg",
         "description": "<p>Starting that online business you've always dreamed of? Or maybe you're just looking to re-organize your products or collections. I help small businesses improve their online store using Shopify, the most trusted e-commerce platform. I'll set up everything from products to payments, plus integrate apps or build custom features so your shop works the way your business needs to.</p><h4>What you get</h4><ul><li><strong>Full Shopify store setup:</strong> products, collections, checkout, and navigation.</li><li><strong>Theme customization:</strong> clean, branded design tailored to your business.</li><li><strong>App integration:</strong> connect tools for reviews, subscriptions, and more.</li><li><strong>Custom features:</strong> if you need something unique, I can build it.</li></ul>",
-        "cta": "Launch My Store"
+        "cta": "Launch My Store",
+        "secondary-cta": "See how I applied this for Adventure Kitty",
+        "secondary-cta-link": "/adventure-kitty",
+        "service-id": "e-commerce"
     },
     {
         "name": "SEO",
         "brief": "Keyword research, site audits, blog posts, citation management.",
+        "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/seo.jpg",
         "description": "<p>Getting found online is just as important as having a well-designed site. I'll set up your website with SEO best practices so search engines understand your content and customers can find when they're searching locally.</p><h4>What you get</h4><ul><li><strong>On-page SEO:</strong> optimized titles, descriptions, and headings.</li><li><strong>Keyword setup:</strong> integration of keywords your customers search for.</li><li><strong>Mobile optimization:</strong> ensures you rank higher in mobile searches.</li><li><strong>Google Business Profile guidance:</strong> help setting up or improving your local listing.</li><li><strong>SEO-friendly Structure:</strong> clear site architecture that search engines love.</li></ul>",
-        "cta": "Boost My Visibility"
+        "cta": "Boost My Visibility",
+        "service-id": "seo"
     },
     {
         "name": "Web Hosting",
         "brief": "Lightning fast speed, 99.9% uptime, and expert support.",
+        "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/web-hosting.jpg",
         "description": "<p>Hosting doesn't have to be complicated. I'll set up fast, secure hosting for your website so it's always available and running smoothly. No confusing tech talk, just reliable performance and peace of mind.</p><h4>What you get</h4><ul><li><strong>Fast, reliable hosting:</strong> built for performance and uptime.</li><li><strong>Custom domain setup:</strong> professional web address (yourbusiness.com).</li><li><strong>Server maintenance:</strong> handled so you don't need to worry about downtime.</li><li><strong>Email setup:</strong> professional email addresses tied to your domain.</li></ul>",
-        "cta": "Host My Site"
+        "cta": "Host My Site",
+        "service-id": "web-hosting"
     }, 
     {
         "name": "Maintenance Plan",
         "brief": "Updates, backups, and performance checks.",
+        "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/maintenance-plan.jpg",
         "description": "<p>Websites aren't always “set it and forget it”. With a maintenance plan, I'll keep your site updated, secure, and performing at its best so you can focus on running your business instead of worrying about plugins, backups, or hacks.</p><h4>What you get</h4><ul><li><strong>Regular updates: </strong> keeping your site, themes, and plugins up-to-date.</li><li><strong>Security monitoring:</strong> protection against malware and hacks.</li><li><strong>Backups:</strong> automatic backups in case anything goes wrong.</li><li><strong>Performance monitoring:</strong> checking site speed and uptime regularly.</li><li><strong>Priority support:</strong> quick response if issues ever arise.</li></ul>",
-        "cta": "Maintain My Website"
+        "cta": "Maintain My Website",
+        "service-id": "maintenance-plan"
     },
     {
         "name": "Accessibility Audit",
         "brief": "Evaluating and improving website accessibility.",
+        "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/accessibility-audit.jpg",
         "description": "<p>Every customer should be able to use your website. I'll review your site for accessibility best practices to ensire it's inclusive and meets modern standards, helping you avoid missed opportunities and build trust with your audience.</p><h4>What you get</h4><ul><li><strong>Accessibility review:</strong> identify issues preventing usability.</li><li><strong>Compliance checklist:</strong> based on WCAG and ADA guidelines.</li><li><strong>Fixes implemented:</strong> I don't just give you a list - I'll correct the issues directly.</li><li><strong>Color & contrast adjustments:</strong> ensuring text and visuals are easy to read.</li><li><strong>Navigation improvements:</strong> keyboard and screen reader-friendly updates.</li></ul>",
-        "cta": "Make My Site Accessible"
+        "cta": "Make My Site Accessible",
+        "service-id": "accessibility-audit"
     }
 ]

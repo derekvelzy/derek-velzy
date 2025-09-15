@@ -5,7 +5,7 @@ import gsap from "gsap";
 
 // Custom imports
 import services from "./services.json";
-import styles from "./Services.module.scss";
+import styles from "./ServicesHomepage.module.scss";
 import Button from "../Button/Button";
 
 const Services = () => {
@@ -98,20 +98,6 @@ const Services = () => {
               ))}
             </select>
           </div>
-
-          {/* <div>
-            <p>
-              I create modern, responsive websites that not only look great but also deliver a smooth, fast experience for your customers. My focus is on clean design, mobile-friendly builds, and performance that helps your business stand out online.
-            </p>
-            <h4>What you get</h4>
-            <ul>
-                <li><strong>Fully Responsive Design</strong> optimized for desktop, tablet, and mobile.</li>
-                <li><strong>Fast Loading Speeds</strong> built with performance in mind to reduce bounce rates.</li>
-                <li><strong>Clean, Modern Layouts:</strong> professional designs that align with your brand.</li>
-                <li><strong>Smooth Transitions & Navigation:</strong> easy-to-use interfaces your customers will love.</li>
-                <li><strong>SEO-Friendly Structure</strong> designed to help your site rank better in search engines.</li>
-            </ul>
-          </div> */}
 
           <div className={styles["services__details__content"]}>
             <div className={styles["services__details__content__text"]}>

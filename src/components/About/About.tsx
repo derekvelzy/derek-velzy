@@ -27,17 +27,13 @@ const About = () => {
         },
       });
 
-      tl.fromTo(
-        ".photo-frame",
-        { y: 50, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          ease: "power3.out",
-          stagger: 0.125,
-        }
-      );
+      tl.to(".photo-frame", {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power3.out",
+        stagger: 0.125,
+      });
       tl.fromTo(
         title,
         { y: 60 },
@@ -95,10 +91,13 @@ const About = () => {
   return (
     <div id="about" className={styles["about"]}>
       <div className="absolute top-[-100px]" id="about-section" />
-      <div id="container--about" className="slice gap-8">
+      <div id="container--about" className="gap-8 flex">
         <div className={styles["about__left"]}>
           <div
-            className={cx("photo-frame", styles["about__left__photo-frame"])}
+            className={cx(
+              "photo-frame opacity-0 translate-y-[50px]",
+              styles["about__left__photo-frame"]
+            )}
           >
             <Image
               src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/PortfolioPhoto.jpg"
@@ -108,17 +107,17 @@ const About = () => {
               className="object-cover"
             />
           </div>
-          <Skills skills={skills} id="desktop-container-skill" cn="skill" />
+          <div className="mt-4">
+            <Skills skills={skills} id="desktop-container-skill" cn="skill" />
+          </div>
         </div>
         <div className={styles["about__right"]}>
           <div className={styles["about__right__title"]}>
-            <h2 id="title--about" className="slice-title">
-              About
-            </h2>
+            <h1 id="title--about">About</h1>
           </div>
           <div
             className={cx(
-              "photo-frame",
+              "photo-frame opacity-0 translate-y-[50px]",
               styles["about__right__mobile-photo-frame"]
             )}
           >
@@ -151,8 +150,11 @@ const About = () => {
             communicating in plain English, without all the tech jargon.
             <br />
             <br />
-            If you’re looking for a developer who understand how your website
-            fits into the bigger picture of marketing and growth, let’s talk.
+            Based in Orange County, California, I partner with businesses
+            locally and remotely to deliver websites that are fast, accessible,
+            and built to drive measurable results. If you’re looking for a
+            developer who understand how your website fits into the bigger
+            picture of marketing and growth, let’s talk.
           </p>
           <div className={styles["about__right__mobile-skills"]}>
             <Skills
@@ -163,7 +165,7 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div id="about-name" className={cx(styles["about-name"], "slice")}>
+      <div id="about-name" className={styles["about-name"]}>
         <div className={styles["about-name__content"]}>
           <div className="overflow-hidden">
             <h3>About the name</h3>

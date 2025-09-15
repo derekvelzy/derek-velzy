@@ -84,4 +84,49 @@ p, li {
   font-size: 18px;
   color: var(--darkGray);
   line-height: 1.5;
- }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-poppins);
+  line-height: 1.15;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 30px;
+  color: var(--darkGray);
+
+  @media (min-width: 390px) {
+      font-size: 32px;
+  }
+
+  @media (min-width: 768px) {
+      font-size: 48px;
+  }
+
+  @media (min-width: 1024px) {
+      font-size: 64px;
+  }
+
+  @media (min-width: 1024px) {
+      font-size: 64px;
+  }
+}
+
+h2 {
+  font-size: 24px;
+  color: var(--darkGray);
+
+  @media (min-width: 1024px) {
+      font-size: 32px;
+  }
+}
+
+h4 {
+  font-size: 20px;
+  color: var(--darkGray);
+
+  @media (min-width: 1024px) {
+      font-size: 24px;
+  }
+}

@@ -125,7 +125,7 @@
 
     @media (min-width: 1024px) {
         padding: 4rem 0;
-        height: calc(100vh - (128px * 2));
+        height: calc(100vh - 160px);
         max-height: 680px;
         padding: 0;
     }
@@ -540,7 +540,7 @@
                 }
 
                 a {
-                    display: flex;
+                    display: block;
                 }
             }
         }

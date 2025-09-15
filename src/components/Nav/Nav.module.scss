@@ -313,8 +313,8 @@
             display: none;
         }
 
-        
-        &.light-theme .sidebar button {
+
+        &.light-theme .sidebar button, &.light-theme .sidebar a {
             span {
                 color: var(--lightGray);
             }

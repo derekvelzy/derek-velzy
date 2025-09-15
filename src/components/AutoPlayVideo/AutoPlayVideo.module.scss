@@ -6,14 +6,6 @@
 }
 
 .container iframe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 50vw;
-  height: 25vh;
-  min-width: 100%;
-  min-height: 100%;
-  transform: translate(-50%, -50%);
   border: none;
   pointer-events: none; /* Disable interactions if needed */
 
@@ -21,48 +13,6 @@
     
     height: 35vh;
   }
-}
-
-/* Alternative cover styles - you can use either approach */
-.containerCover {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.containerCover iframe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 120%; /* Oversized to ensure coverage */
-  height: 120%; /* Oversized to ensure coverage */
-  min-width: 100%;
-  min-height: 100%;
-  transform: translate(-50%, -50%);
-  border: none;
-  pointer-events: none;
-}
-
-/* More aggressive cover for very different aspect ratios */
-.containerCoverAggressive {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.containerCoverAggressive iframe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 150%;
-  height: 150%;
-  min-width: 100%;
-  min-height: 100%;
-  transform: translate(-50%, -50%);
-  border: none;
-  pointer-events: none;
 }
 
 /* Optional: Add a loading state */

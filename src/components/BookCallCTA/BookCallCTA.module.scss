@@ -1,0 +1,27 @@
+.book-call-cta {
+    margin-top: 4rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+
+    p {
+        color: var(--darkGray);
+        max-width: 600px;
+    }
+        
+    @media (min-width: 1024px) {
+        margin-top: 8rem;
+    }
+}
+
+.small-padding {
+    div[id="jagged-divider"] {
+        margin: 60px 0;
+
+        @media (min-width: 1024px) {
+            margin: 100px 0;
+        }
+    }
+}

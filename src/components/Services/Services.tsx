@@ -1,117 +1,97 @@
-"use client";
-
 // Package imports
 import { useEffect } from "react";
 import gsap from "gsap";
 import cx from "classnames";
+import Image from "next/image";
 
 // Custom imports
-import WebDesign from "~/res/svgs/webDesign";
-import ToolIntegration from "~/res/svgs/toolIntegration";
-import Performance from "~/res/svgs/performance";
+import services from "./services.json";
 import styles from "./Services.module.scss";
+import Link from "../Link/Link";
+import SecondaryLink from "../Link/SecondaryLink";
+import BookCallCTA from "../BookCallCTA/BookCallCTA";
 
 const Services = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const container = document.getElementById("container--services");
-      const title = document.getElementById("title--services");
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: container,
-          start: "top 80%",
-          end: "bottom top",
-          toggleActions: "play none none reverse",
-        },
+      gsap.to(".services-stagger", {
+        y: 0,
+        opacity: 1,
+        duration: 0.75,
+        ease: "power3.out",
+        stagger: 0.1,
       });
-
-      tl.fromTo(
-        ".box-stagger",
-        { y: 50, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          ease: "power3.out",
-          stagger: 0.125,
-        }
-      );
-      tl.fromTo(
-        title,
-        { y: 60 },
-        {
-          y: 0,
-          duration: 0.75,
-          ease: "power3.out",
-        },
-        "<" // Start this animation at the same time as the previous one
-      );
     });
 
     return () => {
-      ctx.revert(); // Clean up the context to prevent memory leaks
+      ctx.revert();
     };
   }, []);
 
+  const staggerClass = "services-stagger opacity-0 translate-y-[64px]";
+
   return (
-    <div className={styles["services__container"]}>
-      <div className="overflow-hidden mb-4 lg:mb-8">
-        <h2 id="title--services" className="slice-title">
-          Services
-        </h2>
+    <div id="container--services" className={styles["services__container"]}>
+      <div className="overflow-hidden mb-4">
+        <h1 className={staggerClass}>Services</h1>
       </div>
-      <div id="container--services" className={cx("slice", styles["services"])}>
-        <Block
-          header="Website Design"
-          description="Clean, responsive builds optimized for business goals."
-          icon="webDesign"
-        />
-        <Block
-          header="Tool Integration"
-          description="Tag Manager, Meta Pixel, HubSpot, and consent managers."
-          icon="toolIntegration"
-        />
-        <Block
-          header="Performance Optimization"
-          description="Speed, tracking, and GDPR & CCPA-friendly setups."
-          icon="performance"
-        />
+      <div className="overflow-hidden">
+        <p className={cx(styles["services__intro"], staggerClass)}>
+          I help small businesses and lean teams grow online through
+          professional web development and digital marketing technology. From
+          web design and accessibility to tool integrations and analytics, my
+          services are designed to make your website a reliable driver of
+          business growth.
+        </p>
       </div>
+      <div className={styles["services"]}>
+        <div className={styles["services__list"]}>
+          {services.map((service, index) => (
+            <div key={`service-${index}`} className={styles["services__item"]}>
+              <div id={service["service-id"]} className="mt-[-120px]" />
+              <div className={styles["services__image-container"]}>
+                <Image
+                  src={service.image}
+                  alt={service.name}
+                  fill={true}
+                  sizes="(max-width: 479px) 100vw, (max-width: 1279px) 440px"
+                  className="object-cover"
+                />
+              </div>
+              <div className={styles["services__content"]}>
+                <h2>{service.name}</h2>
+                <div
+                  className={styles["services__description"]}
+                  dangerouslySetInnerHTML={{ __html: service.description }}
+                />
+                <div className={styles["services__ctas"]}>
+                  {service["secondary-cta"] &&
+                    service["secondary-cta-link"] && (
+                      <SecondaryLink
+                        href={service["secondary-cta-link"]}
+                        label={service["secondary-cta"]}
+                      />
+                    )}
+                  <Link
+                    href={`/contact?service=${service["service-id"]}`}
+                    withArrow
+                  >
+                    {service.cta}
+                  </Link>
+                </div>
+              </div>
+              <div
+                className={cx(styles["services__divider"], {
+                  hidden: index === services.length - 1,
+                })}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+      <BookCallCTA label="Not sure which service is right for you? No problem, we can figure it out together." />
     </div>
   );
 };
-
-type BlockProps = {
-  icon?: string;
-  header: string;
-  description: string;
-};
-
-// bg-[rgba(255,255,255,0.7)] backdrop-blur-[8px]
-
-const Block = ({ icon, header, description }: BlockProps) => (
-  <div className="box-stagger bg-[var(--nonWhite)] flex-1 p-4 rounded-[8px] lg:rounded-[6px] shadow-xl flex lg:flex-col gap-6 lg:gap-4 justify-start lg:justify-center items-center">
-    {icon === "webDesign" ? (
-      <div className="border-[2px] border-[var(--marine)] bg-[rgba(53,79,82,0.2)] rounded-full p-4">
-        <WebDesign />
-      </div>
-    ) : icon === "toolIntegration" ? (
-      <div className="border-[2px] border-[var(--teal)] bg-[rgba(82,121,111,0.2)] rounded-full p-4">
-        <ToolIntegration />
-      </div>
-    ) : (
-      <div className="border-[2px] border-[var(--green)] bg-[rgba(132,169,140,0.2)] rounded-full p-4">
-        <Performance />
-      </div>
-    )}
-    <div className="flex flex-col gap-2 items-start lg:items-center">
-      <h3 className="font-header text-[18px] lg:text-[22px] font-[500] text-black lg:text-center">
-        {header}
-      </h3>
-      <p className="font-sans text-[18px] lg:text-center">{description}</p>
-    </div>
-  </div>
-);
 
 export default Services;

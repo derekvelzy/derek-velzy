@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import gsap from "gsap";
 import cx from "classnames";
 import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
+import { useSearchParams } from "next/navigation";
 
 // Custom imports
 import Button from "../Button/Button";
@@ -12,11 +13,11 @@ import Link from "../Link/Link";
 import styles from "./Contact.module.scss"; // Assuming you have a CSS module for styles
 import SecondaryLink from "../Link/SecondaryLink";
 import { useIsDesktop } from "~/helpers/useIsDesktop";
-import services from "../Services2/services.json";
+import services from "../Services/services.json";
 
 gsap.registerPlugin(ScrollToPlugin);
 
-const Contact = () => {
+const Contact = ({ standalone }: { standalone?: boolean }) => {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -29,6 +30,8 @@ const Contact = () => {
   });
 
   const isDesktop = useIsDesktop();
+  const searchParams = useSearchParams();
+  const serviceQuery = searchParams.get('service');
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -40,6 +43,27 @@ const Contact = () => {
     }));
     setError(false);
   };
+
+  useEffect(() => {
+    if (serviceQuery && typeof serviceQuery === "string") {
+      const serviceExists = services.some(
+        (service) => service["service-id"] === serviceQuery
+      );
+      if (serviceExists) {
+        setSelected(serviceQuery);
+        setFormData((prevData) => ({
+          ...prevData,
+          service: serviceQuery,
+        }));
+      }
+    } else {
+      setSelected("None");
+      setFormData((prevData) => ({
+        ...prevData,
+        service: "None",
+      }));
+    }
+  }, [serviceQuery]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -102,11 +126,15 @@ const Contact = () => {
   }, [isDesktop]);
 
   return (
-    <div id="contact" className={styles["contact"]}>
-      <div className="absolute top-[-100px]" id="contact-section" />
+    <div
+      id="contact"
+      className={cx(styles["contact"], {
+        [styles["contact_standalone"]]: standalone,
+      })}
+    >
       <div
         id="container--contact"
-        className={cx("slice", styles["contact__container"])}
+        className={cx({ slice: !standalone }, styles["contact__container"])}
       >
         <div className={styles["contact__upper-row__container"]}>
           <div id="upper-row--contact" className={styles["contact__upper-row"]}>
@@ -184,7 +212,7 @@ const Contact = () => {
                     Select a service
                   </option>
                   {services.map((service, index) => (
-                    <option key={index} value={service.name}>
+                    <option key={index} value={service["service-id"]}>
                       {service.name}
                     </option>
                   ))}

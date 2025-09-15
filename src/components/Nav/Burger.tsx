@@ -84,7 +84,7 @@ const Burger = ({ animationsCompleted }: Props) => {
     {
       id: "services",
       label: "Services",
-      offset: 160,
+      link: true,
     },
     {
       id: "work",
@@ -93,10 +93,12 @@ const Burger = ({ animationsCompleted }: Props) => {
     {
       id: "about",
       label: "About",
+      link: true,
     },
     {
       id: "contact",
       label: "Contact",
+      link: true,
     },
   ];
 
@@ -142,12 +144,13 @@ const Burger = ({ animationsCompleted }: Props) => {
               closeNav={closeNav}
               id={button.id}
               label={button.label}
-              offset={button.offset}
+              link={button.link}
               index={index}
               tabIndex={tabIndex}
               pathname={pathname}
             />
           ))}
+
           <div
             id="nav-divider"
             className={cx(
@@ -171,7 +174,7 @@ type BurgerButtonProps = {
   closeNav: () => void;
   id: string;
   label: string;
-  offset?: number;
+  link?: boolean;
   index: number;
   tabIndex: number;
   pathname?: string;
@@ -181,23 +184,47 @@ const BurgerButton = ({
   closeNav,
   id,
   label,
-  offset = 0,
+  link = false,
   index,
   tabIndex,
   pathname,
 }: BurgerButtonProps) => {
   const router = useRouter();
 
+  const staggerClass = "nav-stagger opacity-0 translate-y-[10px]";
+
+  const inner = () => (
+    <>
+      <span>{label}</span>
+      <span>{`0${index + 1}`}</span>
+    </>
+  );
+
+  if (link) {
+    return (
+      <Link
+        href={id}
+        className={staggerClass}
+        onClick={() => {
+          closeNav();
+        }}
+        tabIndex={tabIndex}
+        aria-label={`Go to ${label} page`}
+      >
+        {inner()}
+      </Link>
+    );
+  }
+
   return (
     <button
-      className="nav-stagger opacity-0 translate-y-[10px]"
+      className={staggerClass}
       onClick={() => {
         if (pathname === "/") {
           gsap.to(window, {
             scrollTo: {
               y: `#${id}-section`,
               autoKill: false,
-              offsetY: offset,
             },
             duration: 0.75,
             ease: "power4.out",
@@ -211,8 +238,7 @@ const BurgerButton = ({
       tabIndex={tabIndex}
       aria-label={`Go to ${label} section`}
     >
-      <span>{label}</span>
-      <span>{`0${index + 1}`}</span>
+      {inner()}
     </button>
   );
 };

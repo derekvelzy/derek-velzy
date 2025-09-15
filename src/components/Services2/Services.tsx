@@ -55,6 +55,7 @@ const Services = () => {
               key={index}
               onClick={() => handleServiceChange(index)}
               className={selectedService === index ? styles.active : ""}
+              tabIndex={selectedService === index ? -1 : 0}
             >
               <h5>{service.name}</h5>
             </button>

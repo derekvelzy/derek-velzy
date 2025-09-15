@@ -97,13 +97,6 @@ const Burger = ({ animationsCompleted }: Props) => {
     {
       id: "contact",
       label: "Contact",
-      onkeydown: (e: React.KeyboardEvent<HTMLButtonElement>) => {
-        if (e.key === "Tab" && !e.shiftKey) {
-          e.preventDefault();
-          handleFocusChange("hero-main-cta");
-          closeNav();
-        }
-      },
     },
   ];
 
@@ -152,7 +145,6 @@ const Burger = ({ animationsCompleted }: Props) => {
               offset={button.offset}
               index={index}
               tabIndex={tabIndex}
-              onKeyDown={button.onkeydown}
               pathname={pathname}
             />
           ))}
@@ -182,7 +174,6 @@ type BurgerButtonProps = {
   offset?: number;
   index: number;
   tabIndex: number;
-  onKeyDown?: (e: React.KeyboardEvent<HTMLButtonElement>) => void;
   pathname?: string;
 };
 
@@ -193,7 +184,6 @@ const BurgerButton = ({
   offset = 0,
   index,
   tabIndex,
-  onKeyDown,
   pathname,
 }: BurgerButtonProps) => {
   const router = useRouter();
@@ -220,7 +210,6 @@ const BurgerButton = ({
       }}
       tabIndex={tabIndex}
       aria-label={`Go to ${label} section`}
-      onKeyDown={onKeyDown}
     >
       <span>{label}</span>
       <span>{`0${index + 1}`}</span>

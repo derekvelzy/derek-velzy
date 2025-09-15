@@ -85,6 +85,11 @@
                     display: none;
                 }
             }
+
+            &:focus-visible {
+                outline: 2px dashed var(--nonWhite);
+                outline-offset: -6px;
+            }
         }
 
         @media (min-width: 1024px) {

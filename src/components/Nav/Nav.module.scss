@@ -23,6 +23,11 @@
 .sbv-logo {
     cursor: pointer;
 
+    &:focus-visible {
+        outline: 2px dashed var(--deepMarine);
+        outline-offset: 4px;
+    }
+
     &__inner {
         margin-left: -16px;
         position: relative;

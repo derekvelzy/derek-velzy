@@ -40,7 +40,7 @@ const Page = ({ children }: Props) => {
 
   return (
     <div className="bg-[#F8F9FA] relative w-full">
-      <div className="px-5 md:px-8 lg:px-0 max-w-[964px] mx-auto overflow-hidden">{children}</div>
+      <div className="px-5 md:px-8 lg:px-0 max-w-[964px] mx-auto">{children}</div>
       <div className="h-[45vh]" />
       <LPBGFooter />
       <FloatingLinks />

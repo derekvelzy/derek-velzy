@@ -4,11 +4,22 @@
 import { useState } from "react";
 import cx from "classnames";
 import gsap from "gsap";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 // Custom imports
 import services from "./services.json";
 import styles from "./ServicesHomepage.module.scss";
-import Button from "../Button/Button";
+import Link from "../Link/Link";
+
+const settings = {
+  id: "services-mobile-carousel-homepage",
+  dots: true, 
+  arrows: false,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+};
 
 const Services = () => {
   const [selectedService, setSelectedService] = useState(0);
@@ -19,7 +30,7 @@ const Services = () => {
 
     gsap.to("#selected-service-block", {
       duration: 0.35,
-      y: index * 80,
+      y: index * 64,
       ease: "power3.out",
     });
 
@@ -71,34 +82,44 @@ const Services = () => {
               viewBox="0 0 100 116"
               preserveAspectRatio="none"
               aria-hidden="true"
-              className={styles["services__details__svg-1_desktop"]}
             >
               <polygon points="0,116 0,20 40,0 100,116" fill="currentColor" />
             </svg>
-            <svg
-              width="100%"
-              height="180"
-              viewBox="0 0 100 180"
-              preserveAspectRatio="none"
-              aria-hidden="true"
-              className={styles["services__details__svg-1_mobile"]}
-            >
-              <polygon points="0,180 0,20 80,0 100,180" fill="currentColor" />
-            </svg>
-
             <h2 id="title--services" className="slice-title">
               Services
             </h2>
-            <select
-              value={selectedService}
-              onChange={(e) => handleServiceChange(Number(e.target.value))}
-            >
+          </div>
+
+          <div className={styles["services__mobile-carousel"]}>
+            <Slider {...settings}>
               {services.map((service, index) => (
-                <option key={index} value={index}>
-                  {service.name}
-                </option>
+                <div
+                  key={`services-mobile-carousel-${index}`}
+                  className={styles["services__mobile-carousel__slide"]}
+                >
+                  <div
+                    className={
+                      styles["services__mobile-carousel__slide__content"]
+                    }
+                  >
+                    <div>
+                      <h3>{service.name}</h3>
+                      <p>{service.brief}</p>
+                    </div>
+                    <Link
+                      href={
+                        service["service-id"] === "web-design"
+                          ? "/services"
+                          : `/services#${service["service-id"]}`
+                      }
+                      withArrow
+                    >
+                      {service.cta}
+                    </Link>
+                  </div>
+                </div>
               ))}
-            </select>
+            </Slider>
           </div>
 
           <div className={styles["services__details__content"]}>
@@ -106,29 +127,20 @@ const Services = () => {
               <h3 className="service-stagger">
                 {services[selectedService].name}
               </h3>
-              <div
-                className="service-stagger"
-                dangerouslySetInnerHTML={{
-                  __html: services[selectedService].description,
-                }}
-              />
+              <p className="service-stagger">
+                {services[selectedService].brief}
+              </p>
             </div>
-            <Button
-              action={() => {
-                const contactName = document.getElementById("name");
-                const serviceSelect = document.getElementById("service-select");
-                if (contactName && serviceSelect) {
-                  contactName.focus();
-
-                  if (serviceSelect instanceof HTMLSelectElement) {
-                    serviceSelect.value = services[selectedService].name;
-                  }
-                }
-              }}
-              ariaLabel="Go to contact section"
+            <Link
+              href={
+                services[selectedService]["service-id"] === "web-design"
+                  ? "/services"
+                  : `/services#${services[selectedService]["service-id"]}`
+              }
+              withArrow
             >
               {services[selectedService].cta}
-            </Button>
+            </Link>
           </div>
           <div className={styles["services__details__svg-2"]}>
             <svg

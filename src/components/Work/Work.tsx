@@ -2,11 +2,14 @@
 
 // Package imports
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
 import cx from "classnames";
 import { usePathname, useRouter } from "next/navigation";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 // Custom imports
 import styles from "./Work.module.scss"; // Assuming you have a CSS module for styles
@@ -23,9 +26,26 @@ type ProjectsType = (typeof projects)[0];
 
 const Work = () => {
   const [focusedBlock, setFocusedBlock] = useState<number>(0);
+  const [currentSlide, setCurrentSlide] = useState<number>(0);
+  const [totalSlides] = useState<number>(projects.length);
+  const sliderRef = useRef<Slider>(null);
 
   const isDesktop = useIsDesktop();
   const pathname = usePathname();
+
+  const settings = {
+    id: "work-mobile-carousel",
+    dots: true,
+    arrows: false,
+    infinite: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    // prevArrow: <CustomPrevArrow />,
+    // nextArrow: <CustomNextArrow />,
+    beforeChange: (oldIndex: number, newIndex: number) => {
+      setCurrentSlide(newIndex);
+    },
+  };
 
   useEffect(() => {
     if (!isDesktop) {
@@ -168,6 +188,52 @@ const Work = () => {
           <Block index={0} focusedBlock={focusedBlock} {...projects[0]} />
           <Block index={1} focusedBlock={focusedBlock} {...projects[1]} />
           <Block index={2} focusedBlock={focusedBlock} {...projects[2]} />
+        </div>
+        <div className={styles["work__mobile-carousel"]}>
+          <div className={styles["carousel-navigation"]}>
+            <span className={styles["slide-counter"]}>
+              {currentSlide + 1} / {totalSlides}
+            </span>
+            <button
+              className={styles["external-nav-btn"]}
+              onClick={() => sliderRef.current?.slickPrev()}
+              disabled={currentSlide === 0}
+              aria-label="Previous slide"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M15 18L9 12L15 6"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+            <button
+              className={styles["external-nav-btn"]}
+              onClick={() => sliderRef.current?.slickNext()}
+              disabled={currentSlide === totalSlides - 1}
+              aria-label="Next slide"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M9 18L15 12L9 6"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+          <Slider ref={sliderRef} {...settings}>
+            {projects.map((project, index) => (
+              <div key={index} className="px-4">
+                <Block index={index} focusedBlock={focusedBlock} {...project} />
+              </div>
+            ))}
+          </Slider>
         </div>
       </div>
       <div
@@ -373,19 +439,6 @@ const Block = ({
               className={cx("object-cover", `work-img-fade-${index}`)}
               sizes="(max-width: 479px) 100vw, (max-width: 1279px) 980px"
             />
-
-            {/* <AutoPlayVideoEnhanced
-              vimeoId="1115305661" // Your existing video ID
-              triggerOnView={true}
-              threshold={0.5} // Plays when 50% visible
-              muted={true}
-              loop={true}
-              className={cx(
-                "w-[552px] min-w-[552px]",
-                `work-img-fade-${index}`
-              )}
-              aspectRatio="none"
-            /> */}
           </div>
         </div>
         <div className={styles["block__content"]}>

@@ -9,7 +9,6 @@ import cx from "classnames";
 
 // Custom imports
 import styles from "./Blog.module.scss";
-import { handleFocusChange } from "~/helpers/handleFocusChange";
 import blogs from "./blogs.json";
 
 gsap.registerPlugin(ScrollToPlugin);
@@ -59,7 +58,7 @@ const Blog = () => {
             </h2>
           </div>
           <p id="subtitles--blog" className={blogStagger}>
-            Stories that I’ve been inspired to write.
+            Practical notes on web design, accessibility, and site flow. Short reads you can apply the same day.
           </p>
         </div>
         <div className={styles["blogs__list"]}>
@@ -70,20 +69,6 @@ const Blog = () => {
               target="_blank"
               rel="noopener noreferrer"
               className={cx(styles["blog-card"], blogStagger)}
-              onKeyDown={(e) => {
-                if (e.key === "Tab" && e.shiftKey && index === 0) {
-                  e.preventDefault();
-                  gsap.to(window, {
-                    scrollTo: {
-                      y: "#work-block-2",
-                      offsetY: window.innerHeight / 4,
-                    },
-                    duration: 0.75,
-                    ease: "power4.out",
-                  });
-                  handleFocusChange(`view-project-2`);
-                }
-              }}
             >
               <div className={styles["blog-card__image"]}>
                 <Image

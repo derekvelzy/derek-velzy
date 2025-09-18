@@ -50,7 +50,7 @@ const Services = () => {
         <div className={styles["services__list"]}>
           {services.map((service, index) => (
             <div key={`service-${index}`} className={styles["services__item"]}>
-              <div id={service["service-id"]} className="mt-[-120px]" />
+              <div id={service["service-id"]} className="mt-[-120px] absolute" />
               <div className={styles["services__image-container"]}>
                 <Image
                   src={service.image}

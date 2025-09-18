@@ -161,6 +161,9 @@ const Burger = ({ animationsCompleted }: Props) => {
           <Link
             href="/articles"
             className="nav-stagger opacity-0 translate-y-[10px]"
+            onClick={() => {
+              closeNav();
+            }}
           >
             <span>Articles</span>
           </Link>

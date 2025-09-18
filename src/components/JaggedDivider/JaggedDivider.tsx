@@ -28,7 +28,7 @@ const JaggedDivider = () => {
           stagger: 0.125,
           scrollTrigger: {
             trigger: jaggedDivider,
-            start: "top 80%",
+            start: "top 85%",
             end: "bottom top",
             toggleActions: "play none none reverse",
           },

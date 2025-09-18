@@ -12,6 +12,7 @@ type LinkProps = {
   className?: string;
   withArrow?: boolean;
   newPage?: boolean;
+  variant?: "primary" | "secondary";
   children?: React.ReactNode;
 };
 
@@ -21,6 +22,7 @@ const PrimaryLink = ({
   className,
   withArrow = false,
   newPage = false,
+  variant,
   children,
 }: LinkProps) => {
   return (
@@ -29,7 +31,13 @@ const PrimaryLink = ({
       rel="noopener noreferrer"
       target={newPage ? "_blank" : "_self"}
       href={href}
-      className={cx(styles["link"], className)}
+      className={cx(
+        styles["link"],
+        {
+          [styles["link_secondary"]]: variant === "secondary",
+        },
+        className
+      )}
     >
       <span>{children}</span>
       {withArrow && <LinkArrow className={styles["link__arrow"]} />}

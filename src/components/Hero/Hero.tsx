@@ -10,7 +10,6 @@ import { useKeenSlider } from "keen-slider/react";
 
 // Custom imports
 import Link from "../Link/Link";
-import Button from "../Button/Button";
 import styles from "./Hero.module.scss"; // Assuming you have a styles file for Hero
 import Wheel from "./Wheel";
 import Arrow from "~/res/svgs/arrow";
@@ -201,22 +200,16 @@ const Hero = ({}) => {
             accessibility so you don’t have to.
           </p>
           <div className={cx(staggerClass, styles["hero__content__ctas"])}>
-            <Link id="hero-main-cta" href="https://calendly.com/dmvelzy/30min" newPage>
+            <Link
+              id="hero-main-cta"
+              href="https://calendly.com/dmvelzy/30min"
+              newPage
+            >
               Book a free discovery call
             </Link>
-            <Button
-              action={() =>
-                gsap.to(window, {
-                  scrollTo: { y: "#contact", autoKill: false, offsetY: 112 },
-                  duration: 1.5,
-                  ease: "power3.out",
-                })
-              }
-              variant="secondary"
-              ariaLabel="Go to contact section"
-            >
-              Say hello
-            </Button>
+            <Link href="contact" variant="secondary">
+              Say Hello
+            </Link>
           </div>
         </div>
       </div>

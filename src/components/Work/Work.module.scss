@@ -1,6 +1,22 @@
 .work {
     transform: translateY(0);
     transition: transform 0.5s var(--easy-does-it);
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+
+    h2 {
+        padding-left: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    @media (min-width: 1024) {
+        padding: inherit;
+
+        h2 {
+            padding: inherit;
+            margin-bottom: unset;
+        }
+    }
 
     &-bg {
         position: fixed;
@@ -43,7 +59,7 @@
         @media (min-width: 1024px) {
             background-color: var(--deepMarine);
             height: 400vh;
-            margin-bottom: 50vh;
+            margin-bottom: 40vh;
 
             &_mounted {
                 .low-poly-bg-work {
@@ -90,15 +106,20 @@
 
     &__blocks {
         position: relative;
+        display: none;
 
         @media (min-width: 1024px) {
+            display: flex;
             position: sticky;
             top: 0;
             height: 100vh;
         }
 
         .block .block__title-row h2 {
-            @media (max-width: 1023px) {
+            display: none;
+
+            @media (min-width: 1024px) {
+                // display: block;
                 display: none;
             }
         }
@@ -111,6 +132,143 @@
             }
         }
     }
+
+    &__mobile-carousel {
+        display: block;
+
+        @media (min-width: 1024px) {
+            display: none;
+        }
+
+        div[class*="slick-slider"] {
+            ul[class*="slick-dots"] {
+                button::before {
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+// External Navigation Buttons
+.carousel-navigation {
+    position: absolute;
+    top: -.5rem;
+    right: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 20px;
+}
+
+.slide-counter {
+    font-size: 14px;
+    color: white;
+    font-weight: 500;
+    min-width: 48px;
+    text-align: center;
+}
+
+.external-nav-btn {
+    background: var(--nonWhite);
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    color: white;
+
+    svg path {
+        stroke: black;
+    }
+
+    &:hover:not(:disabled) {
+        background: rgb(255, 255, 255);
+        transform: scale(1.05);
+    }
+
+    &:focus {
+        outline: 2px solid var(--focus-color, #ffffff);
+        outline-offset: 2px;
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+// Custom Arrow Styles
+.custom-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+    &:hover {
+        background: rgba(255, 255, 255, 1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        transform: translateY(-50%) scale(1.05);
+    }
+
+    &:focus {
+        outline: 2px solid var(--primary-color, #007bff);
+        outline-offset: 2px;
+    }
+
+    svg {
+        color: #333;
+        width: 20px;
+        height: 20px;
+    }
+
+    &--prev {
+        left: 16px;
+    }
+
+    &--next {
+        right: 16px;
+    }
+
+    @media (max-width: 640px) {
+        width: 40px;
+        height: 40px;
+        
+        svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        &--prev {
+            left: 8px;
+        }
+
+        &--next {
+            right: 8px;
+        }
+    }
 }
 
 .block {
@@ -118,12 +276,13 @@
     flex-direction: column;
     height: 100%;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: flex-start;
     z-index: 0;
     height: 100%;
     padding: 1rem 0 3rem 0;
 
     @media (min-width: 1024px) {
+        justify-content: center;
         padding: 4rem 0;
         height: calc(100vh - 160px);
         max-height: 680px;
@@ -136,28 +295,18 @@
         display: flex;
         align-items: center;
 
-        &:nth-child(1) {
-            height: 950px;
-        }
-        &:nth-child(2) {
-            height: 800px;
-        }
-        &:nth-child(3) {
-            height: 800px;
-        }
+        height: auto; //previously 950px
+
 
         @media (min-width: 1024px) {
             position: absolute;
             top: 0;
+            height: 100vh;
 
             &:nth-child(1) {
-                height: 100vh;
-            }
-            &:nth-child(2) {
-                height: 100vh;
-            }
-            &:nth-child(3) {
-                height: 100vh;
+                .block__title-row {
+                    justify-content: space-between !important;
+                }
             }
         }
     }
@@ -184,7 +333,7 @@
         height: 94px;
         min-height: 94px;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
         align-items: center;
         width: 100%;
 
@@ -196,6 +345,11 @@
 
         h2 {
             color: white;
+            display: none;
+
+            @media (min-width: 1024px) {
+                display: block;
+            }
         }
 
         &__progress {
@@ -301,7 +455,7 @@
     &__images {
         width: 100%;
         height: 100%;
-        max-height: 200px;
+        max-height: 225px;
         margin-bottom: 2rem;
         display: flex;
         gap: 2rem;
@@ -318,14 +472,10 @@
             position: relative;
             overflow: hidden;
             height: 100%;
-            // border-radius: 0px;
-            // border-radius: 4px;
-            // box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.03);
 
             img {
                 object-fit: cover;
                 background-color: var(--darkGray);
-                // border-radius: 4px;
 
                 @media (min-width: 1024px) {
                     transform: translateY(100%);
@@ -347,10 +497,16 @@
         }
         &__col-2 {
             width: 100%;
-            height: 100%;
+            height: 225px;
+
+            @media (min-width: 768px) {
+                height: 360px;
+                aspect-ratio: unset;
+         }
 
             @media (min-width: 1024px) {
                 height: unset;
+                aspect-ratio: unset;
             }
 
             img {

@@ -5,6 +5,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import Delaunator from "delaunator";
 import cx from "classnames";
 import gsap from "gsap";
+import { useWindowSize } from "react-use";
 
 // Custom imports
 import styles from "./LowPolyBackground.module.scss";
@@ -14,7 +15,7 @@ import { type Boundary, type PolyData } from "./helpers/types";
 import RefreshMountain from "~/res/svgs/refreshMountain";
 import { useIsDesktop } from "~/helpers/useIsDesktop";
 
-const getWidth = (bool: boolean) => (bool ? 6.5 : 5.5);
+const getWidth = (bool: boolean) => (bool ? 6.5 : 5.4);
 
 const generatePoints = (
   width: number,
@@ -101,22 +102,29 @@ const LowPolySvgBackground = () => {
   const [hovered, setHovered] = useState(false);
 
   const isDesktop = useIsDesktop();
+  const { width: windowWidth, height: windowHeight } = useWindowSize();
 
   useEffect(() => {
-    const width = window.innerWidth;
-    let height = window.innerHeight * 5.4 + (640 + 400 + 240);
-    if (width < 768) {
-      // Height of all elements in hero, services, and work sections - mobile
-      height = 750 + 100 + 1200 + 100 + 950 + 800 + 800 + 350;
-    } else if (width < 1024) {
-      // Height of all elements in hero, services, and work sections - tablet
-      height = 1000 + 200 + 900 + 100 + 950 + 800 + 800 + 375;
+    const calculateDimensions = () => {
+      const width = windowWidth || window.innerWidth;
+      const currentWindowHeight = windowHeight || window.innerHeight;
+      let height = currentWindowHeight * 5.4 + (640 + 350);
+      if (width < 768) {
+        height = 750 + 100 + 1200 + 100 + 700;
+      } else if (width < 1024) {
+        height = 1000 + 200 + 900 + 100 + 950 + 800 + 800 + 160;
+      }
+      const points = generatePoints(width, height, isDesktop);
+      setDots(points);
+      setWidth(width);
+      setHeight(height);
+    };
+
+    // Only calculate if we have valid dimensions
+    if (windowWidth && windowHeight) {
+      calculateDimensions();
     }
-    const points = generatePoints(width, height, isDesktop);
-    setDots(points);
-    setWidth(width);
-    setHeight(height);
-  }, [isDesktop]);
+  }, [isDesktop, windowWidth, windowHeight]);
 
   const { polygons } = useMemo(() => {
     if (dots.length > 0) {
@@ -164,19 +172,33 @@ const LowPolySvgBackground = () => {
         } else if (yFactor >= 1.45) {
           color = "rgba(53, 79, 82, 0.7)";
         } else if (yFactor >= 1.35) {
-          color = "rgba(53, 79, 82, 0.6)";
+          color = isDesktop
+            ? "rgba(53, 79, 82, 0.6)"
+            : "rgba(82, 121, 111, 0.5)";
         } else if (yFactor >= 1.25) {
-          color = "rgba(53, 79, 82, 0.55)";
+          color = isDesktop
+            ? "rgba(53, 79, 82, 0.55)"
+            : "rgba(82, 121, 111, 0.4)";
         } else if (yFactor >= 1.15) {
-          color = "rgba(53, 79, 82, 0.5)";
+          color = isDesktop
+            ? "rgba(53, 79, 82, 0.5)"
+            : "rgba(82, 121, 111, 0.3)";
         } else if (yFactor >= 1.1) {
-          color = "rgba(82, 121, 111, 0.5)";
+          color = isDesktop
+            ? "rgba(82, 121, 111, 0.5)"
+            : "rgba(82, 121, 111, 0.3)";
         } else if (yFactor >= 1.05) {
-          color = "rgba(82, 121, 111, 0.4)";
+          color = isDesktop
+            ? "rgba(82, 121, 111, 0.4)"
+            : "rgba(82, 121, 111, 0.2)";
         } else if (yFactor >= 1.02) {
-          color = "rgba(82, 121, 111, 0.3)";
+          color = isDesktop
+            ? "rgba(82, 121, 111, 0.3)"
+            : "rgba(82, 121, 111, 0.1)";
         } else if (yFactor >= 0.95) {
-          color = "rgba(82, 121, 111, 0.2)";
+          color = isDesktop
+            ? "rgba(82, 121, 111, 0.2)"
+            : "rgba(82, 121, 111, 0.05)";
         } else {
           color = "rgba(82, 121, 111, 0)";
           stroke = "rgba(47, 62, 70, 0.1)";

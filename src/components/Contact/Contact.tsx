@@ -31,7 +31,7 @@ const Contact = ({ standalone }: { standalone?: boolean }) => {
 
   const isDesktop = useIsDesktop();
   const searchParams = useSearchParams();
-  const serviceQuery = searchParams.get('service');
+  const serviceQuery = searchParams.get("service");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -97,7 +97,7 @@ const Contact = ({ standalone }: { standalone?: boolean }) => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       const container = document.getElementById("container--contact");
-      const upperRow = document.getElementById("upper-row--contact");
+      const title = document.getElementById("title--contact");
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -109,7 +109,7 @@ const Contact = ({ standalone }: { standalone?: boolean }) => {
       });
 
       tl.fromTo(
-        upperRow,
+        title,
         { y: isDesktop ? 56 : 84 },
         {
           y: 0,
@@ -138,9 +138,11 @@ const Contact = ({ standalone }: { standalone?: boolean }) => {
       >
         <div className={styles["contact__upper-row__container"]}>
           <div id="upper-row--contact" className={styles["contact__upper-row"]}>
-            <h2 id="title--contact" className="slice-title mb-2 lg:mb-0">
-              Contact
-            </h2>
+            <div className="overflow-hidden mb-2 lg:mb-0">
+              <h2 id="title--contact" className="slice-title">
+                Contact
+              </h2>
+            </div>
             <div className={styles["contact__upper-row__info"]}>
               <p>{"(925) 200-7710"}</p>
               <div className={styles["contact__upper-row__info__divider"]} />

@@ -110,9 +110,9 @@ const LowPolySvgBackground = () => {
       const currentWindowHeight = windowHeight || window.innerHeight;
       let height = currentWindowHeight * 5.4 + (640 + 350);
       if (width < 768) {
-        height = 750 + 100 + 1200 + 100 + 700;
+        height = 750 + 100 + 1200 + 100 + 650;
       } else if (width < 1024) {
-        height = 1000 + 200 + 900 + 100 + 950 + 800 + 800 + 160;
+        height = 1000 + 200 + 900 + 100 + 900;
       }
       const points = generatePoints(width, height, isDesktop);
       setDots(points);
@@ -124,7 +124,7 @@ const LowPolySvgBackground = () => {
     if (windowWidth && windowHeight) {
       calculateDimensions();
     }
-  }, [isDesktop, windowWidth, windowHeight]);
+  }, [isDesktop, windowWidth]);
 
   const { polygons } = useMemo(() => {
     if (dots.length > 0) {
@@ -201,7 +201,7 @@ const LowPolySvgBackground = () => {
             : "rgba(82, 121, 111, 0.05)";
         } else {
           color = "rgba(82, 121, 111, 0)";
-          stroke = "rgba(47, 62, 70, 0.1)";
+          stroke = isDesktop ? "rgba(47, 62, 70, 0.1)" : "rgba(82, 121, 111, 0.05)";
           hoverEffect = true;
         }
 

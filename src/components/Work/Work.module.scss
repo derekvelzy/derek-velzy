@@ -10,9 +10,11 @@
     }
 
     @media (min-width: 1024) {
+        padding-left: 0;
         padding: inherit;
 
         h2 {
+            padding-left: 0;
             padding: inherit;
             margin-bottom: unset;
         }

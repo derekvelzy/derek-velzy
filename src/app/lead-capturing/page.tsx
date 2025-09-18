@@ -48,7 +48,7 @@ export default function ZeroWebsiteRebuild() {
       <TextAndImageBlock
         title="Results"
         text={`
-            <p>These efforts led to a <strong>24% increase</strong> in leads successfully routed to dealerships, helping Sales close the loop faster and making the user experience more intuitive along the way.</p>
+            <p>These efforts led to a <strong>34% increase</strong> in leads successfully routed to dealerships, helping Sales close the loop faster and making the user experience more intuitive along the way.</p>
           `}
       />
       <p style={{ fontSize: "14px", marginBottom: "1rem", fontWeight: "500" }}>

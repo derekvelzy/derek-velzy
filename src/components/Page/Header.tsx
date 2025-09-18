@@ -42,6 +42,7 @@ const Header = ({ title, place, href, src, imgStyles }: Props) => {
               href={href}
               label="Visit Website"
               className="title--flip"
+              external
             />
           </div>
         </div>

@@ -13,6 +13,7 @@ type Props = {
   id?: string;
   onKeyDown?: (e: React.KeyboardEvent<HTMLAnchorElement>) => void;
   action?: () => void;
+  external?: boolean;
   className?: string;
 };
 
@@ -23,6 +24,7 @@ const SecondaryLink = ({
   id,
   onKeyDown,
   action,
+  external = false,
   className,
 }: Props) => {
   return (
@@ -36,6 +38,9 @@ const SecondaryLink = ({
         className
       )}
       href={href}
+      target={external ? "_blank" : "_self"}
+      rel={external ? "noopener noreferrer" : undefined}
+      role="button"
       tabIndex={0}
       onKeyDown={onKeyDown}
       onClick={(e) => {

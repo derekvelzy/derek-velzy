@@ -11,7 +11,7 @@ type LinkProps = {
   href: string;
   className?: string;
   withArrow?: boolean;
-  newPage?: boolean;
+  external?: boolean;
   variant?: "primary" | "secondary";
   children?: React.ReactNode;
 };
@@ -21,15 +21,15 @@ const PrimaryLink = ({
   href,
   className,
   withArrow = false,
-  newPage = false,
+  external = false,
   variant,
   children,
 }: LinkProps) => {
   return (
     <Link
       id={id}
-      rel="noopener noreferrer"
-      target={newPage ? "_blank" : "_self"}
+      rel={external ? "noreferrer noopener" : undefined}
+      target={external ? "_blank" : "_self"}
       href={href}
       className={cx(
         styles["link"],

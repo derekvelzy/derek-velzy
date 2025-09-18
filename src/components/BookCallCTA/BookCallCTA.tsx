@@ -20,7 +20,7 @@ const BookCallCTA = ({
       <JaggedDivider />
       <div className={styles["book-call-cta"]}>
         <p>{label}</p>
-        <Link href="https://calendly.com/dmvelzy/30min">
+        <Link href="https://calendly.com/dmvelzy/30min" external>
           Book a free discovery call
         </Link>
       </div>

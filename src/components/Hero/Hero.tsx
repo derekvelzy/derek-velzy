@@ -203,7 +203,7 @@ const Hero = ({}) => {
             <Link
               id="hero-main-cta"
               href="https://calendly.com/dmvelzy/30min"
-              newPage
+              external
             >
               Book a free discovery call
             </Link>

@@ -162,6 +162,7 @@ const Contact = ({ standalone }: { standalone?: boolean }) => {
           <Link
             className="stagger z-[1]"
             href="https://calendly.com/dmvelzy/30min"
+            external
           >
             Book a free discovery call
           </Link>

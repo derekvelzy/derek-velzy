@@ -104,27 +104,33 @@ const LowPolySvgBackground = () => {
   const isDesktop = useIsDesktop();
   const { width: windowWidth, height: windowHeight } = useWindowSize();
 
-  useEffect(() => {
-    const calculateDimensions = () => {
-      const width = windowWidth || window.innerWidth;
-      const currentWindowHeight = windowHeight || window.innerHeight;
-      let height = currentWindowHeight * 5.4 + (640 + 350);
-      if (width < 768) {
-        height = 750 + 100 + 1200 + 100 + 650;
-      } else if (width < 1024) {
-        height = 1000 + 200 + 900 + 100 + 900;
-      }
-      const points = generatePoints(width, height, isDesktop);
-      setDots(points);
-      setWidth(width);
-      setHeight(height);
-    };
+  useEffect(
+    () => {
+      const calculateDimensions = () => {
+        const width = windowWidth || window.innerWidth;
+        const currentWindowHeight = windowHeight || window.innerHeight;
+        let height = currentWindowHeight * 5.4 + (640 + 350);
+        if (width < 768) {
+          height = 750 + 100 + 1200 + 100 + 650;
+        } else if (width < 1024) {
+          height = 1000 + 200 + 900 + 100 + 900;
+        }
+        const points = generatePoints(width, height, isDesktop);
+        setDots(points);
+        setWidth(width);
+        setHeight(height);
+      };
 
-    // Only calculate if we have valid dimensions
-    if (windowWidth && windowHeight) {
-      calculateDimensions();
-    }
-  }, [isDesktop, windowWidth]);
+      // Only calculate if we have valid dimensions
+      if (windowWidth && windowHeight) {
+        calculateDimensions();
+      }
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    isDesktop
+      ? [isDesktop, windowHeight, windowWidth]
+      : [isDesktop, windowWidth]
+  );
 
   const { polygons } = useMemo(() => {
     if (dots.length > 0) {
@@ -201,7 +207,9 @@ const LowPolySvgBackground = () => {
             : "rgba(82, 121, 111, 0.05)";
         } else {
           color = "rgba(82, 121, 111, 0)";
-          stroke = isDesktop ? "rgba(47, 62, 70, 0.1)" : "rgba(82, 121, 111, 0.05)";
+          stroke = isDesktop
+            ? "rgba(47, 62, 70, 0.1)"
+            : "rgba(82, 121, 111, 0.05)";
           hoverEffect = true;
         }
 

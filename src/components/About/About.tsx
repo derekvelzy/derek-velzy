@@ -101,7 +101,7 @@ const About = () => {
           >
             <Image
               src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/PortfolioPhoto.jpg"
-              alt="Profile photo"
+              alt="Derek Velzy profile photo"
               fill={true}
               sizes="(max-width: 479px) 100vw, (max-width: 1279px) 440px"
               className="object-cover"
@@ -123,7 +123,7 @@ const About = () => {
           >
             <Image
               src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/PortfolioPhoto.jpg"
-              alt="Profile photo"
+              alt="Derek Velzy profile photo"
               fill={true}
               sizes="(max-width: 479px) 100vw, (max-width: 1279px) 440px"
             />
@@ -183,7 +183,7 @@ const About = () => {
         <div className={styles["about-name__img"]}>
           <Image
             src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/D1B765F9-8D1B-48F8-B9DB-063E9A9F677C.JPG"
-            alt="Surf photo"
+            alt="Velzy surf photo"
             fill={true}
             sizes="(max-width: 479px) 100vw, (max-width: 1279px) 440px"
             className="object-cover"

@@ -86,7 +86,7 @@ const About = () => {
           >
             <Image
               src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/PortfolioPhoto.jpg"
-              alt="Profile photo"
+              alt="Derek Velzy profile photo"
               fill={true}
               sizes="(max-width: 479px) 100vw, (max-width: 1279px) 440px"
               className="object-cover"
@@ -107,7 +107,7 @@ const About = () => {
           >
             <Image
               src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/PortfolioPhoto.jpg"
-              alt="Profile photo"
+              alt="Derek Velzy profile photo"
               fill={true}
               sizes="(max-width: 479px) 100vw, (max-width: 1279px) 440px"
             />

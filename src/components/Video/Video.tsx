@@ -194,7 +194,7 @@ const Video = ({}) => {
       >
         <Image
           src={videoCover}
-          alt={"video cover"}
+          alt={"Zero motorcycles video cover"}
           fill={true}
           sizes="(max-width: 479px) 50vw, (max-width: 1279px) 440px"
         />

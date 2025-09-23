@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     canonical: "https://sitesbyvelzy.com",
   },
   icons: {
-    icon: "/favicon.ico?v=3",
+    icon: "/favicon.ico",
   },
 };
 

@@ -1,8 +1,12 @@
 // Package imports
 import type { Metadata } from "next";
 import { Inter, Poppins, Playfair_Display } from "next/font/google";
+import Script from "next/script";
+
+// Custom imports
 import "./globals.css";
 import Nav from "~/components/Nav/Nav";
+import Gtm from "./(analytics)/Gtm";
 
 export const metadata: Metadata = {
   title: "Sites by Velzy | Web Design & Development in Orange County, CA",
@@ -88,9 +92,27 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          id="Cookiebot"
+          src="https://consent.cookiebot.com/uc.js"
+          data-cbid="20f94bff-e554-48be-b53e-c98c5b3faea4"
+          data-blockingmode="auto"
+          strategy="beforeInteractive"
+        />
+      </head>
       <body
         className={`${poppins.variable} ${playfair.variable} ${inter.variable} antialiased`}
       >
+        <Gtm />
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <Nav />
         {children}
       </body>

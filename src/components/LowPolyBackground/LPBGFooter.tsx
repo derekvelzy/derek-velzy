@@ -9,14 +9,14 @@ import gsap from "gsap";
 import getCentroid from "./helpers/getCentroid";
 import generateRandomPoint from "./helpers/generateRandomPoint";
 import { type Boundary, type PolyData } from "./helpers/types";
-import styles from "./LowPolyBackground.module.scss";
+import Footer from "../Footer/Footer";
 
 const generatePoints = (width: number, height: number): (number[] | null)[] => {
   const blueBox1Boundaries: Boundary = {
     inside: null,
     outside: [
       [width * -0.25, 0],
-      [0, height],
+      [0, height * 0.75],
     ],
   };
 
@@ -24,7 +24,7 @@ const generatePoints = (width: number, height: number): (number[] | null)[] => {
     inside: null,
     outside: [
       [width, 0],
-      [width * 1.25, height],
+      [width * 1.25, height * 0.75],
     ],
   };
 
@@ -39,7 +39,7 @@ const generatePoints = (width: number, height: number): (number[] | null)[] => {
   const orangeBoxBoundaries: Boundary = {
     inside: null,
     outside: [
-      [0, height * 0.5],
+      [0, height * 0.25],
       [width, height],
     ],
   };
@@ -105,15 +105,15 @@ const LPBGFooter = () => {
           color = "rgba(47, 62, 70, 1)";
         } else if (yFactor >= 1.0) {
           color = "rgba(47, 62, 70, 0.9)";
-        } else if (yFactor >= 0.9) {
-          color = "rgba(47, 62, 70, 0.85)";
         } else if (yFactor >= 0.8) {
-          color = "rgba(47, 62, 70, 0.8)";
-        } else if (yFactor >= 0.7) {
-          color = "rgba(53, 79, 82, 0.75)";
-        } else if (yFactor >= 0.55) {
-          color = "rgba(53, 79, 82, 0.65)";
+          color = "rgba(47, 62, 70, 0.85)";
         } else if (yFactor >= 0.5) {
+          color = "rgba(47, 62, 70, 0.8)";
+        } else if (yFactor >= 0.4) {
+          color = "rgba(53, 79, 82, 0.75)";
+        } else if (yFactor >= 0.3) {
+          color = "rgba(53, 79, 82, 0.65)";
+        } else if (yFactor >= 0.25) {
           color = "rgba(82, 121, 111, 0.6)";
         }
         polys.push({
@@ -144,15 +144,9 @@ const LPBGFooter = () => {
   return (
     <footer
       id="low-poly-bg-footer"
-      className="absolute bottom-0 left-0 z-[0]"
+      className="relative z-[10]"
       style={{ height, width }}
     >
-      <div className={styles["footer__container"]}>
-        <div className={styles["footer"]}>
-          <p>Designed and Developed by Derek Velzy</p>
-          <p>2025</p>
-        </div>
-      </div>
       <svg
         viewBox={`0 0 ${width} ${height}`}
         preserveAspectRatio="xMidYMid slice"
@@ -174,6 +168,7 @@ const LPBGFooter = () => {
           />
         ))}
       </svg>
+      <Footer />
     </footer>
   );
 };

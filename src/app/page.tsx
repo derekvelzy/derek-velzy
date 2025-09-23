@@ -40,12 +40,12 @@ export default function Home() {
       <Hero />
       <FloatingLinks />
       <LowPolyBg />
-      <LPBGFooter />
       <Services />
       <Work />
       <AboutHomepage />
       <JaggedDivider />
       <Contact />
+      <LPBGFooter />
     </div>
   );
 }

@@ -50,7 +50,7 @@ const Page = ({ overflowHidden = false, children }: Props) => {
       >
         {children}
       </div>
-      <div className="h-[45vh]" />
+      <div className="h-[5vh]" />
       <LPBGFooter />
       <FloatingLinks />
     </div>

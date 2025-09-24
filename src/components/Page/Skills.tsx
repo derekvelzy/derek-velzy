@@ -3,24 +3,24 @@
 // Package imports
 import { useEffect } from "react";
 import gsap from "gsap";
+import cx from "classnames";
 
 // Custom imports
 import styles from "./Page.module.scss";
 
 type Props = {
-    skills: string[];
-    id: string;
-    cn: string;
-}
+  skills: string[];
+  id: string;
+  cn: string;
+};
 
 const Skills = ({ skills, id, cn }: Props) => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       const container = document.getElementById(id);
 
-      gsap.fromTo(
+      gsap.to(
         `.${cn}`,
-        { y: 10, opacity: 0 },
         {
           y: 0,
           opacity: 1,
@@ -45,7 +45,10 @@ const Skills = ({ skills, id, cn }: Props) => {
   return (
     <div id={id} className={styles["skills"]}>
       {skills.map((skill, index) => (
-        <span key={`${index}-${skill}-${id}`} className={`${cn}`}>
+        <span
+          key={`${index}-${skill}-${id}`}
+          className={cx(`${cn}`, "opacity-0 translate-y-[16px]", styles["skill"])}
+        >
           {skill}
         </span>
       ))}

@@ -113,15 +113,18 @@ const About = () => {
             />
           </div>
           <p id="copy--about" className="mb-8 lg:mb-0">
-            I’m a web developer and digital marketing tech specialist based in
-            Orange County, California. With 4+ years of experience leading
-            development in a lean marketing team, I build websites that are
-            fast, accessible, and integrated with the tools businesses need to
-            grow. I focus on clear communication and measurable results, so
-            clients can stay focused on running their business.
+            My name is Derek Velzy - I’m a web developer and digital marketing
+            tech specialist based in Orange County, California. With 4+ years of
+            experience leading development in a lean marketing team, I build
+            websites that are fast, accessible, and integrated with the tools
+            businesses need to grow. I focus on clear communication and
+            measurable results, so clients can stay focused on running their
+            business.
           </p>
           <div className={styles["about__cta"]}>
-            <PrimaryLink href="/about" withArrow>Read my full story</PrimaryLink>
+            <PrimaryLink href="/about" withArrow>
+              Read my full story
+            </PrimaryLink>
           </div>
         </div>
       </div>

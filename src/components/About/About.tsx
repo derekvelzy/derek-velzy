@@ -34,9 +34,8 @@ const About = () => {
         ease: "power3.out",
         stagger: 0.125,
       });
-      tl.fromTo(
+      tl.to(
         title,
-        { y: 60 },
         {
           y: 0,
           duration: 0.75,
@@ -44,9 +43,8 @@ const About = () => {
         },
         "<"
       );
-      tl.fromTo(
+      tl.to(
         copy,
-        { y: 50, opacity: 0 },
         {
           y: 0,
           opacity: 1,
@@ -113,7 +111,7 @@ const About = () => {
         </div>
         <div className={styles["about__right"]}>
           <div className={styles["about__right__title"]}>
-            <h1 id="title--about">About</h1>
+            <h1 id="title--about" className="translate-y-[62px]">About</h1>
           </div>
           <div
             className={cx(
@@ -128,7 +126,7 @@ const About = () => {
               sizes="(max-width: 479px) 100vw, (max-width: 1279px) 440px"
             />
           </div>
-          <p id="copy--about" className="mb-8 lg:mb-0">
+          <p id="copy--about" className="mb-8 lg:mb-0 opacity-0 translate-y-[50px]">
             I’m a web developer and digital marketing tech specialist who works
             best in lean, fast-moving environments - where quanitifiable
             results, clear decision-making, and staying on schedule matter most.

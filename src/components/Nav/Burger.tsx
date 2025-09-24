@@ -206,7 +206,7 @@ const BurgerButton = ({
   if (link) {
     return (
       <Link
-        href={id}
+        href={`/${id}`}
         className={staggerClass}
         onClick={() => {
           closeNav();

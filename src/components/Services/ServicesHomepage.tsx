@@ -1,7 +1,7 @@
 "use client";
 
 // Package imports
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import cx from "classnames";
 import gsap from "gsap";
 import Slider from "react-slick";
@@ -12,10 +12,11 @@ import "slick-carousel/slick/slick-theme.css";
 import services from "./services.json";
 import styles from "./ServicesHomepage.module.scss";
 import Link from "../Link/Link";
+import SecondaryLink from "../Link/SecondaryLink";
 
 const settings = {
   id: "services-mobile-carousel-homepage",
-  dots: true, 
+  dots: true,
   arrows: false,
   slidesToShow: 1,
   slidesToScroll: 1,
@@ -53,9 +54,53 @@ const Services = () => {
     });
   };
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const container = document.getElementById("services");
+      const title = document.getElementById("title--services");
+      const servicesMarquee = document.getElementById("services--marquee");
+
+      gsap.to(title, {
+        y: 0,
+        duration: 0.75,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: container,
+          start: "top 75%",
+          end: "bottom top",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      gsap.to(servicesMarquee, {
+        x: -500,
+        ease: "none",
+        scrollTrigger: {
+          trigger: container,
+          scrub: true,
+          start: "top 75%",
+          end: "bottom top",
+          toggleActions: "play none none reverse",
+        },
+      });
+    });
+
+    return () => {
+      ctx.revert(); // Clean up the context to prevent memory leaks
+    };
+  }, []);
+
   return (
-    <div id="services" className={styles["services__container"]}>
-      <div id="services-section" className={cx(styles["services"], "slice")}>
+    <div id="services" className={cx(styles["services__container"], "slice")}>
+      <div className={styles["services__header"]}>
+        <div className={styles["services__header__title"]}>
+          <h2 id="title--services" className="slice-title translate-y-[62px]">
+            Services
+          </h2>
+        </div>
+        <SecondaryLink href="/services" light label="View All" />
+      </div>
+      <div id="services-section" className={styles["services"]}>
         <div className={styles["services__list"]}>
           <div
             id="selected-service-block"
@@ -75,21 +120,6 @@ const Services = () => {
           ))}
         </div>
         <div className={styles["services__details"]}>
-          <div className={styles["services__details__svg-1"]}>
-            <svg
-              width="100%"
-              height="116"
-              viewBox="0 0 100 116"
-              preserveAspectRatio="none"
-              aria-hidden="true"
-            >
-              <polygon points="0,116 0,20 40,0 100,116" fill="currentColor" />
-            </svg>
-            <h2 id="title--services" className="slice-title">
-              Services
-            </h2>
-          </div>
-
           <div className={styles["services__mobile-carousel"]}>
             <Slider {...settings}>
               {services.map((service, index) => (
@@ -104,6 +134,7 @@ const Services = () => {
                   >
                     <div>
                       <h3>{service.name}</h3>
+                      {service.subtitle && <h4>{service.subtitle}</h4>}
                       <p>{service.brief}</p>
                     </div>
                     <Link
@@ -127,11 +158,17 @@ const Services = () => {
               <h3 className="service-stagger">
                 {services[selectedService].name}
               </h3>
+              {services[selectedService].subtitle && (
+                <h4 className="service-stagger">
+                  {services[selectedService].subtitle}
+                </h4>
+              )}
               <p className="service-stagger">
                 {services[selectedService].brief}
               </p>
             </div>
             <Link
+              variant="primary"
               href={
                 services[selectedService]["service-id"] === "web-design"
                   ? "/services"
@@ -142,17 +179,22 @@ const Services = () => {
               {services[selectedService].cta}
             </Link>
           </div>
-          <div className={styles["services__details__svg-2"]}>
-            <svg
-              width="100%"
-              height="52"
-              viewBox="0 0 100 52"
-              preserveAspectRatio="none"
-              aria-hidden="true"
+        </div>
+      </div>
+      <div className={styles["services__marquee"]}>
+        <div
+          id="services--marquee"
+          className={styles["services__marquee__inner"]}
+        >
+          {Array.from({ length: 100 }, (_, i) => (
+            <div
+              className={styles["services__marquee__item"]}
+              key={`services-marquee-item-${i}`}
             >
-              <polygon points="0,0 75,52 100,0" fill="currentColor" />
-            </svg>
-          </div>
+              <p>From concept to live site in under 7 days</p>
+              <span>•</span>
+            </div>
+          ))}
         </div>
       </div>
     </div>

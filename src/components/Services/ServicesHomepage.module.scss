@@ -1,24 +1,65 @@
 .services {
+    display: flex;
+    gap: 3rem;
+
     &__container {
+        display: flex;
+        flex-direction: column;
         width: 100%;
+        gap: 2rem;
         position: relative;
         z-index: 10;
-        padding: 160px 0 220px 0;
-
-
-        h2 {
-            color: white;
-            margin: 0 auto;
-        }
+        margin-top: 160px;
+        margin-bottom: 220px;
 
         @media (min-width: 1024px) {
-            padding: 400px 0 200px 0;
+            gap: 4rem;
+            margin-top: 400px;
+            margin-bottom: 120px;
         }
     }
 
-    display: flex;
-    gap: 2rem;
-    justify-content: space-between;
+    &__header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        position: relative;
+        padding-bottom: 1rem;
+    
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0rem;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: white
+        }
+
+        a {
+            margin-right: 0;
+        }
+
+
+        &__title {
+            overflow: hidden;
+            height: auto;
+            padding-bottom: 0;
+
+             h2 {
+                color: white;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            padding-bottom: 0;
+
+            &__title {
+                padding-bottom: 1rem;
+            }
+        }
+    }
 
     &__list {
         display: none;
@@ -71,21 +112,6 @@
                 color: var(--lightGray);
             }
 
-            &::after {
-                content: "";
-                position: absolute;
-                bottom: 0;
-                height: 1px;
-                width: calc(100% - 3rem);
-                background-color: rgba(255, 255, 255, 0.5);
-            }
-
-            &:last-child {
-                &::after {
-                    display: none;
-                }
-            }
-
             &:focus-visible {
                 outline: 2px dashed var(--nonWhite);
                 outline-offset: -6px;
@@ -104,20 +130,24 @@
     }
 
     &__details {
+        background-color: var(--nonWhite);
         flex: 2;
-        background-color: white;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        height: 440px;
+        height: 480px;
         max-width: calc(100vw - 3rem);
+        margin: 0 auto;
+        padding: 1rem;
 
         @media (min-width: 768px) {
+            max-width: calc(100vw - 4rem);
             height: calc(64px * 7);
         }
 
         @media (min-width: 1024px) {
             max-width: none;
+            padding: 2rem 1.5rem;
         }
 
         select {
@@ -126,7 +156,6 @@
             top: 120px;
             left: 1.5rem;
             background-color: var(--lightGray);
-            color: var(--darkGray);
             padding: 0.5rem;
 
             @media (min-width: 1024px) {
@@ -134,44 +163,10 @@
             }
         }
 
-        &__svg-1 {
-            display: block;
-            margin-top: -115px;
+        h2 {
+            color: white;
             position: relative;
-
-            svg {
-                background-color: transparent;
-
-                polygon {
-                    fill: var(--background);
-                }
-            }
-            
-            h2 {
-                color: var(--darkGray);
-                font-size: 32px;
-                position: absolute;
-                top: 46px;
-                left: 1.5rem;
-            }
-
-            @media (min-width: 1024px) {
-                h2 {
-                    left: 2rem;
-                }
-            }
-        }
-
-        &__svg-2 {
-            margin-bottom: -51px;
-
-            svg {
-                background-color: transparent;
-
-                polygon {
-                    fill: white;
-                }
-            }
+            left: 1.5rem;
         }
 
         &__content {
@@ -182,6 +177,11 @@
                     color: var(--darkGray);
                     font-weight: 500;
                     margin-bottom: 1rem;
+                }
+
+                h4 {
+                    font-style: italic;
+                    color: var(--teal);
                 }
 
                 h3 {
@@ -202,6 +202,7 @@
                 p {
                     margin-bottom: 2rem;
                     font-size: 16px;
+                    color: black;
                 }
 
                 ul {
@@ -222,7 +223,6 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
-                padding: 1.5rem 2rem;
             }
 
             a {
@@ -241,12 +241,11 @@
         }
 
         div[class*="slick-slider"], div[class*="slick-list"], div[class*="slick-track"] {
-            height: 400px;
+            height: 440px;
         }
 
         &__slide {
-            padding: 0 1.5rem;
-            height: 360px;
+            height: 400px;
             outline: none;
 
             &__content {
@@ -259,12 +258,65 @@
                 h3 {
                     font-size: 22px;
                     margin-bottom: 1rem;
+                    color: var(--darkGray);
+                }
+
+                h4 {
+                    font-style: italic;
+                    margin-bottom: 1rem;
+                    color: var(--teal);
                 }
 
                 a {
                     align-self: center;
                 }
+
+                p {
+                    color: black;
+                }
             }
+        }
+
+        div[class*="slick-slider"] {
+            ul[class*="slick-dots"] {
+                button::before {
+                    color: white;
+                }
+                bottom: -4rem;
+
+                @media (min-width: 768px) {
+                    bottom: -2.5rem;
+                }
+            }
+        }
+    }
+
+    &__marquee {
+        margin-top: 2rem;
+        overflow: hidden;
+        display: flex;
+        gap: 1rem;
+
+        &__inner {
+            display: flex;
+            gap: 1rem;
+        }
+
+        &__item {
+            display: flex;
+            gap: 1rem;
+            white-space: nowrap;
+            color: white;
+
+            p, span {
+                font-size: 14px;
+                color: white;
+                font-style: italic;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            margin-top: 0;
         }
     }
 }

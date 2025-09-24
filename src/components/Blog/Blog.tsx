@@ -66,8 +66,6 @@ const Blog = () => {
             <a
               key={index}
               href={blog.href}
-              target="_blank"
-              rel="noopener noreferrer"
               className={cx(styles["blog-card"], blogStagger)}
             >
               <div className={styles["blog-card__image"]}>

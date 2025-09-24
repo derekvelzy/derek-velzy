@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og/SbVLogo.png",
+        url: "/favicon.png",
         width: 1000,
         height: 1000,
         alt: "Sites by Velzy",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     title: "Articles — Web Design, SEO, Shopify & Analytics",
     description:
       "Guides and tutorials by Derek Velzy on web dev, SEO, Shopify, analytics, and accessibility.",
-    images: ["/og/SbVLogo.png"],
+    images: ["/favicon.png"],
   },
   robots: { index: true, follow: true },
 };

@@ -62,7 +62,7 @@ const SvB = ({ animationsCompleted, setAnimationsCompleted }: Props) => {
           scrollTrigger: {
             trigger: "body",
             start: "top top",
-            end: () => "+=400px top",
+            end: () => "+=200px top",
             scrub: true,
           },
         });

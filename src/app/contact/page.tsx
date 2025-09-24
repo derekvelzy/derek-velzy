@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     url: "/contact",
     siteName: "Sites by Velzy",
     type: "website",
-    images: [{ url: "/og/SbVLogo.png", width: 1000, height: 1000, alt: "Sites by Velzy" }],
+    images: [{ url: "/favicon.png", width: 1000, height: 1000, alt: "Sites by Velzy" }],
   },
   robots: { index: true, follow: true },
 };

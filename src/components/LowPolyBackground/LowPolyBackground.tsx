@@ -109,11 +109,11 @@ const LowPolySvgBackground = () => {
       const calculateDimensions = () => {
         const width = windowWidth || window.innerWidth;
         const currentWindowHeight = windowHeight || window.innerHeight;
-        let height = currentWindowHeight * 5.4 + (640 + 350);
+        let height = currentWindowHeight * 5.4 + (640 + 450);
         if (width < 768) {
-          height = 750 + 100 + 1200 + 100 + 650;
+          height = 750 + 100 + 1200 + 100 + 725;
         } else if (width < 1024) {
-          height = 1000 + 200 + 900 + 100 + 900;
+          height = 1000 + 200 + 900 + 100 + 925;
         }
         const points = generatePoints(width, height, isDesktop);
         setDots(points);
@@ -176,30 +176,30 @@ const LowPolySvgBackground = () => {
         } else if (yFactor >= 1.55) {
           color = "rgba(47, 62, 70, 0.8)";
         } else if (yFactor >= 1.45) {
-          color = "rgba(53, 79, 82, 0.7)";
+          color = "rgba(47, 62, 70, 0.77)";
         } else if (yFactor >= 1.35) {
           color = isDesktop
-            ? "rgba(53, 79, 82, 0.6)"
+            ? "rgba(47, 62, 70, 0.72)"
             : "rgba(82, 121, 111, 0.5)";
         } else if (yFactor >= 1.25) {
           color = isDesktop
-            ? "rgba(53, 79, 82, 0.55)"
+            ? "rgba(47, 62, 70, 0.68)"
             : "rgba(82, 121, 111, 0.4)";
         } else if (yFactor >= 1.15) {
           color = isDesktop
-            ? "rgba(53, 79, 82, 0.5)"
+            ? "rgba(47, 62, 70, 0.62)"
             : "rgba(82, 121, 111, 0.3)";
         } else if (yFactor >= 1.1) {
           color = isDesktop
-            ? "rgba(82, 121, 111, 0.5)"
+            ? "rgba(47, 62, 70, 0.58)"
             : "rgba(82, 121, 111, 0.3)";
         } else if (yFactor >= 1.05) {
           color = isDesktop
-            ? "rgba(82, 121, 111, 0.4)"
+            ? "rgba(53, 79, 82, 0.5)"
             : "rgba(82, 121, 111, 0.2)";
         } else if (yFactor >= 1.02) {
           color = isDesktop
-            ? "rgba(82, 121, 111, 0.3)"
+            ? "rgba(53, 79, 82, 0.3)"
             : "rgba(82, 121, 111, 0.1)";
         } else if (yFactor >= 0.95) {
           color = isDesktop

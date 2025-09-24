@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     type: "profile",
     images: [
       {
-        url: "/og/SbVLogo.png",
+        url: "/favicon.png",
         width: 1000,
         height: 1000,
         alt: "Sites by Velzy — About Derek Velzy",
@@ -53,7 +53,7 @@ export default function AboutPage() {
       addressRegion: "CA",
       addressCountry: "US",
     },
-    image: "https://sitesbyvelzy.com/og/SbVLogo.png", // use absolute URLs
+    image: "https://sitesbyvelzy.com/favicon.png", // use absolute URLs
     knowsAbout: [
       "Web design and development",
       "SEO",

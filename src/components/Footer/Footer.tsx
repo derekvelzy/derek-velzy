@@ -43,6 +43,7 @@ const Footer = () => {
           <p>
             © {new Date().getFullYear()} Sites by Velzy. All rights reserved.
           </p>
+          <p>Designed And Developed By Derek Velzy</p>
         </div>
       </div>
     </div>

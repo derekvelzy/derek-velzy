@@ -83,6 +83,7 @@ type Testimonial = {
   photo: string;
   business: string;
   "business-link": string;
+  header: string;
   quote: string;
 };
 const Block = ({ data }: { data: Testimonial }) => {
@@ -102,6 +103,9 @@ const Block = ({ data }: { data: Testimonial }) => {
             label={data.business}
             external
           />
+        </div>
+        <div className={styles["testimonial-block__content__header"]}>
+          <span>{data["header"]}</span>
         </div>
         <p>{data.quote}</p>
       </div>

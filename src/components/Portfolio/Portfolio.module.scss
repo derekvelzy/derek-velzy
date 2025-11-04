@@ -1,0 +1,11 @@
+.portfolio {
+    &__container {
+        margin-top: 120px;
+        min-height: calc(100vh - 120px - 448px - 5vh);
+
+        @media (min-width: 1024px) {
+            margin-top: 160px;
+            min-height: calc(100vh - 160px - 460px - 5vh);
+        }
+    }
+}

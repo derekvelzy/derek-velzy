@@ -159,6 +159,19 @@
         color: var(--darkGray);
       }
     }
+
+    &__header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem;
+
+      span {
+        font-size: 18px;
+        color: var(--darkGray);
+      }
+    }
   }
 }
 
@@ -167,8 +180,6 @@
   top: -500px;
   left: 0;
   z-index: 0;
-  // opacity: 0;
-  // transition: opacity 0.5s var(--easy-does-it);
 
   &__container {
     position: absolute;

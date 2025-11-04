@@ -28,7 +28,7 @@ const LowPolyBgTestimonials = () => {
     const ctx = gsap.context(() => {
       const container = document.getElementById("low-poly-bg-testimonials");
       gsap.to(container, {
-        y: "400px",
+        y: "500px",
         ease: "linear",
         duration: 1,
         scrollTrigger: {

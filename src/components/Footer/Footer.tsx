@@ -31,6 +31,9 @@ const Footer = () => {
               <Link href="/contact">Contact</Link>
             </li>
             <li>
+              <Link href="/portfolio">Portfolio</Link>
+            </li>
+            <li>
               <Link target="_blank" rel="noopener noreferrer" href="https://medium.com/@dmvelzy">Medium</Link>
             </li>
           </ul>

@@ -81,9 +81,13 @@ body {
 
 p, li {
   font-family: var(--font-inter);
-  font-size: 18px;
+  font-size: 16px;
   color: var(--darkGray);
   line-height: 1.5;
+
+  @media (min-width: 1024px) {
+    font-size: 18px;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {

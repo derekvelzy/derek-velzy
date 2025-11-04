@@ -458,7 +458,7 @@
     &__images {
         width: 100%;
         height: 100%;
-        max-height: 225px;
+        max-height: 200px;
         margin-bottom: 2rem;
         display: flex;
         gap: 2rem;
@@ -500,7 +500,7 @@
         }
         &__col-2 {
             width: 100%;
-            height: 225px;
+            height: 200px;
 
             @media (min-width: 768px) {
                 height: 360px;
@@ -575,7 +575,7 @@
             &__description {
                 p {
                     color: white;
-                    font-size: 18px;
+                    font-size: 16px;
                     margin-bottom: 2rem;
 
                     bold {
@@ -589,6 +589,10 @@
                     transform: translateY(12px);
                     transition: opacity 0.1s var(--easy-does-it), transform 0.1s var(--easy-does-it);
                     margin-bottom: 0;
+
+                    p {
+                        font-size: 18px;
+                    }
                 }
             }
         }

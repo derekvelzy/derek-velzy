@@ -134,7 +134,7 @@ const Services = () => {
                   >
                     <div>
                       <h3>{service.name}</h3>
-                      {service.subtitle && <h4>{service.subtitle}</h4>}
+                      {/* {service.subtitle && <h4>{service.subtitle}</h4>} */}
                       <p>{service.brief}</p>
                     </div>
                     <Link
@@ -158,11 +158,11 @@ const Services = () => {
               <h3 className="service-stagger">
                 {services[selectedService].name}
               </h3>
-              {services[selectedService].subtitle && (
+              {/* {services[selectedService].subtitle && (
                 <h4 className="service-stagger">
                   {services[selectedService].subtitle}
                 </h4>
-              )}
+              )} */}
               <p className="service-stagger">
                 {services[selectedService].brief}
               </p>
@@ -181,7 +181,7 @@ const Services = () => {
           </div>
         </div>
       </div>
-      <div className={styles["services__marquee"]}>
+      {/* <div className={styles["services__marquee"]}>
         <div
           id="services--marquee"
           className={styles["services__marquee__inner"]}
@@ -196,7 +196,7 @@ const Services = () => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

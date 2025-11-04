@@ -161,7 +161,8 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 20px;
+    // margin-bottom: 12px;
+    margin-top: 6px;
 }
 
 .slide-counter {
@@ -176,8 +177,8 @@
     background: var(--nonWhite);
     border: none;
     border-radius: 50%;
-    width: 48px;
-    height: 48px;
+    width: 36px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -219,7 +220,7 @@
     background: rgba(255, 255, 255, 0.9);
     border: none;
     border-radius: 50%;
-    width: 48px;
+    width: 40px;
     height: 48px;
     display: flex;
     align-items: center;

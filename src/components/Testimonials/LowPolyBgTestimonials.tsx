@@ -5,25 +5,53 @@ import React, { useEffect, useMemo, useState } from "react";
 import Delaunator from "delaunator";
 
 // Custom imports
-import styles from "./Work.module.scss";
+import styles from "./Testimonials.module.scss";
 import { type PolyData } from "../LowPolyBackground/helpers/types";
+import getCentroid from "../LowPolyBackground/helpers/getCentroid";
 
-const LowPolyBgWork = () => {
+const LowPolyBgTestimonials = () => {
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
 
   useEffect(() => {
     const width = window.innerWidth;
-    const height = window.innerHeight * 2;
+    const height = window.innerHeight;
     setWidth(width);
     setHeight(height);
   }, []);
 
   const { polygons } = useMemo(() => {
     if (height > 0 && width > 0) {
+      // const dots = [
+      //   [width * -0.2, height * -0.2],
+      //   [width * -0.3, height * -0.14],
+      //   [width * -0.35, height * 0.05],
+      //   [width * -0.15, height * 0.1],
+      //   [width * -0.2, height * 0.2],
+      //   [width * -0.1, height * 0.3],
+      //   [width * -0.4, height * 0.5],
+      //   [width * -0.5, height * 0.6],
+      //   [width * -0.6, height * 0.75],
+
+      //   [width * 0.38, height * -0.2],
+      //   [width * 0.35, height * -0.14],
+      //   [width * 0.2, height * 0.2],
+      //   [width * 0.15, height * 0.34],
+      //   [width * 0.1, height * 0.6],
+      //   [width * 0.1, height * 0.81],
+      //   [width * 0.2, height * 0.95],
+      //   [width * 0.29, height * 1.2],
+      //   // [width * 0.1, height * 0.4],
+      //   // [width * 0.3, height * 0.5],
+      //   // [width * 0.5, height * 0.6],
+      //   // [width * 0.7, height * 0.7],
+      //   // [width * 0.9, height * 0.8],
+      //   // [width * 1.1, height * 0.9],
+      //   // [width * 1.3, height * 1.0],
+      // ]
       const dots = [
         [0, 0],
-        [width * 0.5, height * 0.2],
+        // [width * 0.6, height * 0.2],
         [width * 0.75, height * 0.4],
         [width * 0.5, height * 0.6],
         [width * 0.25, height * 0.8],
@@ -37,6 +65,7 @@ const LowPolyBgWork = () => {
         [width * 0.3, height * 0.4],
         [width * 0.4, height * 0.7],
         [width * 0.6, height * 0.9],
+        [width * 0.75, height * 0.2],
         [width * 0.8, height * 0.5],
         [width * 0.9, height * 0.3],
         [width * 0.95, height * 0.15],
@@ -71,11 +100,31 @@ const LowPolyBgWork = () => {
         const a = dots[triangles[i]];
         const b = dots[triangles[i + 1]];
         const c = dots[triangles[i + 2]];
+        const centroid = getCentroid([a as number[], b as number[], c as number[]]);
+
+        let color = "rgba(47, 62, 70, 0)";
+        
+        if (centroid[0] < width * 0.1 || centroid[0] > width * 0.9) {
+          color = "rgba(47, 62, 70, 0.07)";
+        } else if (centroid[0] < width * 0.15 || centroid[0] > width * 0.85) {
+          color = "rgba(47, 62, 70, 0.05)";
+        } else if (centroid[0] < width * 0.2 || centroid[0] > width * 0.8) {
+          color = "rgba(47, 62, 70, 0.04)";
+        } else if (centroid[0] < width * 0.25 || centroid[0] > width * 0.75) {
+          color = "rgba(47, 62, 70, 0.03)";
+        } else if (centroid[0] < width * 0.3 || centroid[0] > width * 0.7) {
+          color = "rgba(47, 62, 70, 0.02)";
+        } else if (centroid[0] < width * 0.35 || centroid[0] > width * 0.65) {
+          color = "rgba(47, 62, 70, 0.01)";
+        } else if (centroid[0] < width * 0.4 || centroid[0] > width * 0.6) {
+          color = "rgba(47, 62, 70, 0.005)";
+        }
+        
 
         polys.push({
           points: [a as number[], b as number[], c as number[]],
-          color: "transparent",
-          stroke: "rgba(255, 255, 255, 0)",
+          color: color,
+          stroke: "transparent",
         });
       }
 
@@ -86,8 +135,8 @@ const LowPolyBgWork = () => {
 
   return (
     <div
-      id="low-poly-bg-work"
-      className={styles["low-poly-bg-work"]}
+      id="low-poly-bg-testimonials"
+      className={styles["low-poly-bg-testimonials"]}
       style={{ height, width }}
     >
       <svg
@@ -104,8 +153,8 @@ const LowPolyBgWork = () => {
         {polygons.map((poly, i) => (
           <Poly
             poly={poly}
-            index={i}
-            key={`polykey-work-${poly.points
+            color={poly.color}
+            key={`polykey-testimonials-${poly.points
               .map((p) => p?.join(","))
               .join("-")}-${i}`}
           />
@@ -115,7 +164,7 @@ const LowPolyBgWork = () => {
   );
 };
 
-const Poly = ({ poly, index }: { poly: PolyData, index: number }) => {
+const Poly = ({ poly, color }: { poly: PolyData; color: string }) => {
   const [hover, setHover] = useState(false);
 
   useEffect(() => {
@@ -126,21 +175,10 @@ const Poly = ({ poly, index }: { poly: PolyData, index: number }) => {
     }
   }, [hover]);
 
-  const randomShades = [
-    "rgba(255, 255, 255, 0.02)",
-    "rgba(255, 255, 255, 0.01)",
-    "rgba(0, 0, 0, 0.02)",
-    "rgba(0, 0, 0, 0.01)",
-    "rgba(0, 0, 0, 0)",
-    "rgba(255, 255, 255, 0.015)",
-    "rgba(0, 0, 0, 0.015)",
-    "rgba(0, 0, 0, 0)",
-  ];
-
   return (
     <polygon
       points={poly.points.map((p) => p?.join(",")).join(" ")}
-      fill={randomShades[index % randomShades.length]}
+      fill={color}
       stroke={poly.stroke}
       data-theme={poly.theme}
       strokeWidth={0.5}
@@ -148,4 +186,4 @@ const Poly = ({ poly, index }: { poly: PolyData, index: number }) => {
   );
 };
 
-export default LowPolyBgWork;
+export default LowPolyBgTestimonials;

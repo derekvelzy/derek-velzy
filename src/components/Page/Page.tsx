@@ -12,9 +12,10 @@ import FloatingLinks from "../FloatingLinks/FloatingLinks";
 type Props = {
   overflowHidden?: boolean;
   children: React.ReactNode;
+  includeMaxWidth?: boolean;
 };
 
-const Page = ({ overflowHidden = false, children }: Props) => {
+const Page = ({ overflowHidden = false, includeMaxWidth = true, children }: Props) => {
   useEffect(() => {
     gsap.to(".title--flip", {
       opacity: 1,
@@ -44,8 +45,8 @@ const Page = ({ overflowHidden = false, children }: Props) => {
     <div className="bg-[#F8F9FA] relative w-full">
       <div
         className={cx(
-          "px-5 md:px-8 lg:px-0 max-w-[964px] mx-auto z-[1] relative",
-          { "overflow-hidden": overflowHidden }
+          "mx-auto z-[1] relative",
+          { "overflow-hidden": overflowHidden, "max-w-[964px] px-5 md:px-8 lg:px-0": includeMaxWidth }
         )}
       >
         {children}

@@ -6,6 +6,7 @@ import Script from "next/script";
 import About from "~/components/About/About";
 import Page from "~/components/Page/Page";
 import BookCallCTA from "~/components/BookCallCTA/BookCallCTA";
+import Testimonials from "~/components/Testimonials/Testimonials";
 
 export const metadata: Metadata = {
   title: "About Derek Velzy — Web Developer in Orange County, CA",
@@ -66,9 +67,16 @@ export default function AboutPage() {
   };
 
   return (
-    <Page>
-      <About />
-      <BookCallCTA label="Let’s Build Something That Works for Your Business." />
+    <Page includeMaxWidth={false}>
+      <div className="max-w-[964px] px-5 md:px-8 lg:px-0 mx-auto">
+        <About />
+      </div>
+      <div className="mt-[8rem]">
+        <Testimonials />
+      </div>
+      <div className="max-w-[964px] px-5 md:px-8 lg:px-0 mx-auto">
+        <BookCallCTA label="Let’s Build Something That Works for Your Business." />
+      </div>
       <Script
         id="about-json-ld"
         type="application/ld+json"

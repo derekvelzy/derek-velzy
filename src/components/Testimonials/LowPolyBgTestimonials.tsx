@@ -3,11 +3,15 @@
 // Package imports
 import React, { useEffect, useMemo, useState } from "react";
 import Delaunator from "delaunator";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 // Custom imports
 import styles from "./Testimonials.module.scss";
 import { type PolyData } from "../LowPolyBackground/helpers/types";
 import getCentroid from "../LowPolyBackground/helpers/getCentroid";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const LowPolyBgTestimonials = () => {
   const [width, setWidth] = useState(0);
@@ -15,43 +19,35 @@ const LowPolyBgTestimonials = () => {
 
   useEffect(() => {
     const width = window.innerWidth;
-    const height = window.innerHeight;
+    const height = window.innerHeight * 1.5;
     setWidth(width);
     setHeight(height);
   }, []);
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const container = document.getElementById("low-poly-bg-testimonials");
+      gsap.to(container, {
+        y: "400px",
+        ease: "linear",
+        duration: 1,
+        scrollTrigger: {
+          trigger: container,
+          start: "500px bottom",
+          end: () => "+=700px top",
+          scrub: true,
+        },
+      });
+    });
+    return () => {
+      ctx.revert();
+    };
+  }, []);
+
   const { polygons } = useMemo(() => {
     if (height > 0 && width > 0) {
-      // const dots = [
-      //   [width * -0.2, height * -0.2],
-      //   [width * -0.3, height * -0.14],
-      //   [width * -0.35, height * 0.05],
-      //   [width * -0.15, height * 0.1],
-      //   [width * -0.2, height * 0.2],
-      //   [width * -0.1, height * 0.3],
-      //   [width * -0.4, height * 0.5],
-      //   [width * -0.5, height * 0.6],
-      //   [width * -0.6, height * 0.75],
-
-      //   [width * 0.38, height * -0.2],
-      //   [width * 0.35, height * -0.14],
-      //   [width * 0.2, height * 0.2],
-      //   [width * 0.15, height * 0.34],
-      //   [width * 0.1, height * 0.6],
-      //   [width * 0.1, height * 0.81],
-      //   [width * 0.2, height * 0.95],
-      //   [width * 0.29, height * 1.2],
-      //   // [width * 0.1, height * 0.4],
-      //   // [width * 0.3, height * 0.5],
-      //   // [width * 0.5, height * 0.6],
-      //   // [width * 0.7, height * 0.7],
-      //   // [width * 0.9, height * 0.8],
-      //   // [width * 1.1, height * 0.9],
-      //   // [width * 1.3, height * 1.0],
-      // ]
       const dots = [
         [0, 0],
-        // [width * 0.6, height * 0.2],
         [width * 0.75, height * 0.4],
         [width * 0.5, height * 0.6],
         [width * 0.25, height * 0.8],
@@ -91,6 +87,42 @@ const LowPolyBgTestimonials = () => {
         [width * 0.9, height * 1.6],
         [width * 1.1, height * 1.8],
         [width * 1.3, height * 1.9],
+        [width * 0.12, height * 0.15],
+        [width * 0.18, height * 0.45],
+        [width * 0.22, height * 0.65],
+        [width * 0.28, height * 0.25],
+        [width * 0.32, height * 0.55],
+        [width * 0.38, height * 0.35],
+        [width * 0.42, height * 0.75],
+        [width * 0.48, height * 0.45],
+        [width * 0.52, height * 0.25],
+        [width * 0.58, height * 0.65],
+        [width * 0.62, height * 0.35],
+        [width * 0.68, height * 0.75],
+        [width * 0.72, height * 0.55],
+        [width * 0.78, height * 0.65],
+        [width * 0.82, height * 0.35],
+        [width * 0.88, height * 0.45],
+        [width * 0.92, height * 0.25],
+        [width * 0.15, height * 0.65],
+        [width * 0.25, height * 0.25],
+        [width * 0.35, height * 0.55],
+        [width * 0.45, height * 0.35],
+        [width * 0.55, height * 0.75],
+        [width * 0.65, height * 0.45],
+        [width * 0.85, height * 0.55],
+        [width * 0.05, height * 0.2],
+        [width * 0.95, height * 0.7],
+        [width * 0.98, height * 0.4],
+        [width * 0.02, height * 0.6],
+        [width * 0.08, height * 0.85],
+        [width * 0.92, height * 0.85],
+        [width * 0.5, height * 0.15],
+        [width * 0.3, height * 0.15],
+        [width * 0.7, height * 0.15],
+        [width * 0.88, height * 0.65],
+        [width * 0.12, height * 0.75],
+        [width * 0.6, height * 0.25],
       ];
       const delaunay = Delaunator.from(dots as ArrayLike<ArrayLike<number>>);
       const triangles = delaunay.triangles;
@@ -105,13 +137,13 @@ const LowPolyBgTestimonials = () => {
         let color = "rgba(47, 62, 70, 0)";
         
         if (centroid[0] < width * 0.1 || centroid[0] > width * 0.9) {
-          color = "rgba(47, 62, 70, 0.07)";
+          color = "rgba(47, 62, 70, 0.1)";
         } else if (centroid[0] < width * 0.15 || centroid[0] > width * 0.85) {
-          color = "rgba(47, 62, 70, 0.05)";
+          color = "rgba(47, 62, 70, 0.075)";
         } else if (centroid[0] < width * 0.2 || centroid[0] > width * 0.8) {
-          color = "rgba(47, 62, 70, 0.04)";
+          color = "rgba(47, 62, 70, 0.05)";
         } else if (centroid[0] < width * 0.25 || centroid[0] > width * 0.75) {
-          color = "rgba(47, 62, 70, 0.03)";
+          color = "rgba(47, 62, 70, 0.035)";
         } else if (centroid[0] < width * 0.3 || centroid[0] > width * 0.7) {
           color = "rgba(47, 62, 70, 0.02)";
         } else if (centroid[0] < width * 0.35 || centroid[0] > width * 0.65) {

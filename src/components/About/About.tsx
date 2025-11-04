@@ -14,7 +14,6 @@ const About = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       const container = document.getElementById("container--about");
-      const title = document.getElementById("title--about");
       const copy = document.getElementById("copy--about");
       const aboutName = document.getElementById("about-name");
 
@@ -35,8 +34,9 @@ const About = () => {
         stagger: 0.125,
       });
       tl.to(
-        title,
+        ".title--about",
         {
+          opacity: 1,
           y: 0,
           duration: 0.75,
           ease: "power3.out",
@@ -110,23 +110,33 @@ const About = () => {
           </div>
         </div>
         <div className={styles["about__right"]}>
-          <div className={styles["about__right__title"]}>
-            <h1 id="title--about" className="translate-y-[62px]">About</h1>
+          <div className={styles["about__right__title__desktop"]}>
+            <h1 id="title--about" className="translate-y-[62px] opacity-0 title--about">
+              About
+            </h1>
           </div>
-          <div
-            className={cx(
-              "photo-frame opacity-0 translate-y-[50px]",
-              styles["about__right__mobile-photo-frame"]
-            )}
+          <div className={styles["about__right__mobile-photo-container"]}>
+            <div
+              className={cx(
+                "photo-frame opacity-0 translate-y-[30px]",
+                styles["about__right__mobile-photo-frame"]
+              )}
+            >
+              <Image
+                src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/PortfolioPhoto.jpg"
+                alt="Derek Velzy profile photo"
+                fill={true}
+                sizes="(max-width: 479px) 100vw, (max-width: 1279px) 440px"
+              />
+            </div>
+            <div className={styles["about__right__title__mobile"]}>
+              <h1 className="title--about translate-y-[50px] opacity-0">About</h1>
+            </div>
+          </div>
+          <p
+            id="copy--about"
+            className="mb-8 lg:mb-0 opacity-0 translate-y-[50px]"
           >
-            <Image
-              src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/PortfolioPhoto.jpg"
-              alt="Derek Velzy profile photo"
-              fill={true}
-              sizes="(max-width: 479px) 100vw, (max-width: 1279px) 440px"
-            />
-          </div>
-          <p id="copy--about" className="mb-8 lg:mb-0 opacity-0 translate-y-[50px]">
             I’m a web developer and digital marketing tech specialist who works
             best in lean, fast-moving environments - where quanitifiable
             results, clear decision-making, and staying on schedule matter most.

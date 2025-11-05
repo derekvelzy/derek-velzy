@@ -109,7 +109,7 @@ const LowPolySvgBackground = () => {
       const calculateDimensions = () => {
         const width = windowWidth || window.innerWidth;
         const currentWindowHeight = windowHeight || window.innerHeight;
-        let height = currentWindowHeight * 5.4 + (640 + 450);
+        let height = currentWindowHeight * 5.4 + (640 + 350);
         if (width < 768) {
           height = 750 + 100 + 1200 + 100 + 625;
         } else if (width < 1024) {

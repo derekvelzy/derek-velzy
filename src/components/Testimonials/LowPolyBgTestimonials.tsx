@@ -136,10 +136,14 @@ const LowPolyBgTestimonials = () => {
 
         let color = "rgba(47, 62, 70, 0)";
         
-        if (centroid[0] < width * 0.1 || centroid[0] > width * 0.9) {
-          color = "rgba(47, 62, 70, 0.1)";
+        if (centroid[0] < width * 0.03|| centroid[0] > width * 0.97) {
+          color = "rgba(47, 62, 70, 0.25)";
+        } else if (centroid[0] < width * 0.06|| centroid[0] > width * 0.94) {
+          color = "rgba(47, 62, 70, 0.16)";
+        } else if (centroid[0] < width * 0.1|| centroid[0] > width * 0.9) {
+          color = "rgba(47, 62, 70, 0.12)";
         } else if (centroid[0] < width * 0.15 || centroid[0] > width * 0.85) {
-          color = "rgba(47, 62, 70, 0.075)";
+          color = "rgba(47, 62, 70, 0.1)";
         } else if (centroid[0] < width * 0.2 || centroid[0] > width * 0.8) {
           color = "rgba(47, 62, 70, 0.05)";
         } else if (centroid[0] < width * 0.25 || centroid[0] > width * 0.75) {
@@ -147,7 +151,7 @@ const LowPolyBgTestimonials = () => {
         } else if (centroid[0] < width * 0.3 || centroid[0] > width * 0.7) {
           color = "rgba(47, 62, 70, 0.02)";
         } else if (centroid[0] < width * 0.35 || centroid[0] > width * 0.65) {
-          color = "rgba(47, 62, 70, 0.01)";
+          color = "rgba(47, 62, 70, 0.015)";
         } else if (centroid[0] < width * 0.4 || centroid[0] > width * 0.6) {
           color = "rgba(47, 62, 70, 0.005)";
         }

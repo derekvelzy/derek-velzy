@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     ],
   },
   robots: {
-    index: true,
+    index: false,
     follow: true,
   },
   alternates: {
@@ -61,6 +61,7 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <Page>
+      <meta name="robots" content="noindex, follow" />
       <Services />
     </Page>
   );

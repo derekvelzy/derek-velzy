@@ -10,6 +10,7 @@ import Gtm from "./(analytics)/Gtm";
 
 export const metadata: Metadata = {
   title: "Sites by Velzy | Web Design & Development in Orange County, CA",
+  applicationName: "Sites by Velzy",
   description:
     "Sites by Velzy, led by Derek Velzy, provides expert web design, development, SEO, Shopify e-commerce help, digital marketing integrations, hosting, maintenance plans, and accessibility audits in Orange County, California.",
   keywords: [

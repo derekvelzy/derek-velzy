@@ -1,0 +1,44 @@
+[
+    {
+        "title": "Website Refresh + Analytics Setup",
+        "description": "Give your current site a second life. I’ll modernize the design, boost load speed, and make sure every click is tracked so you can see what’s driving business.",
+        "bullets": [
+            "Design refresh & UX polish",
+            "Speed optimization",
+            "GA4 + Meta Pixel setup",
+            "Consent & privacy compliance"
+        ],
+        "CTA": "Get Your Free Website Audit",
+        "action": "audit",
+        "service-id": "website-refresh",
+        "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/website-rebuild.png"
+    },
+    {
+        "title": "Full Website Build",
+        "description": "When your site needs more than a facelift. I design and build a custom, mobile-first website that’s fast, accessible, and built to convert visitors into customers.",
+        "bullets": [
+            "Strategy & structure planning",
+            "UX design & development",
+            "SEO-ready architecture",
+            "Accessibility & compliance built in"
+        ],
+        "CTA": "See if this is right for you",
+        "action": "contact",
+        "service-id": "website-build",
+       "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/site-build.png"
+    },
+    {
+        "title": "Ongoing Optimization & Support",
+        "description": "Your website shouldn’t stay static. I’ll handle updates, track performance, and keep your site compliant — so you can focus on running your business.",
+        "bullets": [
+            "Monthly performance insights",
+            "Quarterly audits & updates",
+            "Content refreshes",
+            "Continuous compliance checks"
+        ],
+        "CTA": "Join the plan",
+        "action": "maintenance",
+        "service-id": "maintenance-plan",
+        "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/analytics-image.png"
+    }
+]

@@ -8,9 +8,10 @@ import FloatingLinks from "~/components/FloatingLinks/FloatingLinks";
 import Hero from "~/components/Hero/Hero";
 import LowPolyBg from "~/components/LowPolyBackground/LowPolyBackground";
 import LPBGFooter from "~/components/LowPolyBackground/LPBGFooter";
-import Services from "~/components/Services/ServicesHomepage";
+// import Services from "~/components/Services/Servi/cesHomepage";
 import Work from "~/components/Work/Work";
 import JaggedDivider from "~/components/JaggedDivider/JaggedDivider";
+import ThreeBlocks from "~/components/ThreeBlocks/ThreeBlocks";
 
 export const metadata: Metadata = {
   title: "Sites by Velzy | Web Design & Development in Orange County, CA",
@@ -40,7 +41,8 @@ export default function Home() {
       <Hero />
       <FloatingLinks />
       <LowPolyBg />
-      <Services />
+      {/* <Services /> */}
+      <ThreeBlocks />
       <Work />
       <AboutHomepage />
       <JaggedDivider />

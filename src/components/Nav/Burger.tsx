@@ -82,8 +82,8 @@ const Burger = ({ animationsCompleted }: Props) => {
 
   const navButtons = [
     {
-      id: "services",
-      label: "Services",
+      id: "solutions",
+      label: "Solutions",
       link: true,
     },
     {

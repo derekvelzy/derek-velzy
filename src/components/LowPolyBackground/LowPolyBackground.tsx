@@ -109,11 +109,11 @@ const LowPolySvgBackground = () => {
       const calculateDimensions = () => {
         const width = windowWidth || window.innerWidth;
         const currentWindowHeight = windowHeight || window.innerHeight;
-        let height = currentWindowHeight * 5.4 + (640 + 350);
+        let height = currentWindowHeight * 5.4 + (640 + 180);
         if (width < 768) {
-          height = 750 + 100 + 1200 + 100 + 625;
+          height = 750 + 100 + 1200 + 100 + 420;
         } else if (width < 1024) {
-          height = 1000 + 200 + 900 + 100 + 825;
+          height = 1000 + 200 + 900 + 100 + 550;
         }
         const points = generatePoints(width, height, isDesktop);
         setDots(points);

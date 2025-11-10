@@ -12,6 +12,7 @@ type ButtonProps = {
   disabled?: boolean;
   variant?: "primary" | "secondary";
   ariaLabel?: string;
+  type?: "button" | "submit" | "reset";
 };
 
 const Button = ({
@@ -22,6 +23,7 @@ const Button = ({
   disabled,
   variant = "primary",
   ariaLabel,
+  type = "button",
 }: ButtonProps) => {
   return (
     <button
@@ -30,6 +32,7 @@ const Button = ({
       aria-disabled={disabled}
       onClick={action}
       aria-label={ariaLabel}
+      type={type}
       className={cx(
         styles["button"],
         {

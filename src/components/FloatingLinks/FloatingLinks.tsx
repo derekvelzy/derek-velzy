@@ -15,7 +15,7 @@ const FloatingLinks = ({ mobile = false }: { mobile?: boolean }) => {
     <div className={cx("z-20 flex-col gap-4", mobile ? "relative flex lg:hidden" : "hidden lg:flex fixed bottom-8 left-8")}>
       <FloatingLink
         label="Send email"
-        href="mailto:dmvelzy@gmail.com"
+        href="mailto:derek@sitesbyvelzy.com"
         icon={<Mail />}
       />
       <FloatingLink

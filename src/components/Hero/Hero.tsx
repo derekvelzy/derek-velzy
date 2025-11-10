@@ -9,10 +9,12 @@ import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 
 // Custom imports
-import Link from "../Link/Link";
 import styles from "./Hero.module.scss"; // Assuming you have a styles file for Hero
 import Wheel from "./Wheel";
 import Arrow from "~/res/svgs/arrow";
+import Button from "../Button/Button";
+import SecondaryLink from "../Link/SecondaryLink";
+import AuditForm from "../AuditForm/AuditForm";
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -21,6 +23,7 @@ const Hero = ({}) => {
     "prev" | "next" | "none" | null
   >(null);
   const [loaded, setLoaded] = useState(false);
+  const [showAuditForm, setShowAuditForm] = useState(false);
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
     vertical: true,
@@ -163,10 +166,19 @@ const Hero = ({}) => {
     );
   }, []);
 
+  useEffect(() => {
+    if (showAuditForm) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [showAuditForm]);
+
   const staggerClass = "stagger opacity-0 translate-y-[50px]";
 
   return (
     <div id="top" className={styles["hero__container"]}>
+      <AuditForm show={showAuditForm} onClose={() => setShowAuditForm(false)} />
       <div className={cx("slice", styles["hero"])}>
         <div className={styles["hero__content"]}>
           <div className={styles["hero__content__title"]}>
@@ -194,22 +206,19 @@ const Hero = ({}) => {
             </div>
           </div>
           <p className={staggerClass}>
-            With 4 years of experience as a solo web developer in a lean
-            marketing team, I bridge the gap between tech and strategy -
-            handling web design, tracking, tool integration, and web
-            accessibility so you don’t have to.
+            I create fast, mobile-ready sites that convert visitors into
+            customers. Tracked for insight, compliant by design, and built to
+            perform.
           </p>
           <div className={cx(staggerClass, styles["hero__content__ctas"])}>
-            <Link
-              id="hero-main-cta"
+            <Button action={() => setShowAuditForm(true)}>
+              Get your free website audit
+            </Button>
+            <SecondaryLink
               href="https://calendly.com/dmvelzy/30min"
               external
-            >
-              Book a free discovery call
-            </Link>
-            <Link href="contact" variant="secondary">
-              Say Hello
-            </Link>
+              label="Book a quick call"
+            />
           </div>
         </div>
       </div>

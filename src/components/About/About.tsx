@@ -111,7 +111,10 @@ const About = () => {
         </div>
         <div className={styles["about__right"]}>
           <div className={styles["about__right__title__desktop"]}>
-            <h1 id="title--about" className="translate-y-[62px] opacity-0 title--about">
+            <h1
+              id="title--about"
+              className="translate-y-[62px] opacity-0 title--about"
+            >
               About
             </h1>
           </div>
@@ -130,7 +133,9 @@ const About = () => {
               />
             </div>
             <div className={styles["about__right__title__mobile"]}>
-              <h1 className="title--about translate-y-[50px] opacity-0">About</h1>
+              <h1 className="title--about translate-y-[50px] opacity-0">
+                About
+              </h1>
             </div>
           </div>
           <p
@@ -138,31 +143,31 @@ const About = () => {
             className="mb-8 lg:mb-0 opacity-0 translate-y-[50px]"
           >
             I’m a web developer and digital marketing tech specialist who works
-            best in lean, fast-moving environments - where quanitifiable
-            results, clear decision-making, and staying on schedule matter most.
+            best in lean, fast-moving environments, where measurable results,
+            clear decision-making, and staying on schedule matter most.
             <br />
             <br />
-            Currently, I lead development on a busy marketing team, owning the
-            company’s main website and supporting systems from design through
+            I currently lead web development for a busy marketing team, owning
+            the company’s main site and supporting systems from design through
             deployment. I build campaign landing pages, optimize site
             performance and accessibility, integrate marketing tools like Google
-            Analytics, Meta Pixel, and HubSpot, and implement GDPR and
-            CCPA-compliant consent management - all with minimal oversight and a
-            focus on driving business-critical goals.
+            Analytics, Meta Pixel, and HubSpot, and implement GDPR- and
+            CCPA-compliant consent management — all with minimal oversight and a
+            focus on business-critical outcomes.
             <br />
             <br />
-            I don’t just write clean, scalable code - I make sure your web
-            traffic and conversions work toward real business growth. Whether
-            you’re launching your first site, troubleshooting tracking issues,
-            or need everyhing to “talk to each other”, I can help -
-            communicating in plain English, without all the tech jargon.
+            I don’t just write clean, scalable code, I make sure your web
+            traffic and conversions actually support growth. Whether you’re
+            launching your first site, troubleshooting tracking issues, or need
+            everything to “talk to each other,” I can help — communicating in
+            plain English, without the tech jargon.
             <br />
             <br />
-            Based in Orange County, California, I partner with businesses
-            locally and remotely to deliver websites that are fast, accessible,
-            and built to drive measurable results. If you’re looking for a
-            developer who understand how your website fits into the bigger
-            picture of marketing and growth, let’s talk.
+            Based in Orange County, California, I partner with local and remote
+            businesses to build websites that are fast, accessible, and
+            integrated with the tools that drive measurable results. If you’re
+            looking for someone who understands how your site fits into the
+            bigger picture of marketing and growth, let’s talk.
           </p>
           <div className={styles["about__right__mobile-skills"]}>
             <Skills

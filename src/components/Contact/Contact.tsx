@@ -13,7 +13,7 @@ import Link from "../Link/Link";
 import styles from "./Contact.module.scss"; // Assuming you have a CSS module for styles
 import SecondaryLink from "../Link/SecondaryLink";
 import { useIsDesktop } from "~/helpers/useIsDesktop";
-import services from "../Services/services.json";
+import solutions from "../Solutions/solutions.json";
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -31,7 +31,7 @@ const Contact = ({ standalone }: { standalone?: boolean }) => {
 
   const isDesktop = useIsDesktop();
   const searchParams = useSearchParams();
-  const serviceQuery = searchParams.get("service");
+  const serviceQuery = searchParams.get("solution");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -46,8 +46,8 @@ const Contact = ({ standalone }: { standalone?: boolean }) => {
 
   useEffect(() => {
     if (serviceQuery && typeof serviceQuery === "string") {
-      const serviceExists = services.some(
-        (service) => service["service-id"] === serviceQuery
+      const serviceExists = solutions.some(
+        (solution) => solution["service-id"] === serviceQuery
       );
       if (serviceExists) {
         setSelected(serviceQuery);
@@ -147,8 +147,8 @@ const Contact = ({ standalone }: { standalone?: boolean }) => {
               <p>{"(925) 200-7710"}</p>
               <div className={styles["contact__upper-row__info__divider"]} />
               <SecondaryLink
-                href="mailto:dmvelzy@gmail.com"
-                label="dmvelzy@gmail.com"
+                href="mailto:derek@sitesbyvelzy.com"
+                label="derek@sitesbyvelzy.com"
               />
             </div>
             <div className={styles["contact__upper-row__mobile-divider"]} />
@@ -202,7 +202,7 @@ const Contact = ({ standalone }: { standalone?: boolean }) => {
                 </div>
               </div>
               <div className={styles["service-row"]}>
-                <label htmlFor="service">Service</label>
+                <label htmlFor="service">Solution/Service</label>
                 <select
                   id="service-select"
                   name="service"
@@ -212,30 +212,19 @@ const Contact = ({ standalone }: { standalone?: boolean }) => {
                   }}
                 >
                   <option value="None" disabled>
-                    Select a service
+                    Select a solution
                   </option>
-                  {services.map((service, index) => (
-                    <option key={index} value={service["service-id"]}>
-                      {service.name}
+                  {solutions.map((solution, index) => (
+                    <option key={index} value={solution["service-id"]}>
+                      {solution.title}
                     </option>
                   ))}
                 </select>
                 <p>
                   Not sure yet?{" "}
-                  <button
-                    onClick={() => {
-                      gsap.to(window, {
-                        scrollTo: {
-                          y: "#services",
-                          offsetY: -160,
-                        },
-                        duration: 0.75,
-                        ease: "power4.out",
-                      });
-                    }}
-                  >
-                    Read more about services
-                  </button>{" "}
+                  <a className="underline text-[var(--teal)]" href="/solutions">
+                    Read more about solutions
+                  </a>{" "}
                   or leave a message below.
                 </p>
               </div>
@@ -258,6 +247,7 @@ const Contact = ({ standalone }: { standalone?: boolean }) => {
                 <Button
                   ariaLabel="Send message"
                   className="float-right"
+                  type="submit"
                   disabled={
                     !formData.email || !formData.name || !formData.message
                   }

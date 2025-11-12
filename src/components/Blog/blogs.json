@@ -1,5 +1,19 @@
 [
     {
+      "title": "Think Like a Product Manager, Not a Web Designer: Building Sites That Learn and Improve",
+      "description": "When I first started out in software development, I obsessed over the details like load times, layout grids, pixel alignment...",
+      "date": "November 12, 2025",
+      "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/think-like-a-pm_5.jpeg",
+      "href": "/articles/think-like-a-product-manager-not-a-web-designer"
+    },
+    {
+      "title": "5 Things You Can Do This Afternoon to Make Your Website Accessible",
+      "description": "If you grew up skateboarding or riding your scooter around the neighborhood, you've probably felt the frustration of...",
+      "date": "Sept 8, 2025",
+      "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/Bart_tactile_paving.jpg",
+      "href": "/articles/accessible-this-afternoon"
+    },
+    {
       "title":
         "From Layouts to Flow: How Web and Interior Design Mirror Each Other",
       "description":
@@ -9,12 +23,5 @@
         "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/sarah-lyon-min.jpeg",
       "href":
         "/articles/interior-design-vs-web-design"
-    },
-    {
-        "title": "5 Things You Can Do This Afternoon to Make Your Website Accessible",
-        "description": "If you grew up skateboarding or riding your scooter around the neighborhood, you've probably felt the frustration of...",
-        "date": "Sept 8, 2025",
-        "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/Bart_tactile_paving.jpg",
-        "href": "/articles/accessible-this-afternoon"
     }
 ]

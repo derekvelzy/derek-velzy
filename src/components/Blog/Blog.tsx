@@ -58,7 +58,7 @@ const Blog = () => {
             </h2>
           </div>
           <p id="subtitles--blog" className={blogStagger}>
-            Practical notes on web design, accessibility, and site flow. Short reads you can apply the same day.
+            Practical notes on product, web design, accessibility, and site flow. Short reads you can apply the same day.
           </p>
         </div>
         <div className={styles["blogs__list"]}>

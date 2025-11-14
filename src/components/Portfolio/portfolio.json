@@ -1,0 +1,53 @@
+[
+    {
+        "title": "Unified Lead and Dealer Locator System",
+        "description": "Delivered a cross-functional initiative connecting Zero’s lead forms and dealer network — resulting in a 34% improvement in lead accuracy and consistent data standards across global CRM and marketing systems.",
+        "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/portfolio-img-map-color.png",
+        "skills": [
+            "Product Strategy",
+            "MarTech",
+            "UX",
+            "System Design"
+        ]
+    },
+    {
+        "title": "End-to-End E-Commerce Platform for Motorcycle Sales",
+        "description": "Built Zero’s end-to-end e-commerce platform in the U.S. — enabling reservations, full online purchases, and a Past Editions sales experience. Delivered mobile-first UX, API integrations, and lean MVPs that drove 450+ orders.",
+        "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/portfolio-x-line-5.png",
+        "skills": [
+            "E-commerce",
+            "Lean Delivery",
+            "Cross-Functional Collaboration"
+        ]
+    },
+    {
+        "title": "Placeholder",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/web-design.jpg",
+        "skills": [
+            "Placeholder",
+            "Placeholder",
+            "Placeholder"
+        ]
+    },
+    {
+        "title": "Placeholder",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/web-design.jpg",
+        "skills": [
+            "Placeholder",
+            "Placeholder",
+            "Placeholder"
+        ]
+    },
+    {
+        "title": "Placeholder",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/web-design.jpg",
+        "skills": [
+            "Placeholder",
+            "Placeholder",
+            "Placeholder"
+        ]
+    }
+]

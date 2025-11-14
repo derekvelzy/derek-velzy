@@ -10,6 +10,8 @@ import { handleFocusChange } from "~/helpers/handleFocusChange";
 import FloatingLinks from "../FloatingLinks/FloatingLinks";
 import Link from "next/link";
 import cx from "classnames";
+import Download from "~/res/svgs/download";
+import SecondaryLink from "../Link/SecondaryLink";
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -25,6 +27,7 @@ const Burger = ({ animationsCompleted }: Props) => {
   );
 
   const pathname = usePathname();
+  const portfolio = pathname.includes("portfolio");
 
   const containerRef = useRef<HTMLDivElement>(null);
   const burgerRef = useRef<HTMLLabelElement>(null);
@@ -80,27 +83,45 @@ const Burger = ({ animationsCompleted }: Props) => {
     }
   }, [isDesktop, pathname, animationsCompleted]);
 
-  const navButtons = [
-    {
-      id: "solutions",
-      label: "Solutions",
-      link: true,
-    },
-    {
-      id: "work",
-      label: "Work",
-    },
-    {
-      id: "about",
-      label: "About",
-      link: true,
-    },
-    {
-      id: "contact",
-      label: "Contact",
-      link: true,
-    },
-  ];
+  const navButtons = portfolio
+    ? [
+        {
+          id: "about",
+          label: "About",
+          link: true,
+        },
+        {
+          id: "contact",
+          label: "Contact",
+          link: true,
+        },
+        {
+          id: "resume",
+          label: "Resume",
+          link: false,
+        },
+      ]
+    : [
+        {
+          id: "solutions",
+          label: "Solutions",
+          link: true,
+        },
+        {
+          id: "work",
+          label: "Work",
+        },
+        {
+          id: "about",
+          label: "About",
+          link: true,
+        },
+        {
+          id: "contact",
+          label: "Contact",
+          link: true,
+        },
+      ];
 
   return (
     <div
@@ -148,6 +169,7 @@ const Burger = ({ animationsCompleted }: Props) => {
               index={index}
               tabIndex={tabIndex}
               pathname={pathname}
+              portfolio={portfolio}
             />
           ))}
 
@@ -158,15 +180,23 @@ const Burger = ({ animationsCompleted }: Props) => {
               "nav-stagger opacity-0 translate-y-[10px]"
             )}
           />
-          <Link
-            href="/articles"
-            className="nav-stagger opacity-0 translate-y-[10px]"
-            onClick={() => {
-              closeNav();
-            }}
-          >
-            <span>Articles</span>
-          </Link>
+          {portfolio ? (
+            <SecondaryLink
+              className={styles["portfolio-sbv-link"]}
+              href="/"
+              label="Sites By Velzy"
+            />
+          ) : (
+            <Link
+              href="/articles"
+              className="nav-stagger opacity-0 translate-y-[10px]"
+              onClick={() => {
+                closeNav();
+              }}
+            >
+              <span>Articles</span>
+            </Link>
+          )}
         </div>
       </aside>
     </div>
@@ -181,6 +211,7 @@ type BurgerButtonProps = {
   index: number;
   tabIndex: number;
   pathname?: string;
+  portfolio?: boolean;
 };
 
 const BurgerButton = ({
@@ -191,6 +222,7 @@ const BurgerButton = ({
   index,
   tabIndex,
   pathname,
+  portfolio,
 }: BurgerButtonProps) => {
   const router = useRouter();
 
@@ -198,7 +230,10 @@ const BurgerButton = ({
 
   const inner = () => (
     <>
-      <span>{label}</span>
+      <span className={styles["nav-button__label"]}>
+        {label}
+        {id === "resume" && <Download />}
+      </span>
       <span>{`0${index + 1}`}</span>
     </>
   );
@@ -206,7 +241,7 @@ const BurgerButton = ({
   if (link) {
     return (
       <Link
-        href={`/${id}`}
+        href={portfolio ? `/portfolio/${id}` : `/${id}`}
         className={staggerClass}
         onClick={() => {
           closeNav();
@@ -216,6 +251,20 @@ const BurgerButton = ({
       >
         {inner()}
       </Link>
+    );
+  }
+
+  if (id === "resume") {
+    return (
+      <a
+        href="/derek-velzy-resume.pdf"
+        target="_blank"
+        className={staggerClass}
+        tabIndex={tabIndex}
+        aria-label={`Go to ${label} page`}
+      >
+        {inner()}
+      </a>
     );
   }
 

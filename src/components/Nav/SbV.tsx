@@ -111,12 +111,16 @@ const SvB = ({ animationsCompleted, setAnimationsCompleted }: Props) => {
     };
   }, [pathname, animationsCompleted, isDesktop, setAnimationsCompleted]);
 
+  const portfolio = pathname.includes("portfolio");
+
   return (
     <button
       id="logo"
       className={styles["sbv-logo"]}
       onClick={() => {
-        if (pathname === "/") {
+        if (portfolio) {
+          router.push("/portfolio");
+        } else if (pathname === "/") {
           gsap.to(window, {
             scrollTo: { y: "#top", autoKill: false },
             duration: 0.75,

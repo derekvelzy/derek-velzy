@@ -439,3 +439,18 @@
         outline-style: dashed;
     }
 }
+
+.nav-button__label {
+    svg path {
+        fill: var(--lightGray);
+
+        @media (min-width: 1024px) {
+            fill: var(--deepMarine);
+        }
+    }
+}
+
+.portfolio-sbv-link {
+    flex-direction: row !important;
+    gap: 0rem !important;
+}

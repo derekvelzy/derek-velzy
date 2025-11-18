@@ -48,11 +48,6 @@
             max-height: 32px;
             position: relative;
 
-            // .portfolio__title__drive {
-            //     position: absolute;
-            //     left: 306px;
-            // }
-
             @media (min-width: 1024px) {
                 font-size: 36px;
                 height: 50px;
@@ -222,6 +217,168 @@
                 font-size: 12px;
                 font-weight: 500;
                 color: white;
+            }
+        }
+    }
+}
+
+.card-sharp {
+    display: flex;
+    flex-direction: column;
+    width: calc(50% - 16px);
+    height: 540px;
+    background-color: var(--nonWhite);
+    border-radius: 0;
+    position: relative;
+    transition: box-shadow 0.4s var(--easy-does-it);
+
+    &:nth-child(even) {
+        transform: translateY(50%);
+    }
+
+    &__image {
+        position: relative;
+        height: 50%;
+        overflow: hidden;
+        background-color: var(--nonWhite);
+        transform-origin: bottom;
+        box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0);
+        transition: transform 0.6s var(--easy-does-it), box-shadow 0.6s var(--easy-does-it);
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transform-origin: bottom;
+            transition: transform 0.6s var(--easy-does-it);
+        }
+    }
+
+    &__overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 30%;
+        background: linear-gradient(to top, rgba(#343a40, 0.25), transparent);
+        opacity: 0;
+        transform: translateY(25%);
+        transition: opacity 0.5s var(--easy-does-it), transform 1s var(--easy-does-it);
+        z-index: 1;
+    }
+
+    &__read-tab {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 10px 2rem 10px 4rem;
+        position: absolute;
+        right: 0;
+        bottom: 50%;
+        background-color: var(--darkGray);
+        clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
+        transition: background-color 0.4s var(--easy-does-it);
+
+        span {
+            font-family: var(--font-poppins);
+            display: block;
+            color: white;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        svg {
+            display: block;
+            height: 12px;
+            width: 12px;
+            transform: rotate(45deg);
+            transition: transform 0.4s var(--easy-does-it);
+
+            path {
+                fill: white;
+            }
+        }
+
+        &__shadow {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(173deg, transparent, transparent, transparent, #272c30);
+
+            clip-path: polygon(100% 0%, 100% 100%, 0 100%);
+            z-index: -1;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 1rem;
+        height: 50%;
+        padding: 1.5rem;
+        background-color: var(--darkGray);
+        z-index: 2;
+        box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0);
+        transition: box-shadow 0.6s var(--easy-does-it), background-color 0.4s var(--easy-does-it);
+
+        &__text {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            h6 {
+                color: white;
+            }
+
+            p {
+                color: var(--lightGray);
+                font-size: 16px;
+            }
+        }
+
+        &__skills {
+            display: flex;
+            gap: 0.5rem;
+
+            span {
+                background-color: rgba(255, 255, 255, 0.1);
+                padding: 4px 8px;
+                border-radius: 4px;
+                font-size: 12px;
+                font-weight: 500;
+                color: white;
+            }
+        }
+    }
+
+    &:hover {
+        .card-sharp__image {
+            transform: scale(0.97);
+            box-shadow: 0 5px 20px 0 rgba(#343a40, 0.2);
+
+            img {
+                transform: scale(1.08);
+            }
+        }
+
+        .card-sharp__overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card-sharp__content {
+            box-shadow: 0 10px 30px 0 rgba(#343a40, 0.15);
+            background-color: #2d3237;
+        }
+
+        .card-sharp__read-tab {
+            background-color: #272c30;
+
+            svg {
+                transform: rotate(45deg) translate(4px, -4px);
             }
         }
     }

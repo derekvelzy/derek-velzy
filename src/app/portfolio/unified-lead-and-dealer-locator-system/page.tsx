@@ -1,0 +1,259 @@
+"use client";
+
+// Package imports
+
+// Custom imports
+import Page from "~/components/Page/Page";
+import Hero from "~/components/Portfolio/Slices/Hero";
+import TwoColumns from "~/components/Portfolio/Slices/TwoColumns";
+import ThreeColumns from "~/components/Portfolio/Slices/ThreeColumns";
+import Image from "next/image";
+import SecondaryLink from "~/components/Link/SecondaryLink";
+import JaggedDivider2 from "~/res/svgs/jaggedDivider2";
+import "../Portfolio.css";
+
+export default function UnifiedLeadAndDealerLocatorSystem() {
+  return (
+    <Page>
+      <Hero
+        title="Unified Lead Routing & Dealer Locator Platform"
+        titleHtml="<div><h1>Unified Lead Routing &</h1><h1>Dealer Locator Platform</h1></div>"
+        summary="Zero Motorcycles needed a more streamlined way to capture leads and connect them to dealerships — all while integrating cleanly with their email marketing efforts. HubSpot was chosen as the central platform for lead management, dealership data, marketing automation, chatbot hosting, and more."
+        metrics={[
+          {
+            keyMetric: "97.7%",
+            description: "Dealer leads routed correctly, up from 63.8%",
+          },
+          {
+            keyMetric: "5 → 1",
+            description: "Lead sources unified into single routing flow",
+          },
+          {
+            keyMetric: "350K+/mo",
+            description: "API requests served at <200ms with 99.9% uptime",
+          },
+          {
+            keyMetric: "5-7 hrs / month",
+            description: "Saved in manual lead routing",
+          },
+        ]}
+        company="Zero Motorcycles"
+        link="https://zeromotorcycles.com/"
+      />
+      <TwoColumns>
+        <div className="image-container">
+          <Image
+            src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/lead-routing-diagram.png"
+            alt="Unified Lead Routing System"
+            width={500}
+            height={500}
+          />
+        </div>
+        <div className="section-text">
+          <div>
+            <h3 className="project-section-title">
+              Unified Lead Routing System
+            </h3>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: `
+            <div>
+              <p><strong>Problem</strong></p>
+              <p>Lead data was fragmented across several sources with inconsistent fields and data types. Because of this...</p>
+              <ul>
+                <li>Leads often came in with missing or incomplete data, requiring manual review of leads by Sales team.</li>
+                <li>Dealers receive irrelevant or duplicate leads.</li>
+                <li>Marketing team struggles to segment audiences and personalize content.</li>
+              </ul>
+            </div>
+          `,
+              }}
+            />
+          </div>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: `
+            <div>
+              <p><strong>Solution</strong></p>
+              <p>I designed a unified lead standardization pipeline that reformats all inbound data into a single schema before entering HubSpot. Each lead then runs through an automated routing workflow that assigns the closest dealership using Mapbox driving-time logic and scores the lead (–10 to 10) based on distance, borders, and routing rules.</p>
+              <br />
+              <p>Regular cross-functional reviews with Sales and Marketing helped refine the system over time. Introducing improvements like address autofill in web forms also further increased routing accuracy.</p>
+            </div>
+          `,
+            }}
+          />
+          <div>
+            <SecondaryLink
+              href="https://www.figma.com/board/888VS4q1gKFYkqaBl8Ztx0/Zero-Marketing-System-Diagram?node-id=0-1&t=q0tteOXVp0UV1Mux-1"
+              label="View Full Diagram on Figma"
+              external
+            />
+          </div>
+        </div>
+      </TwoColumns>
+      <TwoColumns>
+        <div className="section-text">
+          <div
+            dangerouslySetInnerHTML={{
+              __html: `
+            <div>
+              <p><strong>Results</strong></p>
+              <p>Through ongoing frontend improvements and iterative enhancements to the routing logic, I increased lead routing accuracy to <span class="marine-strong">97.7%</span> (a <span class="marine-strong">34%</span> lift year-over-year). </p>
+              <br />
+              <p>Regular cross-functional reviews with Sales and Marketing helped refine the system over time. Introducing improvements like address autofill in web forms also further increased routing accuracy.</p>
+              <br />
+              <p>These gains effectively save the Sales team <span class="marine-strong">5–7 hours per month</span> in manual dealer assignments.</p>
+            </div>
+          `,
+            }}
+          />
+        </div>
+        <div className="image-container">
+          <Image
+            src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/lead-accuracy-graph.png"
+            alt="Dealer Locator System"
+            width={500}
+            height={500}
+          />
+        </div>
+      </TwoColumns>
+      <div className="jagged-divider-container">
+        <JaggedDivider2 />
+      </div>
+      <h3 className="project-section-title">
+        Dealer Locator and Dealer Data API
+      </h3>
+      <div className="image-container-full-width-height">
+        <Image
+          src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/dealer-locator-map.png"
+          alt="Dealer Locator System"
+          width={1000}
+          height={1000}
+        />
+      </div>
+      <TwoColumns>
+        <div className="section-text">
+          <div
+            dangerouslySetInnerHTML={{
+              __html: `
+            <div>
+              <p><strong>Problem</strong></p>
+              <p>Zero’s dealer discovery experience relied on a rigid third-party tool (StoreRocket) that was off-brand, slow to update, and disconnected from our systems. Dealer data lived in Salesforce, but had to be manually copied and pasted into StoreRocket, causing mismatches, stale information, and operational overhead.</p>
+            </div>
+          `,
+            }}
+          />
+        </div>
+        <div className="section-text">
+          <div
+            dangerouslySetInnerHTML={{
+              __html: `
+            <div>
+              <p>This system didn’t support:</p>
+              <ul>
+                <li>Real-time dealer updates</li>
+                <li>Dealer-specific CTAs (Demo Ride, Contact, View Inventory)</li>
+                <li>Filtering by dealer type</li>
+                <li>A cohesive brand experience</li>
+              </ul>
+            </div>
+          `,
+            }}
+          />
+        </div>
+      </TwoColumns>
+      <div
+        className="mb-8"
+        dangerouslySetInnerHTML={{
+          __html: `
+            <div>
+              <p><strong>Solution</strong></p>
+              <p>I designed and built a new Dealer Locator ecosystem centered around a live dealer data API connected directly to HubSpot, our new source of truth.</p>
+            </div>
+          `,
+        }}
+      />
+      <ThreeColumns>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: `
+            <div>
+              <p class="semi-bold">1. Real-time Dealer Data API</p>
+              <ul>
+                <li>Built a secure, token-authenticated Cloudflare Worker API.</li>
+                <li>Pulled dealer data from HubSpot in real time.</li>
+                <li>Supported dynamic filters for region, dealer type, and product availability.</li>
+                <li>Served both the website and our Shopify checkout experience.</li>
+              </ul>
+            </div>
+          `,
+          }}
+        />
+        <div
+          dangerouslySetInnerHTML={{
+            __html: `
+            <div>
+              <p class="semi-bold">2. Custom Dealer Locator (Next.js)</p>
+              <ul>
+                <li>Mobile-first UI built to match Zero’s branding.</li>
+                <li>Auto-detected visitor location to show nearby dealers.</li>
+                <li>Map + distance-sorted cards for intuitive browsing.</li>
+                <li>Dealer-specific CTAs (Demo Ride request, Contact Dealer, View Inventory)</li>
+              </ul>
+            </div>
+          `,
+          }}
+        />
+        <div
+          dangerouslySetInnerHTML={{
+            __html: `
+            <div>
+              <p class="semi-bold">3. Integrated lead forms</p>
+              <ul>
+                <li>Dealer Locator forms routed into unified lead pipeline.</li>
+                <li>Dealer ID passed automatically, bypassing automated routing and therefore increasing routing accuracy.</li>
+                <li>Integrated with rest of CMS for non-technical team to add/remove fields and change labels.</li>
+              </ul>
+            </div>
+          `,
+          }}
+        />
+      </ThreeColumns>
+      <TwoColumns>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: `
+            <div>
+              <p><strong>Results</strong></p>
+              <p>High-performance API powering <span class="marine-strong">350K+ monthly requests</span>.</p>
+              <ul>
+                <li>Sub-200ms median response time.</li>
+                <li><span class="marine-strong">99.9% uptime</span>, even under heavy load.</li>
+                <li>Supports multiple applications without duplication of logic.</li>
+              </ul>
+              <p>Modern, branded dealer discovery experience</p>
+              <ul>
+                <li>Aligned with Zero’s new design standards.</li>
+                <li>Mobile UX built for the 80% of visitors who browse on phones.</li>
+                <li>Clear, high-intent, high-contrast CTAs.</li>
+              </ul>
+              <p>Measurable improvement in user engagement</p>
+              <ul>
+                <li>Dealer Locator users view an average of 2.4 pages per user, compared to a 1.5 site-wide.</li>
+              </ul>
+            </div>
+          `,
+          }}
+        />
+         <div className="image-container">
+          <Image
+            src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/dealer-locator-map-mobile.png"
+            alt="Dealer Locator System"
+            width={500}
+            height={500}
+          />
+        </div>
+      </TwoColumns>
+    </Page>
+  );
+}

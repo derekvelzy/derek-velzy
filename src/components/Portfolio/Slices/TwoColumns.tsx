@@ -1,10 +1,11 @@
 // Package imports
+import cx from "classnames";
 
 // Custom imports
 import styles from "./PortfolioSlices.module.scss";
 
-const TwoColumns = ({ children }: { children: React.ReactNode }) => {
-  return <div className={styles["two-columns"]}>{children}</div>;
+const TwoColumns = ({ children, className }: { children: React.ReactNode, className?: string }) => {
+  return <div className={cx(styles["two-columns"], className)}>{children}</div>;
 };
 
 export default TwoColumns;

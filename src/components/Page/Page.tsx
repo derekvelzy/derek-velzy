@@ -52,7 +52,7 @@ const Page = ({
       <div
         className={cx("mx-auto z-[1]", {
           "overflow-hidden": overflowHidden,
-          "max-w-[964px] px-5 md:px-8 lg:px-0": includeMaxWidth,
+          "max-w-[964px] px-6 md:px-8 lg:px-0": includeMaxWidth,
           relative: relative,
         })}
       >

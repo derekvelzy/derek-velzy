@@ -5,9 +5,14 @@
 .section-text {
     display: flex;
     flex-direction: column;
-    gap: 4rem;
+    gap: 2rem;
 }
 
+@media (min-width: 1024px) {
+    .section-text {
+        gap: 4rem;
+    }
+}
 .image-container {
     position: relative;
     width: 100%;
@@ -37,7 +42,7 @@
 
 .semi-bold {
     font-weight: 600;
-    color: var(--darkGray);
+    /* color: var(--darkGray); */
     margin-bottom: 0.5rem;
 }
 
@@ -51,10 +56,32 @@
     margin-bottom: 0.5rem;
 }
 
+.portfolio-sub-hero {
+    position: relative;
+    margin-bottom: 64px;
+}
+
+@media (min-width: 1024px) {
+    .portfolio-sub-hero {
+        margin-bottom: 96px;
+    }
+}
+
+.portfolio-sub-hero img {
+    object-fit: cover;
+}
+.portfolio-sub-hero p strong {
+    color: white;
+}
+
+.portfolio-sub-hero p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
 strong {
     display: inline-block;
     margin-bottom: 0.5rem;
-    color: var(--darkGray);
+    /* color: var(--darkGray); */
 }
 
 ul {

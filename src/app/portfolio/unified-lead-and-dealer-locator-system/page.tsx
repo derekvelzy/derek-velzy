@@ -39,7 +39,7 @@ export default function UnifiedLeadAndDealerLocatorSystem() {
         company="Zero Motorcycles"
         link="https://zeromotorcycles.com/"
       />
-      <div className="portfolio-sub-hero">
+      <div id="first-section" className="portfolio-sub-hero">
         <Image
           className="h-[300px] lg:h-[800px]"
           src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/lead_routing_hero.jpg"

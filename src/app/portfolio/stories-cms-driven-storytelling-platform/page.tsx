@@ -40,23 +40,14 @@ export default function ReservationsAndECommerce() {
         company="Zero Motorcycles"
         link="https://zeromotorcycles.com/"
       />
-      <div className="portfolio-sub-hero">
+      <div id="first-section" className="portfolio-sub-hero">
         <Image
           className="h-[700px] lg:h-[1000px]"
           src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/srx-hero-2.jpg"
           alt="X Line bikes in Utah Desert"
           width={3000}
           height={3000}
-          // style={{ height: 1000 }}
         />
-        {/* <Image
-          className="block lg:hidden"
-          src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/srx-hero-2.jpg"
-          alt="X Line bikes in Utah Desert"
-          width={1500}
-          height={1500}
-          style={{ height: 1000 }}
-        /> */}
         <div className="absolute w-full top-0 py-[1rem] lg:py-[4rem] h-full">
           <div className="w-full p-6 lg:p-0 lg:max-w-[964px] lg:mx-auto h-full">
             <TwoColumns className="h-full">

@@ -5,7 +5,6 @@ import { useEffect } from "react";
 import cx from "classnames";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { useSearchParams } from "next/navigation";
 
 // Custom imports
 import styles from "./Portfolio.module.scss";
@@ -16,8 +15,6 @@ import PortfioCardSharp from "./PortfolioCardSharp";
 gsap.registerPlugin(ScrollTrigger);
 
 const PortfolioCards = () => {
-  const searchParams = useSearchParams();
-  const portfolioAnimationsCompleted = searchParams.get("portfolioAnimationsCompleted") === "true";
   const isDesktop = useIsDesktop();
 
     useEffect(() => {
@@ -34,7 +31,7 @@ const PortfolioCards = () => {
       return () => {
         ctx.revert();
       };
-    }, [isDesktop, portfolioAnimationsCompleted]);
+    }, [isDesktop]);
 
   return (
     <div className={styles["portfolio-cards__container"]}>

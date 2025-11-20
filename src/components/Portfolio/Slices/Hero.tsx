@@ -1,9 +1,13 @@
 // Package imports
+import gsap from "gsap";
+import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
 
 // Custom imports
 import styles from "./PortfolioSlices.module.scss";
 import SecondaryLink from "~/components/Link/SecondaryLink";
 import Arrow from "~/res/svgs/arrow";
+
+gsap.registerPlugin(ScrollToPlugin);
 
 type Props = {
   title: string;
@@ -38,10 +42,25 @@ const Hero = ({ title, titleHtml, summary, metrics, company, link }: Props) => {
       <div className={styles["hero__content"]}>
         <div className={styles["hero__content__summary"]}>
           <p>{summary}</p>
-          <div className={styles["hero__content__summary__arrow"]}>
+          <button
+            className={styles["hero__content__summary__arrow"]}
+            onClick={() => {
+              gsap.to(window, {
+                scrollTo: {
+                  y: document.getElementById("first-section")?.offsetTop,
+                  offsetY: 0,
+                },
+                duration: 0.5,
+                ease: "power3.out",
+              });
+            }}
+          >
             <p>Read Full Case Study</p>
-            <Arrow />
-          </div>
+            <div className={styles["hero__content__summary__arrow__arrows"]}>
+              <Arrow /> 
+              <Arrow />
+            </div>
+          </button>
         </div>
         <div className={styles["hero__content__metrics"]}>
           {metrics.map((metric, index) => (

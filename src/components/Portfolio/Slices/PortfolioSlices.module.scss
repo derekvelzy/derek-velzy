@@ -106,9 +106,12 @@
                 display: none;
                 align-items: center;
                 gap: 0.5rem;
+                overflow: hidden;
+                height: 1.5rem;
 
                 p {
                     font-size: 16px;
+                    transition: opacity 0.2s var(--easy-does-it);
                 }
 
                 svg {
@@ -121,8 +124,30 @@
                     }
                 }
 
+                &__arrows {
+                    margin-top: 0.25rem;
+                    align-self: flex-start;
+                    display: flex;
+                    flex-direction: column;
+                    height: 2.5rem;
+                    justify-content: space-between;
+                    transition: transform 0.2s var(--easy-does-it);
+                }
+
                 @media (min-width: 768px) {
                     display: flex;
+                }
+
+                &:hover {
+                    cursor: pointer;
+
+                    .hero__content__summary__arrow__arrows {
+                        transform: translateY(-28px);
+                    }
+
+                    p {
+                        opacity: 0.75;
+                    }
                 }
             }
         }

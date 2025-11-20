@@ -44,7 +44,7 @@ export default function ReservationsAndECommerce() {
         link="https://zeromotorcycles.com/"
       />
 
-      <div className="portfolio-sub-hero">
+      <div id="first-section" className="portfolio-sub-hero">
         <Image
           className="hidden lg:block"
           src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/ecom_hero_copy_1.jpg"

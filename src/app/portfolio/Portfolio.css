@@ -73,9 +73,45 @@
 .portfolio-sub-hero p strong {
     color: white;
 }
+.portfolio-sub-hero.text-dark-mobile p strong {
+    color: var(--darkGray);
+}
 
 .portfolio-sub-hero p {
     color: rgba(255, 255, 255, 0.9);
+}
+
+.portfolio-sub-hero.text-dark-mobile p {
+    color: var(--darkGray);
+}
+
+.portfolio-sub-hero h3 {
+    color: white;
+}
+.portfolio-sub-hero.text-dark-mobile h3 {
+    color: var(--darkGray);
+}
+
+.portfolio-sub-hero li {
+    color: rgba(255, 255, 255, 0.9);
+}
+.portfolio-sub-hero.text-dark-mobile li {
+    color: var(--darkGray);
+}
+
+@media (min-width: 1024px) {
+    .portfolio-sub-hero.text-dark-mobile p {
+        color: rgba(255, 255, 255, 0.9);
+    }
+    .portfolio-sub-hero.text-dark-mobile p strong {
+        color: white;
+    }
+    .portfolio-sub-hero.text-dark-mobile h3 {
+        color: white;
+    }
+    .portfolio-sub-hero.text-dark-mobile li {
+        color: rgba(255, 255, 255, 0.9);
+    }
 }
 
 strong {

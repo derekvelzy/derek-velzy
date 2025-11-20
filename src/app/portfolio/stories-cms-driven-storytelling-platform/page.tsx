@@ -11,7 +11,7 @@ import "../Portfolio.css";
 
 export default function ReservationsAndECommerce() {
   return (
-    <Page>
+    <Page includeMaxWidth={false}>
       <Hero
         title="Stories: CMS-Driven Storytelling Platform "
         titleHtml="<div><h1>Stories: CMS-Driven</h1><h1>Storytelling Platform</h1></div>"
@@ -40,98 +40,130 @@ export default function ReservationsAndECommerce() {
         company="Zero Motorcycles"
         link="https://zeromotorcycles.com/"
       />
-      <TwoColumns>
-        <div className="image-container">
-          <Image
-            src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/TKO_edit-3.jpg"
-            alt="X Line bikes in Utah Desert"
-            width={500}
-            height={500}
-          />
+      <div className="portfolio-sub-hero">
+        <Image
+          className="h-[700px] lg:h-[1000px]"
+          src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/srx-hero-2.jpg"
+          alt="X Line bikes in Utah Desert"
+          width={3000}
+          height={3000}
+          // style={{ height: 1000 }}
+        />
+        {/* <Image
+          className="block lg:hidden"
+          src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/srx-hero-2.jpg"
+          alt="X Line bikes in Utah Desert"
+          width={1500}
+          height={1500}
+          style={{ height: 1000 }}
+        /> */}
+        <div className="absolute w-full top-0 py-[1rem] lg:py-[4rem] h-full">
+          <div className="w-full p-6 lg:p-0 lg:max-w-[964px] lg:mx-auto h-full">
+            <TwoColumns className="h-full">
+              <h3
+                className="project-section-title"
+                style={{ color: "rgba(255, 255, 255, 0.6)" }}
+              >
+                Stories
+              </h3>
+              <div className="h-full flex flex-col items-start justify-between">
+                <div
+                  className="section-text"
+                  dangerouslySetInnerHTML={{
+                    __html: `
+                <div>
+                  <p><strong>Problem</strong></p>
+                  <p>As the EV motorcycle market becomes increasingly crowded with brands like Harley-Davidson’s Livewire, Stark Future, LAND Moto, and Surron, Zero’s nearly 20-year history is one of its strongest differentiators, but the website had no structured way to tell that story. We needed a centralized, SEO-friendly content hub to showcase real adventures, behind-the-scenes engineering, employee projects, and powertrain applications.</p>
+                </div>
+              `,
+                  }}
+                />
+                <p>
+                  Without it, the brand’s longevity wasn’t visible to
+                  lower-funnel buyers, and the Marketing team had no repeatable
+                  system for publishing content without developer involvement.
+                </p>
+              </div>
+            </TwoColumns>
+          </div>
         </div>
-        <div className="section-text">
-          <div>
-            <h3 className="project-section-title">Stories</h3>
+      </div>
+      <div className="w-full max-w-[964px] mx-auto mb-[64px] lg:mb-[96px] px-6 lg:px-0">
+        <TwoColumns>
+          <div className="section-text mb-8">
             <div
               dangerouslySetInnerHTML={{
                 __html: `
-            <div>
-              <p><strong>Problem</strong></p>
-              <p>As the EV motorcycle market becomes increasingly crowded with brands like Harley-Davidson’s Livewire, Stark Future, LAND Moto, and Surron, Zero’s nearly 20-year history is one of its strongest differentiators, but the website had no structured way to tell that story. We needed a centralized, SEO-friendly content hub to showcase real adventures, behind-the-scenes engineering, employee projects, and powertrain applications.</p>
-              <br />
-              <p>Without it, the brand’s longevity wasn’t visible to lower-funnel buyers, and the Marketing team had no repeatable system for publishing content without developer involvement.</p>
-            </div>
+                <div>
+                  <p><strong>Solution</strong></p>
+                  <p>I designed, developed, and launched Stories: a dynamic storytelling platform integrated into Zero’s top-level navigation and fully powered by Prismic CMS.</p>
+                </div>
+          `,
+              }}
+            />
+            <div
+              dangerouslySetInnerHTML={{
+                __html: `
+              <div>
+                <p class="semi-bold">Platform Architecture & UX:</p>
+                <ul>
+                  <li>Designed the full UX/UI system in Figma and implemented it in Next.js + Prismic.</li>
+                  <li>Created a flexible CMS architecture using over 20 reusable Prismic slices (Hero, Author, Carousel, CTA, etc.).</li>
+                  <li>Added category filtering (Adventures, Customs, Events, Staff Spotlights) for user discovery.</li>
+                  <li>Integrated Firebase for story “likes” and GA4 for engagement tracking.</li>
+                  <li>Enabled Prismic Preview in Next.js for real-time staging views.</li>
+                </ul>
+              </div>
+          `,
+              }}
+            />
+            <div
+              dangerouslySetInnerHTML={{
+                __html: `
+              <div>
+                <p class="semi-bold">Internal Workflow Enablement:</p>
+                <ul>
+                  <li>Built internal documentation and trained four Marketing team members.</li>
+                  <li>Established a scalable workflow: draft → upload → preview → publish.</li>
+                  <li>Added AI-supported internationalization for future localization needs.</li>
+                  <li>Reduced developer involvement to a single approval step.</li>
+                </ul>
+              </div>
           `,
               }}
             />
           </div>
-        </div>
-      </TwoColumns>
-      <div className="image-container-full-width-height">
-        <Image
-          src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/stories-hero-4.png"
-          alt="Ekho checkout drawer"
-          width={1000}
-          height={1000}
-        />
+          <div className="flex justify-center items-center">
+            <Image
+              src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/stories_2.png"
+              alt="Ekho checkout drawer"
+              width={1000}
+              height={1000}
+            />
+          </div>
+        </TwoColumns>
       </div>
-      <div className="section-text mb-8">
-        <div
-          dangerouslySetInnerHTML={{
-            __html: `
-            <div>
-              <p><strong>Solution</strong></p>
-              <p>I designed, developed, and launched Stories: a dynamic storytelling platform integrated into Zero’s top-level navigation and fully powered by Prismic CMS.</p>
-            </div>
-          `,
-          }}
-        />
-      </div>
-
-      <TwoColumns>
-        <div className="section-text">
-          <div
-            dangerouslySetInnerHTML={{
-              __html: `
-            <div>
-              <p class="semi-bold">Platform Architecture & UX:</p>
-              <ul>
-                <li>Designed the full UX/UI system in Figma and implemented it in Next.js + Prismic.</li>
-                <li>Created a flexible CMS architecture using over 20 reusable Prismic slices (Hero, Author, Carousel, CTA, etc.).</li>
-                <li>Added category filtering (Adventures, Customs, Events, Staff Spotlights) for user discovery.</li>
-                <li>Integrated Firebase for story “likes” and GA4 for engagement tracking.</li>
-                <li>Enabled Prismic Preview in Next.js for real-time staging views.</li>
-              </ul>
-              <br />
-              <p>The experience was fully integrated into the existing site’s look, feel, and performance standards.</p>
-            </div>
-          `,
-            }}
-          />
-        </div>
-        <div className="section-text">
-          <div
-            dangerouslySetInnerHTML={{
-              __html: `
-            <div>
-              <p class="semi-bold">Internal Workflow Enablement:</p>
-              <ul>
-                <li>Built internal documentation and trained four Marketing team members.</li>
-                <li>Established a scalable workflow: draft → upload → preview → publish.</li>
-                <li>Added AI-supported internationalization for future localization needs.</li>
-                <li>Reduced developer involvement to a single approval step.</li>
-              </ul>
-            </div>
-          `,
-            }}
-          />
-        </div>
-      </TwoColumns>
-      <TwoColumns>
-        <div className="section-text">
-          <div
-            dangerouslySetInnerHTML={{
-              __html: `
+      <div className="w-full max-w-[964px] mx-auto mb-[64px] lg:mb-[96px] px-6 lg:px-0">
+        <TwoColumns>
+          <div className="flex flex-col gap-8 items-center justify-center">
+            <Image
+              src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/lompico-sketches.jpg"
+              alt="X Line bikes in Utah Desert"
+              width={500}
+              height={500}
+            />
+            <Image
+              src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/cooper.jpg"
+              alt="X Line bikes in Utah Desert"
+              width={500}
+              height={500}
+            />
+          </div>
+          <div className="section-text">
+            <div
+              className="mt-8 lg:mt-0"
+              dangerouslySetInnerHTML={{
+                __html: `
             <div>
               <p><strong>Results</strong></p>
               <p>Engagement & Performance</p>
@@ -154,24 +186,11 @@ export default function ReservationsAndECommerce() {
               </ul>
             </div>
           `,
-            }}
-          />
-        </div>
-        <div className="flex flex-col gap-8">
-          <Image
-            src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/lompico-sketches.jpg"
-            alt="X Line bikes in Utah Desert"
-            width={500}
-            height={500}
-          />
-          <Image
-            src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/cooper.jpg"
-            alt="X Line bikes in Utah Desert"
-            width={500}
-            height={500}
-          />
-        </div>
-      </TwoColumns>
+              }}
+            />
+          </div>
+        </TwoColumns>
+      </div>
     </Page>
   );
 }

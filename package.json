@@ -22,7 +22,8 @@
     "sass": "^1.89.2",
     "slick-carousel": "^1.8.1",
     "trianglify": "^4.1.1",
-    "vercel": "^44.5.3"
+    "vercel": "^44.5.3",
+    "zustand": "^5.0.8"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

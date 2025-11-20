@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function PortfolioPage() {
   return (
-    <Page>
+    <Page relative={false}>
       <Portfolio />
     </Page>
   );

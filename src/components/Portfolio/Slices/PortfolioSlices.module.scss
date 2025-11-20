@@ -183,11 +183,17 @@
 
 .three-columns {
     display: flex;
+    flex-direction: column;
     gap: 2rem;
     margin-bottom: 4rem;
 
-    & > * {
-        flex: 1;
-        width: 33.33%;
+    @media (min-width: 1024px) {
+        flex-direction: row;
+        gap: 2rem;
+
+        & > * {
+            flex: 1;
+            width: 33.33%;
+        }
     }
 }

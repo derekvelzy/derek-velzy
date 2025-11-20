@@ -9,12 +9,11 @@ import TwoColumns from "~/components/Portfolio/Slices/TwoColumns";
 import ThreeColumns from "~/components/Portfolio/Slices/ThreeColumns";
 import Image from "next/image";
 import SecondaryLink from "~/components/Link/SecondaryLink";
-import JaggedDivider2 from "~/res/svgs/jaggedDivider2";
 import "../Portfolio.css";
 
 export default function UnifiedLeadAndDealerLocatorSystem() {
   return (
-    <Page>
+    <Page includeMaxWidth={false}>
       <Hero
         title="Unified Lead Routing & Dealer Locator Platform"
         titleHtml="<div><h1>Unified Lead Routing &</h1><h1>Dealer Locator Platform</h1></div>"
@@ -40,23 +39,24 @@ export default function UnifiedLeadAndDealerLocatorSystem() {
         company="Zero Motorcycles"
         link="https://zeromotorcycles.com/"
       />
-      <TwoColumns>
-        <div className="image-container">
-          <Image
-            src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/lead-routing-diagram.png"
-            alt="Unified Lead Routing System"
-            width={500}
-            height={500}
-          />
-        </div>
-        <div className="section-text">
-          <div>
-            <h3 className="project-section-title">
-              Unified Lead Routing System
-            </h3>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: `
+      <div className="portfolio-sub-hero">
+        <Image
+          className="h-[300px] lg:h-[800px]"
+          src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/lead_routing_hero.jpg"
+          alt="X Line bikes in Utah Desert"
+          width={3000}
+          height={3000}
+        />
+        <div className="lg:absolute top-0 w-full h-full">
+          <div className="w-full lg:max-w-[964px] lg:mx-auto h-full flex justify-end">
+            <div className="lg:w-1/2 h-fit py-8 lg:py-0 lg:h-full bg-[#161C20] flex flex-col items-start justify-center px-8">
+              <h3 className="project-section-title">
+                Unified Lead Routing System
+              </h3>
+              <div className="section-text">
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: `
             <div>
               <p><strong>Problem</strong></p>
               <p>Lead data was fragmented across several sources with inconsistent fields and data types. Because of this...</p>
@@ -67,12 +67,31 @@ export default function UnifiedLeadAndDealerLocatorSystem() {
               </ul>
             </div>
           `,
-              }}
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="relative mb-[64px] lg:mb-[96px]">
+        <div className="w-full max-w-[964px] mx-auto">
+          <div className="absolute flex justify-end top-0 left-0 h-[300px] lg:h-[600px] w-[100vw] lg:w-[calc(50vw-2rem)]">
+            <Image
+              className="h-[300px] lg:h-[600px]"
+              src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/lead-routing-diagram-3.png"
+              alt="Unified Lead Routing System"
+              width={500}
+              height={500}
+              style={{ width: "100%", objectFit: "cover" }}
             />
           </div>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: `
+          <TwoColumns>
+            <div className="h-[300px] lg:h-[600px]" />
+            <div className="section-text h-[450px] lg:h-[600px] flex flex-col justify-center items-start px-6 lg:px-0 justify-start mt-8 lg:mt-0 lg:justify-center">
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: `
             <div>
               <p><strong>Solution</strong></p>
               <p>I designed a unified lead standardization pipeline that reformats all inbound data into a single schema before entering HubSpot. Each lead then runs through an automated routing workflow that assigns the closest dealership using Mapbox driving-time logic and scores the lead (–10 to 10) based on distance, borders, and routing rules.</p>
@@ -80,22 +99,25 @@ export default function UnifiedLeadAndDealerLocatorSystem() {
               <p>Regular cross-functional reviews with Sales and Marketing helped refine the system over time. Introducing improvements like address autofill in web forms also further increased routing accuracy.</p>
             </div>
           `,
-            }}
-          />
-          <div>
-            <SecondaryLink
-              href="https://www.figma.com/board/888VS4q1gKFYkqaBl8Ztx0/Zero-Marketing-System-Diagram?node-id=0-1&t=q0tteOXVp0UV1Mux-1"
-              label="View Full Diagram on Figma"
-              external
-            />
-          </div>
+                }}
+              />
+              <div>
+                <SecondaryLink
+                  href="https://www.figma.com/board/888VS4q1gKFYkqaBl8Ztx0/Zero-Marketing-System-Diagram?node-id=0-1&t=q0tteOXVp0UV1Mux-1"
+                  label="View Full Diagram on Figma"
+                  external
+                />
+              </div>
+            </div>
+          </TwoColumns>
         </div>
-      </TwoColumns>
-      <TwoColumns>
-        <div className="section-text">
-          <div
-            dangerouslySetInnerHTML={{
-              __html: `
+      </div>
+      <div className="w-full max-w-[964px] mx-auto mb-[64px] lg:mb-[96px] px-6 lg:px-0">
+        <TwoColumns>
+          <div className="section-text mb-8 lg:mb-0">
+            <div
+              dangerouslySetInnerHTML={{
+                __html: `
             <div>
               <p><strong>Results</strong></p>
               <p>Through ongoing frontend improvements and iterative enhancements to the routing logic, I increased lead routing accuracy to <span class="marine-strong">97.7%</span> (a <span class="marine-strong">34%</span> lift year-over-year). </p>
@@ -105,78 +127,87 @@ export default function UnifiedLeadAndDealerLocatorSystem() {
               <p>These gains effectively save the Sales team <span class="marine-strong">5–7 hours per month</span> in manual dealer assignments.</p>
             </div>
           `,
-            }}
-          />
-        </div>
-        <div className="image-container">
-          <Image
-            src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/lead-accuracy-graph.png"
-            alt="Dealer Locator System"
-            width={500}
-            height={500}
-          />
-        </div>
-      </TwoColumns>
-      <div className="jagged-divider-container">
-        <JaggedDivider2 />
+              }}
+            />
+          </div>
+          <div className="flex items-center">
+            <Image
+              style={{ objectFit: "contain" }}
+              src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/lead-accuracy-graph.png"
+              alt="Dealer Locator System"
+              width={500}
+              height={500}
+            />
+          </div>
+        </TwoColumns>
       </div>
-      <h3 className="project-section-title">
-        Dealer Locator and Dealer Data API
-      </h3>
-      <div className="image-container-full-width-height">
+      <div className="portfolio-sub-hero text-dark-mobile mb-[96px]">
         <Image
-          src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/dealer-locator-map.png"
-          alt="Dealer Locator System"
-          width={1000}
-          height={1000}
+          className="hidden lg:block"
+          src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/black-locator-3.png"
+          alt="X Line bikes in Utah Desert"
+          width={3000}
+          height={3000}
+          style={{ height: 700 }}
         />
+        <Image
+          className="block lg:hidden"
+          src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/black-locator-3-mobile.png"
+          alt="X Line bikes in Utah Desert"
+          width={1500}
+          height={1500}
+          style={{ height: 300 }}
+        />
+        <div className="relative lg:absolute w-full top-0 px-6 lg:px-0 lg:h-[700px] mt-8 lg:mt-0">
+          <div className="max-w-[964px] mx-auto h-full">
+            <TwoColumns className="h-full items-center">
+              <div>
+                <h3 className="project-section-title">
+                  Dealer Locator and Dealer Data API
+                </h3>
+                <div
+                  className="section-text"
+                  dangerouslySetInnerHTML={{
+                    __html: `
+                <div>
+                <p><strong>Problem</strong></p>
+                  <p>Zero’s dealer discovery experience relied on a rigid third-party tool (StoreRocket) that was off-brand, slow to update, and disconnected from our systems. Dealer data lived in Salesforce, but had to be manually copied and pasted into StoreRocket, causing mismatches, stale information, and operational overhead.</p>
+                  <br />
+                  <p>This system didn’t support:</p>
+                  <br />
+                  <ul>
+                    <li>Real-time dealer updates</li>
+                    <li>Dealer-specific CTAs (Demo Ride, Contact, View Inventory)</li>
+                    <li>Filtering by dealer type</li>
+                    <li>A cohesive brand experience</li>
+                  </ul>
+                </div>
+              `,
+                  }}
+                />
+              </div>
+
+              <div />
+            </TwoColumns>
+          </div>
+        </div>
       </div>
-      <TwoColumns>
-        <div className="section-text">
-          <div
-            dangerouslySetInnerHTML={{
-              __html: `
-            <div>
-              <p><strong>Problem</strong></p>
-              <p>Zero’s dealer discovery experience relied on a rigid third-party tool (StoreRocket) that was off-brand, slow to update, and disconnected from our systems. Dealer data lived in Salesforce, but had to be manually copied and pasted into StoreRocket, causing mismatches, stale information, and operational overhead.</p>
-            </div>
-          `,
-            }}
-          />
-        </div>
-        <div className="section-text">
-          <div
-            dangerouslySetInnerHTML={{
-              __html: `
-            <div>
-              <p>This system didn’t support:</p>
-              <ul>
-                <li>Real-time dealer updates</li>
-                <li>Dealer-specific CTAs (Demo Ride, Contact, View Inventory)</li>
-                <li>Filtering by dealer type</li>
-                <li>A cohesive brand experience</li>
-              </ul>
-            </div>
-          `,
-            }}
-          />
-        </div>
-      </TwoColumns>
-      <div
-        className="mb-8"
-        dangerouslySetInnerHTML={{
-          __html: `
+      <div className="w-full max-w-[964px] mx-auto mb-[64px] lg:mb-[96px] px-6 lg:px-0">
+        <div
+          className="mb-8"
+          dangerouslySetInnerHTML={{
+            __html: `
             <div>
               <p><strong>Solution</strong></p>
               <p>I designed and built a new Dealer Locator ecosystem centered around a live dealer data API connected directly to HubSpot, our new source of truth.</p>
             </div>
           `,
-        }}
-      />
-      <ThreeColumns>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: `
+          }}
+        />
+        <ThreeColumns>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: `
             <div>
               <p class="semi-bold">1. Real-time Dealer Data API</p>
               <ul>
@@ -187,11 +218,11 @@ export default function UnifiedLeadAndDealerLocatorSystem() {
               </ul>
             </div>
           `,
-          }}
-        />
-        <div
-          dangerouslySetInnerHTML={{
-            __html: `
+            }}
+          />
+          <div
+            dangerouslySetInnerHTML={{
+              __html: `
             <div>
               <p class="semi-bold">2. Custom Dealer Locator (Next.js)</p>
               <ul>
@@ -202,11 +233,11 @@ export default function UnifiedLeadAndDealerLocatorSystem() {
               </ul>
             </div>
           `,
-          }}
-        />
-        <div
-          dangerouslySetInnerHTML={{
-            __html: `
+            }}
+          />
+          <div
+            dangerouslySetInnerHTML={{
+              __html: `
             <div>
               <p class="semi-bold">3. Integrated lead forms</p>
               <ul>
@@ -216,13 +247,16 @@ export default function UnifiedLeadAndDealerLocatorSystem() {
               </ul>
             </div>
           `,
-          }}
-        />
-      </ThreeColumns>
-      <TwoColumns>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: `
+            }}
+          />
+        </ThreeColumns>
+      </div>
+      <div className="w-full max-w-[964px] mx-auto mb-[64px] lg:mb-[96px] px-6 lg:px-0">
+        <TwoColumns>
+          <div
+            className="mb-8 lg:mb-0"
+            dangerouslySetInnerHTML={{
+              __html: `
             <div>
               <p><strong>Results</strong></p>
               <p>High-performance API powering <span class="marine-strong">350K+ monthly requests</span>.</p>
@@ -243,17 +277,24 @@ export default function UnifiedLeadAndDealerLocatorSystem() {
               </ul>
             </div>
           `,
-          }}
-        />
-         <div className="image-container">
+            }}
+          />
           <Image
             src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/dealer-locator-map-mobile.png"
             alt="Dealer Locator System"
             width={500}
             height={500}
           />
-        </div>
-      </TwoColumns>
+        </TwoColumns>
+      </div>
+      <div className="w-full max-w-[964px] mx-auto mb-[64px] px-6 lg:px-0">
+        <Image
+          src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/dealer-locator-map.png"
+          alt="Past Editions page"
+          width={3000}
+          height={3000}
+        />
+      </div>
     </Page>
   );
 }

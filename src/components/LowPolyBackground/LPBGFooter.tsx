@@ -104,17 +104,17 @@ const LPBGFooter = () => {
         } else if (yFactor >= 1.1) {
           color = "rgba(47, 62, 70, 1)";
         } else if (yFactor >= 1.0) {
-          color = "rgba(47, 62, 70, 0.9)";
+          color = "#445058";
         } else if (yFactor >= 0.8) {
-          color = "rgba(47, 62, 70, 0.85)";
+          color = "#4e5a61";
         } else if (yFactor >= 0.5) {
-          color = "rgba(47, 62, 70, 0.8)";
+          color = "#58636a";
         } else if (yFactor >= 0.4) {
-          color = "rgba(53, 79, 82, 0.75)";
+          color = "#667a7d";
         } else if (yFactor >= 0.3) {
-          color = "rgba(53, 79, 82, 0.65)";
+          color = "#7a8b8c";
         } else if (yFactor >= 0.25) {
-          color = "rgba(82, 121, 111, 0.6)";
+          color = "#96ada7";
         }
         polys.push({
           points: [a as number[], b as number[], c as number[]],

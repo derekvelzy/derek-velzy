@@ -20,7 +20,7 @@ const PortfioCardSharp = ({
   return (
     <a
       href={`/portfolio/${card.link}`}
-      className={cx(styles["card-sharp"], "portfolio-card-stagger opacity-0")}
+      className={cx(styles["card-sharp"], "portfolio-card-stagger opacity-0 mt-8")}
     >
       <div className={styles["card-sharp__image"]}>
         <Image src={card.image} alt={card.title} fill={true} sizes="100vw" />

@@ -10,6 +10,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import styles from "./Portfolio.module.scss";
 import { useIsDesktop } from "~/helpers/useIsDesktop";
 import PortfolioCards from "./PortfolioCards";
+import LowPolyBgPortfolio from "./LowPolyBgPortfolio";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -27,9 +28,9 @@ const Portfolio = () => {
         {
           y: 0,
           opacity: 1,
-          duration: isDesktop ? 1 : 0.75,
-          ease: "power3.out",
-          stagger: isDesktop ? 0.125 : 0.08,
+          duration: isDesktop ? 0.5 : 0.75,
+          ease: "power1.out",
+          stagger: isDesktop ? 0.1 : 0.08,
         }
       );
     });
@@ -40,6 +41,7 @@ const Portfolio = () => {
 
   return (
     <div id="container--portfolio" className={styles["portfolio__container"]}>
+      <LowPolyBgPortfolio />
       <div className="overflow-hidden">
         <span
           className={cx(

@@ -11,6 +11,7 @@ import "../Portfolio.css";
 import AutoPlayVideo from "~/components/AutoPlayVideo/AutoPlayVideo";
 
 export default function ReservationsAndECommerce() {
+
   return (
     <Page includeMaxWidth={false}>
       <Hero

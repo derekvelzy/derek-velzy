@@ -49,7 +49,10 @@ export default function UnifiedLeadAndDealerLocatorSystem() {
         />
         <div className="lg:absolute top-0 w-full h-full">
           <div className="w-full lg:max-w-[964px] lg:mx-auto h-full flex justify-end">
-            <div className="lg:w-1/2 h-fit py-8 lg:py-0 lg:h-full bg-[#161C20] flex flex-col items-start justify-center px-8">
+            <div
+              className="lg:w-1/2 h-fit py-8 lg:py-0 lg:h-full bg-[rgba(22,28,32,0.8)] bg-blur-lg flex flex-col items-start justify-center px-8"
+              style={{ backdropFilter: "blur(10px)" }}
+            >
               <h3 className="project-section-title">
                 Unified Lead Routing System
               </h3>

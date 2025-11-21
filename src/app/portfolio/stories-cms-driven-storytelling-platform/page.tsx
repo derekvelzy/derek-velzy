@@ -45,8 +45,8 @@ export default function ReservationsAndECommerce() {
           className="h-[700px] lg:h-[1000px]"
           src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/srx-hero-2.jpg"
           alt="X Line bikes in Utah Desert"
-          width={3000}
-          height={3000}
+          width={5000}
+          height={5000}
         />
         <div className="absolute w-full top-0 py-[1rem] lg:py-[4rem] h-full">
           <div className="w-full p-6 lg:p-0 lg:max-w-[964px] lg:mx-auto h-full">

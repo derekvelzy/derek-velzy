@@ -20,7 +20,7 @@ export default function ReservationsAndECommerce() {
         summary="I designed and built the digital purchase flows that enabled customers to reserve or purchase motorcycles on Zero’s website, including the X Line reservation experience, a mobile-first checkout drawer powered by Ekho Dealer, and a Past Editions storefront for older model years. These systems turned the site into a reliable driver of online orders without adding new backend complexity."
         metrics={[
           {
-            keyMetric: "8%",
+            keyMetric: "14%",
             description:
               "Share of annual U.S. motorcycle revenue fulfilled through online orders",
           },
@@ -170,7 +170,7 @@ export default function ReservationsAndECommerce() {
             <div>
               <p><strong>Results</strong></p>
               <ul>
-                <li><span class="marine-strong">8% of annual U.S. motorcycle revenue</span> processed through online orders in the first year</li>
+                <li><span class="marine-strong">14% of annual U.S. motorcycle revenue</span> processed through online orders in the first year</li>
                 <li><span class="marine-strong">400+ paid reservations</span> placed for X Line.</li>
                 <li><span class="marine-strong">25% conversion rate</span> from reservation to purchase, compared to the 10-20% industry average for automotive & power sports.</li>
                 <li><span class="marine-strong">New sales channel unlocked</span>: customers could purchase motorcycles online for the first time in the U.S. market.</li>

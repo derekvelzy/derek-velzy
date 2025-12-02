@@ -9,7 +9,7 @@ import cx from "classnames";
 import styles from "./About.module.scss"; // Assuming you have a CSS module for styles
 import Image from "next/image";
 import PrimaryLink from "../Link/Link";
-// import Testimonials from "../Testimonials/Testimonials";
+import Testimonials from "../Testimonials/Testimonials";
 
 const About = () => {
   useEffect(() => {
@@ -134,7 +134,7 @@ const About = () => {
           </div>
         </div>
       </div>
-      {/* <Testimonials /> */}
+      <Testimonials />
     </div>
   );
 };

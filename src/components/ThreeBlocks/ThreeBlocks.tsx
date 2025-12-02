@@ -68,10 +68,12 @@ const ThreeBlocks = () => {
       className={cx(styles["three-blocks__container"], "slice")}
     >
       <div className={styles["three-blocks__header__title"]}>
-        <h4 id="title--three-blocks" className="translate-y-[40px]">
-          How I Help Businesses Grow Online
-        </h4>
-        <SecondaryLink id="explore-solutions" className="translate-y-[40px]" href="/solutions" light label="Explore Solutions" />
+        <div className="overflow-hidden">
+            <h4 id="title--three-blocks" className="translate-y-[40px]">
+              How I Help Businesses Grow Online
+            </h4>
+          </div>
+        <SecondaryLink id="explore-solutions" className="translate-y-[46px]" href="/solutions" light label="Explore Solutions" />
       </div>
       <div className={styles["three-blocks__blocks"]}>
         <div className={cx(styles["three-blocks__block"], staggerClass)}>

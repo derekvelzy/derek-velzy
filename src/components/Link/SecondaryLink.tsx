@@ -1,3 +1,5 @@
+"use client";
+
 // Package imports
 import cx from "classnames";
 import Link from "next/link";
@@ -15,6 +17,7 @@ type Props = {
   action?: () => void;
   external?: boolean;
   className?: string;
+  tabIndex?: number;
 };
 
 const SecondaryLink = ({
@@ -26,6 +29,7 @@ const SecondaryLink = ({
   action,
   external = false,
   className,
+  tabIndex = 0,
 }: Props) => {
   return (
     <Link
@@ -41,7 +45,7 @@ const SecondaryLink = ({
       target={external ? "_blank" : "_self"}
       rel={external ? "noopener noreferrer" : undefined}
       role="button"
-      tabIndex={0}
+      tabIndex={tabIndex}
       onKeyDown={onKeyDown}
       onClick={(e) => {
         if (action) {

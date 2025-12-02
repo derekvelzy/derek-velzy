@@ -11,21 +11,22 @@ import Testimonials from "~/components/Testimonials/Testimonials";
 export const metadata: Metadata = {
   title: "About Derek Velzy — Web Developer in Orange County, CA",
   description:
-    "Learn about Derek Velzy, a web developer and digital marketing tech specialist based in Orange County, California. I build fast, accessible websites and integrate SEO, Shopify, analytics/tracking, and GDPR/CCPA consent to drive measurable growth.",
+    "Learn about Derek Velzy, a web developer and digital marketing tech specialist based in Orange County, California. I build fast, accessible websites and integrate analytics/tracking, marketing tools, and GDPR/CCPA consent management to drive measurable growth.",
   keywords: [
     "About Derek Velzy",
     "Web Developer Orange County",
     "Freelance Web Developer",
     "Digital Marketing Tech Specialist",
-    "SEO & Analytics",
-    "Shopify Developer",
+    "Analytics Integration",
+    "Marketing Technology",
+    "Consent Management",
     "Accessibility Specialist",
   ],
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About Derek Velzy — Web Developer in Orange County, CA",
     description:
-      "Web developer in Orange County building fast, accessible sites with SEO, Shopify, and analytics integrations.",
+      "Web developer in Orange County building fast, accessible sites with analytics integrations, marketing tools, and consent management.",
     url: "/about",
     type: "profile",
     images: [
@@ -57,11 +58,11 @@ export default function AboutPage() {
     image: "https://sitesbyvelzy.com/favicon.png", // use absolute URLs
     knowsAbout: [
       "Web design and development",
-      "SEO",
-      "Shopify",
       "Analytics and tracking",
+      "Marketing technology",
       "GDPR and CCPA consent management",
       "Web accessibility (WCAG/ADA)",
+      "Performance optimization",
     ],
     areaServed: ["United States", "California", "Orange County"],
   };

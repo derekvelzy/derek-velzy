@@ -1,36 +1,53 @@
 "use client";
 
 // Package imports
-import { JSX } from "react";
+import { JSX, useEffect } from "react";
 import cx from "classnames";
+import gsap from "gsap";
 
 // Custom imports
 import Github from "~/res/svgs/github";
 import Linkedin from "~/res/svgs/linkedin";
 import Mail from "~/res/svgs/mail";
 import styles from "./FloatingLinks.module.scss";
-import { usePathname } from "next/navigation";
 
-const FloatingLinks = ({ mobile = false }: { mobile?: boolean }) => {
-  const isPortfolio = usePathname().includes("portfolio");
-  
-  if (isPortfolio) {
-    return null;
-  }
+const FloatingLinksPortfolio = ({ mobile = false }: { mobile?: boolean }) => {
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.to(".stagger-portfolio-floating-links", {
+        y: 0,
+        opacity: 1,
+        duration: 0.75,
+        delay: 1,
+        ease: "power3.out",
+        stagger: 0.125,
+      });
+    });
+    return () => {
+      ctx.revert();
+    };
+  }, []);
 
   return (
-    <div className={cx("z-20 flex-col gap-4", mobile ? "relative flex lg:hidden" : "hidden lg:flex fixed bottom-8 left-8")}>
-      <FloatingLink
+    <div
+      className={cx(
+        "z-20 flex-col gap-4",
+        mobile
+          ? "relative flex lg:hidden"
+          : "hidden lg:flex fixed bottom-8 left-8"
+      )}
+    >
+      <FloatingLinkPortfolio
         label="Send email"
-        href="mailto:derek@sitesbyvelzy.com"
+        href="mailto:dmvelzy@gmail.com"
         icon={<Mail />}
       />
-      <FloatingLink
+      <FloatingLinkPortfolio
         label="Connect on LinkedIn"
         href="https://www.linkedin.com/in/dvelzy/"
         icon={<Linkedin />}
       />
-      <FloatingLink
+      <FloatingLinkPortfolio
         label="View Github profile"
         href="https://github.com/derekvelzy"
         icon={<Github />}
@@ -45,7 +62,7 @@ type Props = {
   icon: JSX.Element;
 };
 
-const FloatingLink = ({ label, href, icon }: Props) => {
+const FloatingLinkPortfolio = ({ label, href, icon }: Props) => {
   return (
     <a
       aria-label={label}
@@ -58,7 +75,7 @@ const FloatingLink = ({ label, href, icon }: Props) => {
           [styles["boxy"]]:
             href.includes("mailto") || href.includes("linkedin"),
         },
-        "stagger opacity-0 translate-y-[50px]"
+        "stagger-portfolio-floating-links opacity-0 translate-y-[50px]"
       )}
     >
       <div>{icon}</div>
@@ -85,4 +102,4 @@ const FloatingLink = ({ label, href, icon }: Props) => {
   );
 };
 
-export default FloatingLinks;
+export default FloatingLinksPortfolio;

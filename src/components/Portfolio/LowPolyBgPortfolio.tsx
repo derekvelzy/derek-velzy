@@ -33,7 +33,7 @@ const generatePoints = (
   };
 
   const allPoints = [];
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 160; i++) {
     const xy = generateRandomPoint(greenBoxBoundaries);
     allPoints.push(xy);
   }
@@ -53,7 +53,7 @@ const LowPolyBgPortfolio = () => {
     () => {
       const calculateDimensions = () => {
         const width = windowWidth || window.innerWidth;
-        const height = isDesktop ? 2300 : 1000;
+        const height = isDesktop ? 4650 : 6100;
         const points = generatePoints(width, height);
         setDots(points);
         setWidth(width);
@@ -114,7 +114,7 @@ const LowPolyBgPortfolio = () => {
   return (
     <div
       id="low-poly-bg-portfolio"
-      className="absolute top-[-10rem] left-0 z-[0]"
+      className="absolute top-[-20rem] left-0 z-[0]"
       style={{ height, width }}
     >
       <svg

@@ -141,13 +141,23 @@
 
     &__name-and-business {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 1rem;
 
       span {
+        display: none;
         font-size: 18px;
         color: var(--darkGray);
+      }
+
+      @media (min-width: 1024px) {
+        flex-direction: row;
+
+        span {
+          display: block;
+        }
       }
     }
 

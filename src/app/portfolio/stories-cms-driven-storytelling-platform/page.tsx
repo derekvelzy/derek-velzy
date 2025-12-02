@@ -1,6 +1,5 @@
-"use client";
-
 // Package imports
+import type { Metadata } from "next";
 
 // Custom imports
 import Page from "~/components/Page/Page";
@@ -9,7 +8,32 @@ import TwoColumns from "~/components/Portfolio/Slices/TwoColumns";
 import Image from "next/image";
 import "../Portfolio.css";
 
-export default function ReservationsAndECommerce() {
+export const metadata: Metadata = {
+  title: "Case Study | Stories: CMS-Driven Storytelling Platform",
+  description:
+    "Stories: CMS-driven storytelling platform for Zero Motorcycles.",
+  alternates: {
+    canonical: "/portfolio/stories-cms-driven-storytelling-platform",
+  },
+  openGraph: {
+    title: "Case Study | Stories: CMS-Driven Storytelling Platform",
+    description:
+      "Stories: CMS-driven storytelling platform for Zero Motorcycles.",
+    url: "/portfolio/stories-cms-driven-storytelling-platform",
+    type: "profile",
+    images: [
+      {
+        url: "/favicon.png",
+        width: 1000,
+        height: 1000,
+        alt: "Case Study | Stories: CMS-Driven Storytelling Platform",
+      },
+    ],
+  },
+  robots: { index: false, follow: true },
+};
+
+export default function StoriesCmsDrivenStorytellingPlatform() {
   return (
     <Page includeMaxWidth={false}>
       <Hero
@@ -43,20 +67,15 @@ export default function ReservationsAndECommerce() {
       <div id="first-section" className="portfolio-sub-hero">
         <Image
           className="h-[700px] lg:h-[1000px]"
-          src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/srx-hero-2.jpg"
-          alt="X Line bikes in Utah Desert"
+          src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/stories-srx-hero-2.jpg"
+          alt="Zero SR/X Concept motorcycle"
           width={5000}
           height={5000}
         />
         <div className="absolute w-full top-0 py-[1rem] lg:py-[4rem] h-full">
           <div className="w-full p-6 lg:p-0 lg:max-w-[964px] lg:mx-auto h-full">
             <TwoColumns className="h-full">
-              <h3
-                className="project-section-title"
-                style={{ color: "rgba(255, 255, 255, 0.6)" }}
-              >
-                Stories
-              </h3>
+              <h3 className="project-section-title">Stories</h3>
               <div className="h-full flex flex-col items-start justify-between">
                 <div
                   className="section-text"
@@ -80,7 +99,7 @@ export default function ReservationsAndECommerce() {
         </div>
       </div>
       <div className="w-full max-w-[964px] mx-auto mb-[64px] lg:mb-[96px] px-6 lg:px-0">
-        <TwoColumns>
+        <TwoColumns className="items-center">
           <div className="section-text mb-8">
             <div
               dangerouslySetInnerHTML={{
@@ -124,13 +143,14 @@ export default function ReservationsAndECommerce() {
               }}
             />
           </div>
-          <div className="flex justify-center items-center">
+          <div className="flex flex-col items-center justify-start">
             <Image
               src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/stories_2.png"
-              alt="Ekho checkout drawer"
+              alt="Stories home hero on mobile"
               width={1000}
               height={1000}
             />
+            <span className="image-caption">Stories home hero on mobile</span>
           </div>
         </TwoColumns>
       </div>
@@ -139,13 +159,13 @@ export default function ReservationsAndECommerce() {
           <div className="flex flex-col gap-8 items-center justify-center">
             <Image
               src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/lompico-sketches.jpg"
-              alt="X Line bikes in Utah Desert"
+              alt="Sketches of future motorcycles designs"
               width={500}
               height={500}
             />
             <Image
               src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/cooper.jpg"
-              alt="X Line bikes in Utah Desert"
+              alt="Mini Cooper with a Zero Powertrain, Created by a Zero Employee"
               width={500}
               height={500}
             />

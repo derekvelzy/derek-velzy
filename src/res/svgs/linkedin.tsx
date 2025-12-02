@@ -1,4 +1,4 @@
-const Linkedin = () => (
+const Linkedin = ({ className }: { className?: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     height="32px"
@@ -6,6 +6,7 @@ const Linkedin = () => (
     version="1.1"
     id="Layer_1"
     viewBox="0 0 382 382"
+    className={className}
   >
     <path
       fill="black"

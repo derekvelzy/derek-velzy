@@ -1,3 +1,5 @@
+"use client";
+
 // Package imports
 
 // Custom imports

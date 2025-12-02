@@ -1,3 +1,5 @@
+"use client";
+
 // Package imports
 import gsap from "gsap";
 import ScrollToPlugin from "gsap/dist/ScrollToPlugin";

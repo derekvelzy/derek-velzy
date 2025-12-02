@@ -12,12 +12,15 @@ export const metadata: Metadata = {
   title: "Sites by Velzy | Web Design & Development in Orange County, CA",
   applicationName: "Sites by Velzy",
   description:
-    "Sites by Velzy, led by Derek Velzy, provides expert web design, development, SEO, Shopify e-commerce help, digital marketing integrations, hosting, maintenance plans, and accessibility audits in Orange County, California.",
+    "Sites by Velzy, led by Derek Velzy, creates fast, mobile-ready websites that convert visitors into customers. Tracked for insight, compliant by design, and built to perform. Serving Orange County businesses with high-performance sites, smart tracking integrations, digital marketing tools, hosting, maintenance plans, and ongoing optimization.",
   keywords: [
     "Web Design Orange County",
     "Web Development",
-    "Shopify Expert",
-    "SEO Services",
+    "High-Performance Websites",
+    "Analytics Integration",
+    "Marketing Technology",
+    "Consent Management",
+    "Website Optimization",
     "Digital Marketing Integration",
     "Website Hosting",
     "Website Maintenance",
@@ -30,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Sites by Velzy | Web Design & Development in Orange County, CA",
     description:
-      "Custom websites, SEO, e-commerce, and digital integrations by Derek Velzy. Serving Orange County businesses with modern design, development, and accessibility expertise.",
+      "Fast, mobile-ready websites that convert. Tracked for insight, compliant by design, and built to perform. Serving Orange County businesses with high-performance sites and smart tracking integrations.",
     url: "https://sitesbyvelzy.com",
     siteName: "Sites by Velzy",
     locale: "en_US",
@@ -48,7 +51,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sites by Velzy | Web Design & Development in Orange County, CA",
     description:
-      "Freelance web designer & developer in Orange County, CA. SEO, Shopify, digital marketing tools, hosting, maintenance, and accessibility audits.",
+      "Fast, trackable, and compliant websites for growing businesses in Orange County, CA. High-performance sites with smart tracking integrations and ongoing optimization.",
     images: [
       "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/SbVLogo.png",
     ],
@@ -91,6 +94,28 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Sites by Velzy",
+    url: "https://sitesbyvelzy.com",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/SbVLogo.png",
+    },
+    founder: {
+      "@type": "Person",
+      name: "Derek Velzy",
+    },
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Orange County",
+      addressRegion: "CA",
+      addressCountry: "US",
+    },
+    sameAs: ["https://sitesbyvelzy.com"],
+  };
+
   return (
     <html lang="en">
       <head>
@@ -100,6 +125,14 @@ export default function RootLayout({
           data-cbid="20f94bff-e554-48be-b53e-c98c5b3faea4"
           data-blockingmode="auto"
           strategy="beforeInteractive"
+        />
+        <Script
+          id="organization-json-ld"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c"),
+          }}
         />
       </head>
       <body

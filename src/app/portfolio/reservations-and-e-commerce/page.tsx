@@ -1,6 +1,5 @@
-"use client";
-
 // Package imports
+import type { Metadata } from "next";
 
 // Custom imports
 import Page from "~/components/Page/Page";
@@ -10,8 +9,30 @@ import Image from "next/image";
 import "../Portfolio.css";
 import AutoPlayVideo from "~/components/AutoPlayVideo/AutoPlayVideo";
 
-export default function ReservationsAndECommerce() {
+export const metadata: Metadata = {
+  title: "Case Study | Reservations & E-Commerce",
+  description:
+    "Reservations and e-commerce for Zero Motorcycles.",
+  alternates: { canonical: "/portfolio/reservations-and-e-commerce" },
+  openGraph: {
+    title: "Case Study | Reservations & E-Commerce",
+    description:
+      "Reservations and e-commerce for Zero Motorcycles.",
+    url: "/portfolio/reservations-and-e-commerce",
+    type: "profile",
+    images: [
+      {
+        url: "/favicon.png",
+        width: 1000,
+        height: 1000,
+        alt: "Case Study | Reservations & E-Commerce",
+      },
+    ],
+  },
+  robots: { index: false, follow: true },
+};
 
+export default function ReservationsAndECommerce() {
   return (
     <Page includeMaxWidth={false}>
       <Hero
@@ -155,12 +176,17 @@ export default function ReservationsAndECommerce() {
               }}
             />
           </div>
-          <Image
-            src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/checkout-window.png"
-            alt="Ekho checkout drawer"
-            width={500}
-            height={500}
-          />
+          <div className="flex flex-col items-center justify-start">
+            <Image
+              src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/checkout-window.png"
+              alt="Ekho checkout drawer for Zero Motorcycles"
+              width={500}
+              height={500}
+            />
+            <span className="image-caption">
+              Ekho checkout drawer for Zero Motorcycles
+            </span>
+          </div>
         </TwoColumns>
       </div>
       <div className="section-text max-w-[964px] mx-auto mb-[64px] lg:mb-[96px] px-6 lg:px-0">
@@ -184,7 +210,7 @@ export default function ReservationsAndECommerce() {
       <div className="portfolio-sub-hero mb-[96px]">
         <Image
           src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/ecom_hero_2.jpg"
-          alt="X Line bikes in Utah Desert"
+          alt="Zero Motorcycles SR/F Model in Warehouse"
           width={3000}
           height={3000}
           style={{ height: 750 }}
@@ -255,13 +281,18 @@ export default function ReservationsAndECommerce() {
               }}
             />
           </div>
+          <div className="flex flex-col items-center justify-start">
             <Image
               className="object-contain"
               src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/ecom_3.png"
-              alt="Past Editions home page"
+              alt="Section of model page hero for Zero Motorcycles SR/F Model"
               width={1000}
               height={1000}
             />
+            <span className="image-caption">
+              Section of the model page hero on mobile
+            </span>
+          </div>
         </TwoColumns>
       </div>
       <div className="w-full max-w-[964px] mx-auto mb-[64px] px-6 lg:px-0">
@@ -297,18 +328,22 @@ export default function ReservationsAndECommerce() {
       <div className="w-full max-w-[964px] mx-auto mb-[64px] px-6 lg:px-0">
         <Image
           src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/past-editions-home.png"
-          alt="Past Editions page"
+          alt="Past Editions home page"
           width={3000}
           height={3000}
         />
+        <span className="image-caption">Past Editions home page</span>
       </div>
       <div className="w-full max-w-[964px] mx-auto mb-[64px] px-6 lg:px-0">
         <Image
           src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/past-editions-page.png"
-          alt="Past Editions page"
+          alt="Past Editions product page"
           width={3000}
           height={3000}
         />
+        <span className="image-caption">
+          Past Editions product page for the 2024 Zero FX
+        </span>
       </div>
     </Page>
   );

@@ -19,6 +19,11 @@
             color: var(--green);
             text-decoration: underline;
             cursor: pointer;
+
+            &:focus-visible {
+                outline: 2px dashed var(--marine);
+                outline-offset: 2px;
+            }
         }
     }
 
@@ -109,6 +114,11 @@
                 overflow: hidden;
                 height: 1.5rem;
 
+                &:focus-visible {
+                    outline: 2px dashed var(--marine);
+                    outline-offset: 2px;
+                }
+
                 p {
                     font-size: 16px;
                     transition: opacity 0.2s var(--easy-does-it);
@@ -194,6 +204,7 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 4rem;
+    gap: 1rem;
 
     @media (min-width: 1024px) {
         gap: 2rem;

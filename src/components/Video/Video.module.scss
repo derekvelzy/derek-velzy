@@ -73,14 +73,14 @@
                 transition: fill 0.3s var(--easy-does-it);
 
                 @media (min-width: 1024px) {
-                    fill: var(--darkGray);
+                    fill: white;
                 }
             }
         }
 
         &:hover {
             svg {
-                fill: rgba(53, 79, 82, 0.7);
+                fill: rgba(255, 255, 255, 0.7);
             }
         }
     }

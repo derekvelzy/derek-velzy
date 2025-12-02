@@ -7,7 +7,6 @@ import Player from "@vimeo/player";
 import cx from "classnames";
 
 // Custom imports
-import videoCover from "@public/img/video-cover-1.jpg";
 import styles from "./Video.module.scss";
 import { handleFocusChange } from "~/helpers/handleFocusChange";
 
@@ -193,10 +192,13 @@ const Video = ({}) => {
         tabIndex={curtain ? -1 : 0}
       >
         <Image
-          src={videoCover}
+          // src={"https://aywnqw1wyioophsr.public.blob.vercel-storage.com/zero-xb.jpg"}
+          src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/XE-page.png"
           alt={"Zero motorcycles video cover"}
           fill={true}
-          sizes="(max-width: 479px) 50vw, (max-width: 1279px) 440px"
+          sizes="100vw"
+          quality={100}
+          className="object-cover"
         />
         <div className={styles["video__cover__play"]}>
           <svg

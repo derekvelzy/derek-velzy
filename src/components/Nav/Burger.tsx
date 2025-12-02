@@ -257,7 +257,7 @@ const BurgerButton = ({
   if (id === "resume") {
     return (
       <a
-        href="/derek-velzy-resume.pdf"
+        href="/resume_derekvelzy.pdf"
         target="_blank"
         className={staggerClass}
         tabIndex={tabIndex}

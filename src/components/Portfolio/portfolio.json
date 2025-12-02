@@ -2,7 +2,7 @@
     {
         "title": "Reservations and E-Commerce",
         "link": "reservations-and-e-commerce",
-        "description": "Built Zero’s end-to-end e-commerce platform in the U.S., enabling reservations, full online purchases, and a Past Editions sales experience. Delivered mobile-first UX, API integrations, and lean MVPs that drove 450+ orders.",
+        "description": "Built Zero’s e-commerce platform in the U.S., enabling reservations, full online purchases, and a Past Editions sales experience. Delivered mobile-first UX, API integrations, and lean MVPs that drove 14% of all U.S. motorcycle sales.",
         "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/brimhall-desert-1.jpeg",
         "skills": [
             "E-commerce",
@@ -13,24 +13,48 @@
     {
         "title": "Unified Lead and Dealer Locator System",
         "link": "unified-lead-and-dealer-locator-system",
-        "description": "Delivered a cross-functional initiative connecting Zero’s lead forms and dealer network — resulting in a 34% improvement in lead accuracy and consistent data standards across global CRM and marketing systems.",
+        "description": "Delivered a cross-functional initiative connecting Zero’s lead forms, dealer network, and global CRM. Resulted in a 34% improvement in lead accuracy and consistent data standards across CRM and marketing systems.",
         "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/portfolio-card-globe-2.png",
         "skills": [
             "Product Strategy",
             "MarTech",
-            "UX",
-            "System Design"
+            "System Design",
+            "CRM"
         ]
     },
     {
-        "title": "Stories: CMS-Driven Storytelling Platform ",
+        "title": "Dash Prototype: Future Interaction Model",
+        "link": "dash-prototype-future-interaction-model",
+        "description": "Partnered with the motorcycle UX team to develop early navigation concepts for Zero’s future dash application and ran a 20-participant usability study that surfaced a faster, more intuitive interaction model for upcoming products.",
+        "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/dash-portfolio-photo.jpg",
+        "skills": [
+            "Prototyping",
+            "Discovery",
+            "User Testing",
+            "UX"
+        ]
+    },
+    {
+        "title": "Stories: CMS-Driven Storytelling Platform",
         "link": "stories-cms-driven-storytelling-platform",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "description": "Built a scalable, CMS-driven Stories platform that empowered the marketing team to publish content independently, driving a 45% increase in session duration, more than doubling deep-scroll engagement, and creating evergreen content for SEO.",
         "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/lompico-sketches-2.jpg",
         "skills": [
-            "Placeholder",
-            "Placeholder",
-            "Placeholder"
+            "CMS Integration",
+            "Storytelling",
+            "UX",
+            "SEO"
+        ]
+    },
+    {
+        "title": "Events Management System",
+        "link": "events-management-system",
+        "description": "Created a unified events system with type-safe data, self-serve dealer submissions, and a modern public events page with registration form integration. Reduced manual steps and powered global demo tours.",
+        "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/events-portfolio-card.jpg",
+        "skills": [
+            "Process Automation",
+            "System Design",
+            "Development"
         ]
     }
 ]

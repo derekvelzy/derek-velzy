@@ -8,7 +8,6 @@ import FloatingLinks from "~/components/FloatingLinks/FloatingLinks";
 import Hero from "~/components/Hero/Hero";
 import LowPolyBg from "~/components/LowPolyBackground/LowPolyBackground";
 import LPBGFooter from "~/components/LowPolyBackground/LPBGFooter";
-// import Services from "~/components/Services/Servi/cesHomepage";
 import Work from "~/components/Work/Work";
 import JaggedDivider from "~/components/JaggedDivider/JaggedDivider";
 import ThreeBlocks from "~/components/ThreeBlocks/ThreeBlocks";
@@ -16,22 +15,27 @@ import ThreeBlocks from "~/components/ThreeBlocks/ThreeBlocks";
 export const metadata: Metadata = {
   title: "Sites by Velzy | Web Design & Development in Orange County, CA",
   description:
-    "Custom websites, SEO, e-commerce, and integrations by Derek Velzy. Serving Orange County businesses with fast, accessible builds.",
+    "Fast, mobile-ready websites that convert visitors into customers. Tracked for insight, compliant by design, and built to perform. Serving Orange County businesses with high-performance sites, smart tracking integrations, and ongoing optimization.",
   keywords: [
     "Web Design Orange County",
     "Freelance Web Developer",
-    "SEO Services",
+    "Website Development",
+    "High-Performance Websites",
+    "Analytics Integration",
+    "Marketing Technology",
+    "Consent Management",
+    "Website Optimization",
   ],
   alternates: { canonical: "/" },
   openGraph: {
     title: "Sites by Velzy | Web Design & Development in Orange County, CA",
     description:
-      "Custom websites, SEO, e-commerce, and integrations by Derek Velzy.",
+      "Fast, mobile-ready websites that convert. Tracked for insight, compliant by design, and built to perform.",
     url: "/",
   },
   twitter: {
     title: "Sites by Velzy | Web Design & Development in Orange County, CA",
-    description: "Freelance web designer & developer in Orange County, CA.",
+    description: "Fast, trackable, and compliant websites for growing businesses in Orange County, CA.",
   },
 };
 
@@ -41,7 +45,6 @@ export default function Home() {
       <Hero />
       <FloatingLinks />
       <LowPolyBg />
-      {/* <Services /> */}
       <ThreeBlocks />
       <Work />
       <AboutHomepage />

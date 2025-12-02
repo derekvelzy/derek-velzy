@@ -453,4 +453,14 @@
 .portfolio-sbv-link {
     flex-direction: row !important;
     gap: 0rem !important;
+
+    p {
+        color: white;
+        font-size: 22px;
+
+        @media (min-width: 1024px) {
+            color: var(--deepMarine);
+            font-size: 18px;
+        }
+    }
 }

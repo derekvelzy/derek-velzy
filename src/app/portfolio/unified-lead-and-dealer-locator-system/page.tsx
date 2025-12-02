@@ -1,6 +1,5 @@
-"use client";
-
 // Package imports
+import type { Metadata } from "next";
 
 // Custom imports
 import Page from "~/components/Page/Page";
@@ -10,6 +9,29 @@ import ThreeColumns from "~/components/Portfolio/Slices/ThreeColumns";
 import Image from "next/image";
 import SecondaryLink from "~/components/Link/SecondaryLink";
 import "../Portfolio.css";
+
+export const metadata: Metadata = {
+  title: "Case Study | Unified Lead Routing & Dealer Locator System",
+  description:
+    "Unified lead routing and dealer locator system for Zero Motorcycles.",
+  alternates: { canonical: "/portfolio/unified-lead-and-dealer-locator-system" },
+  openGraph: {
+    title: "Case Study | Unified Lead Routing & Dealer Locator System",
+    description:
+      "Unified lead routing and dealer locator system for Zero Motorcycles.",
+    url: "/portfolio/unified-lead-and-dealer-locator-system",
+    type: "profile",
+    images: [
+      {
+        url: "/favicon.png",
+        width: 1000,
+        height: 1000,
+        alt: "Case Study | Unified Lead Routing & Dealer Locator System",
+      },
+    ],
+  },
+  robots: { index: false, follow: true },
+};
 
 export default function UnifiedLeadAndDealerLocatorSystem() {
   return (
@@ -43,7 +65,7 @@ export default function UnifiedLeadAndDealerLocatorSystem() {
         <Image
           className="h-[300px] lg:h-[800px]"
           src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/lead_routing_hero.jpg"
-          alt="X Line bikes in Utah Desert"
+          alt="Zero Motorcycles at a dealership"
           width={3000}
           height={3000}
         />
@@ -79,15 +101,18 @@ export default function UnifiedLeadAndDealerLocatorSystem() {
       </div>
       <div className="relative mb-[64px] lg:mb-[96px]">
         <div className="w-full max-w-[964px] mx-auto">
-          <div className="absolute flex justify-end top-0 left-0 h-[300px] lg:h-[600px] w-[100vw] lg:w-[calc(50vw-2rem)]">
+          <div className="absolute flex flex-col justify-end top-0 left-0 h-[300px] lg:h-[600px] w-[100vw] lg:w-[calc(50vw-2rem)]">
             <Image
               className="h-[300px] lg:h-[600px]"
               src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/lead-routing-diagram-3.png"
-              alt="Unified Lead Routing System"
+              alt="Section of lead routing system diagram"
               width={500}
               height={500}
               style={{ width: "100%", objectFit: "cover" }}
             />
+            <span className="image-caption">
+              Section of lead routing system diagram
+            </span>
           </div>
           <TwoColumns>
             <div className="h-[300px] lg:h-[600px]" />
@@ -95,13 +120,14 @@ export default function UnifiedLeadAndDealerLocatorSystem() {
               <div
                 dangerouslySetInnerHTML={{
                   __html: `
-            <div>
-              <p><strong>Solution</strong></p>
-              <p>I designed a unified lead standardization pipeline that reformats all inbound data into a single schema before entering HubSpot. Each lead then runs through an automated routing workflow that assigns the closest dealership using Mapbox driving-time logic and scores the lead (–10 to 10) based on distance, borders, and routing rules.</p>
-              <br />
-              <p>Regular cross-functional reviews with Sales and Marketing helped refine the system over time. Introducing improvements like address autofill in web forms also further increased routing accuracy.</p>
-            </div>
-          `,
+                  <div>
+                    <p><strong>Solution</strong></p>
+                    <p>I designed a unified lead standardization pipeline that reformats all inbound data into a single schema before entering HubSpot. Each lead then runs through an automated routing workflow that assigns the closest dealership using Mapbox driving-time logic and scores the lead (–10 to 10) based on distance, borders, and routing rules.</p>
+                    <br />
+                    <p>Regular cross-functional reviews with Sales and Marketing helped refine the system over time. Introducing improvements like address autofill in web forms also further increased routing accuracy.</p>
+                  </div>
+                </div>
+                `,
                 }}
               />
               <div>
@@ -133,14 +159,17 @@ export default function UnifiedLeadAndDealerLocatorSystem() {
               }}
             />
           </div>
-          <div className="flex items-center">
+          <div className="flex flex-col items-center justify-start">
             <Image
               style={{ objectFit: "contain" }}
               src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/lead-accuracy-graph.png"
-              alt="Dealer Locator System"
+              alt="One year of performance data for the lead routing system"
               width={500}
               height={500}
             />
+            <span className="image-caption">
+              One year of performance data for the lead routing system
+            </span>
           </div>
         </TwoColumns>
       </div>
@@ -148,7 +177,7 @@ export default function UnifiedLeadAndDealerLocatorSystem() {
         <Image
           className="hidden lg:block"
           src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/black-locator-3.png"
-          alt="X Line bikes in Utah Desert"
+          alt="Dealer Locator globe showing globl dealer network"
           width={3000}
           height={3000}
           style={{ height: 700 }}
@@ -156,7 +185,7 @@ export default function UnifiedLeadAndDealerLocatorSystem() {
         <Image
           className="block lg:hidden"
           src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/black-locator-3-mobile.png"
-          alt="X Line bikes in Utah Desert"
+          alt="Dealer Locator globe showing global dealer network"
           width={1500}
           height={1500}
           style={{ height: 300 }}
@@ -282,21 +311,25 @@ export default function UnifiedLeadAndDealerLocatorSystem() {
           `,
             }}
           />
-          <Image
-            src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/dealer-locator-map-mobile.png"
-            alt="Dealer Locator System"
-            width={500}
-            height={500}
-          />
+          <div className="flex flex-col items-center justify-start">
+            <Image
+              src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/dealer-locator-map-mobile.png"
+              alt="Dealer Locator on mobile"
+              width={500}
+              height={500}
+            />
+            <span className="image-caption">Dealer Locator on mobile</span>
+          </div>
         </TwoColumns>
       </div>
       <div className="w-full max-w-[964px] mx-auto mb-[64px] px-6 lg:px-0">
         <Image
           src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/dealer-locator-map.png"
-          alt="Past Editions page"
+          alt="Dealer Locator on desktop"
           width={3000}
           height={3000}
         />
+        <span className="image-caption">Dealer Locator on desktop</span>
       </div>
     </Page>
   );

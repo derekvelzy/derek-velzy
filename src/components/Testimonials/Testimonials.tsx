@@ -9,10 +9,11 @@ import "slick-carousel/slick/slick-theme.css";
 // Custom imports
 import styles from "./Testimonials.module.scss";
 import data from "./testimonials.json";
+import portfolioData from "./testomonials-portfolio.json";
 import LowPolyBgTestimonials from "./LowPolyBgTestimonials";
 import SecondaryLink from "../Link/SecondaryLink";
 
-const Testimonials = () => {
+const Testimonials = ({ portfolio }: { portfolio?: boolean }) => {
   const sliderRef = useRef<Slider>(null);
 
   const settings = {
@@ -20,6 +21,7 @@ const Testimonials = () => {
     dots: false,
     arrows: false,
     infinite: true,
+    // infinite: false,
     slidesToShow: 1,
     slidesToScroll: 1,
     speed: 500,
@@ -66,7 +68,7 @@ const Testimonials = () => {
             </button>
           </div>
           <Slider ref={sliderRef} {...settings}>
-            {data.map((item, index) => (
+            {(portfolio ? portfolioData : data).map((item, index) => (
               <div key={`testimonial-${index}`}>
                 <Block data={item} />
               </div>
@@ -83,7 +85,8 @@ type Testimonial = {
   photo: string;
   business: string;
   "business-link": string;
-  header: string;
+  title: string;
+  experience: string;
   quote: string;
 };
 const Block = ({ data }: { data: Testimonial }) => {
@@ -102,10 +105,13 @@ const Block = ({ data }: { data: Testimonial }) => {
             href={data["business-link"]}
             label={data.business}
             external
+            tabIndex={-1}
           />
         </div>
         <div className={styles["testimonial-block__content__header"]}>
-          <span>{data["header"]}</span>
+          <span className="flex gap-2">
+            <span style={{ display: "contents", fontWeight: 500 }}>{data.title}</span> | {data.experience}
+          </span>
         </div>
         <p>{data.quote}</p>
       </div>

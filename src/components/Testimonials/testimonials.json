@@ -1,5 +1,14 @@
 [
     {
+        "name": "Elias Larkin",
+        "photo": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/Eli_Select.jpg",
+        "business": "Zero Motorcycles",
+        "business-link": "https://zeromotorcycles.com/",
+        "title": "Global Digital Marketing Director",
+        "experience": "ex-Jaybird, ex-Backcountry.com, ex-KURU",
+        "quote": "Derek leads with the business objective, builds a clear path to get there, and communicates every step along the way. He delivers on schedule and with a level of intention that consistently drives meaningful results. His mix of strategic thinking, clarity, and genuine enthusiasm makes him an exceptional partner."
+    },
+    {
         "name": "Bryan Klavitter",
         "photo": "",
         "business": "Zero Motorcycles",
@@ -7,15 +16,6 @@
         "title": "VP of Global Marketing & Customer Insights",
         "experience": "ex-Adidas, ex-Specialized, ex-Teton Gravity Research",
         "quote": "Derek has an exceptional ability to merge creative vision with technical precision, delivering websites that not only look stunning but also achieve measurable business outcomes. Derek’s approach is grounded in design best practices and informed by data-driven insights, ensuring every solution enhances user experience and brand engagement. Derek is a trusted partner for any organization seeking to elevate their digital presence."
-    },
-    {
-        "name": "Elias Larkin",
-        "photo": "",
-        "business": "Zero Motorcycles",
-        "business-link": "https://zeromotorcycles.com/",
-        "title": "Global Digital Marketing Director",
-        "experience": "ex-Jaybird, ex-Backcountry.com, ex-KURU",
-        "quote": "Derek leads with the business objective, builds a clear path to get there, and communicates every step along the way. He delivers on schedule and with a level of intention that consistently drives meaningful results. His mix of strategic thinking, clarity, and genuine enthusiasm makes him an exceptional partner."
     },
     {
         "name": "Maria Baez",

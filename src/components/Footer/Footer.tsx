@@ -19,7 +19,9 @@ const Footer = () => {
     <div className={styles["footer__container"]}>
       <div className={styles.footer}>
         <div className={styles["footer__top-row"]}>
-          <SBV_white />
+          <Link href="/">
+            <SBV_white />
+          </Link>
           <ul>
             <li>
               <Link href="/about">About</Link>

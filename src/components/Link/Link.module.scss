@@ -61,11 +61,13 @@
     text-align: center;
 
     p {
+        pointer-events: none;
         display: inline;
         font-family: var(--font-poppins);
     }
 
     svg {
+        pointer-events: none;
         margin-left: .5rem;
         display: inline;
         padding: 2px;
@@ -80,6 +82,7 @@
 
     &::after {
         content: "";
+        pointer-events: none;
         position: absolute;
         bottom: -.25rem;
         right: 0;

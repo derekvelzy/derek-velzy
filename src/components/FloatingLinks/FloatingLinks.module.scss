@@ -5,6 +5,10 @@
     position: relative;
     border-radius: 50%;
 
+    * {
+        pointer-events: none;
+    }
+
     svg {
         filter: invert(1);
     }

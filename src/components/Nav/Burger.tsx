@@ -182,12 +182,14 @@ const Burger = ({ animationsCompleted }: Props) => {
           />
           {portfolio ? (
             <SecondaryLink
+              id="portfolio-sbv-link"
               className={styles["portfolio-sbv-link"]}
               href="/"
               label="Sites By Velzy"
             />
           ) : (
             <Link
+              id="articles-link"
               href="/articles"
               className="nav-stagger opacity-0 translate-y-[10px]"
               onClick={() => {
@@ -241,8 +243,9 @@ const BurgerButton = ({
   if (link) {
     return (
       <Link
+        id={`${id}-link`}
         href={portfolio ? `/portfolio/${id}` : `/${id}`}
-        className={staggerClass}
+        className={cx(staggerClass, styles["nav-button__link"])}
         onClick={() => {
           closeNav();
         }}
@@ -257,6 +260,7 @@ const BurgerButton = ({
   if (id === "resume") {
     return (
       <a
+        id="resume-link"
         href="/resume_derekvelzy.pdf"
         target="_blank"
         className={staggerClass}

@@ -450,6 +450,9 @@
     }
 }
 
+.nav-button__link span {
+    pointer-events: none;
+}
 .portfolio-sbv-link {
     flex-direction: row !important;
     gap: 0rem !important;

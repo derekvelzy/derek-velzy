@@ -92,11 +92,11 @@ const About = () => {
     "Roadmapping",
     "MarTech Architecture",
     "Web Analytics",
-    "Prototyping",
-    "HubSpotCRM Integration",
+    "HubSpot CRM Integration",
     "Cross-Functional Collaboration",
     "User Centered Design",
     "CMS Integration",
+    "Prototyping",
     "Google Analytics",
     "JavaScript",
     "TypeScript",
@@ -208,6 +208,18 @@ const About = () => {
                   UX. Defined and optimized the MarTech stack to prioritize
                   scalability, reduce development overhead, and accelerate
                   go-to-market execution across campaigns and regions.
+                </p>
+                <br />
+                <p>
+                  Independently designed and developed Zero Motorcycles’ entire
+                  web ecosystem — architecting the frontend, integrating backend
+                  services, managing infrastructure, and implementing all
+                  automation and tracking tools. I rebuilt the site on modern
+                  frameworks, improved speed and reliability, and shipped every
+                  major digital feature from concept to production. I also
+                  partnered with the motorcycle UX dash team during early
+                  discovery, contributing market research, concept development,
+                  and a functional prototype.
                 </p>
               </div>
 

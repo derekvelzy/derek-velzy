@@ -12,6 +12,7 @@ import data from "./testimonials.json";
 import portfolioData from "./testomonials-portfolio.json";
 import LowPolyBgTestimonials from "./LowPolyBgTestimonials";
 import SecondaryLink from "../Link/SecondaryLink";
+import Image from "next/image";
 
 const Testimonials = ({ portfolio }: { portfolio?: boolean }) => {
   const sliderRef = useRef<Slider>(null);
@@ -94,7 +95,34 @@ const Block = ({ data }: { data: Testimonial }) => {
     <div className={styles["testimonial-block"]}>
       <div className={styles["testimonial-block__content"]}>
         <div className={styles["testimonial-block__content__photo"]}>
-          {/* <Image src={data.photo} alt={data.name} fill={true} /> */}
+          {data.photo ? (
+            <Image
+              src={data.photo}
+              alt={data.name}
+              fill={true}
+              sizes="200px"
+              className="object-cover"
+            />
+          ) : (
+            <div
+              className={
+                styles["testimonial-block__content__photo__placeholder"]
+              }
+            >
+              <svg
+                width="100"
+                height="100"
+                viewBox="0 0 100 100"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M49.5 58C57.0587 58 64.3076 62.4252 69.6523 70.3018C74.9971 78.1783 78 88.8609 78 100H21C21 88.8609 24.0029 78.1783 29.3477 70.3018C34.6924 62.4252 41.9413 58 49.5 58ZM50 14C59.9411 14 68 22.0589 68 32C68 41.9411 59.9411 50 50 50C40.0589 50 32 41.9411 32 32C32 22.0589 40.0589 14 50 14Z"
+                  fill="white"
+                />
+              </svg>
+            </div>
+          )}
         </div>
         <div
           className={styles["testimonial-block__content__name-and-business"]}
@@ -110,7 +138,10 @@ const Block = ({ data }: { data: Testimonial }) => {
         </div>
         <div className={styles["testimonial-block__content__header"]}>
           <span className="flex gap-2">
-            <span style={{ display: "contents", fontWeight: 500 }}>{data.title}</span> | {data.experience}
+            <span style={{ display: "contents", fontWeight: 500 }}>
+              {data.title}
+            </span>{" "}
+            | {data.experience}
           </span>
         </div>
         <p>{data.quote}</p>

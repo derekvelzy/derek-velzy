@@ -41,16 +41,19 @@ const FloatingLinksPortfolio = ({ mobile = false }: { mobile?: boolean }) => {
         label="Send email"
         href="mailto:dmvelzy@gmail.com"
         icon={<Mail />}
+        type="email"
       />
       <FloatingLinkPortfolio
         label="Connect on LinkedIn"
         href="https://www.linkedin.com/in/dvelzy/"
         icon={<Linkedin />}
+        type="linkedin"
       />
       <FloatingLinkPortfolio
         label="View Github profile"
         href="https://github.com/derekvelzy"
         icon={<Github />}
+        type="github"
       />
     </div>
   );
@@ -60,11 +63,13 @@ type Props = {
   label?: string;
   href: string;
   icon: JSX.Element;
+  type: "email" | "linkedin" | "github";
 };
 
-const FloatingLinkPortfolio = ({ label, href, icon }: Props) => {
+const FloatingLinkPortfolio = ({ label, href, icon, type }: Props) => {
   return (
     <a
+      id={`${type}-floating-link`}
       aria-label={label}
       href={href}
       target="_blank"

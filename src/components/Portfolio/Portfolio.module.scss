@@ -232,6 +232,10 @@
     position: relative;
     transition: box-shadow 0.4s var(--easy-does-it);
 
+    * {
+        pointer-events: none;
+    }
+
     @media (min-width: 1024px) {
         width: calc(50% - 16px);
         height: 540px;

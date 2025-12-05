@@ -39,7 +39,7 @@ export default function UnifiedLeadAndDealerLocatorSystem() {
       <Hero
         title="Unified Lead Routing & Dealer Locator Platform"
         titleHtml="<div><h1>Unified Lead Routing &</h1><h1>Dealer Locator Platform</h1></div>"
-        summary="Zero Motorcycles needed a more streamlined way to capture leads and connect them to dealerships — all while integrating cleanly with their email marketing efforts. HubSpot was chosen as the central platform for lead management, dealership data, marketing automation, chatbot hosting, and more."
+        summary="Zero Motorcycles needed a more streamlined way to capture leads and connect them to dealerships, all while integrating cleanly with their email marketing efforts. HubSpot was chosen as the central platform for lead management, dealership data, marketing automation, chatbot hosting, and more."
         metrics={[
           {
             keyMetric: "97.7%",
@@ -82,16 +82,16 @@ export default function UnifiedLeadAndDealerLocatorSystem() {
                 <div
                   dangerouslySetInnerHTML={{
                     __html: `
-            <div>
-              <p><strong>Problem</strong></p>
-              <p>Lead data was fragmented across several sources with inconsistent fields and data types. Because of this...</p>
-              <ul>
-                <li>Leads often came in with missing or incomplete data, requiring manual review of leads by Sales team.</li>
-                <li>Dealers receive irrelevant or duplicate leads.</li>
-                <li>Marketing team struggles to segment audiences and personalize content.</li>
-              </ul>
-            </div>
-          `,
+                    <div>
+                      <p><strong>Problem</strong></p>
+                      <p>Lead data was fragmented across several sources with inconsistent fields and data types. Because of this...</p>
+                      <ul>
+                        <li>Leads often came in with <span class="font-bold">missing</span> or <span class="font-bold">incomplete</span> data, requiring manual review of leads by Sales team.</li>
+                        <li>Dealers receive irrelevant or duplicate leads.</li>
+                        <li>Marketing team struggles to segment audiences and personalize content.</li>
+                      </ul>
+                    </div>
+                  `,
                   }}
                 />
               </div>
@@ -122,7 +122,7 @@ export default function UnifiedLeadAndDealerLocatorSystem() {
                   __html: `
                   <div>
                     <p><strong>Solution</strong></p>
-                    <p>I designed a unified lead standardization pipeline that reformats all inbound data into a single schema before entering HubSpot. Each lead then runs through an automated routing workflow that assigns the closest dealership using Mapbox driving-time logic and scores the lead (–10 to 10) based on distance, borders, and routing rules.</p>
+                    <p>I designed a <span class="marine-strong">unified lead standardization pipeline</span> that reformats all inbound data into a single schema before entering HubSpot. Each lead then runs through an automated routing workflow that assigns the closest dealership using Mapbox driving-time logic and scores the lead (–10 to 10) based on distance, borders, and routing rules.</p>
                     <br />
                     <p>Regular cross-functional reviews with Sales and Marketing helped refine the system over time. Introducing improvements like address autofill in web forms also further increased routing accuracy.</p>
                   </div>
@@ -305,7 +305,7 @@ export default function UnifiedLeadAndDealerLocatorSystem() {
               </ul>
               <p>Measurable improvement in user engagement</p>
               <ul>
-                <li>Dealer Locator users view an average of 2.4 pages per user, compared to a 1.5 site-wide.</li>
+                <li>Dealer Locator users view an average of <span class="marine-strong">2.4 pages per user</span>, compared to a 1.5 site-wide.</li>
               </ul>
             </div>
           `,

@@ -118,9 +118,8 @@ export default function StoriesCmsDrivenStorytellingPlatform() {
               <div>
                 <p class="semi-bold">Platform Architecture & UX:</p>
                 <ul>
-                  <li>Designed the full UX/UI system in Figma and implemented it in Next.js + Prismic.</li>
-                  <li>Created a flexible CMS architecture using over 20 reusable Prismic slices (Hero, Author, Carousel, CTA, etc.).</li>
-                  <li>Added category filtering (Adventures, Customs, Events, Staff Spotlights) for user discovery.</li>
+                  <li>Designed and created a flexible CMS architecture using over <span class="marine-strong">20 reusable Prismic slices</span> (Hero, Author, Carousel, CTA, etc.).</li>
+                  <li>Added <span class="marine-strong">category filtering</span> (Adventures, Customs, Events, Staff Spotlights) for user discovery.</li>
                   <li>Integrated Firebase for story “likes” and GA4 for engagement tracking.</li>
                   <li>Enabled Prismic Preview in Next.js for real-time staging views.</li>
                 </ul>
@@ -134,8 +133,8 @@ export default function StoriesCmsDrivenStorytellingPlatform() {
               <div>
                 <p class="semi-bold">Internal Workflow Enablement:</p>
                 <ul>
-                  <li>Built internal documentation and trained four Marketing team members.</li>
-                  <li>Established a scalable workflow: draft → upload → preview → publish.</li>
+                  <li>Built <span class="marine-strong">internal documentation</span> and trained four Marketing team members.</li>
+                  <li>Established a scalable workflow: <span class="marine-strong">draft → upload → preview → publish</span>.</li>
                   <li>Added AI-supported internationalization for future localization needs.</li>
                   <li>Reduced developer involvement to a single approval step.</li>
                 </ul>

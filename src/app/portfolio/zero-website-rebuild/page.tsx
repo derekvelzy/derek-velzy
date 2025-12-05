@@ -95,9 +95,12 @@ export default function ZeroWebsiteRebuild() {
           Gatsby was a Static Site Generator, meaning the entire site was
           prebuilt at build time. This was the reason for higher build times.
           Given the high build times, we wanted control over which pages could
-          be server-side rendered and which to use incremental static
-          regeneration (ISR) - providing the speed of static sites with the
-          freshness of server-rendered sites.{" "}
+          be server-side rendered and which to use{" "}
+          <span className="marine-strong">
+            incremental static regeneration (ISR)
+          </span>{" "}
+          - providing the speed of static sites with the freshness of
+          server-rendered sites.{" "}
         </p>
       </div>
 
@@ -290,7 +293,7 @@ export default function ZeroWebsiteRebuild() {
             }
           />
         </div>
-        <span className="image-caption">Navigation before and after</span>
+        <span className="image-caption">{"Navigation before and after (interactive)"}</span>
       </div>
     </Page>
   );

@@ -11,13 +11,11 @@ import AutoPlayVideo from "~/components/AutoPlayVideo/AutoPlayVideo";
 
 export const metadata: Metadata = {
   title: "Case Study | Reservations & E-Commerce",
-  description:
-    "Reservations and e-commerce for Zero Motorcycles.",
+  description: "Reservations and e-commerce for Zero Motorcycles.",
   alternates: { canonical: "/portfolio/reservations-and-e-commerce" },
   openGraph: {
     title: "Case Study | Reservations & E-Commerce",
-    description:
-      "Reservations and e-commerce for Zero Motorcycles.",
+    description: "Reservations and e-commerce for Zero Motorcycles.",
     url: "/portfolio/reservations-and-e-commerce",
     type: "profile",
     images: [
@@ -111,9 +109,12 @@ export default function ReservationsAndECommerce() {
               />
               <p style={{ color: "white" }}>
                 After strong early signals, the goal for January 2025 was to
-                expand from reservations to full online motorcycle sales across
-                the lineup, using our partnership with Ekho to handle payments
-                and order processing.
+                expand from{" "}
+                <span className="font-bold">
+                  reservations to full online motorcycle sales
+                </span>{" "}
+                across the lineup, using our partnership with Ekho to handle
+                payments and order processing.
               </p>
             </TwoColumns>
           </div>
@@ -132,9 +133,9 @@ export default function ReservationsAndECommerce() {
                   __html: `
             <div>
               <p><strong>Teaser Campaign & Reservation Funnel</strong></p>
-              <p>To build momentum leading up to launch day, I designed and developed a two-week teaser experience featuring a progressive image reveal and a live countdown. On launch, the homepage transitioned into a hero video leading riders into a new X Line category page and two dedicated model pages.</p>
+              <p>To build momentum leading up to launch day, I designed and developed a <span class="marine-strong">two-week teaser experience</span> featuring a progressive image reveal and a live countdown. On launch, the homepage transitioned into a hero video leading riders into a new X Line category page and two dedicated model pages.</p>
               <br />
-              <p>The funnel was intentionally simple: Homepage → X Line page → Model page → Reserve Now, with a persistent floating CTA and lightweight page designs to reduce friction, especially on mobile.</p>
+              <p>The funnel was intentionally simple: <span class="marine-strong">Homepage → X Line page → Model page → Reserve Now</span>, with a persistent floating CTA and lightweight page designs to reduce friction, especially on mobile.</p>
             </div>
           `,
                 }}
@@ -152,7 +153,7 @@ export default function ReservationsAndECommerce() {
             <div>
               <p><strong>Expanding to Full Online Sales</strong></p>
               <p><strong>January 2025</strong></p>
-              <p>Following the success of reservations, we moved to enable full online purchases for all models.</p>
+              <p>Following the success of reservations, we moved to enable <span class="marine-strong">full online purchases for all models</span>.</p>
               <br />
               <p>To make the Ekho checkout experience feel native, I designed a mobile-first slide-in configurator drawer that loaded instantly on click. Each drawer pre-fetched the correct Ekho checkout URLs via API so the handoff felt seamless, without adding backend dependencies or slowing down the model pages.</p>
             </div>
@@ -179,7 +180,11 @@ export default function ReservationsAndECommerce() {
           </div>
           <div className="flex flex-col items-center justify-start">
             <Image
-              style={{ boxShadow: "none", maxHeight: "700px", objectFit: "contain" }}
+              style={{
+                boxShadow: "none",
+                maxHeight: "700px",
+                objectFit: "contain",
+              }}
               src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/ecom-mock-1.png"
               alt="Ekho checkout drawer for Zero Motorcycles"
               width={1000}
@@ -260,7 +265,7 @@ export default function ReservationsAndECommerce() {
                 __html: `
             <div>
               <p><strong>Solution: A Fast, Lean MVP Built on Existing Infrastructure</strong></p>
-              <p>With four weeks to deliver, I designed and built a Past Editions storefront using the headless Shopify infrastructure from our 2022 accessories “look-book” site. This avoided net-new backend work and reduced the build scope to UX and frontend engineering.</p>
+              <p>With four weeks to deliver, I designed and built a Past Editions storefront using the <span class="marine-strong">headless Shopify infrastructure</span> from our 2022 accessories “look-book” site. This avoided net-new backend work and reduced the build scope to UX and frontend engineering.</p>
             </div>
           `,
               }}
@@ -271,8 +276,8 @@ export default function ReservationsAndECommerce() {
             <div>
               <p><strong>Key elements included:</strong></p>
               <ul>
-                <li>A new Past Editions page listing all previous model-year bikes in one place.</li>
-                <li>Top-nav placement and “Shop Past Editions” CTAs on model pages.</li>
+                <li>A new <span class="marine-strong">Past Editions page</span> listing all previous model-year bikes in one place.</li>
+                <li>Top-nav placement and <span class="marine-strong">Shop Past Editions</span> CTAs on model pages.</li>
                 <li>A redesigned left-column navigation allowing riders to switch between Accessories and Past Editions.</li>
                 <li>Streamlined product detail pages with purchase CTAs linked to pre-fetched Ekho checkout URLs.</li>
               </ul>

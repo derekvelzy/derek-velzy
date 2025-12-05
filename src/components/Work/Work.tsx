@@ -71,8 +71,8 @@ const Work = () => {
       let adjustedProgress = progress;
       if (progress < 2) {
         adjustedProgress = 0; // Ensure progress doesn't go below 0%
-      } else if (progress >= 98) {
-        adjustedProgress = 100; // Ensure progress doesn't exceed 100%
+      } else if (progress >= 97) {
+        adjustedProgress = 97; // Ensure progress doesn't exceed 100%
       }
 
       // const progressBarSlider = document.getElementById("progress-bar-slider");

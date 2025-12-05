@@ -95,7 +95,7 @@ export default function DashPrototypeFutureInteractionModel() {
                   Riders were increasingly expecting more intuitive, modern
                   interaction patterns similar to those found in today’s
                   automotive interfaces. However, no existing motorcycle UX
-                  paradigm offered a strong reference point—and the upcoming
+                  paradigm offered a strong reference point, and the upcoming
                   hardware and switchgear updates introduced new constraints and
                   unknowns.
                 </p>
@@ -124,7 +124,7 @@ export default function DashPrototypeFutureInteractionModel() {
                   __html: `
                   <div>
                     <p><strong>Research & Discovery</strong></p>
-                    <p>I partnered with UX, engineering, and industrial design stakeholders to analyze modern automotive dash systems, evaluating mental models, navigation structures, and usability strengths and weaknesses.</p>
+                    <p>I partnered with <span class="marine-strong">UX, engineering, and industrial design stakeholders</span> to analyze modern automotive dash systems, evaluating mental models, navigation structures, and usability strengths and weaknesses.</p>
                     <br />
                     <p>Key findings highlighted that while automotive systems offered useful patterns, many did not translate well to motorcycles due to posture, glove use, and shorter acceptable interaction windows.</p>
                   </div>
@@ -164,7 +164,7 @@ export default function DashPrototypeFutureInteractionModel() {
                 dangerouslySetInnerHTML={{
                   __html: `
                   <div>
-                    <p>Based on these insights, I created multiple wireframe concepts that explored different mental models while incorporating Zero’s brand guidelines and the functional constraints of updated hardware and switchgear.</p>
+                    <p>Based on these insights, I created multiple <span class="marine-strong">wireframe concepts and flows</span> that explored different mental models while incorporating Zero’s brand guidelines and the functional constraints of updated hardware and switchgear.</p>
                     <br />
                     <p>Without it, the brand’s longevity wasn’t visible to lower-funnel buyers, and the Marketing team had no repeatable system for publishing content without developer involvement.</p>
                   </div>

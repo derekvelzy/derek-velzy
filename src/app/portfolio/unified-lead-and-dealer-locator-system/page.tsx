@@ -313,7 +313,8 @@ export default function UnifiedLeadAndDealerLocatorSystem() {
           />
           <div className="flex flex-col items-center justify-start">
             <Image
-              src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/dealer-locator-map-mobile.png"
+              style={{ boxShadow: "none", objectFit: "contain" }}
+              src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/leads-mock-1.png"
               alt="Dealer Locator on mobile"
               width={500}
               height={500}
@@ -324,7 +325,8 @@ export default function UnifiedLeadAndDealerLocatorSystem() {
       </div>
       <div className="w-full max-w-[964px] mx-auto mb-[64px] px-6 lg:px-0">
         <Image
-          src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/dealer-locator-map.png"
+          style={{ boxShadow: "none", objectFit: "contain" }}
+          src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/leads-mock-2.png"
           alt="Dealer Locator on desktop"
           width={3000}
           height={3000}

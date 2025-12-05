@@ -178,10 +178,11 @@ export default function ReservationsAndECommerce() {
           </div>
           <div className="flex flex-col items-center justify-start">
             <Image
-              src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/checkout-window.png"
+              style={{ boxShadow: "none", maxHeight: "700px", objectFit: "contain" }}
+              src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/ecom-mock-1.png"
               alt="Ekho checkout drawer for Zero Motorcycles"
-              width={500}
-              height={500}
+              width={1000}
+              height={1000}
             />
             <span className="image-caption">
               Ekho checkout drawer for Zero Motorcycles
@@ -281,10 +282,10 @@ export default function ReservationsAndECommerce() {
               }}
             />
           </div>
-          <div className="flex flex-col items-center justify-start">
+          <div className="flex flex-col items-center justify-center">
             <Image
-              className="object-contain"
-              src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/ecom_3.png"
+              style={{ boxShadow: "none", objectFit: "contain" }}
+              src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/ecom-mock-2.png"
               alt="Section of model page hero for Zero Motorcycles SR/F Model"
               width={1000}
               height={1000}
@@ -327,7 +328,8 @@ export default function ReservationsAndECommerce() {
       </div>
       <div className="w-full max-w-[964px] mx-auto mb-[64px] px-6 lg:px-0">
         <Image
-          src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/past-editions-home.png"
+          style={{ boxShadow: "none", objectFit: "contain" }}
+          src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/ecom-mock-3.png"
           alt="Past Editions home page"
           width={3000}
           height={3000}
@@ -336,7 +338,8 @@ export default function ReservationsAndECommerce() {
       </div>
       <div className="w-full max-w-[964px] mx-auto mb-[64px] px-6 lg:px-0">
         <Image
-          src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/past-editions-page.png"
+          style={{ boxShadow: "none", objectFit: "contain" }}
+          src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/ecom-mock-5.png"
           alt="Past Editions product page"
           width={3000}
           height={3000}

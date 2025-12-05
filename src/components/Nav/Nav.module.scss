@@ -206,7 +206,7 @@
             flex-direction: column;
             align-items: flex-end;
             justify-content: start;
-            gap: 1rem;
+            gap: 1.5rem;
 
             .divider {
                 width: 132px;
@@ -352,7 +352,7 @@
                 .divider {
                     height: 18px;
                     width: 1px;
-                    margin: 0 1rem;
+                    margin: 0 0.5rem;
                     background-color: var(--deepMarine);
 
                     &.light-theme {

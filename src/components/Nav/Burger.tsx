@@ -159,14 +159,14 @@ const Burger = ({ animationsCompleted }: Props) => {
           <FloatingLinks mobile={true} />
         </div>
         <div className={styles["sidebar__inner"]}>
-          {navButtons.map((button, index) => (
+          {navButtons.map((button) => (
             <BurgerButton
               key={`nav-button-${button.id}`}
               closeNav={closeNav}
               id={button.id}
               label={button.label}
               link={button.link}
-              index={index}
+              // index={index}
               tabIndex={tabIndex}
               pathname={pathname}
               portfolio={portfolio}
@@ -210,7 +210,7 @@ type BurgerButtonProps = {
   id: string;
   label: string;
   link?: boolean;
-  index: number;
+  // index: number;
   tabIndex: number;
   pathname?: string;
   portfolio?: boolean;
@@ -221,7 +221,7 @@ const BurgerButton = ({
   id,
   label,
   link = false,
-  index,
+  // index,
   tabIndex,
   pathname,
   portfolio,
@@ -236,7 +236,7 @@ const BurgerButton = ({
         {label}
         {id === "resume" && <Download />}
       </span>
-      <span>{`0${index + 1}`}</span>
+      {/* <span>{`0${index + 1}`}</span> */}
     </>
   );
 

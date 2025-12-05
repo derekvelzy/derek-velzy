@@ -6,6 +6,7 @@ import Page from "~/components/Page/Page";
 import Hero from "~/components/Portfolio/Slices/Hero";
 import TwoColumns from "~/components/Portfolio/Slices/TwoColumns";
 import Image from "next/image";
+import AutoPlayVideo from "~/components/AutoPlayVideo/AutoPlayVideo";
 import "../Portfolio.css";
 
 export const metadata: Metadata = {
@@ -99,7 +100,7 @@ export default function StoriesCmsDrivenStorytellingPlatform() {
         </div>
       </div>
       <div className="w-full max-w-[964px] mx-auto mb-[64px] lg:mb-[96px] px-6 lg:px-0">
-        <TwoColumns className="items-center">
+        <TwoColumns className="items-center relative">
           <div className="section-text mb-8">
             <div
               dangerouslySetInnerHTML={{
@@ -143,13 +144,16 @@ export default function StoriesCmsDrivenStorytellingPlatform() {
               }}
             />
           </div>
-          <div className="flex flex-col items-center justify-start">
-            <Image
+          <div className="relative flex flex-col items-center justify-start w-full">
+            {/* <Image
               src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/stories_2.png"
               alt="Stories home hero on mobile"
               width={1000}
               height={1000}
-            />
+            /> */}
+            <div className="flex h-[500px] lg:h-[700px] w-fit rounded-[10px] overflow-hidden">
+              <AutoPlayVideo vimeoId="1143699730" triggerOnView={true} />
+            </div>
             <span className="image-caption">Stories home hero on mobile</span>
           </div>
         </TwoColumns>

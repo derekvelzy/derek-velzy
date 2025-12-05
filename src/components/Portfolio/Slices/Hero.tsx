@@ -15,7 +15,7 @@ type Props = {
   title: string;
   titleHtml: string;
   summary: string;
-  metrics: {
+  metrics?: {
     keyMetric: string;
     description: string;
   }[];
@@ -59,22 +59,24 @@ const Hero = ({ title, titleHtml, summary, metrics, company, link }: Props) => {
           >
             <p>Read Full Case Study</p>
             <div className={styles["hero__content__summary__arrow__arrows"]}>
-              <Arrow /> 
+              <Arrow />
               <Arrow />
             </div>
           </button>
         </div>
-        <div className={styles["hero__content__metrics"]}>
-          {metrics.map((metric, index) => (
-            <div
-              key={`key-metric-${index}`}
-              className={styles["hero__content__metrics__item"]}
-            >
-              <h6>{metric.keyMetric}</h6>
-              <p>{metric.description}</p>
-            </div>
-          ))}
-        </div>
+        {metrics && (
+          <div className={styles["hero__content__metrics"]}>
+            {metrics.map((metric, index) => (
+              <div
+                key={`key-metric-${index}`}
+                className={styles["hero__content__metrics__item"]}
+              >
+                <h6>{metric.keyMetric}</h6>
+                <p>{metric.description}</p>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

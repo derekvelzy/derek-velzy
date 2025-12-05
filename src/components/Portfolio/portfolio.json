@@ -47,6 +47,17 @@
         ]
     },
     {
+        "title": "Full Website Rebuild",
+        "link": "zero-website-rebuild",
+        "description": "Collaborated with development agency to re-design and build the Zero Motorcycles website. With 15 unique locales, an accessories Shopify e-commerce site, model pages, dealership locator, and a variety of other new pages - we launched the site within 6 months.",
+        "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/rebuild-snapshot.png",
+        "skills": [
+            "Design & Development",
+            "Roadmapping",
+            "Maintenance"
+        ]
+    },
+    {
         "title": "Events Management System",
         "link": "events-management-system",
         "description": "Created a unified events system with type-safe data, self-serve dealer submissions, and a modern public events page with registration form integration. Reduced manual steps and powered global demo tours.",

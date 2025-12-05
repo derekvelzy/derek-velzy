@@ -33,7 +33,7 @@ const generatePoints = (
   };
 
   const allPoints = [];
-  for (let i = 0; i < 160; i++) {
+  for (let i = 0; i < 180; i++) {
     const xy = generateRandomPoint(greenBoxBoundaries);
     allPoints.push(xy);
   }
@@ -53,7 +53,7 @@ const LowPolyBgPortfolio = () => {
     () => {
       const calculateDimensions = () => {
         const width = windowWidth || window.innerWidth;
-        const height = isDesktop ? 4650 : 6100;
+        const height = isDesktop ? 4950 : 6800;
         const points = generatePoints(width, height);
         setDots(points);
         setWidth(width);

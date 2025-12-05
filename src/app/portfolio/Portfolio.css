@@ -46,11 +46,6 @@
     margin-bottom: 0.5rem;
 }
 
-.marine-strong {
-    color: var(--marine);
-    font-weight: 700;
-}
-
 .light-header {
     color: rgba(0, 0, 0, 0.25);
     margin-bottom: 0.5rem;
@@ -162,15 +157,6 @@
 }
 .dash-backdrop p {
     color: white;
-}
-
-.image-caption {
-    display: block;
-    font-size: 14px;
-    color: rgba(0, 0, 0, 0.6);
-    text-align: center;
-    margin-top: 0.5rem;
-    font-style: italic;
 }
 
 .dash-designs-section {

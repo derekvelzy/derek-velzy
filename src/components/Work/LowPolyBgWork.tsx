@@ -62,6 +62,15 @@ const LowPolyBgWork = () => {
         [width * 0.9, height * 1.6],
         [width * 1.1, height * 1.8],
         [width * 1.3, height * 1.9],
+        [width * 1.5, height * 2.1],
+        [width * 1.7, height * 2.3],
+        [width * 1.9, height * 2.5],
+        [width * 2.1, height * 2.7],
+        [width * 2.3, height * 2.9],
+        [width * 2.5, height * 3.1],
+        [width * 2.7, height * 3.3],
+        [width * 2.9, height * 3.5],
+        [width * 3.1, height * 3.7],
       ];
       const delaunay = Delaunator.from(dots as ArrayLike<ArrayLike<number>>);
       const triangles = delaunay.triangles;
@@ -127,13 +136,13 @@ const Poly = ({ poly, index }: { poly: PolyData, index: number }) => {
   }, [hover]);
 
   const randomShades = [
+    "rgba(255, 255, 255, 0.025)",
     "rgba(255, 255, 255, 0.02)",
-    "rgba(255, 255, 255, 0.01)",
-    "rgba(0, 0, 0, 0.02)",
     "rgba(0, 0, 0, 0.01)",
+    "rgba(0, 0, 0, 0.05)",
     "rgba(0, 0, 0, 0)",
-    "rgba(255, 255, 255, 0.015)",
-    "rgba(0, 0, 0, 0.015)",
+    "rgba(255, 255, 255, 0.02)",
+    "rgba(0, 0, 0, 0.01)",
     "rgba(0, 0, 0, 0)",
   ];
 

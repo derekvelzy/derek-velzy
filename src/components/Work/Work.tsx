@@ -75,13 +75,24 @@ const Work = () => {
         adjustedProgress = 100; // Ensure progress doesn't exceed 100%
       }
 
-      const progressBarSlider = document.getElementById("progress-bar-slider");
+      // const progressBarSlider = document.getElementById("progress-bar-slider");
+      // if (
+      //   progressBarSlider &&
+      //   adjustedProgress >= 0 &&
+      //   adjustedProgress <= 100
+      // ) {
+      //   progressBarSlider.style.width = `${adjustedProgress}%`;
+      // }
+
+      const verticalProgressBarSlider = document.getElementById(
+        `vertical-progress-bar-slider`
+      );
       if (
-        progressBarSlider &&
+        verticalProgressBarSlider &&
         adjustedProgress >= 0 &&
         adjustedProgress <= 100
       ) {
-        progressBarSlider.style.width = `${adjustedProgress}%`;
+        verticalProgressBarSlider.style.top = `${adjustedProgress}%`;
       }
 
       if (progress < 0) {
@@ -133,7 +144,7 @@ const Work = () => {
           y: 0,
         },
         {
-          y: "-50vh",
+          y: "-75vh",
           ease: "linear",
           scrollTrigger: {
             trigger: container,
@@ -155,7 +166,7 @@ const Work = () => {
           scrollTrigger: {
             trigger: container,
             start: "-10% top",
-            end: "110% bottom",
+            end: "130% bottom",
             scrub: true,
           },
         }
@@ -188,6 +199,32 @@ const Work = () => {
           <Block index={0} focusedBlock={focusedBlock} {...projects[0]} />
           <Block index={1} focusedBlock={focusedBlock} {...projects[1]} />
           <Block index={2} focusedBlock={focusedBlock} {...projects[2]} />
+          <div
+            className={
+              "absolute bottom-0 right-[-2rem] w-[1px] h-full flex items-center justify-center"
+            }
+          >
+            <div className={"h-[calc(100vh-160px)] max-h-[680px] w-[2px]"}>
+              <div className="h-full flex flex-col items-end justify-end w-[2px]">
+                <div className="w-[2px] min-h-[88px] bg-transparent" />
+                <div
+                  className={
+                    "w-[2px] max-h-[312px] h-full bg-[rgba(255,255,255,0.25)] relative"
+                  }
+                >
+                  <div className="absolute w-[2px] h-[8px] bg-[var(--deepMarine)] top-[33%]" />
+                  <div className="absolute w-[2px] h-[8px] bg-[var(--deepMarine)] bottom-[33%]" />
+                  <div
+                    id="vertical-progress-bar-slider"
+                    className="rounded-full w-[12px] h-[12px] bg-[var(--deepMarine)] border-[1px] border-[var(--nonWhite)] absolute top-0 right-[-5px]"
+                  />
+                </div>
+                <div
+                  className={"w-[1px] min-h-[280px] h-[280px] bg-transparent"}
+                />
+              </div>
+            </div>
+          </div>
         </div>
         <div className={styles["work__mobile-carousel"]}>
           <div className={styles["carousel-navigation"]}>
@@ -398,7 +435,7 @@ const Block = ({
                 / 3
               </span>
             </div>
-            <div
+            {/* <div
               id={`progress-bar-${index}`}
               className={cx(styles["progress-bar"], {
                 [styles["progress-bar_first"]]: index === 0,
@@ -412,7 +449,7 @@ const Block = ({
                 <div className={styles["progress-bar__block__divider"]} />
                 <div className={styles["progress-bar__block__divider"]} />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <div
@@ -469,7 +506,7 @@ const Block = ({
                 `work-fade-${index}`
               )}
             >
-              <ul className="flex gap-2">
+              <ul className="flex gap-2" style={{ paddingLeft: 0 }}>
                 {skills.map((skill, index) => (
                   <li key={index}>{skill}</li>
                 ))}

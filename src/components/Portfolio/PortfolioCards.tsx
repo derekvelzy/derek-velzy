@@ -17,33 +17,36 @@ gsap.registerPlugin(ScrollTrigger);
 const PortfolioCards = () => {
   const isDesktop = useIsDesktop();
 
-    useEffect(() => {
-      const ctx = gsap.context(() => {
-        gsap.to(".portfolio-card-stagger", {
-          opacity: 1,
-          marginTop: 0,
-          duration: 0.75,
-          delay: 0.8,
-          ease: "power3.out",
-          stagger: 0.2,
-        });
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.to(".portfolio-card-stagger", {
+        opacity: 1,
+        marginTop: 0,
+        duration: 0.75,
+        delay: 0.8,
+        ease: "power3.out",
+        stagger: 0.2,
       });
-      return () => {
-        ctx.revert();
-      };
-    }, [isDesktop]);
+    });
+    return () => {
+      ctx.revert();
+    };
+  }, [isDesktop]);
 
   return (
     <div className={styles["portfolio-cards__container"]}>
       <div className="overflow-hidden">
-        <h5
-          className={cx(
-            "portfolio-stagger portfolio-stagger-mobile opacity-0 md:translate-y-[50px] translate-y-[32px]",
-            styles["portfolio-cards__title"]
-          )}
-        >
-          Case studies
-        </h5>
+        <div className="flex justify-between gap-8 w-full lg:w-[calc(50%-1rem)] items-center portfolio-stagger portfolio-stagger-mobile opacity-0 md:translate-y-[50px] translate-y-[32px]">
+          <h5
+            className={cx(
+              "whitespace-nowrap",
+              styles["portfolio-cards__title"]
+            )}
+          >
+            Case studies
+          </h5>
+          <span className="mb-4 text-[var(--darkGray)] opacity-[40%]">{"06"}</span>
+        </div>
       </div>
       <div className={styles["portfolio-cards__list"]}>
         {cards.map((card, index) => (

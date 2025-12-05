@@ -4,7 +4,7 @@
         "titleLine2": "Rebuild",
         "location": "Zero Motorcycles",
         "description": "<p>Collaborated with development agency to re-design and build the Zero Motorcycles website. With 15 unique locales, an accessories Shopify e-commerce site, model pages, dealership locator, and a variety of other new pages - we launched the site within <bold>6 months</bold>.</p>",
-        "image1": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/zero-xb.jpg",
+        "image1": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/rebuild-snapshot-4.png",
         "image2": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/Future-page-hugo.png",
         "skills": [
             "Design & Development",
@@ -28,16 +28,17 @@
         "link": "adventure-kitty"
     },
     {
-        "titleLine1": "Lead",
-        "titleLine2": "Capturing",
+        "titleLine1": "Past",
+        "titleLine2": "Editions",
         "location": "Zero Motorcycles",
-        "description": "<p>Built web forms and dealer locator for Zero website. Connected Meta, Google, and DealerSpike forms to HubSpot through Zapier. Created script in HubSpot to accurately route global lead submissions to closest dealer by drivng distance. Increased lead submissions routing accuracy by <bold>34%.</bold></p>",
-        "image1": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/Design-system-2.png",
-        "image2": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/Map-page-3.png",
+        "description": "<p>Designed and built a Past Editions storefront on the Zero website to showcase previous model-year motorcycles. Improved discoverability with new navigation, CTAs, and product detail pages tied to Ekho checkout. Generated <bold>9 online motorcycle purchase initiations</bold> in the first month with zero marketing spend.</p>",
+        "image1": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/past-editions-5-small-2.jpg",
+        "image2": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/past-editions-homepage-3.png",
         "skills": [
             "Design & Development",
-            "Tool Integration"
+            "E-commerce",
+            "MVP"
         ],
-        "link": "lead-capturing"
+        "link": "past-editions"
     }
 ]

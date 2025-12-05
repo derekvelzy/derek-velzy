@@ -4,12 +4,12 @@ import {
   ReactCompareSlider,
   ReactCompareSliderImage,
 } from "react-compare-slider";
+import Image from "next/image";
 
 // Custom imports
 import Page from "~/components/Page/Page";
 import Hero from "~/components/Portfolio/Slices/Hero";
 import TwoColumns from "~/components/Portfolio/Slices/TwoColumns";
-import Image from "next/image";
 import AutoPlayVideo from "~/components/AutoPlayVideo/AutoPlayVideo";
 import "../Portfolio.css";
 
@@ -38,20 +38,21 @@ export const metadata: Metadata = {
 
 export default function ZeroWebsiteRebuild() {
   return (
-    <Page includeMaxWidth={false}>
+    <Page includeMaxWidth={false} overflowHidden>
       <Hero
         title="Full Website Rebuild"
         titleHtml="<div><h1>Full Website</h1><h1>Rebuild</h1></div>"
         summary="In late 2022, Zero Motorcycles was ready for a digital refresh. The old website was several years old, riddled with tech debt, and had an overall look that no longer matched the direction of the growing brand. With the launch of brand new models, evolving marketing strategies, and a push to better reflect their position as a premium, industry-leading electric motorcycle company, it was time for a change."
         company="Zero Motorcycles"
         link="https://zeromotorcycles.com/"
+        portfolio={true}
       />
       <div id="first-section" className="portfolio-sub-hero">
         <div className="flex flex-col items-center justify-center bg-[#454f5e]">
           <AutoPlayVideo
             vimeoId="1143704287"
             triggerOnView={true}
-            className="h-full w-[964px] min-h-[520px]"
+            className="h-full w-[964px] lg:min-h-[520px] min-h-[320px]"
           />
         </div>
       </div>
@@ -105,7 +106,7 @@ export default function ZeroWebsiteRebuild() {
           <AutoPlayVideo
             vimeoId="1143710182"
             triggerOnView={true}
-            className="h-full w-[964px] min-h-[520px]"
+            className="h-full w-[964px] lg:min-h-[520px] min-h-[240px]"
           />
           <span className="image-caption">
             Homepage {'"Bike Slider"'} component before
@@ -117,7 +118,7 @@ export default function ZeroWebsiteRebuild() {
           <AutoPlayVideo
             vimeoId="1143710209"
             triggerOnView={true}
-            className="h-full w-[964px] min-h-[520px]"
+            className="h-full w-[964px] lg:min-h-[460px] min-h-[210px]"
           />
           <span className="image-caption">
             Homepage Bike Slider component after
@@ -159,20 +160,38 @@ export default function ZeroWebsiteRebuild() {
       </div>
 
       <div className="w-full max-w-[964px] mx-auto mb-[64px] lg:mb-[96px] px-6 lg:px-0">
-        <div className="flex flex-col items-center justify-center">
-          <Image
-            style={{
-              boxShadow: "none",
-              maxHeight: "500px",
-              objectFit: "contain",
-            }}
-            src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/rebuild-mock-3.png"
-            alt="Zero DSR/X model page"
-            width={1000}
-            height={1000}
-          />
-          <span className="image-caption">Zero DSR/X model page</span>
-        </div>
+        <TwoColumns>
+          <div className="flex flex-col items-center justify-center gap-1">
+            <Image
+              style={{
+                boxShadow: "none",
+                maxHeight: "500px",
+                objectFit: "contain",
+              }}
+              src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/rebuild-mock-3.png"
+              alt="Ride Electric homepage"
+              width={1000}
+              height={1000}
+            />
+            <span className="image-caption">Ride Electric homepage</span>
+          </div>
+          <div className="flex flex-col items-center justify-center gap-1">
+            <Image
+              style={{
+                boxShadow: "none",
+                maxHeight: "500px",
+                objectFit: "contain",
+              }}
+              src="https://aywnqw1wyioophsr.public.blob.vercel-storage.com/ride-electric-future.png"
+              alt="Ride Electric homepage"
+              width={1000}
+              height={1000}
+            />
+            <span className="image-caption">
+              Ride Electric {'"future"'} page
+            </span>
+          </div>
+        </TwoColumns>
       </div>
 
       <div className="w-full max-w-[964px] mx-auto mb-[64px] lg:mb-[96px] px-6 lg:px-0">

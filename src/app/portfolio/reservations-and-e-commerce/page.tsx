@@ -63,6 +63,7 @@ export default function ReservationsAndECommerce() {
         ]}
         company="Zero Motorcycles"
         link="https://zeromotorcycles.com/"
+        portfolio={true}
       />
 
       <div id="first-section" className="portfolio-sub-hero">
@@ -345,7 +346,7 @@ export default function ReservationsAndECommerce() {
           height={3000}
         />
         <span className="image-caption">
-          Past Editions product page for the 2024 Zero FX
+          Past Editions product page for the 2024 Zero DSR/X
         </span>
       </div>
     </Page>

@@ -144,3 +144,32 @@ h4 {
       font-size: 24px;
   }
 }
+
+.image-caption {
+  display: block;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+.marine-strong {
+  color: var(--marine);
+  font-weight: 700;
+}
+
+strong {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  /* color: var(--darkGray); */
+}
+
+ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+
+  li {
+      margin-bottom: 0.5rem;
+  }
+}

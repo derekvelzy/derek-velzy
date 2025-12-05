@@ -341,9 +341,10 @@
         width: 100%;
 
         @media (min-width: 1024px) {
-            margin-bottom: 1rem;
-            height: 72px;
-            min-height: 72px;
+            align-items: flex-end;
+            margin-bottom: 1.5rem;
+            height: 64px;
+            min-height: 64px;
         }
 
         h2 {

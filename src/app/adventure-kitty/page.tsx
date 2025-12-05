@@ -5,7 +5,6 @@
 // Custom imports
 import { Header, TextAndImageBlock } from "~/components/Page";
 import BookCallCTA from "~/components/BookCallCTA/BookCallCTA";
-import Involved from "~/components/Page/Involved";
 import Skills from "~/components/Page/Skills";
 import Page from "~/components/Page/Page";
 import ImageWithCaption from "~/components/Page/ImageWithCaption";
@@ -102,7 +101,7 @@ export default function AdventureKitty() {
         id="container-tools"
         cn="tool"
       />
-      <Involved service="E-commerce Development" link="/services#e-commerce" />
+      {/* <Involved service="E-commerce Development" link="/services#e-commerce" /> */}
       <BookCallCTA
         smallPadding
         label="Want to launch or improve your online store?"

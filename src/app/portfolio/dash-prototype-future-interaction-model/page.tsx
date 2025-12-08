@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 
 // Custom imports
 import Page from "~/components/Page/Page";
-import Hero from "~/components/Portfolio/Slices/Hero";
-import TwoColumns from "~/components/Portfolio/Slices/TwoColumns";
-import Image from "next/image";
+// import Hero from "~/components/Portfolio/Slices/Hero";
+// import TwoColumns from "~/components/Portfolio/Slices/TwoColumns";
+// import Image from "next/image";
 import "../Portfolio.css";
 
 export const metadata: Metadata = {
@@ -35,7 +35,8 @@ export const metadata: Metadata = {
 export default function DashPrototypeFutureInteractionModel() {
   return (
     <Page includeMaxWidth={false}>
-      <Hero
+      <div />
+      {/* <Hero
         title="Dash Prototype: Future Interaction Model"
         titleHtml="<div><h1>Dash Prototype:</h1><h1>Future Interaction Model</h1></div>"
         summary="As Zero Motorcycles prepared its next generation of products, the UX team began exploring a new dash and interaction model to support updated hardware and software requirements for future models. I joined the early discovery phase as a product/UX partner to help define the foundations of this experience. My work focused on competitive research, early concept development, and building a functional prototype to test multiple navigation approaches."
@@ -70,7 +71,6 @@ export default function DashPrototypeFutureInteractionModel() {
           width={3000}
           height={3000}
         />
-        {/* <div className="h-[550px] bg-linear-to-t from-[rgba(0,0,0,0.6)] to-transparent absolute bottom-0 left-0 z-0 w-full" /> */}
         <div className="absolute w-full top-0 h-full">
           <div className="w-full lg:max-w-[964px] lg:mx-auto h-full">
             <TwoColumns className="h-full">
@@ -364,7 +364,7 @@ export default function DashPrototypeFutureInteractionModel() {
           initial decision-making process and strengthened the team’s
           understanding of user behavior and performance tradeoffs.
         </p>
-      </div>
+      </div> */}
     </Page>
   );
 }

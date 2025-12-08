@@ -16,6 +16,14 @@
         @media (min-width: 1024px) {
             padding-bottom: 6rem;
         }
+
+        .hero__header__title h1 {
+            font-size: 22px;
+
+            @media (min-width: 768px) {
+                font-size: 32px;
+            }
+        }
     }
 
     &__breadcrumbs {
@@ -59,7 +67,7 @@
                 margin-bottom: 0.2px;
 
                 @media (min-width: 768px) {
-                    font-size: 32;
+                    font-size: 40px;
                 }
 
                 &:last-child {

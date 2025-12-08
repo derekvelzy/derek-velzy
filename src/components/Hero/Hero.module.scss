@@ -19,10 +19,10 @@
 
     height: 100%;
     align-items: flex-start;
-    margin-top: 10rem;
+    padding-top: 10rem;
 
     @media (min-width: 500px) {
-        margin-top: 0;
+        padding-top: 0;
         align-items: center;
     }
 

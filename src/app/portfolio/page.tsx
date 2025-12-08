@@ -1,12 +1,12 @@
 // Package imports
 import type { Metadata } from "next";
-import FloatingLinksPortfolio from "~/components/FloatingLinks/FloatingLinksPortfolio";
+// import FloatingLinksPortfolio from "~/components/FloatingLinks/FloatingLinksPortfolio";
 
 // Custom imports
 import Page from "~/components/Page/Page";
-import Portfolio from "~/components/Portfolio/Portfolio";
-import Testimonials from "~/components/Testimonials/Testimonials";
-import Video from "~/components/Video/Video";
+// import Portfolio from "~/components/Portfolio/Portfolio";
+// import Testimonials from "~/components/Testimonials/Testimonials";
+// import Video from "~/components/Video/Video";
 
 export const metadata: Metadata = {
   title: "Derek Velzy | Portfolio",
@@ -57,7 +57,8 @@ export const metadata: Metadata = {
 export default function PortfolioPage() {
   return (
     <Page relative={false} includeMaxWidth={false}>
-      <div className="max-w-[964px] mx-auto px-6 md:px-8 lg:px-0 mb-[120px]">
+      <div />
+      {/* <div className="max-w-[964px] mx-auto px-6 md:px-8 lg:px-0 mb-[120px]">
         <Portfolio />
       </div>
       <Testimonials portfolio={true} />
@@ -69,7 +70,7 @@ export default function PortfolioPage() {
         </div>
         <Video />
       </div>  
-      <FloatingLinksPortfolio />
+      <FloatingLinksPortfolio /> */}
     </Page>
   );
 }

@@ -18,7 +18,7 @@ const useCollapse = ({ collapsed, setCollapsed }: Props) => {
 
       if (currentScrollY <= 0) currentScrollY = 0;
 
-      if ((scrollUp && collapsed) || currentScrollY < 220) {
+      if ((scrollUp && collapsed) || currentScrollY < 120) {
         setCollapsed(false);
       } else if (!scrollUp && !collapsed) {
         setCollapsed(true);

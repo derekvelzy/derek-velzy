@@ -22,10 +22,10 @@ const Nav = () => {
   const [animationsCompleted, setAnimationsCompleted] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
 
-  useCollapse({ collapsed, setCollapsed });
-
   const isDesktop = useIsDesktop();
   const pathname = usePathname();
+
+  useCollapse({ collapsed, setCollapsed });
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -61,7 +61,7 @@ const Nav = () => {
         if (pathname === "/") {
           const viewport = window.innerHeight;
           const topLimit = isDesktop ? viewport * 1.25 : 1480;
-          const bottomLimit = isDesktop ? viewport * 6.25 + 40 : 2720;
+          const bottomLimit = isDesktop ? viewport * 6 + 40 : 2720;
           if (scrollPosition > topLimit && scrollPosition < bottomLimit) {
             logo.classList.add(styles["light-theme"]);
             burger.classList.add(styles["light-theme"]);

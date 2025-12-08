@@ -11,7 +11,7 @@
         "CTA": "Get Your Free Website Audit",
         "action": "audit",
         "service-id": "website-refresh",
-        "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/website-rebuild.png"
+        "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/solutions-website-refresh-resized.png"
     },
     {
         "title": "Full Website Build",
@@ -25,7 +25,7 @@
         "CTA": "See if this is right for you",
         "action": "contact",
         "service-id": "website-build",
-       "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/site-build.png"
+       "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/solutions-rebuild-resized.png"
     },
     {
         "title": "Ongoing Optimization & Support",

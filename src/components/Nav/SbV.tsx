@@ -63,7 +63,7 @@ const SvB = ({ animationsCompleted, setAnimationsCompleted }: Props) => {
             trigger: "body",
             start: "top top",
             end: () => "+=200px top",
-            scrub: true,
+            scrub: true
           },
         });
 

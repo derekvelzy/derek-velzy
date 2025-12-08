@@ -32,9 +32,9 @@ const Footer = () => {
             <li>
               <Link href="/contact">Contact</Link>
             </li>
-            <li>
+            {/* <li>
               <Link href="/portfolio">Portfolio</Link>
-            </li>
+            </li> */}
             <li>
               <Link target="_blank" rel="noopener noreferrer" href="https://medium.com/@dmvelzy">Medium</Link>
             </li>

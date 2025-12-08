@@ -13,7 +13,7 @@ import JaggedDivider from "~/components/JaggedDivider/JaggedDivider";
 import ThreeBlocks from "~/components/ThreeBlocks/ThreeBlocks";
 
 export const metadata: Metadata = {
-  title: "Sites by Velzy | Web Design & Development in Orange County, CA",
+  title: "Sites by Velzy",
   description:
     "Fast, mobile-ready websites that convert visitors into customers. Tracked for insight, compliant by design, and built to perform. Serving Orange County businesses with high-performance sites, smart tracking integrations, and ongoing optimization.",
   keywords: [
@@ -28,13 +28,13 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Sites by Velzy | Web Design & Development in Orange County, CA",
+    title: "Sites by Velzy",
     description:
       "Fast, mobile-ready websites that convert. Tracked for insight, compliant by design, and built to perform.",
     url: "/",
   },
   twitter: {
-    title: "Sites by Velzy | Web Design & Development in Orange County, CA",
+    title: "Sites by Velzy",
     description: "Fast, trackable, and compliant websites for growing businesses in Orange County, CA.",
   },
 };

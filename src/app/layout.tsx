@@ -116,6 +116,13 @@ export default function RootLayout({
     sameAs: ["https://sitesbyvelzy.com"],
   };
 
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Sites by Velzy",
+    url: "https://sitesbyvelzy.com",
+  };
+
   return (
     <html lang="en">
       <head>
@@ -132,6 +139,14 @@ export default function RootLayout({
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
+        <Script
+          id="website-json-ld"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteJsonLd).replace(/</g, "\\u003c"),
           }}
         />
       </head>

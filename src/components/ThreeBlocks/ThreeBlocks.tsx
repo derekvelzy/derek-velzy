@@ -8,6 +8,9 @@ import { useEffect } from "react";
 // Custom imports
 import SecondaryLink from "../Link/SecondaryLink";
 import styles from "./ThreeBlocks.module.scss";
+import Performance from "../../res/svgs/performance";
+import Tracking from "../../res/svgs/tracking";
+import Optimizations from "../../res/svgs/optimizations";
 
 const ThreeBlocks = () => {
   useEffect(() => {
@@ -69,29 +72,44 @@ const ThreeBlocks = () => {
     >
       <div className={styles["three-blocks__header__title"]}>
         <div className="overflow-hidden">
-            <h4 id="title--three-blocks" className="translate-y-[40px]">
-              How I Help Businesses Grow Online
-            </h4>
-          </div>
-        <SecondaryLink id="explore-solutions" className="translate-y-[46px]" href="/solutions" light label="Explore Solutions" />
+          <h4 id="title--three-blocks" className="translate-y-[40px]">
+            How I Help Businesses Grow Online
+          </h4>
+        </div>
+        <SecondaryLink
+          id="explore-solutions"
+          className="translate-y-[46px]"
+          href="/solutions"
+          light
+          label="Explore Solutions"
+        />
       </div>
       <div className={styles["three-blocks__blocks"]}>
         <div className={cx(styles["three-blocks__block"], staggerClass)}>
-          <h2>High-Performance Websites</h2>
+          <div className={styles["three-blocks__block__icon"]}>
+            <Performance />
+          </div>
+          <h3>High-Performance Websites</h3>
           <p>
             Fast, mobile-ready, and conversion-focused sites that bring in more
             customers.
           </p>
         </div>
         <div className={cx(styles["three-blocks__block"], staggerClass)}>
-          <h2>Smart Tracking & Integrations</h2>
+          <div className={styles["three-blocks__block__icon"]}>
+            <Tracking />
+          </div>
+          <h3>Smart Tracking & Integrations</h3>
           <p>
-            Google Tag, Meta Pixel, consent management, analytics dashboards —
-            so you actually know what’s working.
+            Google Tag, Meta Pixel, consent management, and analytics
+            dashboards, so you actually know what’s working.
           </p>
         </div>
         <div className={cx(styles["three-blocks__block"], staggerClass)}>
-          <h2>Ongoing Optimization & Insights</h2>
+          <div className={styles["three-blocks__block__icon"]}>
+            <Optimizations />
+          </div>
+          <h3>Ongoing Optimization & Insights</h3>
           <p>
             Regular updates, audits, and improvements that keep your site
             compliant and performing like a top-tier brand.

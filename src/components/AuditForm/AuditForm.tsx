@@ -149,7 +149,7 @@ const AuditForm = ({ show, onClose }: Props) => {
                 className={staggerClass}
                 name="name"
                 type="text"
-                placeholder="Enter your name"
+                placeholder="Name"
                 required
                 onChange={handleChange}
                 value={formData.name}
@@ -158,7 +158,7 @@ const AuditForm = ({ show, onClose }: Props) => {
                 className={staggerClass}
                 name="email"
                 type="email"
-                placeholder="Enter your email"
+                placeholder="Email"
                 required
                 onChange={handleChange}
                 value={formData.email}
@@ -167,7 +167,7 @@ const AuditForm = ({ show, onClose }: Props) => {
                 className={staggerClass}
                 name="website"
                 type="url"
-                placeholder="Enter your website URL"
+                placeholder="Website URL"
                 required
                 onChange={handleChange}
                 value={formData.website}

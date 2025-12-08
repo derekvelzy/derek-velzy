@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import gsap from "gsap";
 import cx from "classnames";
 import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, usePathname } from "next/navigation";
 
 // Custom imports
 import Button from "../Button/Button";
@@ -31,6 +31,7 @@ const Contact = ({ standalone }: { standalone?: boolean }) => {
 
   const isDesktop = useIsDesktop();
   const searchParams = useSearchParams();
+  const pathname = usePathname();
   const serviceQuery = searchParams.get("solution");
 
   const handleChange = (
@@ -93,6 +94,21 @@ const Contact = ({ standalone }: { standalone?: boolean }) => {
       setLoading(false);
     }
   };
+
+  // Scroll to top when navigating to contact page
+  // Use requestAnimationFrame to ensure it happens after Next.js scroll restoration
+  useEffect(() => {
+    if (standalone && pathname === "/contact") {
+      // Use requestAnimationFrame to ensure scroll happens after Next.js restoration
+      requestAnimationFrame(() => {
+        window.scrollTo(0, 0);
+        // Also try after a small delay as a fallback
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+        }, 0);
+      });
+    }
+  }, [standalone, pathname]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {

@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 
 // Custom imports
 import Page from "~/components/Page/Page";
-// import Hero from "~/components/Portfolio/Slices/Hero";
-// import TwoColumns from "~/components/Portfolio/Slices/TwoColumns";
-// import Image from "next/image";
+import Hero from "~/components/Portfolio/Slices/Hero";
+import TwoColumns from "~/components/Portfolio/Slices/TwoColumns";
+import Image from "next/image";
 import "../Portfolio.css";
 
 export const metadata: Metadata = {
@@ -36,7 +36,7 @@ export default function DashPrototypeFutureInteractionModel() {
   return (
     <Page includeMaxWidth={false}>
       <div />
-      {/* <Hero
+      <Hero
         title="Dash Prototype: Future Interaction Model"
         titleHtml="<div><h1>Dash Prototype:</h1><h1>Future Interaction Model</h1></div>"
         summary="As Zero Motorcycles prepared its next generation of products, the UX team began exploring a new dash and interaction model to support updated hardware and software requirements for future models. I joined the early discovery phase as a product/UX partner to help define the foundations of this experience. My work focused on competitive research, early concept development, and building a functional prototype to test multiple navigation approaches."
@@ -76,7 +76,7 @@ export default function DashPrototypeFutureInteractionModel() {
             <TwoColumns className="h-full">
               <div className="items-end justify-start hidden lg:flex">
                 <span className="italic text-white block py-8 text-[14px]">
-                  Image of current dash
+                  Image of 2025 Zero DSR/X Dash
                 </span>
               </div>
               <div className="dash-backdrop">
@@ -86,9 +86,10 @@ export default function DashPrototypeFutureInteractionModel() {
                   <strong>Problem</strong>
                 </p>
                 <p>
-                  Zero’s existing dash system was simple and functional, but not
-                  equipped to support the expanded capabilities required for
-                  future models.
+                  As Zero prepared its next generation of motorcycles, the team
+                  saw an opportunity to define a modern, intuitive riding
+                  experience. This experience should evolve with new features,
+                  updated hardware, and shifting rider expectations.
                 </p>
                 <br />
                 <p>
@@ -108,7 +109,7 @@ export default function DashPrototypeFutureInteractionModel() {
               </div>
               <div className="flex items-end h-full justify-start ml-6 block lg:hidden">
                 <span className="italic text-white block py-8 text-[14px]">
-                  Image of current dash
+                  Image of 2025 Zero DSR/X Dash
                 </span>
               </div>
             </TwoColumns>
@@ -364,7 +365,7 @@ export default function DashPrototypeFutureInteractionModel() {
           initial decision-making process and strengthened the team’s
           understanding of user behavior and performance tradeoffs.
         </p>
-      </div> */}
+      </div>
     </Page>
   );
 }

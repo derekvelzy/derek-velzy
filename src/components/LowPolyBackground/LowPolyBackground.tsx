@@ -109,7 +109,7 @@ const LowPolySvgBackground = () => {
       const calculateDimensions = () => {
         const width = windowWidth || window.innerWidth;
         const currentWindowHeight = windowHeight || window.innerHeight;
-        let height = currentWindowHeight * 5.4 + (640 + 180);
+        let height = currentWindowHeight * 5.4 + (640 + 250);
         if (width < 768) {
           height = 750 + 100 + 1200 + 100 + 260;
         } else if (width < 1024) {
@@ -285,7 +285,7 @@ const LowPolySvgBackground = () => {
         </svg>
       </div>
       <div className={styles["refresh-mountain"]}>
-        <div
+        {/* <div
           className={cx(styles["refresh-mountain__tooltip"], {
             [styles["refresh-mountain__tooltip_hover"]]: hovered,
           })}
@@ -293,7 +293,7 @@ const LowPolySvgBackground = () => {
           id="tooltip-refresh-mountain"
         >
           New mountain range?
-        </div>
+        </div> */}
         <button
           aria-labelledby="tooltip-refresh-mountain"
           id="refresh-mountain"

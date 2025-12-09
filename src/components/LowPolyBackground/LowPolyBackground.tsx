@@ -111,7 +111,7 @@ const LowPolySvgBackground = () => {
         const currentWindowHeight = windowHeight || window.innerHeight;
         let height = currentWindowHeight * 5.4 + (640 + 180);
         if (width < 768) {
-          height = 750 + 100 + 1200 + 100 + 360;
+          height = 750 + 100 + 1200 + 100 + 260;
         } else if (width < 1024) {
           height = 1000 + 200 + 900 + 100 + 550;
         }
@@ -260,7 +260,7 @@ const LowPolySvgBackground = () => {
     <>
       <div
         id="low-poly-bg"
-        className="absolute top-0 left-0 z-[1]"
+        className="absolute top-0 left-0 z-[1] mt-[100px] md:mt-0"
         style={{ height, width }}
       >
         <svg

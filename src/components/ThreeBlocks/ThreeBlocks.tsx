@@ -68,7 +68,7 @@ const ThreeBlocks = () => {
   return (
     <div
       id="three-blocks"
-      className={cx(styles["three-blocks__container"], "slice")}
+      className={cx(styles["three-blocks__container"])}
     >
       <div className={styles["three-blocks__header__title"]}>
         <div className="overflow-hidden">

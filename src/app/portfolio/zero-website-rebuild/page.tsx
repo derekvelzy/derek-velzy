@@ -42,7 +42,7 @@ export default function ZeroWebsiteRebuild() {
       <Hero
         title="Full Website Rebuild"
         titleHtml="<div><h1>Full Website</h1><h1>Rebuild</h1></div>"
-        summary="In late 2022, Zero Motorcycles was ready for a digital refresh. The old website was several years old, riddled with tech debt, and had an overall look that no longer matched the direction of the growing brand. With the launch of brand new models, evolving marketing strategies, and a push to better reflect their position as a premium, industry-leading electric motorcycle company, it was time for a change."
+        summary="I led the technical scoping, roadmap development, and front-end implementation of Zero’s full website rebuild, partnering with our digital marketing team and an external agency to modernize the stack, reduce build times, and deliver a more scalable foundation for future product launches. I managed project planning, sprint coordination, and cross-team communication while developing core sections of the new site and upgrading the architecture to Next.js for faster performance and long-term maintainability."
         company="Zero Motorcycles"
         link="https://zeromotorcycles.com/"
         portfolio={true}
@@ -65,6 +65,8 @@ export default function ZeroWebsiteRebuild() {
                 __html: `
                 <div>
                   <p><strong>Background</strong></p>
+                  <p>In late 2022, Zero Motorcycles was ready for a digital refresh. The old website was several years old, riddled with tech debt, and had an overall look that no longer matched the direction of the growing brand. With the launch of brand new models, evolving marketing strategies, and a push to better reflect their position as a premium, industry-leading electric motorcycle company, it was time for a change.</p>
+                  <br />
                   <p>The old website was built on Gatsby and connected to a headless CMS (Prismic) for page content, configurations, and images. The site relied on deprecated tools requiring frequent band-aid fixes. It was slow to build as the content on the site grew; it reached <span class="marine-strong">20 minutes</span> in the worst case scenarios. It failed builds often for various reasons, leading to uncertainty on big launch days when timing was of the essence.</p>
                 </div>
               `,

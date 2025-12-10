@@ -36,7 +36,7 @@ export default function ReservationsAndECommerce() {
       <Hero
         title="Reservations & E-Commerce"
         titleHtml="<div><h1>Reservations &</h1><h1>E-Commerce</h1></div>"
-        summary="I designed and built the digital purchase flows that enabled customers to reserve or purchase motorcycles on Zero’s website, including the X Line reservation experience, a mobile-first checkout drawer powered by Ekho Dealer, and a Past Editions storefront for older model years. These systems turned the site into a reliable driver of online orders without adding new backend complexity."
+        summary="I transformed the Zero Motorcycles website into a revenue-producing sales channel by identifying new ecommerce opportunities for previous model years, vaidating demand through paid reservations, and expanding into full online motorcycle sales. These initiatives demonstrated that the website could support both new product launches and inventory movement while keeping technical complexity low and speed to market high."
         metrics={[
           {
             keyMetric: "14%",
@@ -265,7 +265,7 @@ export default function ReservationsAndECommerce() {
                 __html: `
             <div>
               <p><strong>Solution: A Fast, Lean MVP Built on Existing Infrastructure</strong></p>
-              <p>With four weeks to deliver, I designed and built a Past Editions storefront using the <span class="marine-strong">headless Shopify infrastructure</span> from our 2022 accessories “look-book” site. This avoided net-new backend work and reduced the build scope to UX and frontend engineering.</p>
+              <p>I recognized that unsold 2024 models were effectively invisible within the existing site and that discoverability, not demand, was the primary barrier. Instead of proposing new tooling or a costly rebuild, I identified an opportunity to <span class="marine-strong">repurpose our headless Shopify infrastructure</span> from the 2022 accessories look-book to rapidly launch a dedicated Past Editions storefront. This approach eliminated backend risk, kept scope tightly focused on UX and frontend implementation.</p>
             </div>
           `,
               }}

@@ -40,7 +40,7 @@ export default function StoriesCmsDrivenStorytellingPlatform() {
       <Hero
         title="Stories: CMS-Driven Storytelling Platform "
         titleHtml="<div><h1>Stories: CMS-Driven</h1><h1>Storytelling Platform</h1></div>"
-        summary="To reinforce Zero’s credibility as the longest-standing electric motorcycle brand, I built a scalable, CMS-driven Stories platform that showcases customer adventures, employee projects, brand innovations, and more. I led the end-to-end design, architecture, and CMS implementation, enabling non-technical teammates to publish independently. The result is a high-engagement, SEO-supporting content hub that strengthens brand authority and internal culture."
+        summary="I identified a major opportunity to strengthen Zero’s brand authority and long-term organic visibility by creating a structured storytelling platform that showcased our two decades of leadership in electric motorcycles. The website had valuable but disconnected content scattered across isolated pages, leaving both SEO value and brand equity untapped. I led the end-to-end strategy, design, architecture, and CMS implementation of a scalable Stories platform."
         metrics={[
           {
             keyMetric: "+45%",
@@ -84,15 +84,16 @@ export default function StoriesCmsDrivenStorytellingPlatform() {
                     __html: `
                 <div>
                   <p><strong>Problem</strong></p>
-                  <p>As the EV motorcycle market becomes increasingly crowded with brands like Harley-Davidson’s Livewire, Stark Future, LAND Moto, and Surron, Zero’s nearly 20-year history is one of its strongest differentiators, but the website had no structured way to tell that story. We needed a centralized, SEO-friendly content hub to showcase real adventures, behind-the-scenes engineering, employee projects, and powertrain applications.</p>
+                  <p>As new EV motorcycle brands entered the market, Zero’s history, engineering depth, and community stories represented a competitive advantage that was not visible to customers. The site included great content about collaborations, custom builds, and rider adventures, but none of it lived in a centralized system. The Marketing team also lacked a repeatable way to publish new stories without engineering support.</p>
                 </div>
               `,
                   }}
                 />
                 <p>
-                  Without it, the brand’s longevity wasn’t visible to
-                  lower-funnel buyers, and the Marketing team had no repeatable
-                  system for publishing content without developer involvement.
+                  This presented a clear opportunity to create an evergreen
+                  content hub that drove engagement, increased organic reach,
+                  and reinforced Zero’s reputation as the most established
+                  player in the category.
                 </p>
               </div>
             </TwoColumns>
@@ -107,7 +108,7 @@ export default function StoriesCmsDrivenStorytellingPlatform() {
                 __html: `
                 <div>
                   <p><strong>Solution</strong></p>
-                  <p>I designed, developed, and launched Stories: a dynamic storytelling platform integrated into Zero’s top-level navigation and fully powered by Prismic CMS.</p>
+                  <p>I designed, developed, and launched a high-performance Stories platform that elevated organic discovery, enabled ongoing content creation, and integrated seamlessly into the website’s top-level navigation. The platform was built to be flexible, CMS-driven, and optimized for both SEO and storytelling.</p>
                 </div>
           `,
               }}

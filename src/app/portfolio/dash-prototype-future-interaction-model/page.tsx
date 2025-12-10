@@ -39,7 +39,16 @@ export default function DashPrototypeFutureInteractionModel() {
       <Hero
         title="Dash Prototype: Future Interaction Model"
         titleHtml="<div><h1>Dash Prototype:</h1><h1>Future Interaction Model</h1></div>"
-        summary="As Zero Motorcycles prepared its next generation of products, the UX team began exploring a new dash and interaction model to support updated hardware and software requirements for future models. I joined the early discovery phase as a product/UX partner to help define the foundations of this experience. My work focused on competitive research, early concept development, and building a functional prototype to test multiple navigation approaches."
+        summary="Led early discovery and definition of Zero’s next-generation
+                  motorcycle dash, conducting market research, synthesizing
+                  rider needs, and identifying key opportunity areas to inform
+                  the product direction. Created user flows, interaction models,
+                  and multiple UX concepts aligned to updated hardware
+                  constraints and brand guidelines. Built a functional
+                  interactive prototype and executed structured usability tests
+                  that captured task-completion time and input effort, enabling
+                  data-driven comparison of navigation models and informing
+                  engineering’s final direction."
         metrics={[
           {
             keyMetric: "19%",
@@ -125,9 +134,9 @@ export default function DashPrototypeFutureInteractionModel() {
                   __html: `
                   <div>
                     <p><strong>Research & Discovery</strong></p>
-                    <p>I partnered with <span class="marine-strong">UX, engineering, and industrial design stakeholders</span> to analyze modern automotive dash systems, evaluating mental models, navigation structures, and usability strengths and weaknesses.</p>
+                    <p>I started the discovery effort with a cross-functional team of UX, Engineering, and Industrial Design to understand the opportunity space and identify similar products on the market.</p>
                     <br />
-                    <p>Key findings highlighted that while automotive systems offered useful patterns, many did not translate well to motorcycles due to posture, glove use, and shorter acceptable interaction windows.</p>
+                    <p>My analysis included modern automotive dashboards, TV and video game menus, mental models, and usability patterns, identifying which concepts translated well and which failed due to posture, motion, or safety considerations.</p>
                   </div>
                 `,
                 }}
@@ -166,8 +175,6 @@ export default function DashPrototypeFutureInteractionModel() {
                   __html: `
                   <div>
                     <p>Based on these insights, I created multiple <span class="marine-strong">wireframe concepts and flows</span> that explored different mental models while incorporating Zero’s brand guidelines and the functional constraints of updated hardware and switchgear.</p>
-                    <br />
-                    <p>Without it, the brand’s longevity wasn’t visible to lower-funnel buyers, and the Marketing team had no repeatable system for publishing content without developer involvement.</p>
                   </div>
                 `,
                 }}
@@ -344,26 +351,21 @@ export default function DashPrototypeFutureInteractionModel() {
           <strong>Impact</strong>
         </p>
         <p>
-          Although ownership later transitioned to a dedicated UX designer as my
-          marketing responsibilities expanded, my early work established the
-          foundation for the project’s direction.
+          My work established the foundational product direction for Zero’s next
+          generation dash by delivering validated navigation models, a
+          structured testing framework, and the first quantitative comparison of
+          user performance across concepts. This early phase created alignment
+          across UX, Engineering, and Product before full interface design
+          began.
         </p>
         <br />
-        <ul>
-          <li>defining early usability requirements.</li>
-          <li>establishing a structured testing framework.</li>
-          <li>delivering clear, quantifiable data on user performance.</li>
-          <li>
-            shaping early stakeholder discussions with a grounded, user-centered
-            recommendation.
-          </li>
-        </ul>
-        <br />
         <p>
-          While later design decisions ultimately shifted toward a more
-          conventional model, my early research and prototype work informed the
-          initial decision-making process and strengthened the team’s
-          understanding of user behavior and performance tradeoffs.
+          As the project transitioned to a dedicated UX designer, I delivered a
+          complete research package that included usability criteria, concept
+          rationale, prototype assets, test results, and a clear recommendation
+          backed by data. This ensured a seamless handoff and allowed the design
+          team to extend the work with confidence, using the validated model as
+          the baseline for future iterations.
         </p>
       </div>
     </Page>

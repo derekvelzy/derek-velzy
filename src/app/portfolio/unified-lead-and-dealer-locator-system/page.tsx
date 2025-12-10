@@ -39,7 +39,7 @@ export default function UnifiedLeadAndDealerLocatorSystem() {
       <Hero
         title="Unified Lead Routing & Dealer Locator Platform"
         titleHtml="<div><h1>Unified Lead Routing &</h1><h1>Dealer Locator Platform</h1></div>"
-        summary="Zero Motorcycles needed a more streamlined way to capture leads and connect them to dealerships, all while integrating cleanly with their email marketing efforts. HubSpot was chosen as the central platform for lead management, dealership data, marketing automation, chatbot hosting, and more."
+        summary="I led a cross-functional initiative to improve Zero Motorcycles' lead quality, increase dealer engagement, and speed up customer path-to-purchase. By identifying critical gaps in data accuracy, speed, and usability, I created a unified lead-routing pipeline and a modern Dealer Locator that improved routing accuracy, reduced Sales team workload, and provided riders with clearer paths to local inventory and high-intent dealer actions."
         metrics={[
           {
             keyMetric: "97.7%",
@@ -203,10 +203,9 @@ export default function UnifiedLeadAndDealerLocatorSystem() {
                     __html: `
                 <div>
                 <p><strong>Problem</strong></p>
-                  <p>Zero’s dealer discovery experience relied on a rigid third-party tool (StoreRocket) that was off-brand, slow to update, and disconnected from our systems. Dealer data lived in Salesforce, but had to be manually copied and pasted into StoreRocket, causing mismatches, stale information, and operational overhead.</p>
+                  <p>Zero’s dealer discovery experience did not guide riders toward a clear path to purchase or help them connect directly with nearby dealers. The third-party locator tool presented limited actions, outdated information, and no way to highlight inventory or dealer-specific engagement options. Because the tool was disconnected from our internal systems, updates required manual work and often resulted in mismatched or stale listings, creating friction for riders and frustration for dealers.</p>
                   <br />
                   <p>This system didn’t support:</p>
-                  <br />
                   <ul>
                     <li>Real-time dealer updates</li>
                     <li>Dealer-specific CTAs (Demo Ride, Contact, View Inventory)</li>

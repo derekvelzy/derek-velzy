@@ -39,7 +39,7 @@ export default function EventsManagementSystem() {
       <Hero
         title="Events Management System"
         titleHtml="<div><h1>Events Management</h1><h1>System</h1></div>"
-        summary="I created a centralized events platform that streamlined how Zero managed dealer demo events and customer registrations. What began as a fix for a brittle Google Sheets setup evolved into an internal admin console, a self-serve dealer request form, and a redesigned events discovery page with an integrated map. The system established the foundation for a cleaner, more reliable events pipeline that has powered global demo tours for several years."
+        summary="I redesigned Zero’s events system to solve major clarity and workflow gaps that limited both event discoverability for riders and event management efficiency for hosts. What began as a fix for a brittle Google Sheets workflow evolved into a scalable events platform with an internal admin console, a dealer self-serve request system, and a redesigned public discovery experience that made global demo tours easier to run and easier to attend. I led the product definition, UX design, and development."
         metrics={[
           {
             keyMetric: "5 → 2",

@@ -2,7 +2,7 @@
     {
         "title": "Reservations and E-Commerce",
         "link": "reservations-and-e-commerce",
-        "description": "Built Zero’s e-commerce platform in the U.S., enabling reservations, full online purchases, and a Past Editions sales experience. Delivered mobile-first UX, API integrations, and lean MVPs that drove 14% of all U.S. motorcycle sales.",
+        "description": "Unlocked a new digital sales channel by introducing reservations, full online purchasing, and a Past Editions storefront. Led product strategy and implementation that now drives 15% of annual U.S. motorcycle revenue.",
         "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/brimhall-desert-1.jpeg",
         "skills": [
             "E-commerce",
@@ -13,7 +13,7 @@
     {
         "title": "Unified Lead and Dealer Locator System",
         "link": "unified-lead-and-dealer-locator-system",
-        "description": "Delivered a cross-functional initiative connecting Zero’s lead forms, dealer network, and global CRM. Resulted in a 34% improvement in lead accuracy and consistent data standards across CRM and marketing systems.",
+        "description": "Improved lead quality, sped up the customer path to purchase, and strengthened dealer engagement by unifying five fragmented lead sources and launching a real-time Dealer Locator. Increased routing accuracy to 97.7% and reduced manual workload for Sales.",
         "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/portfolio-card-globe-2.png",
         "skills": [
             "Product Strategy",
@@ -25,7 +25,7 @@
     {
         "title": "Dash Prototype: Future Interaction Model",
         "link": "dash-prototype-future-interaction-model",
-        "description": "Partnered with the motorcycle UX team to develop early navigation concepts for Zero’s future dash application and ran a 20-participant usability study that surfaced a faster, more intuitive interaction model for upcoming products.",
+        "description": "Defined the early product direction for Zero’s next-generation dash through competitive research, concept development, and a 20-participant usability study that identified a faster and more intuitive navigation model for future motorcycles.",
         "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/dash-portfolio-photo.jpg",
         "skills": [
             "Prototyping",
@@ -37,7 +37,7 @@
     {
         "title": "Stories: CMS-Driven Storytelling Platform",
         "link": "stories-cms-driven-storytelling-platform",
-        "description": "Built a scalable, CMS-driven Stories platform that empowered the marketing team to publish content independently, driving a 45% increase in session duration, more than doubling deep-scroll engagement, and creating evergreen content for SEO.",
+        "description": "Built a scalable storytelling platform that strengthened brand authority and organic visibility. Enabled the team to publish independently and delivered significant gains in engagement and SEO performance.",
         "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/lompico-sketches-2.jpg",
         "skills": [
             "CMS Integration",
@@ -49,7 +49,7 @@
     {
         "title": "Full Website Rebuild",
         "link": "zero-website-rebuild",
-        "description": "Collaborated with development agency to re-design and build the Zero Motorcycles website. With 15 unique locales, an accessories Shopify e-commerce site, model pages, dealership locator, and a variety of other new pages - we launched the site within 6 months.",
+        "description": "Scoped, planned, and co-developed Zero’s new global website on Next.js with improved performance and a modern design system. Reduced build times by more than 80% and created a durable foundation still powering the site years later.",
         "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/rebuild-snapshot.png",
         "skills": [
             "Design & Development",
@@ -60,7 +60,7 @@
     {
         "title": "Events Management System",
         "link": "events-management-system",
-        "description": "Created a unified events system with type-safe data, self-serve dealer submissions, and a modern public events page with registration form integration. Reduced manual steps and powered global demo tours.",
+        "description": "Improved event discoverability and reduced host friction by creating a unified events system with self-serve dealer submissions, structured admin tools, and a modern public discovery experience. Enabled faster publishing and supported thousands of global demo tour registrations.",
         "image": "https://aywnqw1wyioophsr.public.blob.vercel-storage.com/events-portfolio-card.jpg",
         "skills": [
             "Process Automation",

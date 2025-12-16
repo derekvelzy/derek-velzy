@@ -7,6 +7,8 @@ import cx from "classnames";
 import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
+import { useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 // Custom imports
 import styles from "./Hero.module.scss"; // Assuming you have a styles file for Hero
@@ -35,15 +37,53 @@ const Hero = ({}) => {
       duration: 700,
       easing: (t) =>
         t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2,
-      // t < 0.5 ? 8 * t ** 4 : 1 - Math.pow(-2 * t + 2, 4) / 2,
     },
     dragEnded: () => {
       stopAutoScroll();
     },
   });
 
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const arrowRef = useRef<HTMLDivElement>(null);
+  const isSyncingFromQueryRef = useRef(false);
+
+  // Sync state from query params (query params -> state)
+  useEffect(() => {
+    if (!searchParams) return;
+
+    const auditForm = searchParams.get("auditForm");
+    const shouldShow = auditForm === "true";
+
+    // Only update state if it's different from current state
+    if (showAuditForm !== shouldShow) {
+      isSyncingFromQueryRef.current = true;
+      setShowAuditForm(shouldShow);
+    }
+  }, [searchParams]); // Only depend on searchParams, not showAuditForm
+
+  // Sync query params from state (state -> query params)
+  useEffect(() => {
+    // Skip if we're syncing from query params to avoid circular updates
+    if (isSyncingFromQueryRef.current) {
+      isSyncingFromQueryRef.current = false;
+      return;
+    }
+
+    if (!searchParams) return;
+
+    const currentAuditForm = searchParams.get("auditForm");
+    const shouldShow = showAuditForm;
+
+    // Only update query params if they're out of sync
+    if (shouldShow && currentAuditForm !== "true") {
+      router.push("/?auditForm=true", { scroll: false });
+    } else if (!shouldShow && currentAuditForm === "true") {
+      router.push("/", { scroll: false });
+    }
+  }, [showAuditForm, router, searchParams]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -178,7 +218,12 @@ const Hero = ({}) => {
 
   return (
     <div id="top" className={styles["hero__container"]}>
-      <AuditForm show={showAuditForm} onClose={() => setShowAuditForm(false)} />
+      <AuditForm
+        show={showAuditForm}
+        onClose={() => {
+          setShowAuditForm(false);
+        }}
+      />
       <div className={cx("slice", styles["hero"])}>
         <div className={styles["hero__content"]}>
           <div className={styles["hero__content__title"]}>
@@ -211,7 +256,11 @@ const Hero = ({}) => {
             perform.
           </p>
           <div className={cx(staggerClass, styles["hero__content__ctas"])}>
-            <Button action={() => setShowAuditForm(true)}>
+            <Button
+              action={() => {
+                setShowAuditForm(true);
+              }}
+            >
               Get your free website audit
             </Button>
             <SecondaryLink

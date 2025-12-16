@@ -5,7 +5,7 @@ import { Metadata } from "next";
 import AboutHomepage from "~/components/About/AboutHomepage";
 import Contact from "~/components/Contact/ContactWithSuspense";
 import FloatingLinks from "~/components/FloatingLinks/FloatingLinks";
-import Hero from "~/components/Hero/Hero";
+import Hero from "~/components/Hero/HeroWithSuspense";
 import LowPolyBg from "~/components/LowPolyBackground/LowPolyBackground";
 import LPBGFooter from "~/components/LowPolyBackground/LPBGFooter";
 import Work from "~/components/Work/Work";
